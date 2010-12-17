@@ -1,0 +1,97 @@
+/ extra div for flexibility - this list will probably be the trickiest spot you'll deal with
+#linkList2
+  / If you're wondering about the extra &amp;nbsp; at the end of the link, it's a hack to meet WCAG 1 Accessibility.
+  / I don't like having to do it, but this is a visual exercise. It's a compromise.
+  #lselect
+    %h3.select
+      %span Select:
+    / list of links begins here. There will be no more than 8 links per page
+    %ul
+      %li
+        %a{:accesskey => "a", :href => "/", :title => "AccessKey: a"} Sample #1
+        by
+        = succeed "&amp;nbsp;" do
+          %a.c{:href => "http://www.mezzoblue.com/"} Dave Shea
+      %li
+        %a{:accesskey => "b", :href => "/", :title => "AccessKey: b"} Sample #2
+        by
+        = succeed "&amp;nbsp;" do
+          %a.c{:href => "http://www.mezzoblue.com/"} Dave Shea
+      %li
+        %a{:accesskey => "c", :href => "/", :title => "AccessKey: c"} Sample #3
+        by
+        = succeed "&amp;nbsp;" do
+          %a.c{:href => "http://www.mezzoblue.com/"} Dave Shea
+      %li
+        %a{:accesskey => "d", :href => "/", :title => "AccessKey: d"} Sample #4
+        by
+        = succeed "&amp;nbsp;" do
+          %a.c{:href => "http://www.mezzoblue.com/"} Dave Shea
+      %li
+        %a{:accesskey => "e", :href => "/", :title => "AccessKey: e"} Sample #5
+        by
+        = succeed "&amp;nbsp;" do
+          %a.c{:href => "http://www.mezzoblue.com/"} Dave Shea
+      %li
+        %a{:accesskey => "f", :href => "/", :title => "AccessKey: f"} Sample #6
+        by
+        = succeed "&amp;nbsp;" do
+          %a.c{:href => "http://www.mezzoblue.com/"} Dave Shea
+      %li
+        %a{:accesskey => "g", :href => "/", :title => "AccessKey: g"} Sample #7
+        by
+        = succeed "&amp;nbsp;" do
+          %a.c{:href => "http://www.mezzoblue.com/"} Dave Shea
+      %li
+        %a{:accesskey => "h", :href => "/", :title => "AccessKey: h"} Sample #8
+        by
+        = succeed "&amp;nbsp;" do
+          %a.c{:href => "http://www.mezzoblue.com/"} Dave Shea
+  #larchives
+    %h3.archives
+      %span Archives:
+    %ul
+      %li
+        %a{:accesskey => "n", :href => "/", :title => "View next set of designs. AccessKey: n"}>
+          %span.accesskey> n
+          ext designs &raquo;
+        \&nbsp;
+      %li
+        %a{:accesskey => "p", :href => "/", :title => "View previous set of designs. AccessKey: p"}
+          \&laquo;
+          = succeed "revious" do
+            %span.accesskey p
+          designs
+      %li
+        %a{:accesskey => "w", :href => "http://www.mezzoblue.com/zengarden/alldesigns/", :title => "View every submission to the Zen Garden. AccessKey: w"}
+          Vie
+          %span.accesskey w
+          All Designs
+  #lresources
+    %h3.resources
+      %span Resources:
+    %ul
+      %li
+        %a{:accesskey => "v", :href => "http://www.csszengarden.com/001/001.css", :title => "View the source CSS file for the currently-viewed design, AccessKey: v"}
+          %span.accesskey> V
+          iew This Design’s
+          %acronym{:title => "Cascading Style Sheets"} CSS
+      %li
+        %a{:accesskey => "r", :href => "http://www.mezzoblue.com/zengarden/resources/", :title => "Links to great sites with information on using CSS. AccessKey: r"}
+          %acronym{:title => "Cascading Style Sheets"} CSS
+          = succeed "esources" do
+            %span.accesskey R
+      %li
+        %a{:accesskey => "q", :href => "http://www.mezzoblue.com/zengarden/faq/", :title => "A list of Frequently Asked Questions about the Zen Garden. AccessKey: q"}>
+          %acronym{:title => "Frequently Asked Questions"}
+            FA
+            %span.accesskey Q
+        \&nbsp;
+      %li
+        %a{:accesskey => "s", :href => "http://www.mezzoblue.com/zengarden/submit/", :title => "Send in your own CSS file. AccessKey: s"}
+          %span.accesskey> S
+          ubmit a Design
+      %li
+        %a{:accesskey => "t", :href => "http://www.mezzoblue.com/zengarden/translations/", :title => "View translated versions of this page. AccessKey: t"}
+          %span.accesskey> T
+          ranslations

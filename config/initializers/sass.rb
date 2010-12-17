@@ -1,1 +1,1 @@
-Sass::Plugin.options[:debug_info] = true
+Sass::Plugin.options[:debug_info] = false
