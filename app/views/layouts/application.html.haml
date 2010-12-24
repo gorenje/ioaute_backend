@@ -7,9 +7,10 @@
     %title Pubme
     = stylesheet_link_tag :all
     = javascript_include_tag :defaults
-    = javascript_include_tag "http://connect.facebook.net/en_US/all.js"
     = csrf_meta_tag
   %body
+    %p
+      %fb:login-button{ :autologoutlink => "true" }
     #container
       #intro
         = render :partial => 'common/intro'
@@ -19,3 +20,5 @@
           = render :partial => 'common/footer'
       #linkList
         = render :partial => 'common/linklist'
+    #fb-root
+    = javascript_include_tag 'facebook'
