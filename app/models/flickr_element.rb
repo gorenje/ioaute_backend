@@ -1,0 +1,2 @@
+class FlickrElement < PageElement
+end

@@ -1,0 +1,2 @@
+class TwitterElement < PageElement
+end

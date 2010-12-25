@@ -1,0 +1,13 @@
+# Read about fixtures at http://ar.rubyonrails.org/classes/Fixtures.html
+
+one:
+  number: 1
+  layout_id: 1
+  size: MyString
+  orientation: MyString
+
+two:
+  number: 1
+  layout_id: 1
+  size: MyString
+  orientation: MyString
