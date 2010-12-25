@@ -1,5 +1,6 @@
 Pubme::Application.routes.draw do
   get "publications/new"
+  get "publications/ping"
 
   get "welcome/index"
 
