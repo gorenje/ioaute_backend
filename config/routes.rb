@@ -1,9 +1,15 @@
 Pubme::Application.routes.draw do
-  get "publications/new"
-  get "publications/ping"
-
   get "welcome/index"
 
+  resources :publications do
+    collection do
+      get :ping
+    end
+    resources :pages do
+      resources :page_elements
+    end
+  end
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
