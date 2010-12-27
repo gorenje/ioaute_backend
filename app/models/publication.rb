@@ -31,6 +31,12 @@ class Publication < ActiveRecord::Base
     end
   end
 
+  def find_or_create_by_page_number(page_number)
+    page = Page.find_by_publication_id_and_number(self.id, page_number)
+    self.pages << (page = Page.create(:number => page_number)) if page.nil?
+    page
+  end
+  
   protected 
 
   def queue_for_pdf_generation
