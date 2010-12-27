@@ -2,6 +2,10 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
 
   protected 
+
+  def json_action_for(params)
+    "%s_%s" % [params[:controller], params[:action]]
+  end
   
   def send_off_status(status, msg)
     Rails.logger.error("SendOfError: non-200 error: S: #{status} M: #{msg}") if status != 200

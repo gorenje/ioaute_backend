@@ -20,6 +20,8 @@ gem 'uuidtools'
 
 gem "prawn", "= 0.11.1.pre"
 
+gem "rest-client" ## active resource is a pile of warm shiet.
+
 gem 'mysql'
 # To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
 # gem 'ruby-debug'

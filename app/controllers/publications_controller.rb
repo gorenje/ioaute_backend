@@ -12,6 +12,16 @@ class PublicationsController < ApplicationController
     send_off_status(200, "ok")
   end
   
+  def show
+    @publication = Publication.find_by_uuid(params[:publication_id])
+    respond_to do |format|
+      format.json { render :json => "", :layout => false }
+      format.xml  { render :xml => "", :layout => false }
+      format.html
+      format.pdf { render :pdf => @publication.to_pdf, :layout => false }
+    end
+  end
+
   protected
 
   def server_url

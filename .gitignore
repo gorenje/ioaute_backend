@@ -6,3 +6,4 @@ config/database.yml
 *.css
 public/PublishMeEditor
 public/publications
+db/schema.rb

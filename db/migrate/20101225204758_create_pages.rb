@@ -4,6 +4,7 @@ class CreatePages < ActiveRecord::Migration
       t.integer :number
       t.integer :publication_id
       t.integer :layout_id
+      t.string :name
       t.string :size
       t.string :orientation
 

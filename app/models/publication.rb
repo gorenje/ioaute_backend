@@ -1,6 +1,7 @@
 class Publication < ActiveRecord::Base
   has_many :pages
   belongs_to :editor
+  has_one :bitly
   
   before_save :set_uuid
 
