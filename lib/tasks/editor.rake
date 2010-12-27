@@ -33,6 +33,7 @@ namespace :editor do
       unless File.exists?("#{base_dest_dir}/publications")
         FileUtils.ln_s("#{base_dest_dir}/#{dirname}", "#{base_dest_dir}/publications") 
       end
+      `open -a Safari "http://localhost:3000"`
     else
       puts "!!ERROR!!: did nothing because i could not determine the output directory from jake"
       exit 1

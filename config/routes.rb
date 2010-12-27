@@ -6,7 +6,11 @@ Pubme::Application.routes.draw do
       get :ping
     end
     resources :pages do
-      resources :page_elements
+      resources :page_elements do
+        member do
+          post :resize
+        end
+      end
     end
   end
   

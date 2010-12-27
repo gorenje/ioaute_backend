@@ -1,20 +1,60 @@
 class PageElementsController < ApplicationController
 
   def resize
-    page_element = PageElement.find(params[:page_element_id])
-    send_off_status(200, { :status => :ok })
+    ## NOTE: that the params[:page_id] is the page number in this case.
+    ## NOTE: params[:publication_id] is the publication UUID in this case.
+    page_element = PageElement.find(params[:id])
+    ## ensure that this page element is contained in the current page and doucment
+    if ( params[:publication_id] == page_element.page.publication.uuid &&
+         params[:page_id] == page_element.page.number.to_s )
+      page_element.
+        update_attributes({ 
+                            :x      => params[:x],          :y => params[:y], 
+                            :width  => params[:width], :height => params[:height],
+                          })
+      send_off_status(200, { :status => :ok, :action => "page_element_resize" })
+    else
+      send_off_status(200, { :status => :failed, :action => "page_element_resize",
+                        :msg => "page element not part of page or publication" })
+    end
   rescue Exception => e 
-    send_off_status(200, { :status => :failed, :msg => e.to_s })
+    send_off_status(200, { :status => :failed, :action => "page_element_resize", 
+                      :msg => e.to_s })
   end
   
   def create
-    ## Note that the page_id is the page number in this case.
-    page_element = PageElement.create
-    publication = Publication.find(params[:publication_id])
+    ## NOTE: that the params[:page_id] is the page number in this case.
+    ## NOTE: params[:publication_id] is the publication UUID in this case.
+    data = { 
+      :id_str => params[:idStr],
+      :x      => params[:x],          :y => params[:y], 
+      :width  => params[:width], :height => params[:height],
+    }
+    page_element_klazz, data = (case ( params[:isa] ) 
+                                when "Tweet" 
+                                  [TwitterElement, data]
+                                when "Flickr" 
+                                  data = { 
+                                    :data => {
+                                      :secret => params["_secret"],
+                                      :farm   => params["_farm"],
+                                      :server => params["_server"],
+                                    }
+                                  }.merge(data)
+                                  [FlickrElement, data]
+                                else 
+                                  ["UnknownClass#{params[:isa]}", data]
+                                end)
+    page_element = page_element_klazz.create(data)
+    
+    publication = Publication.find_by_uuid(params[:publication_id])
     publication.find_or_create_by_page_number(params[:page_id]).page_elements << page_element
 
-    send_off_status(200, page_element)
+    send_off_status(200, { :data => page_element, :page_element_id => page_element.id,
+                      :action => "page_element_create", 
+                      :status => :ok })
   rescue Exception => e 
-    send_off_status(200, { :status => :failed, :msg => e.to_s })
+    send_off_status(200, { :status => :failed, :msg => e.to_s,
+                      :action => "page_element_create" })
   end
 end
