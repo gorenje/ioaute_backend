@@ -47,6 +47,8 @@ class PageElementsController < ApplicationController
       :width  => params[:width], :height => params[:height],
     }
     page_element_klazz, data = (case ( params[:isa] ) 
+                                when "Facebook" 
+                                  [FacebookElement, data]
                                 when "Tweet" 
                                   [TwitterElement, data]
                                 when "Flickr" 
