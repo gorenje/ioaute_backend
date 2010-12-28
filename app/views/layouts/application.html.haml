@@ -10,7 +10,7 @@
     = csrf_meta_tag
   %body
     %p
-      %fb:login-button{ :autologoutlink => "true" }
+      %fb:login-button{ :autologoutlink => "true", :perms => "user_photos,friends_photos" }
     #container
       #intro
         = render :partial => 'common/intro'

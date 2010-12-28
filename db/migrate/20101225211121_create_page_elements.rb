@@ -8,8 +8,9 @@ class CreatePageElements < ActiveRecord::Migration
       t.float :x
       t.float :y
       t.string :id_str
+      t.string :state
       t.text :data
-
+      
       t.timestamps
     end
   end
