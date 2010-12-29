@@ -57,7 +57,7 @@ class PageElementsController < ApplicationController
                                       :secret => params["_secret"],
                                       :farm   => params["_farm"],
                                       :server => params["_server"],
-                                    }
+                                    }.to_json
                                   }.merge(data)
                                   [FlickrElement, data]
                                 else 

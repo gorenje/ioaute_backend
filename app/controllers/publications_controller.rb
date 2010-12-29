@@ -29,7 +29,9 @@ class PublicationsController < ApplicationController
       format.json { render :json => "", :layout => false }
       format.xml  { render :xml => "", :layout => false }
       format.html
-      format.pdf { render :pdf => @publication.to_pdf, :layout => false }
+      format.pdf { send_data(@publication.to_pdf, 
+                             :filename => "#{@publication.uuid}.pdf", 
+                             :type => "application/pdf") }
     end
   end
 

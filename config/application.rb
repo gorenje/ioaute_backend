@@ -40,3 +40,5 @@ module Pubme
     config.filter_parameters += [:password]
   end
 end
+
+require File.dirname(__FILE__)+'/../lib/pdf_generation.rb'

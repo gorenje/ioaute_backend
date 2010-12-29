@@ -1,6 +1,6 @@
 class PageElement < ActiveRecord::Base
   belongs_to :page
-  
+
   state_machine :state, :initial => :created do
     [:created, :editing, :published, :locked, :hidden, :deleted].each { |stat| state stat }
 
@@ -8,4 +8,11 @@ class PageElement < ActiveRecord::Base
     ## TODO end). But we might not do it ....
   end
 
+  def extra_data
+    JSON.parse(data)
+  end
+
+  def dump_to_pdf(pdf)
+    # needs to be implemented by subclasses
+  end
 end

@@ -8,6 +8,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'devise'
 
+gem 'json'
 # Use unicorn as the web server
 gem 'unicorn'
 
