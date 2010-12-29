@@ -1,0 +1,27 @@
+# -*- yaml -*-
+base: &base
+  bitly:
+    api_token: donkey
+    username: horse
+    base_url: 'http://api.bit.ly/v3/'
+
+  twitter:
+    base_url: 'http://api.twitter.com/1/statuses/show/%s.json'
+
+  flickr:
+    api_token: cow
+    secret: cat
+
+  facebook:
+    api_id: dog
+    api_token: hairy_monster
+    secret: octupus
+
+production:
+  <<: *base
+
+development:
+  <<: *base
+
+test:
+  "there_is_nothing"

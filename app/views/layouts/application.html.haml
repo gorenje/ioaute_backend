@@ -8,6 +8,8 @@
     = stylesheet_link_tag :all
     = javascript_include_tag :defaults
     = csrf_meta_tag
+    :javascript
+      FacebookApiId = "#{ApiKeys.facebook.api_id}";
   %body
     %p
       %fb:login-button{ :autologoutlink => "true", :perms => "user_photos" }

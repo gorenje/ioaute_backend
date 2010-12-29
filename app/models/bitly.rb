@@ -1,9 +1,9 @@
 require 'ostruct'
 class Bitly < ActiveRecord::Base
   
-  ApiToken = 'R_60d88fbef047f26473c2044e19c990c5'
-  Username = '2monkeys'
-  BaseUrl = 'http://api.bit.ly/v3/'
+  ApiToken = ApiKeys.Bitly.api_token
+  Username = ApiKeys.Bitly.username
+  BaseUrl  = ApiKeys.Bitly.base_url
   
   belongs_to :publication
   

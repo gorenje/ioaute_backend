@@ -7,3 +7,4 @@ config/database.yml
 public/PublishMeEditor
 public/publications
 db/schema.rb
+config/apis.yml
