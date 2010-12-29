@@ -5,6 +5,9 @@ Pubme::Application.routes.draw do
     collection do
       get :ping
     end
+    member do
+      get :publish
+    end
     resources :pages do
       resources :page_elements do
         member do

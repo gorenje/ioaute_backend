@@ -14,7 +14,8 @@ namespace :editor do
    location of the Rakefile).
   EOF
   task :install => :environment do
-    puts "1. Building editor with jake"
+    startTime = Time.now
+    puts "1. Building editor with jake - " + startTime.to_s
     results = `cd #{Rails.root}/../editor && jake deploy 2>&1`
     puts ">>> This is what jake had to say: "
     puts "==========================================="
@@ -27,7 +28,7 @@ namespace :editor do
     unless src_dir.blank? or dirname.blank?
       puts ">>> Determined jake deploy directory to be '#{src_dir}'"
       FileUtils.rm_rf("#{base_dest_dir}/#{dirname}")
-      `mv #{src_dir} #{base_dest_dir}/`
+      puts `rsync -rlpgoD --delete --dirs --checksum  #{src_dir} #{base_dest_dir}/`
       # require because the editor uses relative paths for images and the editor
       # is accessed under ..../publications/new
       unless File.exists?("#{base_dest_dir}/publications")
@@ -38,5 +39,6 @@ namespace :editor do
       puts "!!ERROR!!: did nothing because i could not determine the output directory from jake"
       exit 1
     end
+    puts ("Time taken: %0.2f seconds" % (Time.now - startTime))
   end
 end

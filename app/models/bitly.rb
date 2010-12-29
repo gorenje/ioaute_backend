@@ -1,3 +1,4 @@
+require 'ostruct'
 class Bitly < ActiveRecord::Base
   
   ApiToken = 'R_60d88fbef047f26473c2044e19c990c5'
@@ -20,11 +21,11 @@ class Bitly < ActiveRecord::Base
                                      :format => :json))
       if (d["status_code"] == 200)
         d = d["data"]
-        Bitly.create(:long_url => d["long_url"],
-                     :short_url => d["url"],
-                     :global_hash => d["global_hash"],
+        Bitly.create(:long_url       => d["long_url"],
+                     :short_url      => d["url"],
+                     :global_hash    => d["global_hash"],
                      :publication_id => (for_publication || OpenStruct.new(:id => nil)).id,
-                     :hash => d["hash"]).short_url
+                     :hash           => d["hash"])
       else 
         raise Exception.new(d["status_txt"])
       end

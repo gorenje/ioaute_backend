@@ -14,6 +14,8 @@ class CreatePublications < ActiveRecord::Migration
 
       t.timestamps
     end
+    
+    add_index :publications, :uuid
   end
 
   def self.down
