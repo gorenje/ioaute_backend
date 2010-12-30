@@ -46,23 +46,18 @@ class PageElementsController < ApplicationController
       :x      => params[:x],          :y => params[:y], 
       :width  => params[:width], :height => params[:height],
     }
-    page_element_klazz, data = (case ( params[:isa] ) 
-                                when "Facebook" 
-                                  [FacebookElement, data]
-                                when "Tweet" 
-                                  [TwitterElement, data]
-                                when "Flickr" 
-                                  data = { 
-                                    :data => {
-                                      :secret => params["_secret"],
-                                      :farm   => params["_farm"],
-                                      :server => params["_server"],
-                                    }.to_json
-                                  }.merge(data)
-                                  [FlickrElement, data]
-                                else 
-                                  ["UnknownClass#{params[:isa]}", data]
-                                end)
+    page_element_klazz = (case ( params[:isa] ) 
+                          when "Facebook" 
+                            FacebookElement
+                          when "Tweet" 
+                            TwitterElement
+                          when "Flickr" 
+                            FlickrElement
+                          else 
+                            "UnknownClass#{params[:isa]}"
+                          end)
+
+    data = data.merge(:data => page_element_klazz.extract_data_from_params(params).to_json)
     page_element = page_element_klazz.create(data)
     
     publication = Publication.find_by_uuid(params[:publication_id])
