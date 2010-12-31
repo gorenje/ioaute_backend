@@ -42,3 +42,4 @@ module Pubme
 end
 
 require File.dirname(__FILE__)+'/../lib/pdf_generation.rb'
+require File.dirname(__FILE__)+'/../lib/string_extensions.rb'

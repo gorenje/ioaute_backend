@@ -24,4 +24,12 @@ class PageElement < ActiveRecord::Base
   def dump_to_pdf(pdf)
     # needs to be implemented by subclasses
   end
+  
+  def dump_to_html
+    # needs to be implemented by subclass
+  end
+  
+  def css_position
+    "position: absolute; top: %dpx; right: %dpx; width: %dpx; height: %dpx;" % [y, x, width, height].map(&:to_i)
+  end
 end

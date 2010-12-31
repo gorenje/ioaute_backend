@@ -1,4 +1,3 @@
-require 'ostruct'
 class Bitly < ActiveRecord::Base
   
   ApiToken = ApiKeys.Bitly.api_token
@@ -14,8 +13,13 @@ class Bitly < ActiveRecord::Base
                                      :x_login => Username, :x_apiKey => ApiToken))
       d["data"]["valid"] == 1
     end
-
-    def shorten(long_url, for_publication = nil)
+    
+    def for_publication(publication, server_url, format)
+      url = "%s/%s.%s" % [server_url, publication.uuid, format]
+      shorten(url, :publication_id => publication.id, :format => format)
+    end
+    
+    def shorten(long_url, params = {})
       d = JSON.parse(RestClient.post(url_for("shorten"), :login => Username, 
                                      :apiKey => ApiToken,  :longUrl => long_url, 
                                      :format => :json))
@@ -24,7 +28,8 @@ class Bitly < ActiveRecord::Base
         Bitly.create(:long_url       => d["long_url"],
                      :short_url      => d["url"],
                      :global_hash    => d["global_hash"],
-                     :publication_id => (for_publication || OpenStruct.new(:id => nil)).id,
+                     :publication_id => params[:publication_id],
+                     :format         => params[:format] || "unknown",
                      :hash           => d["hash"])
       else 
         raise Exception.new(d["status_txt"])

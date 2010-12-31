@@ -1,0 +1,6 @@
+#publication{ :id => dom_id(@publication) }
+  %h3= @publication.bitlies.first.short_url
+  - @publication.pages.each do |page|
+    #publication_page{ :id => dom_id(page) }
+      - page.page_elements.each do |page_element|
+        = render :partial => "page_element", :locals => { :page_element => page_element }

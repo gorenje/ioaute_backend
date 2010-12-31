@@ -41,23 +41,13 @@ class PageElementsController < ApplicationController
   def create
     ## NOTE: that the params[:page_id] is the page number in this case.
     ## NOTE: params[:publication_id] is the publication UUID in this case.
+    page_element_klazz = class_for_isa(params[:isa])
     data = { 
       :id_str => params[:idStr],
       :x      => params[:x],          :y => params[:y], 
       :width  => params[:width], :height => params[:height],
-    }
-    page_element_klazz = (case ( params[:isa] ) 
-                          when "Facebook" 
-                            FacebookElement
-                          when "Tweet" 
-                            TwitterElement
-                          when "Flickr" 
-                            FlickrElement
-                          else 
-                            "UnknownClass#{params[:isa]}"
-                          end)
+    }.merge(:data => page_element_klazz.extract_data_from_params(params).to_json)
 
-    data = data.merge(:data => page_element_klazz.extract_data_from_params(params).to_json)
     page_element = page_element_klazz.create(data)
     
     publication = Publication.find_by_uuid(params[:publication_id])
@@ -69,5 +59,22 @@ class PageElementsController < ApplicationController
   rescue Exception => e 
     send_off_status(200, { :status => :failed, :msg => e.to_s,
                       :action => json_action_for(params) })
+  end
+  
+  protected
+  
+  # don't take 'isa' on face value, check whether we have a corresponding class
+  # for the isa value.
+  def class_for_isa(isa_str)
+    case isa_str  
+    when "Facebook" 
+      FacebookElement
+    when "Tweet" 
+      TwitterElement
+    when "Flickr" 
+      FlickrElement
+    else 
+      "UnknownClass#{params[:isa]}"
+    end
   end
 end
