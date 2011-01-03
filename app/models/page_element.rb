@@ -17,6 +17,11 @@ class PageElement < ActiveRecord::Base
     def extract_data_from_params(params)
       nil
     end
+    
+    # this should not be overridden and provides a single-point of implementation.
+    def params_to_data(params)
+      extract_data_from_params(params).to_json
+    end
   end
   
   def extra_data
