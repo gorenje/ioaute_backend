@@ -3,7 +3,7 @@ class FacebookElement < PageElement
   def dump_to_html
     Haml::Engine.new((<<-EOF).remove_indent).render
     #flickr_image{ :style => '#{css_position}' }
-      %img{ :src => '#{extra_data["src_url"]}', :width => #{width}, :height => #{height} }
+      %img{ :src => '#{extra_data["src_url"]}', :width => 'auto', :height => #{height} }
     EOF
   end
 

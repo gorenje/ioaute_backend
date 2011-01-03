@@ -11,7 +11,9 @@ class PageElement < ActiveRecord::Base
   class << self
     ## This is called when we are about to create a new page elements. Each page element
     ## has it's own list of extra data it requires, this method allows each model to 
-    ## extract that from the params passed into the controller.
+    ## extract that from the params passed into the controller and store in the data field.
+    ## This method just needs to return a Hash, that is then converted to JSON and stored
+    ## in the data field. The data can then be retreived using extra_data method.
     def extract_data_from_params(params)
       nil
     end
@@ -23,10 +25,19 @@ class PageElement < ActiveRecord::Base
 
   def dump_to_pdf(pdf)
     # needs to be implemented by subclasses
+    pdf.bounding_box([x,y], :width => width, :height => height) do
+      pdf.font_size 10 do
+        pdf.text "UNABLE To represent Object with Class: '" + self.class.name + "'"
+      end
+    end
   end
   
   def dump_to_html
     # needs to be implemented by subclass
+    Haml::Engine.new((<<-EOF).remove_indent).render
+    #page_element_unknown{ :style => '#{css_position}' }
+      = \"Unable to represent Object with class '#{self.class.name}'\"
+    EOF
   end
   
   def css_position
