@@ -3,7 +3,7 @@ class TextElement < PageElement
   def dump_to_html
     Haml::Engine.new((<<-EOF).remove_indent).render
     #text_element{ :style => '#{css_position}' }
-      = \"#{extra_data["text"].split.join('&nbsp;<br>')}\"
+      = \"#{extra_data["text"].split("\n").join('&nbsp;<br>')}\"
     EOF
   end
 

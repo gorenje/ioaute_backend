@@ -2,13 +2,10 @@ require 'open-uri'
 module PdfGeneration
   extend self
 
-  MarginWidth = 20
-  PublicationFont = 'Helvetica'
-  PublicationTemplate = (Rails.root.to_s + "/app/views/pdfs/publications/template.pdf")
-
   def render_publication(publication)
     ### TODO handle pages....
-    (Prawn::Document.new :template => PublicationTemplate do |pdf|
+    (Prawn::Document.new(:margin=>([0]*4), :page_size => "A4", 
+                         :page_layout => :portrait) do |pdf|
        publication.pages.each do |page|
          page.page_elements.each do |element|
            element.dump_to_pdf(pdf)

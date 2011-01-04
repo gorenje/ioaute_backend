@@ -11,8 +11,7 @@
     :javascript
       FacebookApiId = "#{ApiKeys.facebook.api_id}";
   %body
-    %p
-      %fb:login-button{ :autologoutlink => "true", :perms => "user_photos" }
+    #dpi_sample
     #container
       #intro
         = render :partial => 'common/intro'

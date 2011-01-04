@@ -6,6 +6,7 @@ class CreatePublications < ActiveRecord::Migration
       t.string :topic
       t.string :state
 
+      t.integer :dpi
       t.integer :editor_id
 
       t.datetime :deleted_at

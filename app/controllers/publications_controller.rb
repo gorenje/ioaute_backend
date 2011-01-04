@@ -2,9 +2,11 @@ class PublicationsController < ApplicationController
   def new
     ## TODO will salts for basic encoding of the communication.
     ## TODO one salt pro application start, etc etc.
-    cookies[:publication_id] = Publication.create.uuid
+    publication              = Publication.create(:dpi => params[:dpi])
+    cookies[:publication_id] = publication.uuid
     cookies[:server]         = server_url
     cookies[:salt]           = UUIDTools::UUID.timestamp_create.to_s.gsub(/-/, '')
+    cookies[:dpi]            = params[:dpi]
     render :layout => 'editor'
   end
   

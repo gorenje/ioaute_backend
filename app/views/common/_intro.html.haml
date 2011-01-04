@@ -10,11 +10,11 @@
       Become your own editor and publish content from your friends.
   %p.p2
     %span
-      %a{:href => "login", :title => "Login"} Login
+      %fb:login-button{ :autologoutlink => "true", :perms => "user_photos" }
       = "|"
       %a{:href => "register", :title => "Register"} Register
       = "|"
-      %a{:href => "publications/new", :title => "Register"} New Publication
+      %a{:href => "publications/new", :title => "New Publication", :onclick=>"this.href=this.href+'?dpi='+getDPI();"} New Publication
 #preamble
   %h3
     %span The Road to Enlightenment
