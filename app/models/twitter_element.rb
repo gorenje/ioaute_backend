@@ -4,7 +4,7 @@ class TwitterElement < PageElement
   def dump_to_html
     twhsh = tweet
     Haml::Engine.new((<<-EOF).remove_indent).render
-    #tweet{ :style => '#{css_position}' }
+    #tweet{ }
       = '#{twhsh["text"]}'
     EOF
   end

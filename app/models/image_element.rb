@@ -2,7 +2,7 @@ class ImageElement < PageElement
 
   def dump_to_html
     Haml::Engine.new((<<-EOF).remove_indent).render
-    #image_element_image{ :style => '#{css_position}' }
+    #image_element_image{ }
       %img{ :src => '#{extra_data["pic_url"]}', :width => 'auto', :height => #{height} }
     EOF
   end

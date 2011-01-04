@@ -46,6 +46,6 @@ class PageElement < ActiveRecord::Base
   end
   
   def css_position
-    "position: relative; top: %dpx; left: %dpx; width: %dpx; height: %dpx;" % [y, x, width, height].map(&:to_i)
+    "position: absolute; float: none; top: %dpx; left: %dpx; width: %dpx; height: %dpx;" % [y, x, width, height].map(&:to_i)
   end
 end

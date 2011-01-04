@@ -2,7 +2,7 @@ class FlickrElement < PageElement
 
   def dump_to_html
     Haml::Engine.new((<<-EOF).remove_indent).render
-    #flickr_image{ :style => '#{css_position}' }
+    #flickr_image{ }
       %img{ :src => '#{construct_flickr_image_url}', :width => 'auto', :height => #{height} }
     EOF
   end
