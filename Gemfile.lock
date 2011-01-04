@@ -53,6 +53,7 @@ GEM
       haml (~> 3.0)
       railties (~> 3.0)
     highline (1.6.1)
+    hpricot (0.8.3)
     i18n (0.5.0)
     json (1.4.6)
     kgio (2.0.0)
@@ -103,6 +104,9 @@ GEM
     rspec-rails (1.3.2)
       rack (>= 1.0.0)
       rspec (>= 1.3.0)
+    ruby_parser (2.0.5)
+      sexp_processor (~> 3.0)
+    sexp_processor (3.0.5)
     shoulda (2.11.3)
     sqlite3-ruby (1.3.2)
     state_machine (0.9.4)
@@ -128,6 +132,7 @@ DEPENDENCIES
   factory_girl
   haml
   haml-rails
+  hpricot
   json
   looksee
   mocha
@@ -137,6 +142,7 @@ DEPENDENCIES
   rest-client
   rspec (= 1.3.0)
   rspec-rails (= 1.3.2)
+  ruby_parser
   shoulda
   sqlite3-ruby
   state_machine
