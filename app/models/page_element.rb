@@ -40,12 +40,12 @@ class PageElement < ActiveRecord::Base
   def dump_to_html
     # needs to be implemented by subclass
     Haml::Engine.new((<<-EOF).remove_indent).render
-    #page_element_unknown{ :style => '#{css_position}' }
+    #page_element_unknown{ }
       = \"Unable to represent Object with class '#{self.class.name}'\"
     EOF
   end
   
-  def css_position
+  def css_style
     "position: absolute; float: none; top: %dpx; left: %dpx; width: %dpx; height: %dpx;" % [y, x, width, height].map(&:to_i)
   end
 end
