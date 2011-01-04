@@ -5,6 +5,7 @@
     %meta{:content => "IE=EmulateIE7", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %title= @publication.uuid
+    = stylesheet_link_tag "publication"
     = javascript_include_tag :defaults
     = javascript_include_tag "http://connect.facebook.net/en_US/all.js"
   %body
