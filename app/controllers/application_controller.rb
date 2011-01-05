@@ -17,4 +17,11 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def send_off_failed(params, msg)
+    send_off_status(200, {:status => :failed, :action => json_action_for(params), :msg => msg})
+  end
+
+  def send_off_success(params, hsh = {})
+    send_off_status(200, hsh.merge({:status => :ok, :action => json_action_for(params)}))
+  end
 end

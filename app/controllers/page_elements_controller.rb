@@ -40,11 +40,9 @@ class PageElementsController < ApplicationController
     publication.find_or_create_by_page_number(params[:page_id]).
       page_elements << page_element
 
-    send_off_status(200, { :data => page_element, :page_element_id => page_element.id,
-                      :action => json_action_for(params), :status => :ok })
+    send_off_success(params, {:data => page_element, :page_element_id => page_element.id})
   rescue Exception => e 
-    send_off_status(200, { :status => :failed, :msg => e.to_s,
-                      :action => json_action_for(params) })
+    send_off_failed(params, e.to_s)
   end
   
   protected
@@ -71,13 +69,11 @@ class PageElementsController < ApplicationController
     if ( params[:publication_id] == page_element.page.publication.uuid &&
          params[:page_id] == page_element.page.number.to_s )
       yield(page_element)
-      send_off_status(200, {:status => :ok, :action => json_action_for(params)})
+      send_off_success(params)
     else
-      send_off_status(200, { :status => :failed, :action => json_action_for(params),
-                        :msg => "page element not part of page or publication" })
+      send_off_failed(params, "page element not part of page or publication")
     end
   rescue Exception => e 
-    send_off_status(200, { :status => :failed, :action => json_action_for(params), 
-                      :msg => e.to_s })
+    send_off_failed(params, e.to_s)
   end
 end

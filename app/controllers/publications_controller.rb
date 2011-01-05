@@ -1,4 +1,5 @@
 class PublicationsController < ApplicationController
+
   def new
     ## TODO will salts for basic encoding of the communication.
     ## TODO one salt pro application start, etc etc.
@@ -11,21 +12,20 @@ class PublicationsController < ApplicationController
   end
   
   def ping
-    send_off_status(200, { :status => :ok, :action => json_action_for(params) })
+    send_off_success(params)
   end
   
   def publish
-    ## NOTE: id in this case is uuid
+    ## NOTE: id in this case is the uuid of the publication
     publication = Publication.find_by_uuid(params[:id])
     bitly = Bitly.for_publication(publication, server_url, pub_format(params))
-    send_off_status(200, { :status => :ok, :action => json_action_for(params), :data => bitly})
+    send_off_success(params, :data => bitly)
   rescue Exception => e 
-    send_off_status(200, { :status => :failed, :action => json_action_for(params), 
-                      :msg => e.to_s })
+    send_off_failed(params, e.to_s)
   end
   
   def show
-    ## NOTE: id in this case is uuid
+    ## NOTE: id in this case is the uuid of the publication
     @publication = Publication.find_by_uuid(params[:id])
     respond_to do |format|
       format.json { render :json => @publication, :layout => false }
