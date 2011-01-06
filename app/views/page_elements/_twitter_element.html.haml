@@ -1,0 +1,12 @@
+- twhsh = page_element.send(:tweet)
+.twitter_element{ }
+  %img{ :src => twhsh["user"]["profile_image_url"] }
+  = twhsh["text"].strip
+  .twitter_element_highlight
+    &nbsp;
+    = " -- "
+    - unless twhsh["user"]["url"].nil?
+      %a{ :href => twhsh["user"]["url"] }
+        = twhsh["user"]["name"] || twhsh["user"]["screen_name"]
+    - else
+      = twhsh["user"]["name"] || twhsh["user"]["screen_name"]

@@ -1,14 +1,5 @@
 class TwitterElement < PageElement
 
-  ## TODO do more here
-  def dump_to_html
-    twhsh = tweet
-    Haml::Engine.new((<<-EOF).remove_indent).render
-    #tweet{ }
-      = '#{twhsh["text"]}'
-    EOF
-  end
-  
   ## TODO do more here.
   def dump_to_pdf(pdf)
     twhsh = tweet

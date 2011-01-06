@@ -1,12 +1,5 @@
 class FlickrElement < PageElement
 
-  def dump_to_html
-    Haml::Engine.new((<<-EOF).remove_indent).render
-    #flickr_image{ }
-      %img{ :src => '#{construct_flickr_image_url}', :width => 'auto', :height => #{height} }
-    EOF
-  end
-  
   ## TODO add name and link and etc....
   def dump_to_pdf(pdf)
     pdf.image open(construct_flickr_image_url), :at =>[x,y], :width => width, :height => height
@@ -20,8 +13,6 @@ class FlickrElement < PageElement
       }
     end
   end
-  
-  protected
   
   def construct_flickr_image_url
     flickr_data = extra_data.merge("size" => "b", "id" => id_str)
