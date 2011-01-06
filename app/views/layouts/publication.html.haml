@@ -7,6 +7,9 @@
     %title= @publication.uuid
     = stylesheet_link_tag "publication"
     = javascript_include_tag :defaults
-    = javascript_include_tag "http://connect.facebook.net/en_US/all.js"
+    :javascript
+      FacebookApiId = "#{ApiKeys.facebook.api_id}";
   %body
     = yield
+    #fb-root
+    = javascript_include_tag 'facebook'

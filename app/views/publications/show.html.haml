@@ -7,3 +7,4 @@
     %div{ :id => dom_id(page), :class => "page_a4 shadow" }
       - page.page_elements.each do |page_element|
         = render :partial => "page_element", :locals => { :page_element => page_element }
+  %fb:like{ :ref => @publication.uuid }

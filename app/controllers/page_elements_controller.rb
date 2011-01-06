@@ -56,6 +56,7 @@ class PageElementsController < ApplicationController
     when "Flickr"   then FlickrElement
     when "ImageTE"  then ImageElement
     when "TextTE"   then TextElement
+    when "FbLikeTE" then FbLikeElement
     else 
       "UnknownClass#{params[:isa]}"
     end
