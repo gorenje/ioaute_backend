@@ -51,12 +51,13 @@ class PageElementsController < ApplicationController
   # for the isa value.
   def class_for_isa(isa_str)
     case isa_str  
-    when "Facebook" then FacebookElement
-    when "Tweet"    then TwitterElement
-    when "Flickr"   then FlickrElement
-    when "ImageTE"  then ImageElement
-    when "TextTE"   then TextElement
-    when "FbLikeTE" then FbLikeElement
+    when "Facebook"      then FacebookElement
+    when "Tweet"         then TwitterElement
+    when "Flickr"        then FlickrElement
+    when "ImageTE"       then ImageElement
+    when "TextTE"        then TextElement
+    when "FbLikeTE"      then FbLikeElement
+    when "TwitterFeedTE" then TwitterFeedElement
     else 
       "UnknownClass#{params[:isa]}"
     end

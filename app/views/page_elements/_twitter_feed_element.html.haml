@@ -1,0 +1,31 @@
+.twitter_feed_element
+  %script{ :src => "http://widgets.twimg.com/j/2/widget.js" }
+  :javascript
+    new TWTR.Widget({
+      version: 2,
+      type: 'profile',
+      rpp: 4,
+      interval: 6000,
+      width: #{page_element.width},
+      height: #{page_element.height},
+      theme: {
+        shell: {
+          background: '#333333',
+          color: '#ffffff'
+        },
+        tweets: {
+          background: '#000000',
+          color: '#ffffff',
+          links: '#4aed05'
+        }
+      },
+      features: {
+        scrollbar: false,
+        loop: true,
+        live: true,
+        hashtags: true,
+        timestamp: true,
+        avatars: true,
+        behavior: 'default'
+      }
+    }).render().setUser('#{page_element.for_user}').start();

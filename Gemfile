@@ -36,6 +36,7 @@ gem 'mysql'
 # gem 'sqlite3-ruby', :require => 'sqlite3'
 # gem 'aws-s3', :require => 'aws/s3'
 
+gem 'heroku'
 group :test do
   gem 'rspec', "= 1.3.0"
   gem 'mocha'
