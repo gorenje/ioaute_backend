@@ -28,6 +28,10 @@ class PageElement < ActiveRecord::Base
     JSON.parse(data)
   end
 
+  def store_extra_data(hsh)
+    update_attributes(:data => hsh.to_json)
+  end
+  
   def dump_to_pdf(pdf)
     # needs to be implemented by subclasses
     pdf.bounding_box([x,y], :width => width, :height => height) do

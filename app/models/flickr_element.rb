@@ -1,10 +1,5 @@
 class FlickrElement < PageElement
 
-  ## TODO add name and link and etc....
-  def dump_to_pdf(pdf)
-    pdf.image open(construct_flickr_image_url), :at =>[x,y], :width => width, :height => height
-  end
-  
   class << self
     def extract_data_from_params(params)
       { :secret => params["_secret"],
@@ -12,6 +7,11 @@ class FlickrElement < PageElement
         :server => params["_server"], 
       }
     end
+  end
+  
+  ## TODO add name and link and etc....
+  def dump_to_pdf(pdf)
+    pdf.image open(construct_flickr_image_url), :at =>[x,y], :width => width, :height => height
   end
   
   def construct_flickr_image_url

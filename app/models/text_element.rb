@@ -1,5 +1,12 @@
 class TextElement < PageElement
 
+  class << self
+    def extract_data_from_params(params)
+      { :text => params["_textTyped"],
+      }
+    end
+  end
+
   def dump_to_pdf(pdf)
     ## TODO handle styling, e.g. font + color 
     pdf.bounding_box([x,y], :width => width, :height => height) do
@@ -9,10 +16,4 @@ class TextElement < PageElement
     end
   end
 
-  class << self
-    def extract_data_from_params(params)
-      { :text => params["_textTyped"],
-      }
-    end
-  end
 end

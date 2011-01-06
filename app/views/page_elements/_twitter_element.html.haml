@@ -1,12 +1,21 @@
-- twhsh = page_element.send(:tweet)
-.twitter_element{ }
-  %img{ :src => twhsh["user"]["profile_image_url"] }
-  = twhsh["text"].strip
-  .twitter_element_highlight
-    &nbsp;
-    = " -- "
-    - unless twhsh["user"]["url"].nil?
-      %a{ :href => twhsh["user"]["url"] }
+-# TODO would be way cool if the client did an AJAX request to obtain
+-# TODO the twitter data -- then we would not need to store it!
+-# TODO plus we wouldn't have a request per hour limit to deal with. (150 per hour)
+-# Would require doing an JSONP request because of XSS
+- twhsh = page_element.tweet
+- unless twhsh.nil?
+  .twitter_element{ }
+    %img{ :src => twhsh["user"]["profile_image_url"] }
+    = twhsh["text"].strip
+    .twitter_element_highlight
+      &nbsp;
+      = " -- "
+      - unless twhsh["user"]["url"].nil?
+        %a{ :href => twhsh["user"]["url"] }
+          = twhsh["user"]["name"] || twhsh["user"]["screen_name"]
+      - else
         = twhsh["user"]["name"] || twhsh["user"]["screen_name"]
-    - else
-      = twhsh["user"]["name"] || twhsh["user"]["screen_name"]
+- else
+  .twitter_element{ }
+    %a{ :href => page_element.twitter_url }
+      Tweet not found
