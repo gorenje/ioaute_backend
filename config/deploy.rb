@@ -34,9 +34,8 @@ namespace :deploy do
 
   { ### Before hooks
     "symlink"               => "setup_diff",
-    "set_passenger_version" => "setup_nginx_passenger_module",
     "restart"               => ["show_diffs", "update_superglue", 
-                                "set_passenger_version", "bundle_install"],
+                                "bundle_install"],
   }.each do |before_task, after_tasks|
     [after_tasks].flatten.each do |after_task|
       before "deploy:#{before_task}", "deploy:#{after_task}" 
@@ -50,6 +49,7 @@ namespace :deploy do
 
   desc "install gems with bundle"
   task :bundle_install do
+    run_with_rvm(rvm_ruby_version, current_path) { "gem install bundler" }
     run_with_rvm(rvm_ruby_version, current_path) { "bundle install" }
   end
 
