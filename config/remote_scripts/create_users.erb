@@ -1,0 +1,18 @@
+# -*- ruby -*-
+
+UserDef = <<-EOF
+{ "_id" : "4c458b283264876a84000003", "api_token" : "a9562e6f8f6807f55fedf826eaff6aed", "created_at" : { "$date" : 1279626024000 }, "current_sign_in_at" : { "$date" : 1279626024000 }, "current_sign_in_ip" : "78.46.89.123", "email" : "gerrit@teameurope.net", "encrypted_password" : "$2a$10$louZKDQxMZWJudm152lqyeMjGJ.EP827SsMFroVwSOGVdyHNv9/.e", "failed_attempts" : 0, "last_sign_in_at" : { "$date" : 1279626024000 }, "last_sign_in_ip" : "78.46.89.123", "password_salt" : "$2a$10$louZKDQxMZWJudm152lqye", "sign_in_count" : 1, "updated_at" : { "$date" : 1279626024000 } }
+EOF
+
+curr_user_count=`mongoexport -d submarine -c users 2>&1 | grep exported | awk '// { print $2; }'`.to_i
+
+if curr_user_count == 0
+  puts "Creating the users table in mongo"
+  f = File.open("/tmp/fubar.json", "w+")
+  f << UserDef
+  f.close
+  `mongoimport -d submarine -c users < /tmp/fubar.json`
+  `rm -f /tmp/fubar.json`
+else
+  puts "At least one user already exists in mongo"
+end

@@ -1,0 +1,14 @@
+<% ports.each do |port| %>
+server {
+    listen <%= port %>;
+    server_name <%= server_names.join(' ') %>;
+    <% if port == "443" %>
+    ssl on;
+    ssl_certificate      /etc/ssl/nginx/nginx.crt;
+    ssl_certificate_key  /etc/ssl/nginx/nginx.key;
+    <% end %>
+    root              <%= appdir %>/public;
+    passenger_enabled on;
+    rails_env         production;
+}
+<% end %>

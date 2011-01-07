@@ -1,0 +1,26 @@
+# -*- ruby -*-
+require 'fileutils'
+
+def gsub_file(path, regexp, *args, &block)
+  unless File.exists?(path)
+    puts "ERROR: FILE DOES NOT EXIST: [#{path}] - Exiting"
+    exit 1
+  end
+  content = File.read(path).gsub(regexp, *args, &block)
+  File.open(path, 'wb') { |file| file.write(content) }
+end
+
+JsDir = "<%= appdir %>/public/javascripts/terminal"
+
+gsub_file( File.join( JsDir, "categories.js"), /var default_api_token = '.+';/) do |match|
+  "var default_api_token = 'a9562e6f8f6807f55fedf826eaff6aed';"
+end
+
+gsub_file( File.join( JsDir, "categories.js"), /var urlHost = ".+";/) do |match|
+  'var urlHost = "https://view.staging.subma.net/";'
+end
+
+HTMLDir = "<%= appdir %>/public"
+gsub_file( File.join( HTMLDir, "simple_search.html"), /_api_token:\s+'.+?',/) do |match|
+  "_api_token:      'a9562e6f8f6807f55fedf826eaff6aed',"
+end

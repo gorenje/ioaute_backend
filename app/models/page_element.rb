@@ -22,6 +22,23 @@ class PageElement < ActiveRecord::Base
     def params_to_data(params)
       extract_data_from_params(params).to_json
     end
+    
+    # don't take 'isa' on face value, check whether we have a corresponding class
+    # for the isa value.
+    def class_for_isa(isa_str)
+      case isa_str  
+      when "Facebook"      then FacebookElement
+      when "Tweet"         then TwitterElement
+      when "Flickr"        then FlickrElement
+      when "ImageTE"       then ImageElement
+      when "TextTE"        then TextElement
+      when "FbLikeTE"      then FbLikeElement
+      when "DiggButtonTE"  then DiggButtonElement
+      when "TwitterFeedTE" then TwitterFeedElement
+      else 
+        "UnknownClass#{params[:isa]}"
+      end
+    end
   end
   
   def extra_data

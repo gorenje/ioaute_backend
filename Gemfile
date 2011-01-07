@@ -3,40 +3,22 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 
-gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'haml'
 gem 'haml-rails'
 gem 'hpricot'
 gem 'ruby_parser'
 gem 'devise'
-
 gem 'json'
-# Use unicorn as the web server
-gem 'unicorn'
-
-# Deploy with Capistrano
+gem 'eventmachine'
+gem 'thin'
 gem 'capistrano'
 gem 'capistrano-ext'
-
 gem "state_machine"
 gem 'uuidtools'
-
 gem "prawn", "= 0.11.1.pre"
-
 gem "rest-client" ## active resource is a pile of warm shiet.
+gem 'mysql2'
 
-gem 'mysql'
-# To use debugger (ruby-debug for Ruby 1.8.7+, ruby-debug19 for Ruby 1.9.2+)
-# gem 'ruby-debug'
-# gem 'ruby-debug19'
-
-# Bundle the extra gems:
-# gem 'bj'
-# gem 'nokogiri'
-# gem 'sqlite3-ruby', :require => 'sqlite3'
-# gem 'aws-s3', :require => 'aws/s3'
-
-gem 'heroku'
 group :test do
   gem 'rspec', "= 1.3.0"
   gem 'mocha'

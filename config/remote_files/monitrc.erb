@@ -1,0 +1,80 @@
+set daemon  <%= monitor_interval %>
+set mailserver <%= smtp_address %> port <%= smtp_port %>
+
+<% alert_emails.each do |email| %>
+set alert <%= email %>
+<% end %>
+
+set mail-format { from: monit@subma.net }
+set mail-format { subject: [SUBMA-MONIT] [<%= server_name %>] $EVENT $SERVICE }
+
+<% if require_server %>
+set httpd port 3822 and
+    use address localhost  # only accept connection from localhost
+    allow localhost        # allow localhost to connect to the server and
+    allow admin:aps2010    # require user 'admin' with password 'monit'
+<% end %>
+
+check system <%= system_name %>
+   if loadavg (1min) > 4 then alert
+   if loadavg (5min) > 2 then alert
+   if memory usage > 75% then alert
+   if cpu usage (user) > 70% then alert
+   if cpu usage (system) > 30% then alert
+   if cpu usage (wait) > 20% then alert
+
+<%
+ def get_value_of(variable_name,default_value,b)
+   eval(variable_name,b) rescue default_value
+ end
+ def get_uid(s)
+   s.split('.').first
+ end
+ def get_gid(s)
+   s.split('.').last
+ end
+ def pf(prio)
+   prios = prio.split(/[[:space:]*]/)
+   return "min%d" % prios.first if prios.size == 1
+   "min%d_to_max%d" % prios
+ end
+%>
+
+<% services[:scripts].each do |script_name| %>
+<% next if script_name == "delayed_job" %>
+check process sp_<%= script_name %> with pidfile /var/app/view/current/tmp/pids/<%= script_name %>.pid
+   start program = "/var/app/view/current/script/<%= script_name %> start production"
+         as uid <%= get_uid(script_user) %> and gid <%= get_gid(script_user) %>
+   stop program = "/var/app/view/current/script/<%= script_name %> stop production"
+         as uid <%= get_uid(script_user) %> and gid <%= get_gid(script_user) %>
+   if cpu > 60% for 2 cycles then alert
+   if cpu > 80% for 5 cycles then restart
+   if totalmem > <%= get_value_of("#{script_name}_total_memory",scripts_total_memory,binding) %> MB for 5 cycles then restart
+   if children > 250 then restart
+   if loadavg(5min) greater than 10 for 8 cycles then stop
+   if 3 restarts within 5 cycles then timeout
+   ## TODO add a check for the delayed_job table in the database and ensure that
+   ## TODO it's getting smaller per cycle.
+<% end %>
+
+<% if services[:scripts].include?("delayed_job") %>
+<% delayed_job_priorities.each do |prio| %>
+check process view_delayed_job_<%=pf(prio)%> with pidfile /var/app/view/current/tmp/pids/delayed_job_<%= pf(prio) %>.pid
+   start program = "/var/app/view/current/script/delayed_job start production <%= prio %>"
+         as uid <%= get_uid(script_user) %> and gid <%= get_gid(script_user) %>
+   stop program = "/var/app/view/current/script/delayed_job stop production <%= prio %>"
+         as uid <%= get_uid(script_user) %> and gid <%= get_gid(script_user) %>
+   if cpu > 60% for 2 cycles then alert
+   if cpu > 80% for 5 cycles then restart
+   if totalmem > 200.0 MB for 5 cycles then restart
+   if children > 250 then restart
+   if loadavg(5min) greater than 10 for 8 cycles then stop
+   if 3 restarts within 5 cycles then timeout
+   ## TODO add a check for the delayed_job table in the database and ensure that
+   ## TODO it's getting smaller per cycle.
+<% end %>
+<% end %>
+
+<% if include_include %>
+include /etc/monit.d/*
+<% end %>

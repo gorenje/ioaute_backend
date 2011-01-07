@@ -1,0 +1,36 @@
+#!/bin/sh
+
+version=$1
+dhome=/home/deploy
+mkdir ${dhome}/.passenger 2>/dev/null || echo
+
+pass_root=${dhome}/.passenger/root
+
+source ~/.rvm/scripts/rvm || echo
+## if $1 was not set, version is blank and rvm uses default from there we can 
+## set the correct version of ruby (if there is a default)
+rvm use ${version}
+if [ $? != 0 ] ; then
+  exit 1
+fi
+version=$(rvm-prompt)
+pass_dest_dir=${dhome}/.passenger-${version}
+
+if [ ! -d ${pass_dest_dir} ] ; then
+  ## passenger is already installed, that happens via Chef.
+  ## Hm, problem here is that it compiles for it's own version of nginx instead of
+  ## the version installed on the server. Need to have the nginx sources somewhere....
+  passenger-install-nginx-module --auto --auto-download --prefix=${pass_dest_dir} 2>/dev/null
+fi
+
+passenger_root=$(grep passenger_root ${pass_dest_dir}/conf/nginx.conf | awk '// { gsub( ";","",$2); print $2; }')
+
+if [ ! -L ${pass_root} ] ; then
+  rm -fr ${pass_root} ## just in case it's something else
+  ln -s ${passenger_root} ${pass_root}
+fi
+
+if [ "$(realpath ${pass_root} 2>/dev/null)" != "${passenger_root}" ] ; then
+  rm -fr ${pass_root}
+  ln -s ${passenger_root} ${pass_root}
+fi

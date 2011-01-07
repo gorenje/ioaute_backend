@@ -1,0 +1,11 @@
+# -*- ruby -*-
+require 'fileutils'
+
+DbDir = "<%= appdir %>/db"
+GeoFilename = "geolitecity.dat.gz"
+destination = "#{DbDir}/#{GeoFilename}"
+
+unless File.exists?(destination.gsub(/.gz$/,''))
+  `curl -k "https://assets.chef.subma.net/view/#{GeoFilename}" > #{destination}`
+  `gzip -d #{destination}`
+end

@@ -28,7 +28,7 @@ class PageElementsController < ApplicationController
     ## NOTE: that the params[:page_id] is the page number in this case.
     ## NOTE: params[:publication_id] is the publication UUID in this case.
     publication = Publication.find_by_uuid(params[:publication_id])
-    page_element_klazz = class_for_isa(params[:isa])
+    page_element_klazz = PageElement.class_for_isa(params[:isa])
     data = { 
       :id_str => params[:idStr],
       :x      => params[:x],          :y => params[:y], 
@@ -46,22 +46,6 @@ class PageElementsController < ApplicationController
   end
   
   protected
-  
-  # don't take 'isa' on face value, check whether we have a corresponding class
-  # for the isa value.
-  def class_for_isa(isa_str)
-    case isa_str  
-    when "Facebook"      then FacebookElement
-    when "Tweet"         then TwitterElement
-    when "Flickr"        then FlickrElement
-    when "ImageTE"       then ImageElement
-    when "TextTE"        then TextElement
-    when "FbLikeTE"      then FbLikeElement
-    when "TwitterFeedTE" then TwitterFeedElement
-    else 
-      "UnknownClass#{params[:isa]}"
-    end
-  end
   
   def check_page_element(params, &block)
     ## NOTE: that the params[:page_id] is the page number in this case.
