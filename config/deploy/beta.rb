@@ -10,8 +10,8 @@ role :web, "web.2monki.es"
 role :app, "web.2monki.es"
 role :db,  "web.2monki.es", :primary => true
 
-set :ngx_ports, ["443","80"]
-set :ngx_server_names, ["web.2monki.es", "2monki.es"]
+set :ngx_ports, ["80"]
+set :ngx_server_names, ["pubme.2monki.es"]
 
 MONIT_SERVICES = { 
   "web.2monki.es" => {
