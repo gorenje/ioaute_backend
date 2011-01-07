@@ -19,6 +19,10 @@ set :branch,                ENV["GITBRANCH"] || "master"
 set :git_shallow_clone,     3
 set :git_enable_submodules, 1 ## note, this does not work for deep modules only toplevel
 
+# this is because Ubuntu uses 'dash' as sh (i.e. sh --> dash) and dash doesn't know 
+# anything about 'source'. Strange but true ...
+default_run_options[:shell] = "/bin/bash"
+
 set :rvm_ruby_version, "ruby-1.9.2-head"
 
 namespace :deploy do
