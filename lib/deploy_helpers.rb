@@ -65,7 +65,8 @@ module DeployHelpers
     def generate_default_opts(server_def, current_path)
       { :extras => { 
           :server_hostname => server_def.host,
-          :appdir          => current_path
+          :appdir          => current_path,
+          :appname         => application,
         },
         :for_server  => server_def.host,
         :for_host_ip => server_def.options[:host_ip]
@@ -93,5 +94,6 @@ module DeployHelpers
     def generate_binding_for_nginx_conf(opts={}) ; generate_binding("ngx", opts) ; end
     def generate_binding_for_install_geo_data(opts={}) ; generate_binding("geod", opts) ; end
     def generate_binding_for_monitrc(opts={}) ; generate_binding("monit",opts) ; end
+    def generate_binding_for_thin_yml(opts={}) ; generate_binding("thin", opts) ; end
   end
 end

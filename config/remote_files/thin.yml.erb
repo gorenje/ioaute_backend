@@ -1,0 +1,19 @@
+--- 
+pid: tmp/pids/thin.pid
+address: 0.0.0.0
+timeout: 30
+port: 3000
+log: log/thin.log
+max_conns: 1024
+require: []
+user: deploy
+group: deploy
+adapter: rack
+rackup: config.ru
+
+max_persistent_conns: <%= max_persistent_conns %>
+environment: <%= environment %>
+servers: <%= num_of_servers %>
+daemonize: true
+socket: /tmp/thin.<%= appname %>.sock
+chdir: <%= appdir %>

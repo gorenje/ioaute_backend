@@ -10,9 +10,6 @@ role :web, "web.2monki.es"
 role :app, "web.2monki.es"
 role :db,  "web.2monki.es", :primary => true
 
-set :ngx_ports, ["80"]
-set :ngx_server_names, ["pubme.2monki.es"]
-
 MONIT_SERVICES = { 
   "web.2monki.es" => {
     :daemons => ["nginx"],
@@ -36,3 +33,11 @@ set :monit_smtp_port,              25
 # total memory usage (in MB) before script is restarted
 set :monit_scripts_total_memory, "200.0"
 set :monit_advertiser_importer_total_memory, "500.0"
+
+set :ngx_ports, ["80"]
+set :ngx_server_names, ["pubme.2monki.es"]
+set :ngx_thin_sockets, 5 ## needs to be the same as thin_num_of_servers
+
+set :thin_num_of_servers,       5
+set :thin_environment,          "production"
+set :thin_max_persistent_conns, 512

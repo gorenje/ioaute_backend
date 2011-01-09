@@ -1,14 +1,39 @@
+upstream thin_cluster {
+  <% (0...thin_sockets).each do |num| %>
+  server unix:/tmp/thin.<%= appname %>.<%= num %>.sock;
+  <% end %>
+}
+
 <% ports.each do |port| %>
 server {
-    listen <%= port %>;
-    server_name <%= server_names.join(' ') %>;
+  listen <%= port %>;
+  server_name <%= server_names.join(' ') %>;
+  root <%= appdir %>/public;
+  <% if port == "443" %>
+  ssl on;
+  ssl_certificate      /etc/ssl/nginx/nginx.crt;
+  ssl_certificate_key  /etc/ssl/nginx/nginx.key;
+  <% end %>
+
+  location / {
+    proxy_set_header  X-Real-IP  $remote_addr;
+    proxy_set_header  X-Forwarded-For $proxy_add_x_forwarded_for;
     <% if port == "443" %>
-    ssl on;
-    ssl_certificate      /etc/ssl/nginx/nginx.crt;
-    ssl_certificate_key  /etc/ssl/nginx/nginx.key;
+    proxy_set_header X-Forwarded-Proto "https";
     <% end %>
-    root              <%= appdir %>/public;
-    passenger_enabled on;
-    rails_env         production;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+
+    if (-f $request_filename/index.html) {
+      rewrite (.*) $1/index.html break;
+    }
+    if (-f $request_filename.html) {
+      rewrite (.*) $1.html break;
+    }
+    if (!-f $request_filename) {
+      proxy_pass http://thin_cluster;
+      break;
+    }
+  }
 }
 <% end %>

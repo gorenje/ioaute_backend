@@ -11,6 +11,7 @@ gem 'devise'
 gem 'json'
 gem 'eventmachine'
 gem 'thin'
+gem 'daemons'
 gem 'capistrano'
 gem 'capistrano-ext'
 gem "state_machine"

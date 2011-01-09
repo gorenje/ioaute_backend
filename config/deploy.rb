@@ -102,6 +102,7 @@ namespace :deploy do
     { 
       "nginx.conf" => "#{current_path}/config",
       "monitrc"    => "#{current_path}/config",
+      "thin.yml"   => "#{current_path}/config",
     }.each do |configfile, remote_path|
       remote_path    = "#{remote_path}/#{configfile}"
       local_path     = "config/remote_files/#{configfile}.erb"
@@ -148,9 +149,11 @@ namespace :deploy do
   end
 
   # Restart passenger on deploy
-  desc "Restarting passenger with restart.txt"
+  desc "Restarting thin with restart.txt"
   task :restart, :roles => :app, :except => { :no_release => true } do
-    run "touch #{current_path}/tmp/restart.txt"
+    run_with_rvm(rvm_ruby_version, current_path) do
+      "thin -C config/thin.yml restart" 
+    end
   end
 
   # show all the diffs we did. this makes the deploy a little more understandable if
