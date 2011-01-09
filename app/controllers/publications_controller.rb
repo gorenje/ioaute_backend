@@ -30,10 +30,11 @@ class PublicationsController < ApplicationController
     respond_to do |format|
       format.json { render :json => @publication, :layout => false }
       format.xml  { render :xml => @publication, :layout => false }
-      format.html { render :layout => 'publication' }
-      format.pdf { send_data(@publication.to_pdf, 
-                             :filename => "#{@publication.uuid}.pdf", 
-                             :type => "application/pdf") }
+      format.pdf  { send_data(@publication.to_pdf, 
+                              :filename => "#{@publication.uuid}.pdf", 
+                              :type => "application/pdf") }
+      # everything else gets a html page.
+      format.all  { render :layout => 'publication' }
     end
   end
 
