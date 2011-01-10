@@ -36,6 +36,11 @@ class Publication < ActiveRecord::Base
     ::PdfGeneration.render_publication(self)
   end
   
+  def bitly_url
+    # TODO does not consider the format, this could also be pdf.
+    @bitly_url || (@bitly_url = bitlies.first.short_url)
+  end
+  
   def find_or_create_by_page_number(page_number)
     page = Page.find_by_publication_id_and_number(self.id, page_number)
     self.pages << (page = Page.create(:number => page_number)) if page.nil?

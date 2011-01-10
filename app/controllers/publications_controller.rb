@@ -1,4 +1,5 @@
 class PublicationsController < ApplicationController
+  skip_before_filter :authenticate_user!, :only => "show"
 
   def new
     ## TODO will salts for basic encoding of the communication.

@@ -9,15 +9,14 @@
         %a.page_number{ :href => "#%dpage" % page.number }
           = "%d" % page.number
     #facebooklink
-      %a{ :href => "http://www.facebook.com/sharer.php?u=%s" % CGI.escape(publication_url) }
+      %a{ :href => "http://www.facebook.com/sharer.php?u=%s" % CGI.escape(@publication.bitly_url) }
         %img.facebook{ :src => "/images/facebook.png", :height => "24", :width => "24" }
     #twitterlink
-      %a{ :href => "http://twitter.com/home?status=%s" % CGI.escape("Find my new publication at %s" % publication_url) }
+      %a{ :href => "http://twitter.com/home?status=%s" % CGI.escape("Find my new publication at %s" % @publication.bitly_url) }
         %img.twitter{ :src => "/images/twitter.png", :height => "22", :width => "22" }
     #page_url
-      - publication_url = @publication.bitlies.first.short_url
-      %a.url{ :href => publication_url }
-        = @publication.bitlies.first.short_url
+      %a.url{ :href => @publication.bitly_url }
+        = @publication.bitly_url
   %span{ :class => "spacer" }
   - total_pages = @publication.pages.count
   - @publication.pages.each do |page|
