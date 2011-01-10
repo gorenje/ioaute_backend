@@ -20,6 +20,7 @@ gem "prawn", "= 0.11.1.pre"
 gem "rest-client" ## active resource is a pile of warm shiet.
 gem 'mysql2'
 gem 'recaptcha', :require => "recaptcha/rails"
+gem 'oauth'
 
 group :test do
   gem 'rspec', "= 1.3.0"

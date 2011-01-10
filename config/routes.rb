@@ -1,7 +1,10 @@
 Pubme::Application.routes.draw do
+  # need to have our own registrations controller for the recaptcha check
   devise_for :users, :controllers => { :registrations => "users/registrations" }
 
-  get "welcome/index"
+  ["contact-us", "privacy-policy", "imprint"].each do |pathstr|
+    match "/#{pathstr}" => "welcome##{pathstr.underscore}"
+  end
 
   resources :publications do
     collection do
