@@ -5,7 +5,7 @@
     %meta{:content => "IE=EmulateIE7", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "chrome=1", "http-equiv" => "X-UA-Compatible"}/
     %title= @publication.uuid
-    = stylesheet_link_tag "publication"
+    = stylesheet_link_tag "publication", :media => "all"
     = javascript_include_tag :defaults
     :javascript
       FacebookApiId = "#{ApiKeys.facebook.api_id}";

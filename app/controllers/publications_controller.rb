@@ -48,6 +48,7 @@ class PublicationsController < ApplicationController
     end
   end
 
+  ## TODO use a specific domain, i.e. publication.2monki.es or something similiar.
   def server_url
     "http://%s%s/publications" % [ request.host, request.port != 80 ? ":#{request.port}" : "" ]
   end
