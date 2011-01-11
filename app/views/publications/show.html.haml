@@ -19,10 +19,10 @@
         = @publication.bitly_url
   %span{ :class => "spacer" }
   - total_pages = @publication.pages.count
-  - @publication.pages.each do |page|
+  - @publication.pages.each_with_index do |page, idx|
     %a{ :name => "#{page.number}page" }
     %div{ :id => dom_id(page), :class => "page_a4 shadow" }
       - page.page_elements.each do |page_element|
         = render :partial => "page_element", :locals => { :page_element => page_element }
-    #page_number
+    #page_number{ :class => class_for_page_number(idx, total_pages) }
       = "Page #{page.number} of #{total_pages}"
