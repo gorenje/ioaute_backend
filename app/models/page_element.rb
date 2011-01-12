@@ -31,6 +31,7 @@ class PageElement < ActiveRecord::Base
       when "Tweet"         then TwitterElement
       when "Flickr"        then FlickrElement
       when "ImageTE"       then ImageElement
+      when "LinkTE"        then LinkElement
       when "TextTE"        then TextElement
       when "FbLikeTE"      then FbLikeElement
       when "DiggButtonTE"  then DiggButtonElement

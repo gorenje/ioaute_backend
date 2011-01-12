@@ -29,7 +29,7 @@ class PagesController < ApplicationController
   def index
     # NOTE params[:publication_id] is the uuid of the publication
     pages = Publication.find_by_uuid(params[:publication_id]).pages
-    pages << Page.create(:name => "Page One", :number => 1) if ( pages.empty?)
+    pages << Page.create(:name => "Page", :number => 1) if ( pages.empty?)
     send_off_success(params, {:data => pages})
   rescue Exception => e 
     send_off_failed(params, e.to_s)

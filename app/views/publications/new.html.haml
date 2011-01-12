@@ -1,14 +1,10 @@
+:javascript
+  OBJJ_MAIN_FILE = "/PublishMeEditor/main.j";
+%script{:charset => "UTF-8", :src => "/PublishMeEditor/Frameworks/Objective-J/Objective-J.js", :type => "text/javascript"}
 #cappuccino-body
   #loadingcontainer
-    #toolbar
-    #sidebar
-      #pagesctrl
-      #pageslist
-      #separator
-      #toolbox
-    #contentbox
     #spinnerbox
-      %img{ :src => "/publications/Resources/spinner.gif", :height => "30", :width => "30" }
+      %img.spinner{ :src => "/publications/Resources/spinner.gif" }
       %span.spinner_text
         Monkey see, monkey do - editor being loaded
   %noscript
