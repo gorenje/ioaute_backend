@@ -28,7 +28,8 @@ class Publication < ActiveRecord::Base
 
   class << self
     def generate_itemid
-      UUIDTools::UUID.timestamp_create.to_s.gsub(/-/,'')
+      # last 12 chars are always the same - the mac address.
+      UUIDTools::UUID.timestamp_create.to_s.gsub(/-/,'').gsub(/.{12}/,'')
     end
   end
 

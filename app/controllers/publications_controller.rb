@@ -1,17 +1,25 @@
 class PublicationsController < ApplicationController
   skip_before_filter :authenticate_user!, :only => "show"
-
+  
   def new
     ## TODO will salts for basic encoding of the communication.
     ## TODO one salt pro application start, etc etc.
-    publication              = Publication.create(:dpi   => params[:dpi], 
-                                                  :user  => current_user,
-                                                  :name  => params[:name],
-                                                  :topic => params[:categories])
+    publication_uuid  = Publication.generate_itemid
+
+    publication = Publication.create({ 
+      :uuid  => publication_uuid,
+      :name  => params[:name].blank? ? publication_uuid : params[:name],
+      :topic => params[:categories].blank? ? generate_default_topics : params[:categories],
+      :dpi   => params[:dpi],
+      :user  => current_user,
+    })
+
     cookies[:publication_id] = publication.uuid
+    cookies[:topics]         = publication.topic
     cookies[:server]         = server_url
     cookies[:salt]           = UUIDTools::UUID.timestamp_create.to_s.gsub(/-/, '')
-    cookies[:dpi]            = params[:dpi]
+    cookies[:dpi]            = publication.dpi
+
     render :layout => 'editor'
   end
   
@@ -51,6 +59,10 @@ class PublicationsController < ApplicationController
   
   protected
   
+  def generate_default_topics
+    "berlin,london,new york,barcelona"
+  end
+
   def pub_format(params)
     case ( params[:pub_format] )
     when /html/i then "html"
