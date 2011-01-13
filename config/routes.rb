@@ -3,9 +3,13 @@ Pubme::Application.routes.draw do
   devise_for :users, :controllers => { :registrations => "users/registrations" }
 
   ["contact-us", "privacy-policy", "imprint"].each do |pathstr|
-    match "/#{pathstr}" => "welcome##{pathstr.underscore}"
+    match "/#{pathstr}" => "welcome##{pathstr.underscore}", :as => "welcome_#{pathstr.underscore}"
   end
 
+  match "/publication/details" => "publications#details", :as => :publication_details
+  # allow post method for publication new.
+  match "/publication/new" => "publications#new", :as => :new_publication
+  
   resources :publications do
     collection do
       get :ping

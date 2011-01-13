@@ -13,6 +13,27 @@ class PublicationsController < ApplicationController
     render :layout => 'editor'
   end
   
+  def details
+    render :layout => 'pubform'
+  end
+  
+  def show
+    ## NOTE: id in this case is the uuid of the publication
+    @publication = Publication.find_by_uuid(params[:id], :include => "pages")
+    respond_to do |format|
+      format.xml  { render :xml => @publication, :layout => false }
+      format.json { render :json => @publication.to_json_for_editor, :layout => false }
+      format.pdf  { send_data(@publication.to_pdf, 
+                              :filename => "#{@publication.uuid}.pdf", 
+                              :type => "application/pdf") }
+      # everything else gets a html page.
+      format.all  { render :layout => 'publication' }
+    end
+  end
+
+  ##
+  ## TODO move out to the editor_api plugin, these methods belong there.
+  ##
   def ping
     send_off_success(params)
   end
@@ -26,20 +47,6 @@ class PublicationsController < ApplicationController
     send_off_failed(params, e.to_s)
   end
   
-  def show
-    ## NOTE: id in this case is the uuid of the publication
-    @publication = Publication.find_by_uuid(params[:id])
-    respond_to do |format|
-      format.json { render :json => @publication, :layout => false }
-      format.xml  { render :xml => @publication, :layout => false }
-      format.pdf  { send_data(@publication.to_pdf, 
-                              :filename => "#{@publication.uuid}.pdf", 
-                              :type => "application/pdf") }
-      # everything else gets a html page.
-      format.all  { render :layout => 'publication' }
-    end
-  end
-
   protected
   
   def pub_format(params)

@@ -17,7 +17,7 @@
         |
         %a{:href => destroy_user_session_path, :title => "Logout"} Logout
         |
-        %a{:href => new_publication_path, :title => "New Publication", :onclick=>"this.href=this.href+'?dpi='+getDPI();"} New Publication
+        %a{:href => publication_details_path, :title => "New Publication", :onclick=>"this.href=this.href+'?dpi='+getDPI();"} New Publication
       - else
         %a{:href => new_user_registration_path, :title => "Register"} Register
         |

@@ -47,6 +47,13 @@ class Publication < ActiveRecord::Base
     page
   end
   
+  def to_json_for_editor
+    to_json(:include => { :pages => { 
+                :except => [:created_at, :updated_at], 
+                :include => { :page_elements => { 
+                    :except => [:data, :created_at, :updated_at]}}}})
+  end
+  
   protected 
 
   def queue_for_pdf_generation
