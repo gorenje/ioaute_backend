@@ -14,6 +14,20 @@
    }
  })();
 
+function updateCategory(obj) {
+  var elem = $$('#category_field')[0];
+  if ( elem.value == "" ) {
+    elem.value = obj.innerHTML;
+  } else {
+    elem.value += ", " + obj.innerHTML;
+  }
+}
+
+function linkForTrend(cnt, idx)
+{
+  return "<a class='trend_link size" + cnt + "' onclick='updateCategory(this);'>" + idx + "</a> ";
+}
+
 // Get twitter trends, requires the #twitter_trends div
 getJSONP(
   'http://api.twitter.com/1/trends/weekly.json?format=json&callback=?',
@@ -31,7 +45,7 @@ getJSONP(
     }
     for ( var idx in allTrends ) {
       var cnt = allTrends[idx];
-      $$('#twitter_trends')[0].innerHTML += "<h" + cnt + ">" + idx + "</h"+cnt+">";
+      $$('#twitter_trends')[0].innerHTML += linkForTrend(cnt, idx);
     }
   }
 );
@@ -51,7 +65,7 @@ getJSONP(
     }
     for ( var idx in allTrends ) {
       var cnt = allTrends[idx];
-      $$('#digg_trends')[0].innerHTML += "<h" + cnt + ">" + idx + "</h"+cnt+">";
+      $$('#digg_trends')[0].innerHTML += linkForTrend(cnt, idx);
     }
   }
 );

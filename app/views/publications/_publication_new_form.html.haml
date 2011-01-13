@@ -1,5 +1,11 @@
 - form_for( :publication, :as => :post, :url => new_publication_path ) do |f|
   %input{ :type => :hidden, :name => :dpi, :value => params["dpi"] }
-  %input{ :type => :text, :name => :name, :value => "" }
-  %input{ :type => :text, :id => "category_field", :name => :category, :value => "" }
+  %label{ :for => :name_field }= "Publication Name"
+  %br
+  %input{ :type => :text, :name => :name, :id => :name_field, :value => "" }
+  %p
+  %label{ :for => :category_field }= "Categories"
+  %br
+  %textarea{ :id => "category_field", :name => :categories, :value => "" }
+  %br
   = f.submit "Create"
