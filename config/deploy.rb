@@ -103,6 +103,7 @@ namespace :deploy do
       "nginx.conf" => "#{current_path}/config",
       "monitrc"    => "#{current_path}/config",
       "thin.yml"   => "#{current_path}/config",
+      ".rvmrc"     => "#{current_path}",
     }.each do |configfile, remote_path|
       remote_path    = "#{remote_path}/#{configfile}"
       local_path     = "config/remote_files/#{configfile}.erb"

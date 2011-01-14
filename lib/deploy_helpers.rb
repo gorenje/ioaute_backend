@@ -95,5 +95,6 @@ module DeployHelpers
     def generate_binding_for_install_geo_data(opts={}) ; generate_binding("geod", opts) ; end
     def generate_binding_for_monitrc(opts={}) ; generate_binding("monit",opts) ; end
     def generate_binding_for_thin_yml(opts={}) ; generate_binding("thin", opts) ; end
+    def generate_binding_for__rvmrc(opts={}) ; generate_binding("rvm", opts) ; end
   end
 end
