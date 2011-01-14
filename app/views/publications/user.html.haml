@@ -1,0 +1,4 @@
+- @publications.each do |publication|
+  %a{ :href => edit_publication_path( :id => publication.uuid) }
+    = publication.name || 'Nameless Publication'
+  %br  

@@ -1,0 +1,17 @@
+- require 'ostruct'
+- form_url            ||= new_publication_path
+- submit_button_title ||= "Create"
+- publication         ||= OpenStruct.new({ :name => "My Great New Publication", :topic => "" })
+- dpi_value             = params["dpi"] || publication.dpi
+
+- form_for( :publication, :as => :post, :url => form_url ) do |f|
+  %input{ :type => :hidden, :name => :dpi, :value => dpi_value }
+  %label{ :for => :name_field }= "Publication Name"
+  %br
+  %input{ :type => :text, :name => :name, :id => :name_field, :value => publication.name }
+  %p
+  %label{ :for => :category_field }= "Topics"
+  %br
+  %textarea{ :id => "category_field", :name => :categories }= publication.topic
+  %br
+  = f.submit submit_button_title

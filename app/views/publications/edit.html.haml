@@ -1,0 +1,4 @@
+- lvals = { :publication => @publication, :submit_button_title => "Update", :form_url => edit_publication_path(:id => @publication.uuid) }
+#new_form
+  = render :partial => "publication_details_form", :locals => lvals
+= render :partial => "trend_boxes"

@@ -6,13 +6,15 @@ Pubme::Application.routes.draw do
     match "/#{pathstr}" => "welcome##{pathstr.underscore}", :as => "welcome_#{pathstr.underscore}"
   end
 
-  match "/publications/details" => "publications#details", :as => :publication_details
-  # allow post method for publication new.
-  match "/publications/new" => "publications#new", :as => :new_publication
-  
+  match "/publications/details"  => "publications#details", :as => :publication_details
+  match "/publications/new"      => "publications#new", :as => :new_publication # allow post
+  match "/publications/:id/edit" => "publications#edit", :as => :edit_publication # allow post
+  match "/publications/edit"     => "publications#edit", :as => :open_editor_for_edit
+
   resources :publications do
     collection do
       get :ping
+      get :user
     end
     member do
       get :publish
