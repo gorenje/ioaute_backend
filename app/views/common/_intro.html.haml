@@ -21,9 +21,7 @@
       - else
         %fb:login-button{ :autologoutlink => "true", :perms => "user_photos" }
         |
-        %a{:href => new_user_registration_path, :title => "Register"} Register
-        |
-        %a{:href => new_user_session_path, :title => "Login"} Login
+        %a{:href => user_sign_in_twitter_path, :title => "Twitter Login"} Sign in with Twitter Account
 #preamble
   %p{ :class => "notice" }= notice
   %p{ :class => "alert" }= alert

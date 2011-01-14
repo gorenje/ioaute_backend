@@ -7,7 +7,7 @@ gem 'haml'
 gem 'haml-rails'
 gem 'hpricot'
 gem 'ruby_parser'
-gem 'devise'
+gem 'devise' # , :git => "http://github.com/plataformatec/devise.git", :tag => "v1.1.5"
 gem 'json'
 gem 'eventmachine'
 gem 'thin'
@@ -21,6 +21,9 @@ gem "rest-client" ## active resource is a pile of warm shiet.
 gem 'mysql2'
 gem 'recaptcha', :require => "recaptcha/rails"
 gem 'oauth'
+gem 'oauth2', :git => 'git://github.com/intridea/oauth2.git'
+gem 'warden'
+gem 'devise-twitter', :git => 'https://github.com/amuino/devise-twitter.git'
 
 group :test do
   gem 'rspec', "= 1.3.0"

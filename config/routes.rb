@@ -1,20 +1,26 @@
 Pubme::Application.routes.draw do
+  devise_for :user do
+    match '/user/sign_in/twitter' => Devise::Twitter::Rack::Signin
+    match '/user/connect/twitter' => Devise::Twitter::Rack::Connect
+  end
+
   # need to have our own registrations controller for the recaptcha check
   devise_for :users, :controllers => { :registrations => "users/registrations" }
 
   ["contact-us", "privacy-policy", "imprint"].each do |pathstr|
-    match "/#{pathstr}" => "welcome##{pathstr.underscore}", :as => "welcome_#{pathstr.underscore}"
+    match( "/#{pathstr}" => "welcome##{pathstr.underscore}", 
+           :as => "welcome_#{pathstr.underscore}")
   end
 
   match "/publications/details"  => "publications#details", :as => :publication_details
-  match "/publications/new"      => "publications#new", :as => :new_publication # allow post
+  match "/publications/new"      => "publications#new",  :as => :new_publication # allow post
   match "/publications/:id/edit" => "publications#edit", :as => :edit_publication # allow post
   match "/publications/edit"     => "publications#edit", :as => :open_editor_for_edit
 
   resources :publications do
     collection do
       get :ping
-      get :user
+      get :user # all publications for the user.
     end
     member do
       get :publish
