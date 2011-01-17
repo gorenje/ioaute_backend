@@ -141,11 +141,4 @@ Devise.setup do |config|
   #   end
   #   manager.default_strategies(:scope => :user).unshift :twitter_oauth
   # end
-#   config.oauth(:facebook,       ApiKeys.facebook.api_id, ApiKeys.facebook.secret,
-#                :site => 'https://graph.facebook.com/',
-#                :authorize_path => '/oauth/authorize',
-#                :access_token_path => '/oauth/access_token',
-#                :scope => %w(email user_photos))
-  
-  
 end

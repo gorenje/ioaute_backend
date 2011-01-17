@@ -1,10 +1,10 @@
 GIT
-  remote: git://github.com/intridea/oauth2.git
-  revision: ce16d32cbeb3920e44c03664f86945f7b5f733bf
+  remote: git://github.com/gorenje/devise_facebook_connectable.git
+  revision: fa1346dbfa21394f2644f3ce65e98691a355880e
   specs:
-    oauth2 (0.1.1)
-      faraday (~> 0.5.0)
-      multi_json (~> 0.0.4)
+    devise_facebook_connectable_light (0.2.4)
+      activesupport (>= 2.3.0)
+      devise (>= 1.0.0)
 
 GIT
   remote: https://github.com/amuino/devise-twitter.git
@@ -47,6 +47,7 @@ GEM
     activesupport (3.0.3)
     addressable (2.2.2)
     arel (2.0.6)
+    base62 (0.1.4)
     bcrypt-ruby (2.1.4)
     builder (2.1.2)
     capistrano (2.5.19)
@@ -99,6 +100,9 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     oauth (0.4.4)
+    oauth2 (0.1.1)
+      faraday (~> 0.5.0)
+      multi_json (~> 0.0.4)
     pdf-reader (0.9.1)
       Ascii85 (>= 0.9)
     polyglot (0.3.1)
@@ -155,11 +159,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  base62
   capistrano
   capistrano-ext
   daemons
   devise
   devise-twitter!
+  devise_facebook_connectable_light!
   eventmachine
   factory_girl
   haml
@@ -170,7 +176,7 @@ DEPENDENCIES
   mocha
   mysql2
   oauth
-  oauth2!
+  oauth2
   prawn (= 0.11.1.pre)
   rails (= 3.0.3)
   recaptcha

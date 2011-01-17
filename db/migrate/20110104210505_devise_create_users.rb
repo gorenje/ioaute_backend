@@ -5,18 +5,18 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.recoverable
       t.rememberable
       t.trackable
+      t.facebook_connectable
 
-      t.confirmable
       t.lockable :lock_strategy => :failed_attempts, :unlock_strategy => :email
       t.token_authenticatable
 
       t.timestamps
     end
 
-    add_index :users, :email,                :unique => true
+    add_index :users, :email
     add_index :users, :reset_password_token, :unique => true
-    add_index :users, :confirmation_token,   :unique => true
     add_index :users, :unlock_token,         :unique => true
+    add_index :users, :facebook_uid,         :unique => true
   end
 
   def self.down

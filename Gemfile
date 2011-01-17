@@ -21,9 +21,12 @@ gem "rest-client" ## active resource is a pile of warm shiet.
 gem 'mysql2'
 gem 'recaptcha', :require => "recaptcha/rails"
 gem 'oauth'
-gem 'oauth2', :git => 'git://github.com/intridea/oauth2.git'
+gem 'oauth2'
 gem 'warden'
 gem 'devise-twitter', :git => 'https://github.com/amuino/devise-twitter.git'
+gem 'devise_facebook_connectable_light', :git => "git://github.com/gorenje/devise_facebook_connectable.git", :require => 'devise_facebook_connectable'
+
+gem 'base62'
 
 group :test do
   gem 'rspec', "= 1.3.0"

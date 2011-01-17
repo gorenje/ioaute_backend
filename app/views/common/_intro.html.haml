@@ -11,17 +11,20 @@
     %span
       Become your own editor and publish content from your friends.
   %p.p2
-    %span
+    %span.button_bar
       - if user_signed_in?
-        %a{:href => destroy_user_session_path, :title => "Logout"} Logout
+        - if current_user.facebook_connected?
+          = facebook_sign_out_link({ :size => "small", :button => false, :autologoutlink => "true" })
+        - else
+          %a{:href => destroy_user_session_path, :title => "Logout"} Logout
         |
         %a{:href => user_publications_path, :title => "My Publications"} My Publications
         |
         %a{:href => publication_details_path, :title => "New Publication", :onclick=>"this.href=this.href+'?dpi='+getDPI();"} New Publication
       - else
-        %fb:login-button{ :autologoutlink => "true", :perms => "user_photos" }
-        |
-        %a{:href => user_sign_in_twitter_path, :title => "Twitter Login"} Sign in with Twitter Account
+        = facebook_sign_in_link({ :size => "small", :button => false, :autologoutlink => "true", :perms => "user_photos" })
+        %a.twitter_login{:href => user_sign_in_twitter_path, :title => "Twitter Login"} 
+          %img.twitter_login{ :src => '/images/twitter_sign_in.png' }
 #preamble
   %p{ :class => "notice" }= notice
   %p{ :class => "alert" }= alert

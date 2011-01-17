@@ -4,7 +4,7 @@
 - publication         ||= OpenStruct.new({ :name => "My Great New Publication", :topic => "" })
 - dpi_value             = params["dpi"] || publication.dpi
 
-- form_for( :publication, :as => :post, :url => form_url ) do |f|
+= form_for( :publication, :as => :post, :url => form_url ) do |f|
   %input{ :type => :hidden, :name => :dpi, :value => dpi_value }
   %label{ :for => :name_field }= "Publication Name"
   %br

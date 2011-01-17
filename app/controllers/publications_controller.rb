@@ -52,8 +52,10 @@ class PublicationsController < ApplicationController
   end
   
   def show
-    ## NOTE: id in this case is the uuid of the publication
+    ## NOTE: id in this case is the uuid of the publication or the uuid encoded in base62
+    params[:id] = params[:id].length == 20 ? params[:id] : params[:id].base62_decode.to_s(16)
     @publication = Publication.find_by_uuid(params[:id], :include => "pages")
+
     respond_to do |format|
       format.xml  { render :xml => @publication, :layout => false }
       format.json { render :json => @publication.to_json_for_editor, :layout => false }

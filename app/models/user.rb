@@ -3,8 +3,8 @@ class User < ActiveRecord::Base
   ###   :validatable, :confirmable, :registerable,  :recoverable 
   ### and replaced with
   ###    :twitter_oauth
-  devise(:database_authenticatable, :token_authenticatable,
-         :rememberable, :trackable, :lockable, :twitter_oauth)
+  devise(:database_authenticatable, :token_authenticatable, :rememberable, 
+         :trackable, :lockable, :twitter_oauth, :facebook_connectable)
 
   # Setup accessible (or protected) attributes for your model
   attr_accessible :email, :password, :password_confirmation, :remember_me

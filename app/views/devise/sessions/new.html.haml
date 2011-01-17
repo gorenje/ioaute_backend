@@ -1,5 +1,9 @@
-%h2 Sign in
+- if user_signed_in?
+  %h2 Welcome
+  %a{ :href => user_publications_url } My Publications
+- else
+  %h2 Sign in
 
-%ul
-  %li
-    %a{ :href => user_sign_in_twitter_path } Sign in with Twitter account
+  %ul
+    %li
+      %a{ :href => user_sign_in_twitter_path } Sign in with Twitter account
