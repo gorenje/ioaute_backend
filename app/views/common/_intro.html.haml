@@ -20,7 +20,7 @@
         |
         %a{:href => user_publications_path, :title => "My Publications"} My Publications
         |
-        %a{:href => publication_details_path, :title => "New Publication", :onclick=>"this.href=this.href+'?dpi='+getDPI();"} New Publication
+        %a{:href => publication_details_path, :title => "New Publication", :onclick => "setDpi(this);"} New Publication
       - else
         = facebook_sign_in_link({ :size => "small", :button => false, :autologoutlink => "true", :perms => "user_photos" })
         %a.twitter_login{:href => user_sign_in_twitter_path, :title => "Twitter Login"} 

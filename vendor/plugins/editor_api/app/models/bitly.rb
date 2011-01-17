@@ -16,7 +16,8 @@ class Bitly < ActiveRecord::Base
     
     def for_publication(publication, server_url, format)
       # HTML is the default, therefore don't include extension if using html.
-      url = "%s/%s%s" % [server_url, publication.uuid, format == "html" ? "" : ".#{format}"]
+      url = "%s/%s%s" % [server_url, publication.uuid_base62, 
+                         format == "html" ? "" : ".#{format}"]
       shorten(url, :publication_id => publication.id, :format => format)
     end
     

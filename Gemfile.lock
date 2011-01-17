@@ -1,6 +1,6 @@
 GIT
   remote: git://github.com/gorenje/devise_facebook_connectable.git
-  revision: fa1346dbfa21394f2644f3ce65e98691a355880e
+  revision: 2cafc7f59907397c6917b469de1e02993dea1073
   specs:
     devise_facebook_connectable_light (0.2.4)
       activesupport (>= 2.3.0)

@@ -1,4 +1,26 @@
-- @publications.each do |publication|
-  %a{ :href => edit_publication_path( :id => publication.uuid) }
-    = publication.name || 'Nameless Publication'
-  %br  
+- if @publications.count == 0
+  You have no publications currently. 
+  %a{ :href => publication_details_path, :onclick=>"setDpi(this);" } Create!
+- else
+  %table
+    %tr
+      %th Name
+      %th Published Link
+      %th Actions
+    - @publications.each do |publication|
+      - dom_id_for_plink = dom_id(publication, "published_link")
+      %tr
+        %td
+          %a{ :href => edit_publication_path( :id => publication.uuid) }
+            = publication.name || 'Nameless Publication'
+        %td{ :id => dom_id_for_plink }
+          - if publication.published?
+            %a{ :href => publication.bitlies.first.short_url }= publication.bitlies.first.short_url
+          - else
+            %span Not Published
+        %td
+          %a{ :href => edit_publication_path( :id => publication.uuid) } Edit
+          - unless publication.published?
+            %a{ :id => "#{dom_id_for_plink}_publish", :href => publish_publication_path(:id => publication.uuid, :format => :json, :pub_format => :html), :onclick => "return publishPublication(this, '#{dom_id_for_plink}');" } Publish
+            = link_to 'Delete', publication_path(:id => publication.uuid), :confirm => 'Are you sure?', :method => :delete, :id => "#{dom_id_for_plink}_delete"
+            %img{ :id => "#{dom_id_for_plink}_spinner", :src => "/images/spinner.gif", :style => "visibility:hidden;", :width => 16, :height => 16 }

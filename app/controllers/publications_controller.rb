@@ -42,9 +42,18 @@ class PublicationsController < ApplicationController
           :topic => params[:categories].blank? ? generate_default_topics : params[:categories],
         }
         @publication.update_attributes(update_data)
-        setup_cookies_for_publication(@publication)
-        cookies[:is_new] = "no"
-        redirect_to open_editor_for_edit_path
+        if params[:commit] == "Update"
+          redirect_to user_publications_path
+        else
+          if @publication.begin_edit
+            setup_cookies_for_publication(@publication)
+            cookies[:is_new] = "no"
+            redirect_to open_editor_for_edit_path
+          else
+            flash[:alert] = "Can not edit publication"
+            redirect_to user_publications_path
+          end
+        end
       end
     else
       render "editor", :layout => 'editor'
@@ -69,7 +78,7 @@ class PublicationsController < ApplicationController
 
   # show all publications for the current_user.
   def user
-    @publications = current_user.publications
+    @publications = current_user.publications.not_deleted
   end
   
   ##
@@ -82,10 +91,32 @@ class PublicationsController < ApplicationController
   def publish
     ## NOTE: id in this case is the uuid of the publication
     publication = Publication.find_by_uuid(params[:id])
-    bitly = Bitly.for_publication(publication, server_url, pub_format(params))
-    send_off_success(params, :data => bitly)
+    
+    if publication.published?
+      send_off_success(params, :data => publication.bitlies.first)
+    else 
+      if publication.publish # if published already, then don't regenerate bitly.
+        if (bitly = publication.generate_bitly(server_url, pub_format(params)))
+          send_off_success(params, :data => bitly)
+        else
+          publication.bitly_failed
+          send_off_failed(params, "unable to publish")
+        end
+      else
+        send_off_failed(params, "unable to publish")
+      end
+    end
   rescue Exception => e 
     send_off_failed(params, e.to_s)
+  end
+  
+  def destroy
+    ## NOTE: id in this case is the uuid of the publication
+    Publication.find_by_uuid(params[:id]).forget_it
+  rescue Exception => e
+    # oh, no it failed
+  ensure
+    redirect_to user_publications_path
   end
   
   protected

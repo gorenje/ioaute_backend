@@ -5,6 +5,8 @@ class Publication < ActiveRecord::Base
   
   before_save :set_uuid
 
+  scope :not_deleted, where("state != 'deleted'")
+  
   state_machine :state, :initial => :created do
     # - Locked is a user allowed state (i.e. after publishing, the publication can be
     #   locked to prevent further editing). 
@@ -17,12 +19,23 @@ class Publication < ActiveRecord::Base
     after_transition(:to => :published){ |obj| obj.send(:set_timestamp_field, :published_at) }
 
     event :publish do
-      transition any - [:deleted,:hidden] => :published, :if => :queue_for_pdf_generation
+      # because we can't pass parameters to events, we can't generate bitly url here
+      # so that we can't prevent the transition on bitly failure.
+      transition any - [:locked,:deleted,:hidden,:published] => :published #, :if => :queue_pdf_generation
+    end
+    
+    event :bitly_failed do
+      transition :published => :editing
     end
     
     # called by the callback controller
     event :begin_edit do
-      transition :created => :editing
+      transition [:created, :editing] => :editing
+      transition [:published] => :published
+    end
+    
+    event :forget_it do
+      transition any - [:deleted,:hidden,:published] => :deleted
     end
   end
 
@@ -55,12 +68,15 @@ class Publication < ActiveRecord::Base
                     :except => [:data, :created_at, :updated_at]}}}})
   end
   
-  protected 
-
-  def queue_for_pdf_generation
-    ## TODO a document is ready to be generated as pdf, so queue it to be generated.
-    true
+  def uuid_base62
+    uuid.to_i(16).base62_encode
   end
+  
+  def generate_bitly(server_url, format)
+    Bitly.for_publication(self, server_url, format)
+  end
+
+  protected 
   
   def set_uuid
     self.uuid = Publication.generate_itemid if self.uuid.nil?

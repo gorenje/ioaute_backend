@@ -15,3 +15,5 @@
   %textarea{ :id => "category_field", :name => :categories }= publication.topic
   %br
   = f.submit submit_button_title
+  - if submit_button_title == "Update"
+    = f.submit "Edit"
