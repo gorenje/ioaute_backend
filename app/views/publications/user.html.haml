@@ -1,6 +1,9 @@
+%p{ :style => "padding: 5px 5px 5px 5px;"}  
 - if @publications.count == 0
-  You have no publications currently. 
-  %a{ :href => publication_details_path, :onclick=>"setDpi(this);" } Create!
+  You currently have no publications. You may want to
+  %a{ :href => publication_details_path, :onclick=>"setDpi(this);" } create
+  a publication.
+  %p{ :style => "padding: 10px 10px 10px 10px;"}  
 - else
   %table
     %tr

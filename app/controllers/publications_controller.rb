@@ -64,16 +64,22 @@ class PublicationsController < ApplicationController
     ## NOTE: id in this case is the uuid of the publication or the uuid encoded in base62
     params[:id] = params[:id].length == 20 ? params[:id] : params[:id].base62_decode.to_s(16)
     @publication = Publication.find_by_uuid(params[:id], :include => "pages")
-
-    respond_to do |format|
-      format.xml  { render :xml => @publication, :layout => false }
-      format.json { render :json => @publication.to_json_for_editor, :layout => false }
-      format.pdf  { send_data(@publication.to_pdf, 
-                              :filename => "#{@publication.uuid}.pdf", 
-                              :type => "application/pdf") }
-      # everything else gets a html page.
-      format.all  { render :layout => 'publication' }
+    ## TODO need to ignore publications that aren't published or hidden or deleted or both!
+    if @publication.viewable?
+      respond_to do |format|
+        format.xml  { render :xml => @publication, :layout => false }
+        format.json { render :json => @publication.to_json_for_editor, :layout => false }
+        format.pdf  { send_data(@publication.to_pdf, 
+                                :filename => "#{@publication.uuid}.pdf", 
+                                :type => "application/pdf") }
+        # everything else gets a html page.
+        format.all  { render :layout => 'publication' }
+      end
+    else
+      render "common/publication_does_not_exist", :layout => "application"
     end
+  rescue Exception => e
+    render "common/publication_does_not_exist", :layout => "application"
   end
 
   # show all publications for the current_user.

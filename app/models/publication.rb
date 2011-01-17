@@ -45,6 +45,11 @@ class Publication < ActiveRecord::Base
       UUIDTools::UUID.timestamp_create.to_s.gsub(/-/,'').gsub(/.{12}$/,'')
     end
   end
+  
+  # check whether we can display this publication
+  def viewable?
+    published? || created? || editing?
+  end
 
   def to_pdf
     ::PdfGeneration.render_publication(self)
