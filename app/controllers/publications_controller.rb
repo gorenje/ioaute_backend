@@ -97,46 +97,10 @@ class PublicationsController < ApplicationController
     redirect_to user_publications_path
   end
 
-  ##
-  ## TODO move out to the editor_api plugin, these methods belong there.
-  ##
-  def ping
-    send_off_success(params)
-  end
-  
-  def publish
-    ## NOTE: id in this case is the uuid of the publication
-    publication = Publication.find_by_uuid(params[:id])
-    
-    if publication.published?
-      send_off_success(params, :data => publication.bitlies.first)
-    else 
-      if publication.publish # if published already, then don't regenerate bitly.
-        if (bitly = publication.generate_bitly(server_url, pub_format(params)))
-          send_off_success(params, :data => bitly)
-        else
-          publication.bitly_failed
-          send_off_failed(params, "unable to publish")
-        end
-      else
-        send_off_failed(params, "unable to publish")
-      end
-    end
-  rescue Exception => e 
-    send_off_failed(params, e.to_s)
-  end
-  
   protected
   
   def generate_default_topics
     "berlin,london,new york,barcelona"
-  end
-
-  def pub_format(params)
-    case ( params[:pub_format] )
-    when /html/i then "html"
-    else "pdf"
-    end
   end
 
   ## TODO use a specific domain, i.e. publication.2monki.es or something similiar.

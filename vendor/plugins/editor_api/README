@@ -1,0 +1,6 @@
+This is a first attempt to keep the API used by the editor separate from the main rails
+application. This does not yet setup the required routes and there is a certain amount of 
+overlap (PageElement model is defined in the application and not here).
+
+However, creating new TextElements or PageElements is done here: the views and the models
+are defined here.
