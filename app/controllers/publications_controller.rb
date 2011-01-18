@@ -32,11 +32,19 @@ class PublicationsController < ApplicationController
   # want to remove the publication id from the path (otherwise the editor images don't load).
   def edit    
     ## NOTE: id in this case is the uuid of the publication
-    unless params[:id].nil?
-      @publication = Publication.find_by_uuid(params[:id])
+    if params[:id].nil?
+      # cookie details have been set, start the editor. If not, then the editor is fairly
+      # useless and the user won't get far.
+      render "editor", :layout => 'editor'
+    else
+      @publication = Publication.for_user(current_user).find_by_uuid!(params[:id]) 
+
       if request.get?
         render :layout => "pubform"
       else
+        ## TODO check that the publication is editable, i.e. not hidden, locked or deleted.
+        ## TODO this is currently not been done and can allow updating the certain attibutes
+        ## TODO even if editing (via begin_edit below) is not possible.
         @publication.update_attributes({ 
           :name  => params[:name].blank? ? @publication.uuid : params[:name],
           :topic => params[:categories].blank? ? generate_default_topics : params[:categories],
@@ -44,9 +52,9 @@ class PublicationsController < ApplicationController
 
         # Two types of commit: a) update just updating the basis data or b) update the
         # basis data and you want to edit the publication.
-        if params[:commit] == "Update"
-          redirect_to user_publications_path
-        else
+        case ( params[:commit] )
+        when "Update" then redirect_to user_publications_path
+        when "Edit"
           if @publication.begin_edit
             setup_cookies_for_publication(@publication)
             cookies[:is_new] = "no"
@@ -55,18 +63,21 @@ class PublicationsController < ApplicationController
             flash[:alert] = "Can not edit publication"
             redirect_to user_publications_path
           end
+        else
+          render("common/publication_does_not_exist", :layout => "application") 
         end
       end
-    else
-      # cookie details have been set, start the editor.
-      render "editor", :layout => 'editor'
     end
+  rescue Exception => e
+    render("common/publication_does_not_exist", :layout => "application") 
   end
   
   def show
-    @publication = Publication.find_by_params_id(params[:id], :include => "pages")
+    @publication = Publication.find_by_params_id!(params[:id], :include => "pages")
 
-    if @publication.viewable?
+    unless @publication.viewable?
+      render("common/publication_does_not_exist", :layout => "application") 
+    else
       respond_to do |format|
         format.xml  { render :xml => @publication, :layout => false }
         format.json { render :json => @publication.to_json_for_editor, :layout => false }
@@ -76,8 +87,6 @@ class PublicationsController < ApplicationController
         # everything else gets a html page.
         format.all  { render :layout => 'publication' }
       end
-    else
-      render "common/publication_does_not_exist", :layout => "application"
     end
   rescue Exception => e
     render "common/publication_does_not_exist", :layout => "application"
@@ -90,7 +99,7 @@ class PublicationsController < ApplicationController
   
   def destroy
     ## NOTE: id in this case is the uuid of the publication
-    Publication.find_by_uuid(params[:id]).forget_it
+    Publication.for_user(current_user).find_by_uuid!(params[:id]).forget_it!
   rescue Exception => e
     flash[:alert] = "Couldn't not delete publication"
   ensure

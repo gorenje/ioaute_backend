@@ -6,12 +6,14 @@ class Publication < ActiveRecord::Base
   before_save :set_uuid
 
   scope :not_deleted, where("state != 'deleted'")
+  scope :for_user, lambda { |user| where( "user_id = ?", user.id) }
   
   state_machine :state, :initial => :created do
     # - Locked is a user allowed state (i.e. after publishing, the publication can be
     #   locked to prevent further editing). 
     # - Hidden is a system state hiding the published because (for example) of copyright
-    #   violations of the document. Only certain (i.e. system admins) can unlock a publication.
+    #   violations of the document. Only certain (i.e. system admins) users can unhide 
+    #   a publication.
     [:created, :editing, :published, :locked, :hidden, :deleted].each { |stat| state stat }
 
     after_transition(:to => :deleted)  { |obj| obj.send(:set_timestamp_field, :deleted_at) }
@@ -47,7 +49,7 @@ class Publication < ActiveRecord::Base
 
     # in this case id_str can either be a base62 encode value or a UUID value 
     # (this has exactly 20 hexadecimal characters)
-    def find_by_params_id(id_str, opts = {})
+    def find_by_params_id!(id_str, opts = {})
       Publication.find_by_uuid!(case id_str 
                                 when /^[a-f0-9]{20}$/ then id_str
                                 when /^[a-zA-Z0-9]{5,19}$/
@@ -61,7 +63,7 @@ class Publication < ActiveRecord::Base
   def viewable?
     published? || created? || editing?
   end
-
+  
   def to_pdf
     ::PdfGeneration.render_publication(self)
   end

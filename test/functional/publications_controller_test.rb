@@ -12,6 +12,106 @@ class PublicationsControllerTest < ActionController::TestCase
     should "allow show" do
       get :show, :id => "fubar"
       assert_response :success
+      assert_template "common/publication_does_not_exist"
+    end
+  end
+  
+  context "edit" do
+    should "render the editor when no id" do
+      pub,user = setup_publication_and_user
+      get :edit
+      assert_response :success
+      assert_template "editor", :layout => "editor"
+    end
+    
+    should "render the edit page when id set" do
+      pub,user = setup_publication_and_user
+      get :edit, :id => pub.uuid
+      assert_response :success
+      assert_template "edit", :layout => "pubform"
+    end
+    
+    should "update the publication and redirect on post" do
+      pub,user = setup_publication_and_user
+      pub.name, pub.topic = "fubar", "snafu"
+      pub.save
+      params = { 
+        :id         => pub.uuid, 
+        :name       => "Hello World", 
+        :categories => "one,two,three", 
+        :commit     => "Update"
+      }
+      post :edit, params
+      assert_redirected_to user_publications_url
+      assert_equal "Hello World", Publication.find(pub.id).name
+      assert_equal "one,two,three", Publication.find(pub.id).topic
+    end
+
+    should "update and redirect to editor" do
+      pub,user = setup_publication_and_user
+      pub.name, pub.topic = "fubar", "snafu"
+      pub.save
+      params = { 
+        :id         => pub.uuid, 
+        :name       => "Hello World", 
+        :categories => "one,two,three", 
+        :commit     => "Edit"
+      }
+      post :edit, params
+      assert_redirected_to open_editor_for_edit_url
+      assert_equal "Hello World", Publication.find(pub.id).name
+      assert_equal "one,two,three", Publication.find(pub.id).topic
+    end
+    
+    should "don't update the publication if the user does not own publiation" do
+      pub,user = setup_publication_and_user
+      pub.name, pub.topic = "fubar", "snafu"
+      pub.save
+      user2 = Factory(:user)
+      sign_in user2
+
+      # ensure that we do the same thing on an edit as just update.
+      ["Update", "Edit", "Fubar"].each do |commit_action|
+        params = { 
+          :id         => pub.uuid, 
+          :name       => "Hello World", 
+          :categories => "one,two,three", 
+          :commit     => commit_action
+        }
+        post :edit, params
+        assert_response :success
+        assert_template "common/publication_does_not_exist"
+        assert_equal "fubar", Publication.find(pub.id).name
+        assert_equal "snafu", Publication.find(pub.id).topic
+      end
+    end
+
+  end
+  
+  
+  context "show" do
+    should "not be shown if publication is deleted" do
+      pub = Factory(:publication)
+      pub.forget_it!
+      get :show, :id => pub.uuid_base62
+      assert_response :success
+      assert_template "common/publication_does_not_exist"
+    end
+    
+    should "be shown in various format" do
+      pub = Factory(:publication)
+      
+      get :show, :id => pub.uuid, :format => :xml
+      assert_response :success
+      assert_template :format => :xml
+
+      get :show, :id => pub.uuid, :format => :pdf
+      assert_response :success
+      assert_template :format => :pdf
+
+      get :show, :id => pub.uuid
+      assert_response :success
+      assert_template "show", :layout => "publication"
     end
   end
   
@@ -37,7 +137,8 @@ class PublicationsControllerTest < ActionController::TestCase
       
       sign_in user1
       get :publish, :id => pub.uuid, :format => :json
-      response.assert_json_content(:failed, "publications_publish", "User not owner")
+      response.assert_json_content(:failed, "publications_publish", 
+                                   "Couldn't find Publication with uuid = %s" % pub.uuid)
     end
     
     should "not request new bitly if already published" do
@@ -84,7 +185,7 @@ class PublicationsControllerTest < ActionController::TestCase
     should "have a ping action" do
       sign_in :user, Factory(:user)
       get :ping
-      assert_response 406 # no format provided and no html format available
+      assert_response :not_acceptable # no format provided and no html format available
       
       get :ping, :format => :json
       assert_response :success

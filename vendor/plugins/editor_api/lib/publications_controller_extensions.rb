@@ -11,9 +11,7 @@ module EditorApi
       
       def publish
         ## NOTE: id in this case is the uuid of the publication
-        publication = Publication.find_by_uuid!(params[:id])
-
-        raise "User not owner" if publication.user != current_user
+        publication = Publication.for_user(current_user).find_by_uuid!(params[:id])
         
         if publication.published?
           send_off_success(params, :data => publication.bitlies.first)
