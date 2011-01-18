@@ -48,14 +48,12 @@ class Publication < ActiveRecord::Base
     # in this case id_str can either be a base62 encode value or a UUID value 
     # (this has exactly 20 hexadecimal characters)
     def find_by_params_id(id_str, opts = {})
-      p = Publication.find_by_uuid(case id_str 
-                                   when /^[a-f0-9]{20}$/ then id_str
-                                   when /^[a-zA-Z0-9]{5,19}$/
-                                     id_str.base62_decode.to_s(16).downcase
-                                   else Publication.find(id_str).uuid
-                                   end, opts)
-      raise ActiveRecord::RecordNotFound, "No record with UUID=#{id_str}" if p.nil?
-      p
+      Publication.find_by_uuid!(case id_str 
+                                when /^[a-f0-9]{20}$/ then id_str
+                                when /^[a-zA-Z0-9]{5,19}$/
+                                  id_str.base62_decode.to_s(16).downcase
+                                else Publication.find(id_str).uuid
+                                end, opts)
     end
   end
   

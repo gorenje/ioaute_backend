@@ -11,9 +11,9 @@ module EditorApi
       
       def publish
         ## NOTE: id in this case is the uuid of the publication
+        publication = Publication.find_by_uuid!(params[:id])
 
-        ## TODO: Should check that the current user owns this publication
-        publication = Publication.find_by_uuid(params[:id])
+        raise "User not owner" if publication.user != current_user
         
         if publication.published?
           send_off_success(params, :data => publication.bitlies.first)
@@ -22,8 +22,8 @@ module EditorApi
           if (bitly = publication.generate_bitly(server_url, pub_format(params)))
             send_off_success(params, :data => bitly)
           else
-            publication.bitly_failed
-            send_off_failed(params, "unable to publish")
+            publication.bitly_failed!
+            send_off_failed(params, "unable to publish at this time")
           end
         end
       rescue Exception => e 
