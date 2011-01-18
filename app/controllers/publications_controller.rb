@@ -10,7 +10,7 @@ class PublicationsController < ApplicationController
   def new
     ## TODO will salts for basic encoding of the communication.
     ## TODO one salt pro application start, etc etc.
-    publication_uuid  = Publication.generate_itemid
+    publication_uuid  = Publication.generate_uuid
 
     setup_cookies_for_publication(Publication.create({ 
       :uuid  => publication_uuid,
@@ -37,11 +37,13 @@ class PublicationsController < ApplicationController
       if request.get?
         render :layout => "pubform"
       else
-        update_data = { 
+        @publication.update_attributes({ 
           :name  => params[:name].blank? ? @publication.uuid : params[:name],
           :topic => params[:categories].blank? ? generate_default_topics : params[:categories],
-        }
-        @publication.update_attributes(update_data)
+        })
+
+        # Two types of commit: a) update just updating the basis data or b) update the
+        # basis data and you want to edit the publication.
         if params[:commit] == "Update"
           redirect_to user_publications_path
         else
@@ -56,15 +58,14 @@ class PublicationsController < ApplicationController
         end
       end
     else
+      # cookie details have been set, start the editor.
       render "editor", :layout => 'editor'
     end
   end
   
   def show
-    ## NOTE: id in this case is the uuid of the publication or the uuid encoded in base62
-    params[:id] = params[:id].length == 20 ? params[:id] : params[:id].base62_decode.to_s(16)
-    @publication = Publication.find_by_uuid(params[:id], :include => "pages")
-    ## TODO need to ignore publications that aren't published or hidden or deleted or both!
+    @publication = Publication.find_by_params_id(params[:id], :include => "pages")
+
     if @publication.viewable?
       respond_to do |format|
         format.xml  { render :xml => @publication, :layout => false }
@@ -87,6 +88,15 @@ class PublicationsController < ApplicationController
     @publications = current_user.publications.not_deleted
   end
   
+  def destroy
+    ## NOTE: id in this case is the uuid of the publication
+    Publication.find_by_uuid(params[:id]).forget_it
+  rescue Exception => e
+    flash[:alert] = "Couldn't not delete publication"
+  ensure
+    redirect_to user_publications_path
+  end
+
   ##
   ## TODO move out to the editor_api plugin, these methods belong there.
   ##
@@ -114,15 +124,6 @@ class PublicationsController < ApplicationController
     end
   rescue Exception => e 
     send_off_failed(params, e.to_s)
-  end
-  
-  def destroy
-    ## NOTE: id in this case is the uuid of the publication
-    Publication.find_by_uuid(params[:id]).forget_it
-  rescue Exception => e
-    # oh, no it failed
-  ensure
-    redirect_to user_publications_path
   end
   
   protected

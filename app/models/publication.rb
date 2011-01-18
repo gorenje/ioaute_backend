@@ -40,9 +40,22 @@ class Publication < ActiveRecord::Base
   end
 
   class << self
-    def generate_itemid
+    def generate_uuid
       # last 12 chars are always the same - the mac address.
       UUIDTools::UUID.timestamp_create.to_s.gsub(/-/,'').gsub(/.{12}$/,'')
+    end
+
+    # in this case id_str can either be a base62 encode value or a UUID value 
+    # (this has exactly 20 hexadecimal characters)
+    def find_by_params_id(id_str, opts = {})
+      p = Publication.find_by_uuid(case id_str 
+                                   when /^[a-f0-9]{20}$/ then id_str
+                                   when /^[a-zA-Z0-9]{5,19}$/
+                                     id_str.base62_decode.to_s(16).downcase
+                                   else Publication.find(id_str).uuid
+                                   end, opts)
+      raise ActiveRecord::RecordNotFound, "No record with UUID=#{id_str}" if p.nil?
+      p
     end
   end
   
@@ -81,10 +94,10 @@ class Publication < ActiveRecord::Base
     Bitly.for_publication(self, server_url, format)
   end
 
-  protected 
-  
+  protected
+
   def set_uuid
-    self.uuid = Publication.generate_itemid if self.uuid.nil?
+    self.uuid = Publication.generate_uuid if self.uuid.nil?
   end
 
   def set_timestamp_field(field_name)
