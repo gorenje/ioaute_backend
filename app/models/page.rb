@@ -9,4 +9,11 @@ class Page < ActiveRecord::Base
     ## TODO end). But we might not do it ....
   end
   
+  def to_json_for_editor
+    to_json(:except => ["created_at", "state", "updated_at", "publication_id"],
+            :include => { :page_elements => {
+                 :except => ["created_at", "page_id", "state", "updated_at", "data"],
+                 :methods => ["type", "extra_data"]
+               }})
+  end
 end

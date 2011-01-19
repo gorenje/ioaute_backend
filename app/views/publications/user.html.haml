@@ -14,7 +14,7 @@
       - dom_id_for_plink = dom_id(publication, "published_link")
       %tr
         %td
-          %a{ :href => edit_publication_path( :id => publication.uuid) }
+          %a{ :href => publication_path( :id => publication.uuid) }
             = publication.name || 'Nameless Publication'
         %td{ :id => dom_id_for_plink }
           - if publication.published?

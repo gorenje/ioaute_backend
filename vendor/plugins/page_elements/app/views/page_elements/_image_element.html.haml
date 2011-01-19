@@ -1,2 +1,3 @@
 .image_element{ }
-  %img{ :src => page_element.extra_data["pic_url"], :width => 'auto', :height => page_element.height }
+  %a{ :href => page_element.extra_data["pic_url"] }
+    %img{ :src => page_element.extra_data["pic_url"], :width => page_element.width, :height => page_element.height }

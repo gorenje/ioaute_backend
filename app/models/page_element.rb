@@ -12,6 +12,9 @@ class PageElement < ActiveRecord::Base
     # Select the corresponding class for the element used in the editor. Don't take 'isa' 
     # on face value, check whether we have a corresponding mapping for the isa value.
     def class_for_isa(isa_str)
+      # btw since all these classes are defined in a plugin, it's not possible to
+      # create a lookup table as class variable since when you define it, it will then
+      # look of the class which will cause the subclass to look for this class...
       case isa_str  
       when "Facebook"      then FacebookElement
       when "Tweet"         then TwitterElement
@@ -42,7 +45,7 @@ class PageElement < ActiveRecord::Base
       extract_data_from_params(params).to_json
     end
   end
-  
+
   def extra_data
     JSON.parse(data)
   end

@@ -20,14 +20,14 @@ class PageElementsController < ApplicationController
   # can only be done via resize.
   def update
     check_page_element(params) do |page_element|
-      page_element.update_attributes( :data => page_element.class.params_to_data(params))
+      page_element.update_attributes(:data => page_element.class.params_to_data(params))
     end
   end
   
   def create
     ## NOTE: that the params[:page_id] is the page number in this case.
     ## NOTE: params[:publication_id] is the publication UUID in this case.
-    publication = Publication.find_by_uuid(params[:publication_id])
+    publication = Publication.for_user(current_user).find_by_uuid!(params[:publication_id])
     page_element_klazz = PageElement.class_for_isa(params[:isa])
     data = { 
       :id_str => params[:idStr],
@@ -50,6 +50,8 @@ class PageElementsController < ApplicationController
   def check_page_element(params, &block)
     ## NOTE: that the params[:page_id] is the page number in this case.
     ## NOTE: params[:publication_id] is the publication UUID in this case.
+    ## NOTE2: we don't check whether the user is correct, we just assume this.
+    ## NOTE2: i.e. that the user currently logged, in is the owner of the publication.
     page_element = PageElement.find(params[:id])
     ## ensure that this page element is contained in the current page and doucment
     if ( params[:publication_id] == page_element.page.publication.uuid &&
