@@ -119,7 +119,7 @@ class PublicationsControllerTest < ActionController::TestCase
     should "only handle formay json" do
       sign_in Factory(:user)
       get :publish, :id => "fubar"
-      assert_response 406
+      assert_response :not_acceptable
     end
 
     should "error out of publication is not found" do
