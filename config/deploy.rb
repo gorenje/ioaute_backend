@@ -8,10 +8,11 @@ class << self
   include DeployHelpers::Utils
 end
 
-set :application,      "website"
-set :deploy_to,        "/var/app/#{application}"
-set :user,             "deploy"
-set :local_rails_root, File.expand_path(File.join(File.dirname(__FILE__), ".."))
+set :application,        "website"
+set :deploy_to,          "/var/app/#{application}"
+set :user,               "deploy"
+set :local_rails_root,   File.expand_path(File.join(File.dirname(__FILE__), ".."))
+set :resources_location, "public/publications/Resources" # relative to current_path
 
 set :scm,                   :git
 set :repository,            "gitosis@dev.2monki.es:#{ENV['GITREPO'] || application}.git"
@@ -27,10 +28,11 @@ set :rvm_ruby_version, "ruby-1.9.2-head"
 
 namespace :deploy do
   { ### After hooks
-    "migrate"     => "restart",
-    "symlink"     => "setup_paths",
-    "setup_paths" => [ "build_editor", "run_remote_scripts", 
+    "migrate"      => "restart",
+    "symlink"      => "setup_paths",
+    "setup_paths"  => ["build_editor", "run_remote_scripts", 
                        "generate_remote_files"],
+    "build_editor" => "copy_resources",
   }.each do |after_task, before_tasks|
     [before_tasks].flatten.each do |before_task|
       after "deploy:#{after_task}", "deploy:#{before_task}" 
@@ -38,10 +40,10 @@ namespace :deploy do
   end
 
   { ### Before hooks
-    "symlink"               => "setup_diff",
-    "build_editor"          => ["bundle_install", "update_superglue"],
-    "restart"               => ["show_diffs", "update_superglue", 
-                                "bundle_install"],
+    "symlink"       => "setup_diff",
+    "build_editor"  => ["bundle_install", "update_superglue"],
+    "restart"       => ["show_diffs", "update_superglue", 
+                        "bundle_install"],
   }.each do |before_task, after_tasks|
     [after_tasks].flatten.each do |after_task|
       before "deploy:#{before_task}", "deploy:#{after_task}" 
@@ -52,6 +54,15 @@ namespace :deploy do
   task :build_editor do
     run_with_rvm(rvm_ruby_version, current_path) do
       "rake editor:install"
+    end
+  end
+  
+  desc "copy assets to the assets server"
+  task :copy_resources do
+    { 
+      "moustache.png" => "images"
+    }.each do |srcfile, targetdir|
+      run "cp -f #{current_path}/#{resources_location}/#{srcfile} /var/www/assets/#{targetdir}"
     end
   end
   
