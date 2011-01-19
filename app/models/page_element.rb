@@ -9,6 +9,25 @@ class PageElement < ActiveRecord::Base
   end
 
   class << self
+    # Select the corresponding class for the element used in the editor. Don't take 'isa' 
+    # on face value, check whether we have a corresponding mapping for the isa value.
+    def class_for_isa(isa_str)
+      case isa_str  
+      when "Facebook"      then FacebookElement
+      when "Tweet"         then TwitterElement
+      when "Flickr"        then FlickrElement
+      when "ImageTE"       then ImageElement
+      when "LinkTE"        then LinkElement
+      when "TextTE"        then TextElement
+      when "FbLikeTE"      then FbLikeElement
+      when "DiggButtonTE"  then DiggButtonElement
+      when "TwitterFeedTE" then TwitterFeedElement
+      when "MoustacheTE"   then MoustacheElement
+      else 
+        "UnknownClass#{params[:isa]}"
+      end
+    end
+
     ## This is called when we are about to create a new page elements. Each page element
     ## has it's own list of extra data it requires, this method allows each model to 
     ## extract that from the params passed into the controller and store in the data field.
@@ -21,24 +40,6 @@ class PageElement < ActiveRecord::Base
     # this should not be overridden and provides a single-point of implementation.
     def params_to_data(params)
       extract_data_from_params(params).to_json
-    end
-    
-    # don't take 'isa' on face value, check whether we have a corresponding class
-    # for the isa value.
-    def class_for_isa(isa_str)
-      case isa_str  
-      when "Facebook"      then FacebookElement
-      when "Tweet"         then TwitterElement
-      when "Flickr"        then FlickrElement
-      when "ImageTE"       then ImageElement
-      when "LinkTE"        then LinkElement
-      when "TextTE"        then TextElement
-      when "FbLikeTE"      then FbLikeElement
-      when "DiggButtonTE"  then DiggButtonElement
-      when "TwitterFeedTE" then TwitterFeedElement
-      else 
-        "UnknownClass#{params[:isa]}"
-      end
     end
   end
   

@@ -4,7 +4,8 @@ class FlickrElement < PageElement
     def extract_data_from_params(params)
       { :secret => params["_secret"],
         :farm   => params["_farm"],
-        :server => params["_server"], 
+        :server => params["_server"],
+        :title  => params["_title"],
       }
     end
   end
@@ -18,5 +19,13 @@ class FlickrElement < PageElement
     flickr_data = extra_data.merge("size" => "b", "id" => id_str)
     ("http://farm" + flickr_data["farm"] + ".static.flickr.com/" + flickr_data["server"] + 
      "/" + flickr_data["id"] + "_" + flickr_data["secret"] + "_" + flickr_data["size"]+".jpg")
+  end
+  
+  def construct_owner_url
+    "http://flickr.com/photo.gne?id=#{id_str}"
+  end
+  
+  def flickr_title
+    extra_data["title"]
   end
 end

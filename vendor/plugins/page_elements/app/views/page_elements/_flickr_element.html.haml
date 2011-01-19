@@ -1,2 +1,5 @@
 .flickr_image{ }
   %img{ :src => page_element.construct_flickr_image_url, :width => page_element.width, :height => page_element.height }
+  %a.copyright{ :href => page_element.construct_owner_url } &copy;
+  - if (title = page_element.flickr_title)
+    %span.flickr_image_title= title
