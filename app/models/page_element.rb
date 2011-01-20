@@ -53,6 +53,14 @@ class PageElement < ActiveRecord::Base
   def store_extra_data(hsh)
     update_attributes(:data => hsh.to_json)
   end
+
+  # this is the same name as the variable in the page_element.j class in the editor.
+  # Used to convert an object to json for recreation in the editor.
+  def _json
+    ## override to produce json that can be used to initialize corresponding objects in
+    ## the editor.
+    extra_data
+  end
   
   def dump_to_pdf(pdf)
     # needs to be implemented by subclasses

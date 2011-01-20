@@ -7,6 +7,10 @@ class TwitterFeedElement < PageElement
     end
   end
 
+  def _json
+    extra_data.merge( :id => id_str )
+  end
+  
   def dump_to_pdf(pdf)
     ## TODO do more here.
   end

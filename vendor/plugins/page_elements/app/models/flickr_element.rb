@@ -10,6 +10,10 @@ class FlickrElement < PageElement
     end
   end
   
+  def _json
+    extra_data.merge( :id => id_str )
+  end
+  
   ## TODO add name and link and etc....
   def dump_to_pdf(pdf)
     pdf.image open(construct_flickr_image_url), :at =>[x,y], :width => width, :height => height

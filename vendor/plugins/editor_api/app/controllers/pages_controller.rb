@@ -32,4 +32,17 @@ class PagesController < ApplicationController
   rescue Exception => e 
     send_off_failed(params, e.to_s)
   end
+
+  # /publications/:publication_id/pages/:id(.:format)
+  def show
+    # NOTE params[:publication_id] is the uuid of the publication
+    # also page_id is the page number not the id of the page.
+    publication = Publication.for_user(current_user).find_by_uuid!(params[:publication_id])
+    send_off_success(params, { 
+      :data => Page.find_by_publication_id_and_number!(publication.id, 
+                                                       params[:id]).to_json_for_editor 
+    })
+  rescue Exception => e 
+    send_off_failed(params, e.to_s)
+  end
 end

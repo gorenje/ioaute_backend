@@ -3,10 +3,18 @@ class TwitterElement < PageElement
   class << self
     def extract_data_from_params(params)
       { :from_user => params["_fromUser"],
+        :text      => params["_text"],
       }
     end
   end
 
+  def _json
+    edata = extra_data
+    ## don't merge extra_data and send it back, in this case the data is used as cache
+    ## see below.
+    { :from_user => edata["from_user"], :text => edata["text"], :id_str => id_str }
+  end
+  
   ## TODO do more here.
   def dump_to_pdf(pdf)
     twhsh = tweet
