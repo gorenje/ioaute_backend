@@ -13,6 +13,10 @@ class FlickrElement < PageElement
   def _json
     extra_data.merge( :id => id_str )
   end
+
+  def self._type
+    "Flickr"
+  end
   
   ## TODO add name and link and etc....
   def dump_to_pdf(pdf)

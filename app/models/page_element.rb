@@ -1,6 +1,8 @@
 class PageElement < ActiveRecord::Base
   belongs_to :page
 
+  @@lokuptable = nil
+  
   state_machine :state, :initial => :created do
     [:created, :editing, :published, :locked, :hidden, :deleted].each { |stat| state stat }
 
@@ -12,23 +14,18 @@ class PageElement < ActiveRecord::Base
     # Select the corresponding class for the element used in the editor. Don't take 'isa' 
     # on face value, check whether we have a corresponding mapping for the isa value.
     def class_for_isa(isa_str)
-      # btw since all these classes are defined in a plugin, it's not possible to
-      # create a lookup table as class variable since when you define it, it will then
-      # look of the class which will cause the subclass to look for this class...
-      case isa_str  
-      when "Facebook"      then FacebookElement
-      when "Tweet"         then TwitterElement
-      when "Flickr"        then FlickrElement
-      when "ImageTE"       then ImageElement
-      when "LinkTE"        then LinkElement
-      when "TextTE"        then TextElement
-      when "FbLikeTE"      then FbLikeElement
-      when "DiggButtonTE"  then DiggButtonElement
-      when "TwitterFeedTE" then TwitterFeedElement
-      when "MoustacheTE"   then MoustacheElement
-      else 
-        "UnknownClass#{params[:isa]}"
-      end
+      (@@lokuptable || (@@lokuptable={
+        "Facebook"      => FacebookElement,
+        "Tweet"         => TwitterElement,
+        "Flickr"        => FlickrElement,
+        "ImageTE"       => ImageElement,
+        "LinkTE"        => LinkElement,
+        "TextTE"        => TextElement,
+        "FbLikeTE"      => FbLikeElement,
+        "DiggButtonTE"  => DiggButtonElement,
+        "TwitterFeedTE" => TwitterFeedElement,
+        "MoustacheTE"   => MoustacheElement,
+      }))[isa_str] || "UnknownClass#{isa_str}"
     end
 
     ## This is called when we are about to create a new page elements. Each page element
@@ -43,6 +40,12 @@ class PageElement < ActiveRecord::Base
     # this should not be overridden and provides a single-point of implementation.
     def params_to_data(params)
       extract_data_from_params(params).to_json
+    end
+    
+    ## Override this method and return the name of the class that is used in the
+    ## editor to represent this class.
+    def _type
+      "PageElement"
     end
   end
 
@@ -60,6 +63,12 @@ class PageElement < ActiveRecord::Base
     ## override to produce json that can be used to initialize corresponding objects in
     ## the editor.
     extra_data
+  end
+
+  # used by Page#to_json_for_editor to return the corresponding editor class for this
+  # object. Don't override this method, rather the corresponding class method _type.
+  def _type
+    self.class._type
   end
   
   def dump_to_pdf(pdf)

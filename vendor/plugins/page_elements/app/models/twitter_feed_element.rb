@@ -11,6 +11,10 @@ class TwitterFeedElement < PageElement
     extra_data.merge( :id => id_str )
   end
   
+  def self._type
+    "TwitterFeedTE"
+  end
+
   def dump_to_pdf(pdf)
     ## TODO do more here.
   end

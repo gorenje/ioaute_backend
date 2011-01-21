@@ -17,7 +17,11 @@ class FacebookElement < PageElement
       :from    => { :name => edata["owner"] },
     }
   end
-    
+
+  def self._type
+    "Facebook"
+  end
+  
   def dump_to_pdf(pdf)
     pdf.image open(extra_data["src_url"]), :at =>[x,y], :width => width, :height => height
   end

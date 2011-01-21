@@ -5,4 +5,8 @@ class MoustacheElement < PageElement
   def _json
     { :id => id_str }
   end
+
+  def self._type
+    "MoustacheTE"
+  end
 end

@@ -15,6 +15,10 @@ class TwitterElement < PageElement
     { :from_user => edata["from_user"], :text => edata["text"], :id_str => id_str }
   end
   
+  def self._type
+    "Tweet"
+  end
+
   ## TODO do more here.
   def dump_to_pdf(pdf)
     twhsh = tweet

@@ -12,6 +12,10 @@ class LinkElement < PageElement
     extra_data.merge( :id => id_str)
   end
   
+  def self._type
+    "LinkTE"
+  end
+
   def dump_to_pdf(pdf)
     ## TODO do more here.
   end

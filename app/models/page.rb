@@ -16,7 +16,7 @@ class Page < ActiveRecord::Base
     JSON.parse(to_json(:except => ["created_at", "state", "updated_at", "publication_id"],
                        :include => { :page_elements => {
                            :except => ["created_at", "page_id", "state", "updated_at", "data", "id_str"],
-                           :methods => ["type", "_json"]
+                           :methods => ["_type", "_json"]
                          }}))
   end
 end
