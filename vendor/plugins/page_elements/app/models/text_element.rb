@@ -8,7 +8,8 @@ class TextElement < PageElement
   end
 
   def _json
-    extra_data.merge(:id => id_str)
+    edata = extra_data
+    { :text => (edata["text"] || "Type Text Here"), :id => id_str }
   end
   
   def self._type
