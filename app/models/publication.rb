@@ -53,7 +53,7 @@ class Publication < ActiveRecord::Base
       Publication.find_by_uuid!(case id_str 
                                 when /^[a-f0-9]{20}$/ then id_str
                                 when /^[a-zA-Z0-9]{5,19}$/
-                                  id_str.base62_decode.to_s(16).downcase
+                                  id_str.base62_decode.to_s(16).downcase.rjust(20,'0')
                                 else Publication.find(id_str).uuid
                                 end, opts)
     end
