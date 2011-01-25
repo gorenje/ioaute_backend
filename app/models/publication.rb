@@ -73,12 +73,6 @@ class Publication < ActiveRecord::Base
     @bitly_url || (@bitly_url = bitlies.first.short_url)
   end
   
-  def find_or_create_by_page_number(page_number)
-    page = Page.find_by_publication_id_and_number(self.id, page_number)
-    self.pages << (page = Page.create(:number => page_number)) if page.nil?
-    page
-  end
-  
   def to_json_for_editor
     to_json(:include => { :pages => { 
                 :except => [:created_at, :updated_at], 

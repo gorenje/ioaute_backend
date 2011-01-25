@@ -4,7 +4,7 @@
     %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "content-type"}/
     %meta{:content => "IE=EmulateIE7", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "chrome=1", "http-equiv" => "X-UA-Compatible"}/
-    %title Pubme
+    %title= WhiteLabel.config.name
     = stylesheet_link_tag "application"
     = javascript_include_tag :defaults
     = csrf_meta_tag

@@ -25,7 +25,6 @@ class PageElementsController < ApplicationController
   end
   
   def create
-    ## NOTE: that the params[:page_id] is the page number in this case.
     ## NOTE: params[:publication_id] is the publication UUID in this case.
     publication = Publication.for_user(current_user).find_by_uuid!(params[:publication_id])
     page_element_klazz = PageElement.class_for_isa(params[:isa])
@@ -37,7 +36,7 @@ class PageElementsController < ApplicationController
 
     page_element = page_element_klazz.create(data)
     
-    publication.find_or_create_by_page_number(params[:page_id]).
+    Page.find_by_id_and_publication_id!(params[:page_id], publication.id).
       page_elements << page_element
 
     send_off_success(params, {:data => page_element, :page_element_id => page_element.id})
@@ -48,14 +47,13 @@ class PageElementsController < ApplicationController
   protected
   
   def check_page_element(params, &block)
-    ## NOTE: that the params[:page_id] is the page number in this case.
     ## NOTE: params[:publication_id] is the publication UUID in this case.
     ## NOTE2: we don't check whether the user is correct, we just assume this.
     ## NOTE2: i.e. that the user currently logged, in is the owner of the publication.
     page_element = PageElement.find(params[:id])
     ## ensure that this page element is contained in the current page and doucment
     if ( params[:publication_id] == page_element.page.publication.uuid &&
-         params[:page_id] == page_element.page.number.to_s )
+         params[:page_id] == page_element.page_id.to_s )
       yield(page_element)
       send_off_success(params)
     else

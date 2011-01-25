@@ -4,7 +4,7 @@
     %meta{:content => "text/html; charset=iso-8859-1", "http-equiv" => "content-type"}/
     %meta{:content => "IE=EmulateIE7", "http-equiv" => "X-UA-Compatible"}/
     %meta{:content => "chrome=1", "http-equiv" => "X-UA-Compatible"}/
-    %title= "PublishMe - " + (@publication.name || @publication.uuid)
+    %title= WhiteLabel.config.name + " - " + (@publication.name || @publication.uuid)
     - ["screen", "print"].each do |media|
       = stylesheet_link_tag "publication.#{media}", :media => media
     = javascript_include_tag :defaults

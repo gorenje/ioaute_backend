@@ -1,0 +1,44 @@
+# current is the same as a toplevel element
+current: pubme
+
+pubme:
+  config:
+    name: PublishMe
+    tagline: The Beauty of Online Publishing
+    quick_summary: Become your own editor and publish content from your friends.
+    url: pubme.2monki.es
+    editor:
+      title: Powered by 2monkeys
+    publication:
+      desc: Publication
+    company:
+      name: 2monki.es
+      url: http://2monki.es
+
+scrapbook:
+  config:
+    name: ScrapMe
+    tagline: The Beauty of online Scrapbook
+    quick_summary: Create a scrap book for your friends from scratch.
+    url: srpbk.2monki.es
+    editor:
+      title: Powered by 2monkeys
+    publication:
+      desc: Scrapbook
+    company:
+      name: 2monki.es
+      url: http://2monki.es
+
+employme:
+  config:
+    name: EmployMe
+    tagline: The online CV creator
+    quick_summary: Quickly and easily create your own CV.
+    url: empme.2monki.es
+    editor:
+      title: Powered by 2monkeys
+    publication:
+      desc: CV
+    company:
+      name: 2monki.es
+      url: http://2monki.es

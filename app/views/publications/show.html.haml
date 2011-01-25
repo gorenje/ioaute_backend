@@ -4,9 +4,9 @@
     #logo
       %a{ :href => "http://pubme.2monki.es", :target => "_blank" } PublishMe
     #index
-      - @publication.pages.each do |page|
-        %a{ :href => "#%dpage" % page.number }
-          = "[%d]" % page.number
+      - @publication.pages.each_with_index do |page,idx|
+        %a{ :href => "#%dpage" % page.id }
+          = "[%d]" % (idx+1)
     #facebooklink
       %a{ :href => "http://www.facebook.com/sharer.php?u=%s" % CGI.escape(bitlyurl) }
         %img.facebook{ :src => "/images/facebook.png", :height => "24", :width => "24" }
@@ -18,9 +18,9 @@
   %span{ :class => "spacer" }
   - total_pages = @publication.pages.count
   - @publication.pages.each_with_index do |page, idx|
-    %a{ :name => "#{page.number}page" }
+    %a{ :name => "#{page.id}page" }
     %div{ :id => dom_id(page), :class => "page_a4 shadow" }
       - page.page_elements.each do |page_element|
         = render :partial => "page_element", :locals => { :page_element => page_element }
     #page_number{ :class => class_for_page_number(idx, total_pages) }
-      = "Page #{page.number} of #{total_pages}"
+      = "Page #{idx+1} of #{total_pages}"
