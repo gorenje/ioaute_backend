@@ -8,6 +8,7 @@
   %table
     %tr
       %th Name
+      %th Page Count
       %th Published Link
       %th Actions
     - @publications.each do |publication|
@@ -16,6 +17,8 @@
         %td
           %a{ :href => publication_path( :id => publication.uuid) }
             = publication.name || 'Nameless Publication'
+        %td
+          = publication.pages.count
         %td{ :id => dom_id_for_plink }
           - if publication.published?
             %a{ :href => publication.bitlies.first.short_url }= publication.bitlies.first.short_url

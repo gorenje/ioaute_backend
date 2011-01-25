@@ -4,6 +4,7 @@ current: pubme
 pubme:
   config:
     name: PublishMe
+    name_for_preview: PublishMe
     tagline: The Beauty of Online Publishing
     quick_summary: Become your own editor and publish content from your friends.
     url: pubme.2monki.es
@@ -18,6 +19,7 @@ pubme:
 scrapbook:
   config:
     name: ScrapMe
+    name_for_preview: ScrapMe
     tagline: The Beauty of online Scrapbook
     quick_summary: Create a scrap book for your friends from scratch.
     url: srpbk.2monki.es
@@ -32,6 +34,7 @@ scrapbook:
 employme:
   config:
     name: EmployMe
+    name_for_preview: EmployMe
     tagline: The online CV creator
     quick_summary: Quickly and easily create your own CV.
     url: empme.2monki.es

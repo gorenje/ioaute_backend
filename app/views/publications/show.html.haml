@@ -2,8 +2,11 @@
   - bitlyurl = @publication.bitly_url
   #infobox{ :class => "shadow" }
     #logo
-      %a{ :href => "http://pubme.2monki.es", :target => "_blank" } PublishMe
+      %a{ :href => root_path, :target => "_blank" }= WhiteLabel.config.name_for_preview
     #index
+      - if current_user == @publication.user
+        %a{ :href => edit_publication_path( :id => @publication.uuid) } [e]
+        \&nbsp;
       - @publication.pages.each_with_index do |page,idx|
         %a{ :href => "#page%02d" % (idx+1) }
           = "[%d]" % (idx+1)
