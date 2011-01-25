@@ -13,7 +13,7 @@ class PagesController < ApplicationController
   def new
     # NOTE params[:publication_id] is the uuid of the publication
     pages = Publication.for_user(current_user).find_by_uuid!(params[:publication_id]).pages
-    pages << Page.create(:name => params[:name], :number => pages.size + 1)
+    pages << Page.create(:name => params[:name], :number => pages.map(&:number).max + 1)
     send_off_success(params, {:data => pages})
   rescue Exception => e
     send_off_failed(params, e.to_s)

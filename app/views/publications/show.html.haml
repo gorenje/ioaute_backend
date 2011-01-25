@@ -5,7 +5,7 @@
       %a{ :href => "http://pubme.2monki.es", :target => "_blank" } PublishMe
     #index
       - @publication.pages.each_with_index do |page,idx|
-        %a{ :href => "#%dpage" % page.id }
+        %a{ :href => "#page%02d" % (idx+1) }
           = "[%d]" % (idx+1)
     #facebooklink
       %a{ :href => "http://www.facebook.com/sharer.php?u=%s" % CGI.escape(bitlyurl) }
@@ -18,7 +18,7 @@
   %span{ :class => "spacer" }
   - total_pages = @publication.pages.count
   - @publication.pages.each_with_index do |page, idx|
-    %a{ :name => "#{page.id}page" }
+    %a{ :name => "page%02d" % (idx+1) }
     %div{ :id => dom_id(page), :class => "page_a4 shadow" }
       - page.page_elements.each do |page_element|
         = render :partial => "page_element", :locals => { :page_element => page_element }
