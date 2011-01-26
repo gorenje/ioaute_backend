@@ -20,7 +20,7 @@
         |
         %a{:href => publication_details_path, :title => "New Publication", :onclick => "setDpi(this);"} New #{WhiteLabel.config.publication.desc}
       - else
-        = facebook_sign_in_link({ :size => "small", :button => false, :autologoutlink => "true", :perms => "user_photos" })
+        = facebook_sign_in_link({ :size => "small", :button => false, :autologoutlink => "true", :perms => "user_photos,friends_photos,user_about_me,user_birthday,user_education_history" })
         %a.twitter_login{:href => user_sign_in_twitter_path, :title => "Twitter Login"} 
           %img.twitter_login{ :src => '/images/twitter_sign_in.png' }
 #preamble
