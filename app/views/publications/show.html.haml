@@ -1,5 +1,6 @@
 %div{ :id => dom_id(@publication), :class => "publication" }
   - bitlyurl = @publication.bitly_url
+  - total_pages = @publication.pages.count
   #infobox{ :class => "shadow" }
     #logo
       %a{ :href => root_path, :target => "_blank" }= WhiteLabel.config.name_for_preview
@@ -7,9 +8,10 @@
       - if current_user == @publication.user
         %a{ :href => edit_publication_path( :id => @publication.uuid) } [e]
         \&nbsp;
-      - @publication.pages.each_with_index do |page,idx|
-        %a{ :href => "#page%02d" % (idx+1) }
-          = "[%d]" % (idx+1)
+      - if total_pages > 1
+        - @publication.pages.each_with_index do |_,idx|
+          %a{ :href => "#page%02d" % (idx+1) }
+            = "[%d]" % (idx+1)
     #facebooklink
       %a{ :href => "http://www.facebook.com/sharer.php?u=%s" % CGI.escape(bitlyurl) }
         %img.facebook{ :src => "/images/facebook.png", :height => "24", :width => "24" }
@@ -19,11 +21,11 @@
     #page_url
       %a.url{ :href => bitlyurl }= bitlyurl.gsub(/^https?:\/\//,'')
   %span{ :class => "spacer" }
-  - total_pages = @publication.pages.count
   - @publication.pages.each_with_index do |page, idx|
     %a{ :name => "page%02d" % (idx+1) }
     %div{ :id => dom_id(page), :class => "page_a4 shadow" }
       - page.page_elements.each do |page_element|
         = render :partial => "page_element", :locals => { :page_element => page_element }
-    #page_number{ :class => class_for_page_number(idx, total_pages) }
-      = "Page #{idx+1} of #{total_pages}"
+    - if total_pages > 1
+      #page_number{ :class => class_for_page_number(idx, total_pages) }
+        = "Page #{idx+1} of #{total_pages}"
