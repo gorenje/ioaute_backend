@@ -6,7 +6,31 @@ module EditorApi
     
     module InstanceMethods
       def ping
-        send_off_success(params)
+        # BTW always have an even number of tools, this makes the tool box look better
+        toolboxitems = [
+          { "id" => "1", "name" => "Text",         "klazz" => "TextTE" },
+          { "id" => "8", "name" => "Small", "klazz" => "HeaderTE", 
+            "font_size" => 16 },
+          { "id" => "9", "name" => "Medium","klazz" => "HeaderTE", 
+            "font_size" => 20 },
+          { "id" => "10", "name" => "Large","klazz" => "HeaderTE", 
+            "font_size" => 24 },
+          { "id" => "3", "name" => "Image",        "klazz" => "ImageTE" },
+          { "id" => "5", "name" => "FB Like",      "klazz" => "FbLikeTE" },
+          { "id" => "6", "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
+          { "id" => "7", "name" => "Digg",         "klazz" => "DiggButtonTE" },
+          { "id" => "4", "name" => "Link",         "klazz" => "LinkTE" },
+          { "id" => "2", "name" => "Moustache",    "klazz" => "MoustacheTE" },
+          { "id" => "11", "name" => "Coming Soon", "klazz" => "ToolElement" },
+          { "id" => "12", "name" => "Coming Soon", "klazz" => "ToolElement" },
+          { "id" => "13", "name" => "Coming Soon", "klazz" => "ToolElement" },
+          { "id" => "14", "name" => "Coming Soon", "klazz" => "ToolElement" },
+         ]
+
+        send_off_success(params, :data => { 
+          :facebook_app_id => ApiKeys.facebook.api_id,
+          :tool_box_items  => toolboxitems.reverse, # ordering is reversed on display
+        })
       end
       
       def publish
