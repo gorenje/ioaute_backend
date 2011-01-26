@@ -21,8 +21,17 @@ module EditorApi
           { "id" => "7", "name" => "Digg",         "klazz" => "DiggButtonTE" },
           { "id" => "4", "name" => "Link",         "klazz" => "LinkTE" },
           { "id" => "2", "name" => "Moustache",    "klazz" => "MoustacheTE" },
+
           { "id" => "11", "name" => "Highlight", "klazz" => "HighlightTE",
-            "red" => "123", "blue" => "134", "green" => "220", "alpha" => "0.4"},
+            "red" => "131", "blue" => "52", "green" => "255", "alpha" => "0.4"},
+
+          { "id" => "15", "name" => "Horiz Bar", "klazz" => "HighlightTE",
+            "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
+            "width" => 200, "height" => 5, "image" => "toolHorizBar" },
+          { "id" => "16", "name" => "Vert. Bar", "klazz" => "HighlightTE",
+            "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
+            "width" => 5, "height" => 200, "image" => "toolVerticalBar" },
+                        
           { "id" => "12", "name" => "Coming Soon", "klazz" => "ToolElement" },
           { "id" => "13", "name" => "Coming Soon", "klazz" => "ToolElement" },
           { "id" => "14", "name" => "Coming Soon", "klazz" => "ToolElement" },
