@@ -26,6 +26,7 @@ class PageElement < ActiveRecord::Base
         "TwitterFeedTE" => TwitterFeedElement,
         "MoustacheTE"   => MoustacheElement,
         "HeaderTE"      => HeaderTextElement,
+        "HighlightTE"   => HighlightElement,
       }))[isa_str] || "UnknownClass#{isa_str}"
     end
 
