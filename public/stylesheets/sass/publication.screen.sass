@@ -5,6 +5,7 @@ h3
   text-align: center
 
 @import "_publication_infobox"
+@import "_publication_common"
 
 span.spacer
   margin: 20px
@@ -18,7 +19,6 @@ img
 
 a.copyright
   :text-decoration none
-  :position absolute
 
 .last_page
 
@@ -28,19 +28,9 @@ a.copyright
 
 .page_a4
   margin: 20px auto
-  width: 794px
-  height: 1123px
-  padding: 0px
-  background-color: #fff
-  position: relative
 
 .page_letter
   margin: 20px auto
-  width: 950px
-  height: 1230px
-  padding: 0px
-  background-color: #fff
-  position: relative
 
 .shadow
   box-shadow: 0px 3px 10px #000
@@ -49,48 +39,13 @@ a.copyright
   zoom: 1
   filter: progid:DXImageTransform.Microsoft.Shadow(color='#fff', Direction=135, Strength=3)
 
-.text_element
-  :white-space pre-line
-  font-family: 'Lato', serif
-  font-size: 14px
-  font-style: normal
-  font-weight: 400
-  text-shadow: none
-  text-decoration: none
-  text-transform: none
-  letter-spacing: 0em
-  word-spacing: 0em
-  line-height: 1.2
-
-.header_text_element
-  @extend .text_element
-
-@for $idx from 10 through 24
-  .hte_font_size_#{$idx}
-    font-family: 'Droid Sans', serif
-    font-size: #{$idx}px
-    font-style: normal
-    font-weight: 700
-    text-transform: capitalize
-
-.twitter_element
-  :background-color #eff
-
-.twitter_element_highlight
-  :color #01e
-  :font-style italic
-
 #fb-root
   :position absolute
   :top 100px
   :right 100px
 
-.flickr_image
-  box-shadow: 0px 3px 10px #000
-  -moz-box-shadow: 0px 3px 10px #000
-  -webkit-box-shadow: 0px 3px 10px #000
-  zoom: 1
-  filter: progid:DXImageTransform.Microsoft.Shadow(color='#fff', Direction=135, Strength=3)
+/* .flickr_image
+/*   @extend .shadow
 
-span.flickr_image_title
-  margin-left: 20px
+/* .facebook_image
+/*   @extend .shadow

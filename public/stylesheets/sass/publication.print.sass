@@ -3,8 +3,7 @@ body
   padding: 0
   background-color: white
 
-h3
-  text-align: center
+@import "_publication_common"
 
 #infobox
   :display none
@@ -27,54 +26,7 @@ a.copyright
 .not_first_or_last_page
   :page-break-after always
   
-.page_a4
-  margin: 0px auto
-  width: 794px
-  height: 1123px
-  padding: 0px
-  background-color: #fff
-  position: relative
-
-.page_letter
-  margin: 0px auto
-  width: 950px
-  height: 1230px
-  padding: 0px
-  background-color: #fff
-  position: relative
-
 .shadow
-
-.text_element
-  :white-space pre-line
-  font-family: 'Lato', serif
-  font-size: 14px
-  font-style: normal
-  font-weight: 400
-  text-shadow: none
-  text-decoration: none
-  text-transform: none
-  letter-spacing: 0em
-  word-spacing: 0em
-  line-height: 1.2
-
-.header_text_element
-  @extend .text_element
-
-@for $idx from 10 through 24
-  .hte_font_size_#{$idx}
-    font-family: 'Droid Sans', serif
-    font-size: #{$idx}px
-    font-style: normal
-    font-weight: 700
-    text-transform: capitalize
-
-.twitter_element
-  :background-color #eff
-
-.twitter_element_highlight
-  :color #01e
-  :font-style italic
 
 #fb-root
   :display none

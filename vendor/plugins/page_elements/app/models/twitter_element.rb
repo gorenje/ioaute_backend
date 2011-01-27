@@ -2,8 +2,9 @@ class TwitterElement < PageElement
 
   class << self
     def extract_data_from_params(params)
-      { :from_user => params["_fromUser"],
-        :text      => params["_text"],
+      { :from_user         => params["_fromUser"],
+        :text              => params["_text"],
+        :profile_image_url => params["m_profileImageUrl"],
       }
     end
   end
@@ -12,7 +13,11 @@ class TwitterElement < PageElement
     edata = extra_data
     ## don't merge extra_data and send it back, in this case the data is used as cache
     ## see below.
-    { :from_user => edata["from_user"], :text => edata["text"], :id_str => id_str }
+    { :from_user         => edata["from_user"], 
+      :text              => edata["text"], 
+      :profile_image_url => edata["profile_image_url"] || tweet["user"]["profile_image_url"],
+      :id_str            => id_str,
+    }
   end
   
   def self._type
@@ -32,7 +37,7 @@ class TwitterElement < PageElement
   end
   
   def twitter_url
-    "http://twitter.com/%s/status/%s" % [extra_data["from_user"],id_str]
+    "http://twitter.com/#!/%s/status/%s" % [extra_data["from_user"],id_str]
   end
 
   def tweet

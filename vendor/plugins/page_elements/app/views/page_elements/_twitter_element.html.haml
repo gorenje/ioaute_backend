@@ -5,7 +5,8 @@
 - twhsh = page_element.tweet
 - unless twhsh.nil?
   .twitter_element{ }
-    %img{ :src => twhsh["user"]["profile_image_url"] }
+    %a{ :href => page_element.twitter_url }
+      %img{ :src => twhsh["user"]["profile_image_url"] }
     = twhsh["text"].strip
     .twitter_element_highlight
       &nbsp;
