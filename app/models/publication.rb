@@ -39,6 +39,14 @@ class Publication < ActiveRecord::Base
     event :forget_it do
       transition any - [:deleted,:hidden,:published] => :deleted
     end
+    
+    event :hide_it do
+      transition any - [:locked] => :hidden
+    end
+
+    event :lock_it do
+      transition any => :locked
+    end
   end
 
   class << self
