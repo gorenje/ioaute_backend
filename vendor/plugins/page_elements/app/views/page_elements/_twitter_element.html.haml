@@ -1,13 +1,14 @@
--# TODO would be way cool if the client did an AJAX request to obtain
+-# TODO would be way cool if the client did an AJAX request on the client side to obtain
 -# TODO the twitter data -- then we would not need to store it!
 -# TODO plus we wouldn't have a request per hour limit to deal with. (150 per hour)
--# Would require doing an JSONP request because of XSS
+-# TODO Alternative would be to have the editor send the text data when the tweet is
+-# TODO added to the document
 - twhsh = page_element.tweet
 - unless twhsh.nil?
   .twitter_element{ }
     %a{ :href => page_element.twitter_url }
       %img{ :src => twhsh["user"]["profile_image_url"] }
-    = twhsh["text"].strip
+    != twhsh["text"].strip.convert_urls_to_links("target='_blank'")
     .twitter_element_highlight
       &nbsp;
       = " -- "
