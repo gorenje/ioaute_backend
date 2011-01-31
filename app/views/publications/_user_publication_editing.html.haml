@@ -1,0 +1,16 @@
+%td
+  %a{ :href => publication_path( :id => publication.uuid) }
+    = publication.name || 'Nameless Publication'
+%td
+  = publication.pages.count
+%td{ :id => dom_id_for_plink }
+  %span Editing
+%td
+  %a{ :href => edit_publication_path( :id => publication.uuid)}< Edit
+  %span{ :id => "#{dom_id_for_plink}_publish" }
+    ,
+    %a{ :href => publish_publication_path(:id => publication.uuid, :format => :json, :pub_format => :html), :onclick => "return publishPublication(this, '#{dom_id_for_plink}');" } Publish
+  %span{ :id => "#{dom_id_for_plink}_delete"  }
+    ,
+    = link_to 'Delete', perform_action_publication_path(:id => publication.uuid, :action_to_perform => :delete), :confirm => 'Are you sure?', :method => :post
+  %img{ :id => "#{dom_id_for_plink}_spinner", :src => "/images/spinner.gif", :style => "visibility:hidden;", :width => 16, :height => 16 }

@@ -23,7 +23,7 @@ class Publication < ActiveRecord::Base
     event :publish do
       # because we can't pass parameters to events, we can't generate bitly url here
       # so that we can't prevent the transition on bitly failure.
-      transition any - [:locked,:deleted,:hidden,:published] => :published #, :if => :queue_pdf_generation
+      transition [:created,:editing] => :published #, :if => :queue_pdf_generation
     end
     
     event :bitly_failed do
@@ -37,18 +37,33 @@ class Publication < ActiveRecord::Base
     end
     
     event :forget_it do
-      transition any - [:deleted,:hidden,:published] => :deleted
+      transition [:created,:editing,:deleted] => :deleted
     end
     
     event :hide_it do
-      transition any - [:locked] => :hidden
+      transition [:published,:hidden] => :hidden
     end
 
     event :lock_it do
       transition any => :locked
     end
+
+    event :show_it do
+      transition [:hidden] => [:published], :if => :has_bitly_url?
+      transition [:hidden] => [:editing], :if => :has_no_bitly_url?
+    end
+    
+    event :undelete_it do
+      transition [:deleted] => [:published], :if => :has_bitly_url?
+      transition [:deleted] => [:editing], :if => :has_no_bitly_url?
+    end
   end
 
+  def has_bitly_url?
+    bitlies.count > 0
+  end
+  def has_no_bitly_url? ; !has_bitly_url? ; end
+  
   class << self
     def generate_uuid
       # last 12 chars are always the same - the mac address.

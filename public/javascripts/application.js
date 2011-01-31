@@ -19,7 +19,7 @@ function publishPublication(linkobj, dom_id_for_link) {
           var linkHref = jsonObj.data.bitly.short_url;
           document.getElementById(dom_id_for_link+"_publish").style.visibility = 'hidden';
           document.getElementById(dom_id_for_link+"_delete").style.visibility = 'hidden';
-          document.getElementById(dom_id_for_link).innerHTML = '<a href="' + linkHref + '">' + linkHref + "</a>";
+          document.getElementById(dom_id_for_link).innerHTML = '<a href="' + linkHref + '">Published</a>';
         } else {
           document.getElementById(dom_id_for_link).innerHTML = 'Failed - try again';
         }

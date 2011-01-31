@@ -1,0 +1,9 @@
+%td
+  %a{ :href => publication_path( :id => publication.uuid) }
+    = publication.name || 'Nameless Publication'
+%td
+  = publication.pages.count
+%td{ :id => dom_id_for_plink }
+  %span Deleted
+%td
+  = link_to 'Recover', perform_action_publication_path(:id => publication.uuid, :action_to_perform => :recover), :confirm => 'Are you sure?', :method => :post

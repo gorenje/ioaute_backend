@@ -94,18 +94,28 @@ class PublicationsController < ApplicationController
 
   # show all publications for the current_user.
   def user
-    @publications = current_user.publications.not_deleted
+    @publications = current_user.publications # .not_deleted
   end
+
+  ActionMethodLookup = { 
+    "unhide"  => "show_it!",
+    "hide"    => "hide_it!",
+    "lock"    => "lock_it!",
+    "edit"    => "begin_edit!",
+    "delete"  => "forget_it!",
+    "recover" => "undelete_it!",
+  } unless defined?(ActionMethodLookup)
   
-  def destroy
-    ## NOTE: id in this case is the uuid of the publication
-    Publication.for_user(current_user).find_by_uuid!(params[:id]).forget_it!
+  def perform_action
+    publication = Publication.for_user(current_user).find_by_uuid!(params[:id])
+    publication.send(ActionMethodLookup[params[:action_to_perform]])
   rescue Exception => e
-    flash[:alert] = "Couldn't not delete publication"
+    flash[:alert] = "Couldn't not perform action '#{params[:action_to_perform]}' on publication"
+    Rails.logger.error(e.message)
   ensure
     redirect_to user_publications_path
   end
-
+  
   protected
   
   def generate_default_topics
