@@ -1,10 +1,11 @@
 class LinkElement < PageElement
-
+  include PageElementHelpers::ColorSupport
+  
   class << self
     def extract_data_from_params(params)
-      { :url   => params["_urlString"],
-        :title => params["_linkTitle"],
-      }
+      { :url   => params["m_urlString"],
+        :title => params["m_linkTitle"],
+      }.merge( obtain_colors_from_params(params) )
     end
   end
 

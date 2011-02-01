@@ -89,6 +89,7 @@ class PublicationsController < ApplicationController
       end
     end
   rescue Exception => e
+    flash[:alert] = e.message if Rails.env == "development"
     render "common/publication_does_not_exist", :layout => "application"
   end
 
