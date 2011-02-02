@@ -1,15 +1,18 @@
 class TextElement < PageElement
+  include PageElementHelpers::ColorSupport
+  include PageElementHelpers::FontSupport
 
   class << self
     def extract_data_from_params(params)
-      { :text => params["_textTyped"],
-      }
+      obtain_colors_from_params(params).
+        merge( obtain_font_info_from_params(params) ).
+        merge( :text => params["_textTyped"] )
     end
   end
 
   def _json
     edata = extra_data
-    { :text => (edata["text"] || "Type Text Here"), :id => id_str }
+    edata.merge({ :text => (edata["text"] || "Type Text Here"), :id => id_str })
   end
   
   def self._type

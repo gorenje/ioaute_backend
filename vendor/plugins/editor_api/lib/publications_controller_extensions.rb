@@ -8,13 +8,11 @@ module EditorApi
       def ping
         # BTW always have an even number of tools, this makes the tool box look better
         toolboxitems = [
-          { "id" => "1", "name" => "Text",         "klazz" => "TextTE" },
-          { "id" => "8", "name" => "Small", "klazz" => "HeaderTE", 
-            "font_size" => 16 },
-          { "id" => "9", "name" => "Medium","klazz" => "HeaderTE", 
-            "font_size" => 20 },
-          { "id" => "10", "name" => "Large","klazz" => "HeaderTE", 
-            "font_size" => 24 },
+          basic_text_element,
+          basic_text_element.merge("font_size" => 16, "id" => 8, "name" => "Larger"),
+          basic_text_element.merge("font_size" => 20, "id" => 9, "name" => "Still Larger"),
+          basic_text_element.merge("font_size" => 24, "id" => 10, "name" => "Largest"),
+
           { "id" => "3", "name" => "Image",        "klazz" => "ImageTE" },
           { "id" => "5", "name" => "FB Like",      "klazz" => "FbLikeTE" },
           { "id" => "6", "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
@@ -63,6 +61,12 @@ module EditorApi
       end
       
       protected 
+      
+      def basic_text_element
+        { "id" => "1", "name" => "Text",  "klazz" => "TextTE" ,
+          "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
+          "font_size" => 12, "font_name" => "Arial Black" }
+      end
       
       def pub_format(params)
         case ( params[:pub_format] )
