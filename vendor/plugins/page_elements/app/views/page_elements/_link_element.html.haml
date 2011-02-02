@@ -1,6 +1,8 @@
 :css
-  a#link_#{dom_id(page_element)} {color: #{page_element.css_color_spec}; |
-  #{page_element.css_font_spec}} |
+  a#link_#{dom_id(page_element)} {
+     color: #{page_element.css_color_spec};
+     #{page_element.css_font_spec}
+  }
 .link_element{ }
   %a{ :href => page_element.url, :target => '_blank', :id => "link_#{dom_id(page_element)}" }<
     = page_element.title
