@@ -27,5 +27,6 @@
       - page.page_elements.each do |page_element|
         = render :partial => "page_element", :locals => { :page_element => page_element }
     - if total_pages > 1
-      #page_number{ :class => class_for_page_number(idx, total_pages) }
-        = "Page #{idx+1} of #{total_pages}"
+      %div{ :class => class_for_page_number(idx, total_pages) }
+        #page_number
+          = "Page #{idx+1} of #{total_pages}"
