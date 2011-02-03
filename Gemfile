@@ -3,7 +3,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.0.3'
 
-gem 'haml'
+gem 'haml', "= 3.0.24"
 gem 'haml-rails'
 gem 'hpricot'
 gem 'ruby_parser'
