@@ -9,3 +9,4 @@ public/publications
 db/schema.rb
 config/apis.yml
 .rvmrc
+config/thin.yml
