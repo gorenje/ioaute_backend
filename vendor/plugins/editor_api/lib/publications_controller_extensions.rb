@@ -37,6 +37,7 @@ module EditorApi
 
         send_off_success(params, :data => { 
           :facebook_app_id => ApiKeys.facebook.api_id,
+          :flickr_api_key  => ApiKeys.flickr.api_token,
           :tool_box_items  => toolboxitems.reverse, # ordering is reversed on display
         })
       end
