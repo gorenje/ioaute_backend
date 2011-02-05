@@ -83,6 +83,7 @@ class PageElement < ActiveRecord::Base
   end
   
   def css_style
-    "position: absolute; float: none; top: %dpx; left: %dpx; width: %dpx; height: %dpx;" % [y, x, width, height].map(&:to_i)
+    ('position: absolute; float: none; top: %0.2fpx; left: %0.2fpx; ' +
+     'width: %0.2fpx; height: %0.2fpx; z-index: %d;') % [y, x, width, height, z_index]
   end
 end

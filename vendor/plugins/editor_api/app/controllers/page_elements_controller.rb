@@ -11,8 +11,9 @@ class PageElementsController < ApplicationController
   def resize
     check_page_element(params) do |page_element|
       page_element.
-        update_attributes({ :x      => params[:x],          :y => params[:y], 
-                            :width  => params[:width], :height => params[:height] })
+        update_attributes({ :x       => params[:x],          :y => params[:y], 
+                            :width   => params[:width], :height => params[:height],
+                            :z_index => params[:z_index]})
     end
   end
 
@@ -29,9 +30,9 @@ class PageElementsController < ApplicationController
     publication = Publication.for_user(current_user).find_by_uuid!(params[:publication_id])
     page_element_klazz = PageElement.class_for_isa(params[:isa])
     data = { 
-      :id_str => params[:idStr],
-      :x      => params[:x],          :y => params[:y], 
-      :width  => params[:width], :height => params[:height],
+      :id_str => params[:idStr], :z_index => params[:z_index],
+      :x      => params[:x],           :y => params[:y], 
+      :width  => params[:width],  :height => params[:height],
     }.merge(:data => page_element_klazz.params_to_data(params))
 
     page_element = page_element_klazz.create(data)
