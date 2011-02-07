@@ -18,6 +18,7 @@ class PageElement < ActiveRecord::Base
         "Facebook"      => FacebookElement,
         "Tweet"         => TwitterElement,
         "Flickr"        => FlickrElement,
+        "YouTubeVideo"  => YouTubeVideoElement,
         "GoogleImage"   => GoogleImageElement,
         "ImageTE"       => ImageElement,
         "LinkTE"        => LinkElement,
