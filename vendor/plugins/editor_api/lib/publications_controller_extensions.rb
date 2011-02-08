@@ -8,30 +8,38 @@ module EditorApi
       def ping
         # BTW always have an even number of tools, this makes the tool box look better
         toolboxitems = [
+
+          { "id" => "3",  "name" => "Image",        "klazz" => "ImageTE" },
+          { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
+          { "id" => "4",  "name" => "Link",         "klazz" => "LinkTE" },
+          { "id" => "18", "name" => "YouTube Video", "klazz" => "YouTubeTE" },
+          { "id" => "5",  "name" => "Like it!",      "klazz" => "FbLikeTE" },
+          { "id" => "7",  "name" => "Digg it!",      "klazz" => "DiggButtonTE" },
+          { "id" => "2",  "name" => "Groucho it!",    "klazz" => "MoustacheTE" },
+          { "id" => "17", "name" => "Coming Soon", "klazz" => "ToolElement" },
+ 
           basic_text_element,
           basic_text_element.merge("font_size" => 16, "id" => 8, "name" => "Larger"),
           basic_text_element.merge("font_size" => 20, "id" => 9, "name" => "Still Larger"),
           basic_text_element.merge("font_size" => 24, "id" => 10, "name" => "Largest"),
-
-          { "id" => "3", "name" => "Image",        "klazz" => "ImageTE" },
-          { "id" => "5", "name" => "FB Like",      "klazz" => "FbLikeTE" },
-          { "id" => "6", "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
-          { "id" => "7", "name" => "Digg",         "klazz" => "DiggButtonTE" },
-          { "id" => "4", "name" => "Link",         "klazz" => "LinkTE" },
-          { "id" => "2", "name" => "Moustache",    "klazz" => "MoustacheTE" },
-
-          { "id" => "11", "name" => "Highlight", "klazz" => "HighlightTE",
+                        
+          { "id" => "11", "name" => "Highlight - Green", "klazz" => "HighlightTE",
             "red" => "131", "blue" => "52", "green" => "255", "alpha" => "0.4"},
+
+          { "id" => "19", "name" => "Highlight - Red", "klazz" => "HighlightTE",
+            "red" => "255", "blue" => "52", "green" => "55", "alpha" => "0.4"},
 
           { "id" => "15", "name" => "Horiz Bar", "klazz" => "HighlightTE",
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
             "width" => 200, "height" => 5, "image" => "toolHorizBar" },
+
           { "id" => "16", "name" => "Vert. Bar", "klazz" => "HighlightTE",
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
             "width" => 5, "height" => 200, "image" => "toolVerticalBar" },
                         
           { "id" => "12", "name" => "Coming Soon", "klazz" => "ToolElement" },
           { "id" => "13", "name" => "Coming Soon", "klazz" => "ToolElement" },
+          { "id" => "20", "name" => "Coming Soon", "klazz" => "ToolElement" },
           { "id" => "14", "name" => "Coming Soon", "klazz" => "ToolElement" },
          ]
 

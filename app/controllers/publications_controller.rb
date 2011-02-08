@@ -35,6 +35,7 @@ class PublicationsController < ApplicationController
     if params[:id].nil?
       # cookie details have been set, start the editor. If not, then the editor is fairly
       # useless and the user won't get far.
+      @publication = Publication.find_by_uuid(cookies[:publication_id])
       render "editor", :layout => 'editor'
     else
       @publication = Publication.for_user(current_user).find_by_uuid!(params[:id]) 

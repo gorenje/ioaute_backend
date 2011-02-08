@@ -2,5 +2,5 @@
   %embed{ :src => page_element.video_url, :type=> "application/x-shockwave-flash", :allowscriptaccess=>"always", :width => page_element.width, :height => page_element.height }
   %span 
     = "``" + page_element.title + "''"
-    = " by "
+    = " posted by "
     %a{ :href => "http://www.youtube.com/user/#{page_element.owner}", :target => "_blank" }= page_element.owner
