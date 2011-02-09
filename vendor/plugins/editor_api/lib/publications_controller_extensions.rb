@@ -43,10 +43,26 @@ module EditorApi
           { "id" => "14", "name" => "Coming Soon", "klazz" => "ToolElement" },
          ]
 
+        ## Possible Button Values (to be found in AppController.j):
+        ## DiggToolbarItemIdentifier
+        ## StumbleuponToolbarItemIdentifier
+        ## BitlyUrlToolbarItemIdentifier
+        ##
+        ## PublishPublicationToolbarItemIdentifier
+        ## PublishPublicationHtmlToolbarItemIdentifier
         send_off_success(params, :data => { 
           :facebook_app_id => ApiKeys.facebook.api_id,
           :flickr_api_key  => ApiKeys.flickr.api_token,
           :tool_box_items  => toolboxitems.reverse, # ordering is reversed on display
+          :toolbar_left   => [],
+          :toolbar_middle => [
+                              "FlickrWindowControlItemIdentifier",
+                              "TwitterWindowControlItemIdentifier",
+                              "FacebookToolbarItemIdentifier",
+                              "YouTubeToolbarItemIdentifier",
+                              "GoogleImagesWindowControlItemIdentifier",
+                             ],
+          :toolbar_right  => ["PublishPublicationHtmlToolbarItemIdentifier"],
         })
       end
       

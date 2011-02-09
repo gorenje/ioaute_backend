@@ -29,6 +29,18 @@ class YouTubeVideoElement < PageElement
   def owner
     extra_data["uploader"]
   end
+
+  def show_search_links?
+    true
+  end
+  
+  def links
+    srch_title = CGI.escape(title)
+    [ 
+     ["@Amazon", "http://www.amazon.de/s?field-keywords=#{srch_title}"],
+     ["@Google", "http://google.com/search?q=#{srch_title}"] 
+    ]
+  end
   
   def self._type
     "YouTubeVideo"

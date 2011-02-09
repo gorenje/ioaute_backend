@@ -6,17 +6,17 @@
       %a{ :href => root_path, :target => "_blank" }= WhiteLabel.config.name_for_preview
     #index
       - if current_user == @publication.user
-        %a{ :href => edit_publication_path( :id => @publication.uuid) } [e]
+        %a{ :href => edit_publication_path( :id => @publication.uuid), :target => "_blank" } [e]
         \&nbsp;
       - if total_pages > 1
         - @publication.pages.each_with_index do |_,idx|
           %a{ :href => "#page%02d" % (idx+1) }
             = "[%d]" % (idx+1)
     #facebooklink
-      %a{ :href => "http://www.facebook.com/sharer.php?u=%s" % CGI.escape(bitlyurl) }
+      %a{ :href => "http://www.facebook.com/sharer.php?u=%s" % CGI.escape(bitlyurl), :target => "_blank" }
         %img.facebook{ :src => "/images/facebook.png", :height => "24", :width => "24" }
     #twitterlink
-      %a{ :href => "http://twitter.com/home?status=%s" % CGI.escape("Find my new publication at %s" % bitlyurl) }
+      %a{ :href => "http://twitter.com/home?status=%s" % CGI.escape("Find my new publication at %s" % bitlyurl), :target => "_blank" }
         %img.twitter{ :src => "/images/twitter.png", :height => "22", :width => "22" }
     #page_url
       %a.url{ :href => bitlyurl }= bitlyurl.gsub(/^https?:\/\//,'')
