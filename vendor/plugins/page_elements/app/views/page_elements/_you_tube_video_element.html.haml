@@ -1,5 +1,5 @@
 .you_tube_video_element{ }
-  - if page_element.show_search_links?
+  - if page_element.show_links?
     Find:
     - page_element.links.each_with_index do |link_details, idx|
       - link_title, link_href = link_details
