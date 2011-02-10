@@ -54,7 +54,7 @@ module EditorApi
           :facebook_app_id => ApiKeys.facebook.api_id,
           :flickr_api_key  => ApiKeys.flickr.api_token,
           :tool_box_items  => toolboxitems.reverse, # ordering is reversed on display
-          :toolbar_left   => [],
+          :toolbar_left   => ["BackToPublicationsControlItemIdentifier"],
           :toolbar_middle => [
                               "FlickrWindowControlItemIdentifier",
                               "TwitterWindowControlItemIdentifier",
