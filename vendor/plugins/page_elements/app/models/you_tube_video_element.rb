@@ -53,17 +53,19 @@ class YouTubeVideoElement < PageElement
     # Amazon    => 1
     # Google    => 2
     # Bing      => 4
-    # SevenLoad => 8
+    # iTunes    => 8
     # DuckDuckGo => 16
     srch_title = CGI.escape(title)
     [ 
-     ["@Amazon", "http://www.amazon.de/s?field-keywords=#{srch_title}"],
-     ["@Google", "http://google.com/search?q=#{srch_title}"],
-     ["@Bing", ""],
-     ["@SevenLoad", ""],
-     ["@DuckDuckGo", ""]
+     ["@Amazon", 'http://www.amazon.de/s?field-keywords='],
+     ["@Google", 'http://google.com/search?q='],
+     ["@Bing",   'http://www.bing.com/search?q='],
+     ["@iTunes", 'http://google.com/search?q=site:itunes.apple.com+'],
+     ["@DDG",    'https://duckduckgo.com/?q=']
     ].each_with_index do |link_info, idx|
-      link_dumper << link_info if (srch_flag & (2 ** idx)) > 0
+      if (srch_flag & (2 ** idx)) > 0
+        link_dumper << [link_info[0], link_info[1] + srch_title]
+      end
     end
 
     if edata["artist"] && !edata["artist"]["url"].blank?
