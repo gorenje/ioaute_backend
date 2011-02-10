@@ -1,3 +1,3 @@
 .google_image_element{ }
-  %a{ :href => page_element.extra_data["image_url"], :target => "_blank" }
+  %a{ :href => page_element.extra_data["dest_url"] || page_element.extra_data["image_url"], :target => "_blank" }
     %img{ :src => page_element.extra_data["image_url"], :width => page_element.width, :height => page_element.height }
