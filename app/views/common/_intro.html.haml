@@ -17,13 +17,14 @@
         - else
           %a{:href => destroy_user_session_path, :title => "Logout"} Logout
         |
-        %a{:href => user_publications_path, :title => "My Publications"} My #{WhiteLabel.config.publication.desc.pluralize}
+        %a{:href => user_publications_path, :title => "My #{WhiteLabel.config.publication.desc}"} My #{WhiteLabel.config.publication.desc.pluralize}
         |
-        %a{:href => publication_details_path, :title => "New Publication", :onclick => "setDpi(this);"} New #{WhiteLabel.config.publication.desc}
+        %a{:href => publication_details_path, :title => "New #{WhiteLabel.config.publication.desc}", :onclick => "setDpi(this);"} New #{WhiteLabel.config.publication.desc}
       - else
         = facebook_sign_in_link(fbhsh)
+        %a{:href => new_for_anonymous_user_path, :title => "Create #{WhiteLabel.config.publication.desc}"} Create #{WhiteLabel.config.publication.desc}
         %a.twitter_login{:href => user_sign_in_twitter_path, :title => "Twitter Login"} 
           %img.twitter_login{ :src => '/images/twitter_sign_in.png' }
 #preamble
-  %p{ :class => "notice" }= notice
-  %p{ :class => "alert" }= alert
+  %p.notice= notice
+  %p.alert= alert

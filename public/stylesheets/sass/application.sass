@@ -3,7 +3,7 @@ body
   padding: 0
   color: #333
   font: 13px Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif
-  background: #E2EBED
+  background-color: LightGrey
   text-align: left
 
 a
@@ -25,13 +25,13 @@ acronym
   top: -100%
 
 #container
-  margin: 0 auto
+  margin: 20px auto
   width: 724px
+  height: 100%
   position: relative
   background: #fff
   padding: 0 10px 0 10px
   text-align: left
-  height: 100%
 
 * html #container
   width: 744px
@@ -76,10 +76,13 @@ acronym
 
 #preamble
   margin: 0 20px 0 243px
-  p.notice
-    color: orange
-  p.alert
-    color: red
+
+p.notice
+  color: orange
+p.alert
+  color: red
+p.center
+  text-align: center
 
 #supportingText
   margin: 0 20px 0 243px
@@ -215,3 +218,11 @@ tr.user_publications_row_odd
 
 tr.user_publications_row_even
   background-color: white
+
+.shadow
+  box-shadow: 0px 3px 10px #000
+  -moz-box-shadow: 0px 3px 10px #000
+  -webkit-box-shadow: 0px 3px 10px #000
+  zoom: 1
+  filter: progid:DXImageTransform.Microsoft.Shadow(color='#fff', Direction=135, Strength=3)
+

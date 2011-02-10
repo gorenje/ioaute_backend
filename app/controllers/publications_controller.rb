@@ -1,6 +1,18 @@
 class PublicationsController < ApplicationController
-  skip_before_filter :authenticate_user!, :only => "show"
-  
+  skip_before_filter :authenticate_user!, :only => ["show", "new_for_anonymous_user"]
+
+  def new_for_anonymous_user
+    if params[:dpi] && verify_recaptcha
+      user = User.find_by_email!("anonymous@2monki.es")
+      sign_in :user, user
+      redirect_to new_publication_path(:dpi => params[:dpi] || "96")
+    else
+      render "create_anonymous_user", :layout => "application"
+    end
+  rescue Exception => e
+    render("common/publication_does_not_exist", :layout => "application") 
+  end
+
   # render the details page where a user can enter the details for a new publication
   def details
     render :layout => 'pubform'
@@ -55,7 +67,7 @@ class PublicationsController < ApplicationController
         # basis data and you want to edit the publication.
         case ( params[:commit] )
         when "Update" then redirect_to user_publications_path
-        when "Edit"
+        when "Start Editor"
           if @publication.begin_edit
             setup_cookies_for_publication(@publication)
             cookies[:is_new] = "no"

@@ -16,6 +16,8 @@ Pubme::Application.routes.draw do
   match "/publications/new"      => "publications#new",  :as => :new_publication # allow post
   match "/publications/:id/edit" => "publications#edit", :as => :edit_publication # allow post
   match "/publications/edit"     => "publications#edit", :as => :open_editor_for_edit
+  match("/publications/create"   => "publications#new_for_anonymous_user", 
+        :as => :new_for_anonymous_user)
 
   resources :publications do
     collection do

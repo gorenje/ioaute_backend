@@ -50,19 +50,24 @@ module EditorApi
         ##
         ## PublishPublicationToolbarItemIdentifier
         ## PublishPublicationHtmlToolbarItemIdentifier
+        
+        # If the user isn't a facebook user, then don't show the facebook window
+        middle_buttons = [
+                          "FlickrWindowControlItemIdentifier",
+                          "TwitterWindowControlItemIdentifier",
+                          current_user.facebook_connected? ? "FacebookToolbarItemIdentifier" : nil,
+                          "YouTubeToolbarItemIdentifier",
+                          "GoogleImagesWindowControlItemIdentifier",
+                          ].compact
+        
         send_off_success(params, :data => { 
           :facebook_app_id => ApiKeys.facebook.api_id,
           :flickr_api_key  => ApiKeys.flickr.api_token,
           :tool_box_items  => toolboxitems.reverse, # ordering is reversed on display
           :toolbar_left   => ["BackToPublicationsControlItemIdentifier"],
-          :toolbar_middle => [
-                              "FlickrWindowControlItemIdentifier",
-                              "TwitterWindowControlItemIdentifier",
-                              "FacebookToolbarItemIdentifier",
-                              "YouTubeToolbarItemIdentifier",
-                              "GoogleImagesWindowControlItemIdentifier",
-                             ],
-          :toolbar_right  => ["PublishPublicationHtmlToolbarItemIdentifier"],
+          :toolbar_middle => middle_buttons,
+          :toolbar_right  => ["PreviewPublicationHtmlToolbarItemIdentifier",
+                              "PublishPublicationHtmlToolbarItemIdentifier"],
         })
       end
       

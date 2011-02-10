@@ -1,0 +1,23 @@
+%h3
+  Are you human? Please verify your human-ness:
+
+= form_for(:publication, :as => :post, :url => new_for_anonymous_user_path) do |f|
+  = recaptcha_tags
+  %input{ :type => :hidden, :name => :dpi, :id => "dpi_value_hidden_field", :value => "" }
+  %p
+    \&nbsp;
+  %p.alert
+    Note that all publications you create will be public and any other anonymous user 
+    can edit those publications. This means that you publication might disappear or change 
+    without notice. To avoid this, login with your Facebook account.
+  %p
+    \&nbsp;
+  %p.center
+    = f.submit "Yes, I understand."
+%p
+  \&nbsp;
+
+:javascript
+  document.getElementById('dpi_value_hidden_field').value = getDPI();
+  var recp_input_field = document.getElementById('recaptcha_response_field');
+  if ( recp_input_field ) recp_input_field.focus();

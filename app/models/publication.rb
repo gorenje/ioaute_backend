@@ -93,7 +93,7 @@ class Publication < ActiveRecord::Base
   
   def bitly_url
     # TODO does not consider the format, this could also be pdf.
-    @bitly_url || (@bitly_url = bitlies.first.short_url)
+    @bitly_url || (@bitly_url = (bitlies.first && bitlies.first.short_url))
   end
   
   def to_json_for_editor

@@ -10,10 +10,13 @@
   %br
   %input{ :type => :text, :name => :name, :id => :name_field, :value => publication.name }
   %p
-  %label{ :for => :category_field }= "Topics"
+  %label{ :for => :category_field }
+    Topics
+    %a{ :href => "#twitter_trends" }= "(Twitter)"
+    %a{ :href => "#digg_trends" }= "(Digg)"
   %br
   %textarea{ :id => "category_field", :name => :categories }= publication.topic
   %br
   = f.submit submit_button_title
   - if submit_button_title == "Update"
-    = f.submit "Edit"
+    = f.submit "Start Editor"
