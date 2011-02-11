@@ -2,10 +2,11 @@ class FlickrElement < PageElement
 
   class << self
     def extract_data_from_params(params)
-      { :secret => params["_secret"],
-        :farm   => params["_farm"],
-        :server => params["_server"],
-        :title  => params["_title"],
+      { :secret   => params["_secret"],
+        :farm     => params["_farm"],
+        :server   => params["_server"],
+        :title    => params["_title"],
+        :dest_url => params["m_destUrl"],
       }
     end
   end

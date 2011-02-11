@@ -1,5 +1,7 @@
 .flickr_image{ }
-  %img{ :src => page_element.construct_flickr_image_url, :width => page_element.width, :height => page_element.height }
-  %a.copyright{ :href => page_element.construct_owner_url } &copy;
+  - owner_url = page_element.construct_owner_url
+  %a{ :href => page_element.extra_data["dest_url"] || owner_url, :target => '_blank' }
+    %img{ :src => page_element.construct_flickr_image_url, :width => page_element.width, :height => page_element.height }
+  %a.copyright{ :href => owner_url, :target => '_blank' } &copy;
   - if (title = page_element.flickr_title)
     %span.flickr_image_title= title
