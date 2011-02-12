@@ -26,7 +26,7 @@
   %span{ :class => "spacer" }
   - @publication.pages.each_with_index do |page, idx|
     %a{ :name => "page%02d" % (idx+1) }
-    %div{ :id => dom_id(page), :class => "page_a4 shadow" }
+    %div{ :id => dom_id(page), :class => "#{page.css_class} shadow", :style => page.css_style }
       - page.page_elements.each do |page_element|
         = render :partial => "page_element", :locals => { :page_element => page_element }
     - if total_pages > 1

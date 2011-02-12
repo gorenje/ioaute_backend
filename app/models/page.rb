@@ -19,4 +19,22 @@ class Page < ActiveRecord::Base
                            :methods => ["_type", "_json"]
                          }}))
   end
+  
+  def is_landscape?
+    orientation == "landscape"
+  end
+
+  def is_letter?
+    size == "letter"
+  end
+  
+  def css_class
+    "page_%s%s" % [ is_letter? ? "letter" : "a4", is_landscape? ? "_landscape" : "" ]
+  end
+  
+  def css_style
+    "background-color: rgba(%s,%s,%s,%s);" % ["red", "green", "blue", "alpha"].map do |a| 
+      self.send(a).to_s
+    end
+  end
 end

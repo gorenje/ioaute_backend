@@ -29,11 +29,12 @@ class PagesController < ApplicationController
   
   def update
     with_page_object(params) do |page|
-      ## TODO need to update the page object, right here, right now!
-      page.update_attributes({ :red   => params["m_red"],
-                               :green => params["m_green"],
-                               :blue  => params["m_blue"],
-                               :alpha => params["m_alpha"],
+      page.update_attributes({ :red         => params["m_red"],
+                               :green       => params["m_green"],
+                               :blue        => params["m_blue"],
+                               :alpha       => params["m_alpha"],
+                               :size        => params["m_size"],
+                               :orientation => params["m_orientation"],
                              })
       send_off_success(params, { :data => page })
     end
