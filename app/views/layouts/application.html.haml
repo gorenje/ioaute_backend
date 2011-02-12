@@ -17,7 +17,8 @@
         = yield
         #footer
           = render :partial => 'common/footer'
-      #linkList
-        = render :partial => 'common/linklist'
+        #capp_logo
+          %a{ :href => "" }
+            %img{ :src => "/images/poweredByCappuccinoGray.png", :width => 205, :height => 37 }
     = facebook_root_tag
     = facebook_javascript_include_tag
