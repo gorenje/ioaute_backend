@@ -10,14 +10,15 @@
     = javascript_include_tag :defaults
   %body
     #dpi_sample
-    #container
+    #container{ :class => "shadow" }
       #intro
         = render :partial => 'common/intro'
       #supportingText
         = yield
         #footer
           = render :partial => 'common/footer'
-      #linkList
-        = render :partial => 'common/linklist'
+        #capp_logo
+          %a{ :href => "http://cappuccino.org", :target => '_blank' }
+            %img{ :src => "/images/poweredByCappuccinoGray.png", :width => 205, :height => 37 }
     = facebook_root_tag
     = facebook_javascript_include_tag

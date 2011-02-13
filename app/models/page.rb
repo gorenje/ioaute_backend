@@ -9,6 +9,16 @@ class Page < ActiveRecord::Base
     ## TODO end). But we might not do it ....
   end
   
+  class << self
+    def create_copy(original_page, page_number)
+      page_copy = original_page.clone
+      page_copy.number = page_number
+      page_copy.save
+      page_copy.page_elements = original_page.page_elements.map { |a| a.clone }
+      page_copy
+    end
+  end
+  
   def to_json_for_editor
     ## TODO fix this hack: to_json_for_editor should return a hash since it's incorporated
     ## TODO into a hash and then converted to Json. What happens now is that this data
