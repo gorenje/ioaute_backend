@@ -3,14 +3,14 @@ class PagesController < ApplicationController
   def new
     retrieve_pages_from_publication(params) do |pages|
       pages << Page.create(:name => params[:name], :number => pages.map(&:number).max + 1)
-      send_off_success(params, {:data => pages})
+      send_off_success(params, {:data => pages.sort_by(&:number)})
     end
   end
 
   def index
     retrieve_pages_from_publication(params) do |pages|
       pages << Page.create(:name => "Page", :number => 1) if ( pages.empty?)
-      send_off_success(params, {:data => pages})
+      send_off_success(params, {:data => pages.sort_by(&:number)})
     end
   end
 

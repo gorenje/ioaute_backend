@@ -24,7 +24,7 @@
       - if bitlyurl
         %a.url{ :href => bitlyurl }= bitlyurl.gsub(/^https?:\/\//,'')
   %span{ :class => "spacer" }
-  - @publication.pages.each_with_index do |page, idx|
+  - @publication.pages.sort_by(&:number).each_with_index do |page, idx|
     %a{ :name => "page%02d" % (idx+1) }
     %div{ :id => dom_id(page), :class => "#{page.css_class} shadow", :style => page.css_style }
       - page.page_elements.each do |page_element|
