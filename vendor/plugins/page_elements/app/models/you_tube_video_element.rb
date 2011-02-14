@@ -38,8 +38,14 @@ class YouTubeVideoElement < PageElement
 
   def show_links?
     edata = extra_data
-    ((edata["m_search_engines"].to_i || 0) > 0) || (edata["artist"] && 
-                                                    !edata["artist"]["url"].blank?)
+    ((edata["m_search_engines"].to_i > 0 && 
+      edata["m_search_engines"].to_i != 32) || (edata["artist"] &&
+                                               !edata["artist"]["name"].blank? &&
+                                               !edata["artist"]["url"].blank?))
+  end
+  
+  def dont_show_title?
+    (extra_data["m_search_engines"].to_i & 32) > 0
   end
   
   def links
@@ -55,6 +61,7 @@ class YouTubeVideoElement < PageElement
     # Bing      => 4
     # iTunes    => 8
     # DuckDuckGo => 16
+    # **** SPECIAL **** 32 means, if set, don't show the title at the bottom of the video
     srch_title = CGI.escape(title)
     [ 
      ["@Amazon", 'http://www.amazon.de/s?field-keywords='],

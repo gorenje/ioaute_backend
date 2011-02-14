@@ -5,7 +5,8 @@
       - link_title, link_href = link_details
       %a{ :href => link_href, :target => '_blank' }= link_title
   %embed{ :src => page_element.video_url, :type=> "application/x-shockwave-flash", :allowscriptaccess=>"always", :width => page_element.width, :height => page_element.height }
-  %span 
-    = "``" + page_element.title + "''"
-    posted by
-    %a{ :href => "http://www.youtube.com/user/#{page_element.owner}", :target => "_blank" }= page_element.owner
+  - unless page_element.dont_show_title?
+    %span 
+      = "``" + page_element.title + "''"
+      posted by
+      %a{ :href => "http://www.youtube.com/user/#{page_element.owner}", :target => "_blank" }= page_element.owner
