@@ -15,20 +15,21 @@ class PageElement < ActiveRecord::Base
     # on face value, check whether we have a corresponding mapping for the isa value.
     def class_for_isa(isa_str)
       (@@lokuptable || (@@lokuptable={
-        "Facebook"      => FacebookElement,
-        "Tweet"         => TwitterElement,
-        "Flickr"        => FlickrElement,
-        "YouTubeVideo"  => YouTubeVideoElement,
-        "YouTubeTE"     => YouTubeVideoElement,
-        "GoogleImage"   => GoogleImageElement,
-        "ImageTE"       => ImageElement,
-        "LinkTE"        => LinkElement,
-        "TextTE"        => TextElement,
-        "FbLikeTE"      => FbLikeElement,
-        "DiggButtonTE"  => DiggButtonElement,
-        "TwitterFeedTE" => TwitterFeedElement,
-        "MoustacheTE"   => MoustacheElement,
-        "HighlightTE"   => HighlightElement,
+        "Facebook"       => FacebookElement,
+        "Tweet"          => TwitterElement,
+        "Flickr"         => FlickrElement,
+        "YouTubeVideo"   => YouTubeVideoElement,
+        "YouTubeTE"      => YouTubeVideoElement,
+        "GoogleImage"    => GoogleImageElement,
+        "ImageTE"        => ImageElement,
+        "LinkTE"         => LinkElement,
+        "TextTE"         => TextElement,
+        "FbLikeTE"       => FbLikeElement,
+        "DiggButtonTE"   => DiggButtonElement,
+        "TwitterFeedTE"  => TwitterFeedElement,
+        "MoustacheTE"    => MoustacheElement,
+        "HighlightTE"    => HighlightElement,
+        "PayPalButtonTE" => PayPalButtonElement,
       }))[isa_str] || "UnknownClass#{isa_str}"
     end
 

@@ -1,4 +1,7 @@
 :css
-  div#text_container_#{dom_id(page_element)}{color: #{page_element.css_color_spec}; #{page_element.css_font_spec};}
+  div#text_container_#{dom_id(page_element)} {
+    color: #{page_element.css_color_spec}; 
+    #{page_element.css_font_spec};
+  }
 .text_element{ :id => "text_container_#{dom_id(page_element)}" }<
   = preserve(page_element.extra_data["text"].nbsp_leading_whitespace)
