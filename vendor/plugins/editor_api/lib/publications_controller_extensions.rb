@@ -10,8 +10,8 @@ module EditorApi
         toolboxitems = [
 
           { "id" => "3",  "name" => "Image",        "klazz" => "ImageTE" },
-          { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
           { "id" => "4",  "name" => "Link",         "klazz" => "LinkTE" },
+          { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
           { "id" => "18", "name" => "YouTube Video","klazz" => "YouTubeTE" },
           { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
           { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE" },
