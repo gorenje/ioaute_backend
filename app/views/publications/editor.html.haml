@@ -1,6 +1,8 @@
 :javascript
   OBJJ_MAIN_FILE = "/PublishMeEditor/main.j";
+  OBJJ_AUTO_BOOTSTRAP = false;
 %script{:charset => "UTF-8", :src => "/PublishMeEditor/Frameworks/Objective-J/Objective-J.js?#{File.basename(FileUtils.pwd)}", :type => "text/javascript"}
+%script{:charset => "UTF-8", :src => "/PublishMeEditor/Application.js?#{File.basename(FileUtils.pwd)}", :type => "text/javascript"}
 #cappuccino-body
   #pls_wait_msg
     .labeled

@@ -8,23 +8,24 @@ require 'fileutils'
 
 namespace :editor do
   desc <<-EOF
-   This deploys the cappuccino editor into our public directory and makes necessary changes.
-
+   This deploys the cappuccino editor into our public directory and 
+   makes necessary changes.
    This assumes that the cappuccino editor is located in ../editor (relative to the 
    location of the Rakefile).
   EOF
   task :install => :environment do
     startTime = Time.now
     puts "1. Building editor with jake - " + startTime.to_s
-    results = `cd #{Rails.root}/../editor && jake deploy 2>&1`
+    results = `cd #{Rails.root}/../editor && jake flatten 2>&1`
     puts ">>> This is what jake had to say: "
     puts "==========================================="
     puts results
     puts "==========================================="
 
     puts "2. Moving to public directory"
-    src_dir = "#{Rails.root}/../editor/Build/Deployment/PublishMeEditor"
+    src_dir = "#{Rails.root}/../editor/Build/Flatten/PublishMeEditor"
     dirname, base_dest_dir = File.basename(src_dir), "#{Rails.root}/public"
+
     unless src_dir.blank? or dirname.blank?
       puts ">>> Determined jake deploy directory to be '#{src_dir}'"
       FileUtils.rm_rf("#{base_dest_dir}/#{dirname}")
@@ -36,7 +37,8 @@ namespace :editor do
       end
       `open -a Safari "http://localhost:3000"`
     else
-      puts "!!ERROR!!: did nothing because i could not determine the output directory from jake"
+      puts("!!ERROR!!: did nothing because i could not determine "+
+           "the output directory from jake")
       exit 1
     end
     puts ("Time taken: %0.2f seconds" % (Time.now - startTime))
