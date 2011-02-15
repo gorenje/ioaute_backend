@@ -60,8 +60,9 @@ namespace :deploy do
   desc "copy assets to the assets server"
   task :copy_resources do
     { 
-      "moustache.png"   => "images",
-      "placeholder.png" => "images"
+      "moustache.png"     => "images",
+      "placeholder.png"   => "images",
+      "speech-bubble.png" => "images",
     }.each do |srcfile, targetdir|
       run "cp -f #{current_path}/#{resources_location}/#{srcfile} /var/www/assets/#{targetdir}"
     end

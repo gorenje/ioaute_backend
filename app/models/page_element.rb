@@ -27,7 +27,6 @@ class PageElement < ActiveRecord::Base
         "FbLikeTE"       => FbLikeElement,
         "DiggButtonTE"   => DiggButtonElement,
         "TwitterFeedTE"  => TwitterFeedElement,
-        "MoustacheTE"    => MoustacheElement,
         "HighlightTE"    => HighlightElement,
         "PayPalButtonTE" => PayPalButtonElement,
       }))[isa_str] || "UnknownClass#{isa_str}"

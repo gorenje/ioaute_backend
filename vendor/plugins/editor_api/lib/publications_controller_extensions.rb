@@ -15,7 +15,12 @@ module EditorApi
           { "id" => "18", "name" => "YouTube Video","klazz" => "YouTubeTE" },
           { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
           { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE" },
-          { "id" => "2",  "name" => "Groucho it!",  "klazz" => "MoustacheTE" },
+
+          { "id" => "2",  "name" => "Groucho it!",  "klazz" => "ImageTE",
+            "dest_url" => "http://www.flickr.com/photos/marcjohns/2553260141/",
+            "pic_url" => "http://assets.2monki.es/images/moustache.png",
+            "tool_image" => "toolMoustache", "width" => 150, "height" => 50 },
+                        
           { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
  
           basic_text_element,
@@ -37,7 +42,11 @@ module EditorApi
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
             "width" => 5, "height" => 200, "image" => "toolVerticalBar" },
                         
-          { "id" => "12", "name" => "Coming Soon", "klazz" => "ToolElement" },
+          { "id" => "12", "name" => "Bubble", "klazz" => "ImageTE",
+            "dest_url" => "http://duncanpierce.org/files/images/speech-question-marks.png",
+            "pic_url" => "http://assets.2monki.es/images/speech-bubble.png",
+            "tool_image" => "toolSpeechBubble", "width" => 125, "height" => 125 },
+                        
           { "id" => "13", "name" => "Coming Soon", "klazz" => "ToolElement" },
           { "id" => "20", "name" => "Coming Soon", "klazz" => "ToolElement" },
           { "id" => "14", "name" => "Coming Soon", "klazz" => "ToolElement" },
