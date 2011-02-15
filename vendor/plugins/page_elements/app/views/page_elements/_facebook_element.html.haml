@@ -1,4 +1,5 @@
 .facebook_image{ }
-  %img{ :src => page_element.image_src_url, :width => page_element.width, :height => page_element.height }
+  %a{ :href => page_element.destination_url, :target => '_blank' }
+    %img{ :src => page_element.image_src_url, :width => page_element.width, :height => page_element.height }
   - owner_link = page_element.link_to_owner || ("http://google.com/?q=%s" % CGI.escape(page_element.owner))
   %a.owner{ :href => owner_link }= "By " + page_element.owner

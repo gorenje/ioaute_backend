@@ -6,16 +6,18 @@ class FacebookElement < PageElement
         :src_url  => params["_srcUrl"],
         :owner    => params["_fromUser"],
         :owner_id => params["_fromUserId"],
+        :dest_url => params["m_destUrl"],
       }
     end
   end
 
   def _json
     edata = extra_data
-    { :picture => edata["pic_url"], 
-      :source  => edata["src_url"],
-      :id      => id_str,
-      :from    => { :name => edata["owner"], :id => edata["owner_id"] },
+    { :picture  => edata["pic_url"], 
+      :source   => edata["src_url"],
+      :id       => id_str,
+      :from     => { :name => edata["owner"], :id => edata["owner_id"] },
+      :dest_url => edata["dest_url"],
     }
   end
 
@@ -25,6 +27,11 @@ class FacebookElement < PageElement
   
   def owner
     extra_data["owner"]
+  end
+  
+  def destination_url
+    durl = extra_data["dest_url"]
+    durl.blank? ? extra_data["src_url"] : durl
   end
   
   def link_to_owner
