@@ -14,6 +14,19 @@ class PagesController < ApplicationController
     end
   end
 
+  def reorder
+    retrieve_pages_from_publication(params) do |pages|
+      ## list is a comma separated string ===> id,number,id,number,....
+      ## convert to array (assuming the best ...)
+      params[:list].split(",").in_groups_of(2).each do |page_idx, page_number|
+        begin
+          pages.find(page_idx).update_attributes( :number => page_number )
+        rescue ActiveRecord::RecordNotFound => e ; end
+      end
+      send_off_success(params)
+    end
+  end
+  
   def show
     with_page_object(params) do |page, _|
       send_off_success(params, { :data => page.to_json_for_editor})
@@ -36,6 +49,7 @@ class PagesController < ApplicationController
                                :alpha       => params["m_alpha"],
                                :size        => params["m_size"],
                                :orientation => params["m_orientation"],
+                               :name        => params["m_name"],
                              })
       send_off_success(params, { :data => page })
     end

@@ -13,6 +13,7 @@ class Page < ActiveRecord::Base
     def create_copy(original_page, page_number)
       page_copy = original_page.clone
       page_copy.number = page_number
+      page_copy.name = "Copy of %s" % original_page.name
       page_copy.save
       page_copy.page_elements = original_page.page_elements.map { |a| a.clone }
       page_copy

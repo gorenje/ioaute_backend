@@ -31,6 +31,9 @@ Pubme::Application.routes.draw do
       end
     end
     resources :pages do
+      collection do
+        put :reorder
+      end
       member do
         get :copy
       end
