@@ -1,0 +1,12 @@
+ExceptionMailer#send_exception
+
+Publication
+
+= @publication.nil? ? "PUBLICATION WAS NIL" : "ID: %d UUID: %s" % [@publication.id, @publication.uuid]
+
+Backtrace:
+
+- if @exception.nil?
+  Exception was nil
+- else
+  = @exception.backtrace

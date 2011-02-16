@@ -102,7 +102,12 @@ class PublicationsController < ApplicationController
       end
     end
   rescue Exception => e
-    flash[:alert] = e.message if Rails.env == "development"
+    if Rails.env == "development"
+      flash[:alert] = e.message
+    else
+      Rails.logger.error(e.message)
+      ExceptionMailer.send_exception(e, @publication).deliver
+    end
     render "common/publication_does_not_exist", :layout => "application"
   end
 
