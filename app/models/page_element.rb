@@ -17,6 +17,7 @@ class PageElement < ActiveRecord::Base
       (@@lokuptable || (@@lokuptable={
         "Facebook"       => FacebookElement,
         "Tweet"          => TwitterElement,
+        "TweetTE"        => TwitterElement,
         "Flickr"         => FlickrElement,
         "YouTubeVideo"   => YouTubeVideoElement,
         "YouTubeTE"      => YouTubeVideoElement,

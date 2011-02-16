@@ -12,17 +12,25 @@ module EditorApi
           { "id" => "3",  "name" => "Image",        "klazz" => "ImageTE" },
           { "id" => "4",  "name" => "Link",         "klazz" => "LinkTE" },
           { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
-          { "id" => "18", "name" => "YouTube Video","klazz" => "YouTubeTE" },
-          { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
-          { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE" },
+          { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
 
-          { "id" => "2",  "name" => "Groucho it!",  "klazz" => "ImageTE",
+          { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
+
+          { "id" => "18", "name" => "YouTube Video","klazz" => "YouTubeTE" },
+                        { "id" => "2",  "name" => "Groucho it!",  "klazz" => "ImageTE",
             "dest_url" => "http://www.flickr.com/photos/marcjohns/2553260141/",
             "pic_url" => "http://assets.2monki.es/images/moustache.png",
             "tool_image" => "toolMoustache", "width" => 150, "height" => 50 },
                         
-          { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
  
+          { "id" => "12", "name" => "Bubble", "klazz" => "ImageTE",
+            "dest_url" => "http://duncanpierce.org/files/images/speech-question-marks.png",
+            "pic_url" => "http://assets.2monki.es/images/speech-bubble.png",
+            "tool_image" => "toolSpeechBubble", "width" => 125, "height" => 125 },
+                        
+          { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE" },
+          { "id" => "13", "name" => "Tweet", "klazz" => "TweetTE" },
+
           basic_text_element,
           basic_text_element.merge("font_size" => 16, "id" => 8, "name" => "Larger"),
           basic_text_element.merge("font_size" => 20, "id" => 9, "name" => "Still Larger"),
@@ -42,12 +50,6 @@ module EditorApi
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
             "width" => 5, "height" => 200, "image" => "toolVerticalBar" },
                         
-          { "id" => "12", "name" => "Bubble", "klazz" => "ImageTE",
-            "dest_url" => "http://duncanpierce.org/files/images/speech-question-marks.png",
-            "pic_url" => "http://assets.2monki.es/images/speech-bubble.png",
-            "tool_image" => "toolSpeechBubble", "width" => 125, "height" => 125 },
-                        
-          { "id" => "13", "name" => "Tweet", "klazz" => "TweetTE" },
           { "id" => "20", "name" => "Coming Soon", "klazz" => "ToolElement" },
           { "id" => "14", "name" => "Coming Soon", "klazz" => "ToolElement" },
          ]
