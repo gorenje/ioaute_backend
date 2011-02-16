@@ -47,7 +47,7 @@ module EditorApi
             "pic_url" => "http://assets.2monki.es/images/speech-bubble.png",
             "tool_image" => "toolSpeechBubble", "width" => 125, "height" => 125 },
                         
-          { "id" => "13", "name" => "Coming Soon", "klazz" => "ToolElement" },
+          { "id" => "13", "name" => "Tweet", "klazz" => "TweetTE" },
           { "id" => "20", "name" => "Coming Soon", "klazz" => "ToolElement" },
           { "id" => "14", "name" => "Coming Soon", "klazz" => "ToolElement" },
          ]

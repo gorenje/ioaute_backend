@@ -6,18 +6,18 @@
 - twhsh = page_element.tweet
 - unless twhsh.nil?
   .twitter_element{ }
-    %a{ :href => page_element.twitter_url }
+    %a{ :href => page_element.twitter_url, :target => '_blank' }
       %img{ :src => twhsh["user"]["profile_image_url"] }
     != twhsh["text"].strip.convert_urls_to_links("target='_blank'")
     .twitter_element_highlight
       &nbsp;
       = " -- "
       - unless twhsh["user"]["url"].nil?
-        %a{ :href => twhsh["user"]["url"] }
+        %a{ :href => twhsh["user"]["url"], :target => '_blank' }
           = twhsh["user"]["name"] || twhsh["user"]["screen_name"]
       - else
         = twhsh["user"]["name"] || twhsh["user"]["screen_name"]
 - else
   .twitter_element{ }
-    %a{ :href => page_element.twitter_url }
+    %a{ :href => page_element.twitter_url, :target => '_blank' }
       Tweet not found
