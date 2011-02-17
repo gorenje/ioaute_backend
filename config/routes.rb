@@ -19,7 +19,7 @@ Pubme::Application.routes.draw do
 
   match("/anonymous/new_publication"   => "anonymous_user#new_publication", 
         :as => :new_for_anonymous_user)
-  match("/anonymous/copy_publication"   => "anonymous_user#copy_publication", 
+  match("/anonymous/:id/copy"   => "anonymous_user#copy_publication", 
         :as => :copy_for_anonymous_user)
   match("/anonymous/login"   => "anonymous_user#login", :as => :anonymous_sign_in)
 

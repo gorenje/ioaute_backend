@@ -1,15 +1,18 @@
 %div{ :id => dom_id(@publication), :class => "publication" }
+  - pubuuid = @publication.uuid
   - bitlyurl = @publication.bitly_url
   - total_pages = @publication.pages.count
   #infobox{ :class => "shadow" }
     #logo
-      %a{ :href => root_path, :target => "_blank" }= WhiteLabel.config.name_for_preview
+      %a{ :href => root_path }= WhiteLabel.config.name_for_preview
     #index
       - if current_user
         - if current_user == @publication.user
-          %a{ :href => edit_publication_path(:id => @publication.uuid), :target => "_blank" } [edit]
-        %a{ :href => copy_publication_path(:id => @publication.uuid), :target => "_blank" } [copy]
-        \&nbsp;
+          %a{ :href => edit_publication_path(:id => pubuuid), :target => "_blank" } [edit]
+        %a{ :href => copy_publication_path(:id => pubuuid), :target => "_blank" } [copy]
+      - else
+        %a{ :href => copy_for_anonymous_user_path(:id => pubuuid), :target => "_blank" } [copy]
+      \&nbsp;
       - if total_pages > 1
         - @publication.pages.each_with_index do |_,idx|
           %a{ :href => "#page%02d" % (idx+1) }

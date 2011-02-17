@@ -1,5 +1,5 @@
 %h3
-  Are you human? Please verify your human-ness:
+  Are you human? To avoid spam, please verify your human-ness:
 
 = form_for(:publication, :as => :post, :url => @url) do |f|
   = recaptcha_tags
@@ -7,9 +7,10 @@
   %p
     \&nbsp;
   %p.alert
-    Note that all publications you create will be public and any other anonymous user 
-    can edit those publications. This means that you publication might disappear or change 
-    without notice. To avoid this, login with your Facebook account.
+    Note that all publications you create will be <b style="color:blue">public</b> and any other anonymous user 
+    can edit those publications. This means that you publication might <b style="color:blue">disappear</b> or change 
+    without <b style="color:blue">notice</b>. To avoid this, login via your Twitter or Facebook 
+    account. Your will then be associated with your login.
   %p
     \&nbsp;
   %p.center
