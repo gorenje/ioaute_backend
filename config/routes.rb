@@ -25,6 +25,7 @@ Pubme::Application.routes.draw do
       get :user # all publications for the user.
     end
     member do
+      get :copy
       get :publish
       scope ':action_to_perform' do
         post :perform_action

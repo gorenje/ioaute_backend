@@ -80,6 +80,30 @@ class Publication < ActiveRecord::Base
                                 else Publication.find(id_str).uuid
                                 end, opts)
     end
+    
+    def create_copy(original_publication, new_owner)
+      pub_copy = original_publication.clone
+      pub_copy.uuid = nil
+      pub_copy.save
+      pub_copy.update_attributes({ :state        => "created",
+                                   :user         => new_owner,
+                                   :name         => "Copy of %s" % original_publication.name,
+                                   :published_at => nil,
+                                   :updated_at   => nil,
+                                   :created_at   => Time.now,
+                                   :locked_at    => nil,
+                                   :deleted_at   => nil})
+      pub_copy.pages = original_publication.pages.map do |orig_page| 
+        (new_page = orig_page.clone).save
+        new_page.page_elements = orig_page.page_elements.map { |a| a.clone }
+        new_page
+      end
+      pub_copy
+    end
+  end
+  
+  def create_copy(new_owner)
+    Publication.create_copy(self, new_owner)
   end
   
   # check whether we can display this publication

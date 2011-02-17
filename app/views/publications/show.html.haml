@@ -5,8 +5,10 @@
     #logo
       %a{ :href => root_path, :target => "_blank" }= WhiteLabel.config.name_for_preview
     #index
-      - if current_user == @publication.user
-        %a{ :href => edit_publication_path( :id => @publication.uuid), :target => "_blank" } [e]
+      - if current_user
+        - if current_user == @publication.user
+          %a{ :href => edit_publication_path(:id => @publication.uuid), :target => "_blank" } [edit]
+        %a{ :href => copy_publication_path(:id => @publication.uuid), :target => "_blank" } [copy]
         \&nbsp;
       - if total_pages > 1
         - @publication.pages.each_with_index do |_,idx|

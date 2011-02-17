@@ -35,6 +35,16 @@ class PublicationsController < ApplicationController
     cookies[:is_new] = "yes"
     render "editor", :layout => 'editor'
   end
+
+  def copy
+    setup_cookies_for_publication(Publication.
+                                  find_by_uuid!(params[:id]).create_copy(current_user))
+    cookies[:is_new] = "no"
+    redirect_to open_editor_for_edit_path
+  rescue Exception => e
+    ExceptionMailer.send_exception(e, @publication).deliver
+    render("common/publication_does_not_exist", :layout => "application") 
+  end
   
   # this takes two forms: details listing with edit button and the rendering of the
   # editor when the form is submitted (to edit). It basically combines details and new 
