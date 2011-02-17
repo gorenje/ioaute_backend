@@ -12,23 +12,20 @@ class PublicationsController < ApplicationController
     ## TODO one salt pro application start, etc etc.
     publication_uuid  = Publication.generate_uuid
 
-    setup_cookies_for_publication(Publication.create({ 
+    @publication = Publication.create({ 
       :uuid  => publication_uuid,
       :name  => params[:name].blank? ? publication_uuid : params[:name],
       :topic => params[:categories].blank? ? generate_default_topics : params[:categories],
       :dpi   => params[:dpi],
       :user  => current_user,
-    }))
+    })
 
-    cookies[:is_new] = "yes"
-    render "editor", :layout => 'editor'
+    do_begin_edit("yes")
   end
 
   def copy
-    setup_cookies_for_publication(Publication.
-                                  find_by_uuid!(params[:id]).create_copy(current_user))
-    cookies[:is_new] = "no"
-    redirect_to open_editor_for_edit_path
+    @publication = Publication.find_by_uuid!(params[:id]).create_copy(current_user)
+    do_begin_edit
   rescue Exception => e
     render("common/publication_does_not_exist", :layout => "application")
     ExceptionMailer.send_exception(e, @publication).deliver
@@ -41,11 +38,10 @@ class PublicationsController < ApplicationController
   # and before loading the editor (it takes all it's values from cookies) because we
   # want to remove the publication id from the path (otherwise the editor images don't load).
   def edit    
-    ## NOTE: id in this case is the uuid of the publication
     if params[:id].nil?
       # cookie details have been set, start the editor. If not, then the editor is fairly
       # useless and the user won't get far.
-      @publication = Publication.find_by_uuid(cookies[:publication_id])
+      # @publication = Publication.find_by_uuid(cookies[:publication_id])
       render "editor", :layout => 'editor'
     else
       @publication = Publication.for_user(current_user).find_by_uuid!(params[:id]) 
@@ -64,16 +60,8 @@ class PublicationsController < ApplicationController
         # Two types of commit: a) update just updating the basis data or b) update the
         # basis data and you want to edit the publication.
         case ( params[:commit] )
-        when "Update" then redirect_to user_publications_path
-        when "Start Editor"
-          if @publication.begin_edit
-            setup_cookies_for_publication(@publication)
-            cookies[:is_new] = "no"
-            redirect_to open_editor_for_edit_path
-          else
-            flash[:alert] = "Can not edit publication"
-            redirect_to user_publications_path
-          end
+        when "Update"       then redirect_to user_publications_path
+        when "Start Editor" then do_begin_edit
         else
           render("common/publication_does_not_exist", :layout => "application") 
         end
@@ -84,29 +72,23 @@ class PublicationsController < ApplicationController
   end
   
   def show
-    @publication = Publication.find_by_params_id!(params[:id], :include => "pages")
+    handle_exceptions(params) do
+      @publication = Publication.find_by_params_id!(params[:id], :include => "pages")
 
-    unless @publication.viewable?
-      render("common/publication_does_not_exist", :layout => "application") 
-    else
-      respond_to do |format|
-        format.xml  { render :xml => @publication, :layout => false }
-        format.json { render :json => @publication.to_json_for_editor, :layout => false }
-        format.pdf  { send_data(@publication.to_pdf, 
-                                :filename => "#{@publication.uuid}.pdf", 
-                                :type => "application/pdf") }
-        # everything else gets a html page.
-        format.all  { render :layout => 'publication' }
+      unless @publication.viewable?
+        render("common/publication_does_not_exist", :layout => "application") 
+      else
+        respond_to do |format|
+          format.xml  { render :xml => @publication, :layout => false }
+          format.json { render :json => @publication.to_json_for_editor, :layout => false }
+          format.pdf  { send_data(@publication.to_pdf, 
+                                  :filename => "#{@publication.uuid}.pdf", 
+                                  :type => "application/pdf") }
+          # everything else gets a html page.
+          format.all  { render :layout => 'publication' }
+        end
       end
     end
-  rescue Exception => e
-    if Rails.env == "development"
-      flash[:alert] = e.message
-    else
-      Rails.logger.error(e.message)
-      ExceptionMailer.send_exception(e, @publication).deliver
-    end
-    render "common/publication_does_not_exist", :layout => "application"
   end
 
   # show all publications for the current_user.
@@ -114,6 +96,7 @@ class PublicationsController < ApplicationController
     @publications = current_user.publications # .not_deleted
   end
 
+  # used on the user-publications page to modify the state of the publication.
   def perform_action
     publication = Publication.for_user(current_user).find_by_uuid!(params[:id])
     publication.send(ActionMethodLookup[params[:action_to_perform]])
@@ -141,5 +124,16 @@ class PublicationsController < ApplicationController
     cookies[:server]         = server_url
     cookies[:salt]           = UUIDTools::UUID.timestamp_create.to_s.gsub(/-/, '')
     cookies[:dpi]            = publication.dpi
+  end
+  
+  def do_begin_edit(is_new = "no")
+    if @publication.begin_edit
+      setup_cookies_for_publication(@publication)
+      cookies[:is_new] = is_new
+      redirect_to open_editor_for_edit_path
+    else
+      flash[:alert] = "Can not edit publication"
+      redirect_to user_publications_path
+    end
   end
 end

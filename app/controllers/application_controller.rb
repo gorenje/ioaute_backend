@@ -51,10 +51,10 @@ class ApplicationController < ActionController::Base
       Rails.logger.error(e.backtrace.join("\n"))
     else
       if @publication
-        ExceptionMailer.send_exception(e, @publication).deliver
+        ExceptionMailer.send_exception(e, @publication)
       else
-        ExceptionMailer.evilness_happened(e, params).deliver
-      end
+        ExceptionMailer.evilness_happened(e, params)
+      end.deliver
     end
     render("common/publication_does_not_exist", :layout => "application")
   end
