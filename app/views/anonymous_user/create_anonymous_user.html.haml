@@ -1,7 +1,7 @@
 %h3
   Are you human? Please verify your human-ness:
 
-= form_for(:publication, :as => :post, :url => new_for_anonymous_user_path) do |f|
+= form_for(:publication, :as => :post, :url => @url) do |f|
   = recaptcha_tags
   %input{ :type => :hidden, :name => :dpi, :id => "dpi_value_hidden_field", :value => "" }
   %p

@@ -22,9 +22,12 @@
         %a{:href => publication_details_path, :title => "New #{WhiteLabel.config.publication.desc}", :onclick => "setDpi(this);"} New #{WhiteLabel.config.publication.desc}
       - else
         = facebook_sign_in_link(fbhsh)
-        %a{:href => new_for_anonymous_user_path, :title => "Create #{WhiteLabel.config.publication.desc}"} Create #{WhiteLabel.config.publication.desc}
         %a.twitter_login{:href => user_sign_in_twitter_path, :title => "Twitter Login"} 
           %img.twitter_login{ :src => '/images/twitter_sign_in.png' }
+        |
+        %a{:href => anonymous_sign_in_path, :title => "Anonymous Sign in"} Login
+        |
+        %a{:href => new_for_anonymous_user_path, :title => "Create #{WhiteLabel.config.publication.desc}"} Create #{WhiteLabel.config.publication.desc}
 #preamble
   %p.notice= notice
   %p.alert= alert

@@ -1,17 +1,5 @@
 class PublicationsController < ApplicationController
-  skip_before_filter :authenticate_user!, :only => ["show", "new_for_anonymous_user"]
-
-  def new_for_anonymous_user
-    if params[:dpi] && verify_recaptcha
-      user = User.find_by_email!("anonymous@2monki.es")
-      sign_in :user, user
-      redirect_to new_publication_path(:dpi => params[:dpi] || "96")
-    else
-      render "create_anonymous_user", :layout => "application"
-    end
-  rescue Exception => e
-    render("common/publication_does_not_exist", :layout => "application") 
-  end
+  skip_before_filter :authenticate_user!, :only => ["show"]
 
   # render the details page where a user can enter the details for a new publication
   def details
@@ -42,8 +30,8 @@ class PublicationsController < ApplicationController
     cookies[:is_new] = "no"
     redirect_to open_editor_for_edit_path
   rescue Exception => e
+    render("common/publication_does_not_exist", :layout => "application")
     ExceptionMailer.send_exception(e, @publication).deliver
-    render("common/publication_does_not_exist", :layout => "application") 
   end
   
   # this takes two forms: details listing with edit button and the rendering of the

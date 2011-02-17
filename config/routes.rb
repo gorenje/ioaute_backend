@@ -16,8 +16,12 @@ Pubme::Application.routes.draw do
   match "/publications/new"      => "publications#new",  :as => :new_publication # allow post
   match "/publications/:id/edit" => "publications#edit", :as => :edit_publication # allow post
   match "/publications/edit"     => "publications#edit", :as => :open_editor_for_edit
-  match("/publications/create"   => "publications#new_for_anonymous_user", 
+
+  match("/anonymous/new_publication"   => "anonymous_user#new_publication", 
         :as => :new_for_anonymous_user)
+  match("/anonymous/copy_publication"   => "anonymous_user#copy_publication", 
+        :as => :copy_for_anonymous_user)
+  match("/anonymous/login"   => "anonymous_user#login", :as => :anonymous_sign_in)
 
   resources :publications do
     collection do

@@ -1,5 +1,5 @@
 class ExceptionMailer < ActionMailer::Base
-  default :from => "exception@2monki.es"
+  default({:from => "exception@2monki.es", :to => "gerrit.riessen@gmail.com"})
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -8,7 +8,11 @@ class ExceptionMailer < ActionMailer::Base
   #
   def send_exception(exception, publication)
     @exception, @publication = exception, publication
-    mail(:to => "gerrit.riessen@gmail.com", 
-         :subject => ("[PUBME] [EXP] %s" % (exception.nil? ? "NIL" : exception.message)))
+    mail(:subject => ("[PUBME] [EXP] %s" % (exception.nil? ? "NIL" : exception.message)))
+  end
+  
+  def evilness_happened(exception, params)
+    @exception, @params = exception, params
+    mail(:subject => ("[PUBME] [EXP] %s" % (exception.nil? ? "NIL" : exception.message)))
   end
 end

@@ -40,4 +40,22 @@ class ApplicationController < ActionController::Base
     end
     redirect_to("/")
   end
+  
+  ## TODO should use something like this ... this is not really finished since
+  ## TODO it doesn't cover the case when we have a publication.
+  def handle_exceptions(params)
+    yield
+  rescue Exception => e
+    if Rails.env == "development"
+      flash[:alert] = e.message
+      Rails.logger.error(e.backtrace.join("\n"))
+    else
+      if @publication
+        ExceptionMailer.send_exception(e, @publication).deliver
+      else
+        ExceptionMailer.evilness_happened(e, params).deliver
+      end
+    end
+    render("common/publication_does_not_exist", :layout => "application")
+  end
 end
