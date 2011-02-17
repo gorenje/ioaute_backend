@@ -1,0 +1,19 @@
+%p{ :style => "padding: 5px 5px 5px 5px;"}
+
+%a{ :href => admin_start_page_path } Index
+%a{ :href => admin_all_users_path } Users
+
+%p{ :style => "padding: 5px 5px 5px 5px;"}
+
+Details for
+%a{ :href => @user.link_to_home, :target => '_blank' }= @user.name
+
+%p{ :style => "padding: 5px 5px 5px 5px;"}
+
+%table
+  - @show_fields.each_with_index do |field_name, idx|
+    %tr{ :class => "user_publications_row_#{ idx % 2 == 0 ? 'even' : 'odd' }" }
+      %td= field_name
+      %td
+        - value = @user.send(field_name)
+        = value.is_a?(Time) ? value.strftime("%d-%h-%Y@%H:%M") : value

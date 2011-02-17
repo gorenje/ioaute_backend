@@ -1,0 +1,27 @@
+%td
+  %a{ :href => admin_show_publication_path(:id => publication.uuid) }
+    = publication.name || 'Nameless Publication'
+
+%td
+  %a{ :href => publication.user.link_to_home, :target => '_blank' }
+    = publication.user.name
+  %a{ :href => admin_all_publications_path(:user_id => publication.user) } (Filter)
+
+%td
+  - if publication.has_bitly_url?
+    %a{ :href => publication.bitly_url + "+", :target => '_blank' }= publication.bitly_url
+  - else
+    No bit.ly
+
+%td
+  = publication.pages.count
+
+%td{ :id => dom_id_for_plink }
+  = publication.state
+
+%td
+  = publication.created_at.strftime("%H:%M %d-%h-%Y")
+
+%td
+  - @possible_actions.each do |action_name|
+    = link_to action_name.capitalize, admin_ppa_path(:id => publication.uuid, :action_to_perform => action_name), :confirm => 'Are you sure?', :method => :post

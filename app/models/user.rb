@@ -24,4 +24,26 @@ class User < ActiveRecord::Base
                    :password => Devise.friendly_token)
     end
   end
+  
+  ## TODO specific crappy code.
+  def is_admin?
+    (Rails.env == "development" && id == 1) || 
+      (Rails.env == "production" && [1,2].include?(id)) || false
+  end
+  
+  def name
+    facebook_uid || twitter_handle || email
+  end
+  
+  def link_to_home
+    if twitter_handle
+      "http://twitter.com/#!/#{twitter_handle}"
+    else 
+      if facebook_uid
+        "http://facebook.com/profile.php?id=#{facebook_uid}"
+      else
+        "/"
+      end
+    end
+  end
 end

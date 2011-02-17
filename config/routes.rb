@@ -44,6 +44,14 @@ Pubme::Application.routes.draw do
       end
     end
   end
+
+  match "/admin/s.t.a.r.t" => "adminstration#index", :as => :admin_start_page
+  match "/admin/a.l.l" => "adminstration#all_publications", :as => :admin_all_publications
+  match "/admin/a.l.l.u.s.e.r.s" => "adminstration#all_users", :as => :admin_all_users
+  match "/admin/ppa/:id/:action_to_perform" => "adminstration#publication_perform_action", :as => :admin_ppa
+  match "/admin/upa/:id/:action_to_perform" => "adminstration#user_perform_action", :as => :admin_upa
+  match "/admin/spp/:id" => "adminstration#show_publication", :as => :admin_show_publication
+  match "/admin/sup/:id" => "adminstration#show_user", :as => :admin_show_user
   
   # References http://www.engineyard.com/blog/2010/the-lowdown-on-routes-in-rails-3/
   root :to => "welcome#index"

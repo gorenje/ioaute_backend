@@ -1,0 +1,15 @@
+%td
+  %a{ :href => user.link_to_home, :target => '_blank' }
+    = user.name
+
+%td
+  %a{ :href => admin_all_publications_path(:user_id => user) }= user.publications.count
+
+%td
+  = user.sign_in_count 
+  (
+  = user.last_sign_in_at.strftime("%d-%h-%Y@%H:%M")
+  )
+
+%td
+  %a{ :href => admin_show_user_path(:id => user) } More Details

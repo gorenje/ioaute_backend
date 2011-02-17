@@ -116,15 +116,6 @@ class PublicationsController < ApplicationController
     @publications = current_user.publications # .not_deleted
   end
 
-  ActionMethodLookup = { 
-    "unhide"  => "show_it!",
-    "hide"    => "hide_it!",
-    "lock"    => "lock_it!",
-    "edit"    => "begin_edit!",
-    "delete"  => "forget_it!",
-    "recover" => "undelete_it!",
-  } unless defined?(ActionMethodLookup)
-  
   def perform_action
     publication = Publication.for_user(current_user).find_by_uuid!(params[:id])
     publication.send(ActionMethodLookup[params[:action_to_perform]])

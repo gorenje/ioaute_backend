@@ -4,6 +4,15 @@ class ApplicationController < ActionController::Base
 
   protected 
 
+  ActionMethodLookup = { 
+    "unhide"  => "show_it!",
+    "hide"    => "hide_it!",
+    "lock"    => "lock_it!",
+    "edit"    => "begin_edit!",
+    "delete"  => "forget_it!",
+    "recover" => "undelete_it!",
+  } unless defined?(ActionMethodLookup)
+  
   def json_action_for(params)
     "%s_%s" % [params[:controller], params[:action]]
   end
@@ -23,5 +32,12 @@ class ApplicationController < ActionController::Base
 
   def send_off_success(params, hsh = {})
     send_off_status(200, hsh.merge({:status => :ok, :action => json_action_for(params)}))
+  end
+  
+  def ensure_user_is_admin
+    if current_user && current_user.is_admin?
+      return
+    end
+    redirect_to("/")
   end
 end

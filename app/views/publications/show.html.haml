@@ -28,7 +28,7 @@
     %a{ :name => "page%02d" % (idx+1) }
     %div{ :id => dom_id(page), :class => "#{page.css_class} shadow", :style => page.css_style }
       - page.page_elements.each do |page_element|
-        = render :partial => "page_element", :locals => { :page_element => page_element }
+        = render :partial => "publications/page_element", :locals => { :page_element => page_element }
     - if total_pages > 1
       %div{ :class => class_for_page_number(idx, total_pages) }
         #page_number

@@ -1,0 +1,14 @@
+%p{ :style => "padding: 5px 5px 5px 5px;"}
+%a{ :href => admin_start_page_path } Index
+
+%p{ :style => "padding: 5px 5px 5px 5px;"}
+%table
+  %tr
+    %th Profile Page
+    %th Publications
+    %th Details
+    %th Sign In Count
+  - @users.each_with_index do |user,idx|
+    %tr{ :class => "user_publications_row_#{ idx % 2 == 0 ? 'even' : 'odd' }" }
+      = render :partial => "user", :locals => { :user => user, :dom_id_for_plink => dom_id(user, "user_link") }
+      

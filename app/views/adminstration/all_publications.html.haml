@@ -1,0 +1,19 @@
+%p{ :style => "padding: 5px 5px 5px 5px;"}
+%a{ :href => admin_start_page_path } Index
+- if @user
+  %a{ :href => @user.link_to_home, :target => '_blank' }= @user.name
+  %a{ :href => admin_all_publications_path } (all)
+
+%p{ :style => "padding: 5px 5px 5px 5px;"}
+%table
+  %tr
+    %th Name
+    %th Editor
+    %th Bit.ly
+    %th Pages
+    %th Status
+    %th Created
+    %th Available Actions
+  - @publications.each_with_index do |publication,idx|
+    %tr{ :class => "user_publications_row_#{ idx % 2 == 0 ? 'even' : 'odd' }" }
+      = render :partial => "publication", :locals => { :publication => publication, :dom_id_for_plink => dom_id(publication, "published_link") }
