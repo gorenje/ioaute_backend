@@ -1,2 +1,30 @@
+-#   ==> pointer (hand in IE 5.x)
+-# might have to use hand for IE ....
 :css
-  div##{dom_id(page_element)}{background-color: #{page_element.css_color_spec};}
+  div##{dom_id(page_element)} {
+    background-color: #{page_element.css_color_spec};
+  }
+- if page_element.is_clickable?
+  :javascript
+    $("#{dom_id(page_element)}").onclick = function(){
+      window.location="#{page_element.link_url}";
+      return false;
+    };
+    $("#{dom_id(page_element)}").onmouseover = function() {
+      $("#{dom_id(page_element)}").setStyle({
+        'border-color': '#{page_element.css_color_spec}'
+      });
+    };
+    $("#{dom_id(page_element)}").onmouseout = function() {
+      $("#{dom_id(page_element)}").setStyle({
+        'border-color': 'transparent'
+      });
+    };
+  :css    
+    div##{dom_id(page_element)} {
+      background-color: transparent;
+      border-width: #{page_element.border_width_pixel}px;
+      border-style: solid;
+      border-color: transparent;
+      cursor: pointer;
+    }
