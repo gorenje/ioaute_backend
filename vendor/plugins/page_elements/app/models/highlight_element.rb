@@ -24,6 +24,10 @@ class HighlightElement < PageElement
   def is_clickable?
     extra_data["clickable"].to_i > 0
   end
+
+  def show_as_border?
+    extra_data["show_as_border"].to_i > 0
+  end
   
   def link_url
     extra_data["link_url"]

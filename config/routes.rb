@@ -44,6 +44,7 @@ Pubme::Application.routes.draw do
       end
       resources :page_elements do
         member do
+          get :copy
           post :resize
         end
       end

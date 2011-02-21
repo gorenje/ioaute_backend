@@ -45,6 +45,20 @@ class PageElementsController < ApplicationController
     send_off_failed(params, e.to_s)
   end
   
+  def copy
+    page_element = PageElement.find(params[:id])
+    if ( params[:publication_id] == page_element.page.publication.uuid &&
+         params[:page_id] == page_element.page_id.to_s )
+      peclone = page_element.clone
+      peclone.save
+      send_off_success(params, { :copy => peclone, :page_element_id => peclone.id })
+    else
+      send_off_failed(params, "page element not part of page or publication")
+    end
+  rescue Exception => e 
+    send_off_failed(params, e.to_s)
+  end
+
   protected
   
   def check_page_element(params, &block)
