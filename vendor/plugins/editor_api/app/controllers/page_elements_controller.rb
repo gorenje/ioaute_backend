@@ -51,7 +51,7 @@ class PageElementsController < ApplicationController
          params[:page_id] == page_element.page_id.to_s )
       peclone = page_element.clone
       peclone.save
-      send_off_success(params, { :copy => peclone, :page_element_id => peclone.id })
+      send_off_success(params, {:copy => peclone.to_json_for_editor})
     else
       send_off_failed(params, "page element not part of page or publication")
     end

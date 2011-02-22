@@ -20,15 +20,13 @@ class Page < ActiveRecord::Base
     end
   end
   
+  ## TODO this returns a hash not a string as to_json. This is because the controller 
+  ## TODO creates a json string from all the data to be sent to the editor and this
+  ## TODO is only one part.
   def to_json_for_editor
-    ## TODO fix this hack: to_json_for_editor should return a hash since it's incorporated
-    ## TODO into a hash and then converted to Json. What happens now is that this data
-    ## TODO is sent as a string and then would need to be parsed on the other side (again).
-    JSON.parse(to_json(:except => ["created_at", "state", "updated_at", "publication_id"],
-                       :include => { :page_elements => {
-                           :except => ["created_at", "page_id", "state", "updated_at", "data", "id_str"],
-                           :methods => ["_type", "_json"]
-                         }}))
+    hsh = JSON.parse(to_json(:except => ["created_at", "state", "updated_at", "publication_id"]))
+    hsh["page"]["page_elements"] = page_elements.map { |a| a.to_json_for_editor }
+    hsh
   end
   
   def is_landscape?

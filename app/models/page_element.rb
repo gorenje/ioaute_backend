@@ -76,6 +76,13 @@ class PageElement < ActiveRecord::Base
     self.class._type
   end
   
+  # return hash containing the raw data for this object.
+  def to_json_for_editor
+    JSON.parse(to_json(:methods => ['_type', '_json'], 
+                       :except => ['created_at', 'updated_at', 'data', 
+                                   'page_id', 'id_str', 'state']))[self.class.name.underscore]
+  end
+  
   def dump_to_pdf(pdf)
     # needs to be implemented by subclasses
     pdf.bounding_box([x,y], :width => width, :height => height) do
