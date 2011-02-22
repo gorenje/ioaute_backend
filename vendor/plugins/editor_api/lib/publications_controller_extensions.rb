@@ -17,12 +17,12 @@ module EditorApi
           { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
 
           { "id" => "18", "name" => "YouTube Video","klazz" => "YouTubeTE" },
-                        { "id" => "2",  "name" => "Groucho it!",  "klazz" => "ImageTE",
+
+          { "id" => "2",  "name" => "Groucho it!",  "klazz" => "ImageTE",
             "dest_url" => "http://www.flickr.com/photos/marcjohns/2553260141/",
             "pic_url" => "http://assets.2monki.es/images/moustache.png",
             "tool_image" => "toolMoustache", "width" => 150, "height" => 50 },
                         
- 
           { "id" => "12", "name" => "Bubble", "klazz" => "ImageTE",
             "dest_url" => "http://duncanpierce.org/files/images/speech-question-marks.png",
             "pic_url" => "http://assets.2monki.es/images/speech-bubble.png",
