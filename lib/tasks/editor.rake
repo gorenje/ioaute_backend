@@ -16,7 +16,7 @@ namespace :editor do
   task :install => :environment do
     startTime = Time.now
     puts "1. Building editor with jake - " + startTime.to_s
-    results = `cd #{Rails.root}/../editor && jake flatten 2>&1`
+    results = `cd #{Rails.root}/../editor && rm -fr Build && jake flatten 2>&1`
     puts ">>> This is what jake had to say: "
     puts "==========================================="
     puts results
