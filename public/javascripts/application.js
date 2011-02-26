@@ -43,8 +43,11 @@ function showPublicationIndex(e) {
   }
 }
 
-function hidePublicationIndex() {
-  $('index_dropdown').hide();
-  return true;
+function showPublicationCopies(e) {
+  if (  $('pub_copies_dropdown').toggle().visible() ) {
+    $('pub_copies_button').style.color = "#eee";
+  } else {
+    $('pub_copies_button').style.color = "blue";
+  }
 }
 

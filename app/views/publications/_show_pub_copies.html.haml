@@ -1,0 +1,15 @@
+- if @publication.original
+  %a{ :href => publication_path( :id => @publication.original.uuid) } [original]
+  - if @publication.copies.count == 0
+    \&nbsp;
+- if @publication.copies.count > 0
+  #pub_copies_dropdown{ :class => "shadow" }
+    - @publication.copies.each do |pubcopy|
+      %a{ :href => publication_path( :id => pubcopy.uuid) }
+        = truncate(pubcopy.name, :length => 23)
+      %br
+  %a{ :id => 'pub_copies_button', :href => "javascript:void(0);" } [copies]
+  \&nbsp;
+  :javascript
+     $('pub_copies_dropdown').hide();
+     $('pub_copies_button').observe('click', showPublicationCopies);

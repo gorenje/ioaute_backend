@@ -1,0 +1,6 @@
+- if current_user
+  - if current_user == @publication.user
+    %a{ :href => edit_publication_path(:id => pubuuid), :target => "_blank" } [edit]
+  %a{ :href => copy_publication_path(:id => pubuuid), :target => "_blank" } [copy]
+- else
+  %a{ :href => copy_for_anonymous_user_path(:id => pubuuid), :target => "_blank" } [copy]

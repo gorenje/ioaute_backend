@@ -1,0 +1,16 @@
+- if total_pages > 1
+  \&nbsp;
+  - if total_pages < 5
+    - @publication.pages.each_with_index do |_,idx|
+      %a{ :href => "#page%02d" % (idx+1) }
+        = "[%d]" % (idx+1)
+  - else
+    #index_dropdown{ :class => "shadow" }
+      - @publication.pages.each_with_index do |_,idx|
+        %a{ :href => "#page%02d" % (idx+1) }
+          = "[%d]" % (idx+1)
+        %br
+    %a{ :id => 'index_button', :href => "javascript:void(0);" } [index]
+    :javascript
+       $('index_dropdown').hide();
+       $('index_button').observe('click', showPublicationIndex);
