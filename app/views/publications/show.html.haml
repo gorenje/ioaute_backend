@@ -12,11 +12,23 @@
         %a{ :href => copy_publication_path(:id => pubuuid), :target => "_blank" } [copy]
       - else
         %a{ :href => copy_for_anonymous_user_path(:id => pubuuid), :target => "_blank" } [copy]
-      \&nbsp;
       - if total_pages > 1
-        - @publication.pages.each_with_index do |_,idx|
-          %a{ :href => "#page%02d" % (idx+1) }
-            = "[%d]" % (idx+1)
+        - if total_pages < 5
+          \&nbsp;
+          - @publication.pages.each_with_index do |_,idx|
+            %a{ :href => "#page%02d" % (idx+1) }
+              = "[%d]" % (idx+1)
+        - else
+          #index_dropdown{ :class => "shadow" }
+            - @publication.pages.each_with_index do |_,idx|
+              %a{ :href => "#page%02d" % (idx+1) }
+                = "[%d]" % (idx+1)
+              %br
+          %a{ :id => 'index_button', :href => "javascript:void(0);" }
+            [index]
+          :javascript
+             $('index_dropdown').hide();
+             $('index_button').observe('mouseover', showPublicationIndex);
     #facebooklink
       - if bitlyurl
         %a{ :href => "http://www.facebook.com/sharer.php?u=%s" % CGI.escape(bitlyurl), :target => "_blank" }

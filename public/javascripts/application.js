@@ -34,3 +34,17 @@ function publishPublication(linkobj, dom_id_for_link) {
   }
   return false;
 };
+
+function showPublicationIndex(e) {
+  if (  $('index_dropdown').toggle().visible() ) {
+    $('index_button').style.color = "#eee";
+  } else {
+    $('index_button').style.color = "blue";
+  }
+}
+
+function hidePublicationIndex() {
+  $('index_dropdown').hide();
+  return true;
+}
+
