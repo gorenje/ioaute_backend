@@ -3,6 +3,9 @@ class Publication < ActiveRecord::Base
   has_many :bitlies
   belongs_to :user
   
+  belongs_to :original, :class_name => "Publication"
+  has_many :copies, :foreign_key => :original_id, :class_name => "Publication"
+  
   before_save :set_uuid
 
   scope :not_deleted, where("state != 'deleted'")
@@ -82,8 +85,9 @@ class Publication < ActiveRecord::Base
     end
     
     def create_copy(original_publication, new_owner)
-      pub_copy = original_publication.clone
-      pub_copy.uuid = nil
+      pub_copy          = original_publication.clone
+      pub_copy.original = original_publication
+      pub_copy.uuid     = nil
       pub_copy.save
       pub_copy.update_attributes({ :state        => "created",
                                    :user         => new_owner,
