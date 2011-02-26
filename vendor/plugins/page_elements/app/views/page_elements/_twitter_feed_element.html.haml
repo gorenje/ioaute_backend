@@ -3,7 +3,9 @@
   :javascript
     new TWTR.Widget({
       version: 2,
-      type: 'profile',
+      type: 'search',
+      title: '#{page_element.title}',
+      search: '#{page_element.search_term}',
       rpp: 4,
       interval: 6000,
       width: #{page_element.width},
@@ -28,4 +30,4 @@
         avatars: true,
         behavior: 'default'
       }
-    }).render().setUser('#{page_element.for_user}').start();
+    }).render().start();

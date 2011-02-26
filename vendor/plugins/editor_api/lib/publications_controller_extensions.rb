@@ -10,7 +10,9 @@ module EditorApi
         toolboxitems = [
 
           { "id" => "3",  "name" => "Image",        "klazz" => "ImageTE" },
-          { "id" => "4",  "name" => "Link",         "klazz" => "LinkTE" },
+          { "id" => "4",  "name" => "Link",         "klazz" => "LinkTE",
+            "font_size" => 12, "font_name" => "Arial Black",
+            "red" => "0", "blue" => "255", "green" => "0", "alpha" => "1.0",},
           { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
           { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
 

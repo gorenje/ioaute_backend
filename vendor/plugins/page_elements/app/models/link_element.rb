@@ -24,11 +24,20 @@ class LinkElement < PageElement
   end
   
   def url
-    urlStr = extra_data["url"]
-    urlStr =~ /(torrent|gopher|mailto|ftps?|https?):\/\// ? urlStr : "http://%s" % urlStr
+    # don't prefix anything, this allows for '#page02' links so that an index link
+    # can be created.
+    extra_data["url"]
   end
 
   def title
     extra_data["title"]
+  end
+  
+  def index_link?
+    url[0] == '#'
+  end
+  
+  def link_target
+    index_link? ? '' : '_blank'
   end
 end

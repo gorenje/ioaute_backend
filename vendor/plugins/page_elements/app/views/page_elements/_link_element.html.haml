@@ -4,5 +4,5 @@
      #{page_element.css_font_spec}
   }
 .link_element{ }
-  %a{ :href => page_element.url, :target => '_blank', :id => "link_#{dom_id(page_element)}" }<
+  %a{ :href => page_element.url, :target => page_element.link_target, :id => "link_#{dom_id(page_element)}" }<
     = preserve(page_element.title.nbsp_leading_whitespace)
