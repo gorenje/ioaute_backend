@@ -1,4 +1,15 @@
 class YouTubeVideoElement < PageElement
+  # m_search_engines value:
+  # goes all the way back to the Xib for the youtube video property window. It
+  # defines tags and these tags are bitwise unique. These tags are dragged all the
+  # way from the window to here and their meaning need to match:
+  # Amazon     => 1
+  # Google     => 2
+  # Bing       => 4
+  # iTunes     => 8
+  # DuckDuckGo => 16
+  # **** SPECIAL **** 32 means, if set, don't show the title at the bottom of the video
+  # **** SPECIAL **** 64 means, if set, play video immediately on page load.
   
   class << self
     def extract_data_from_params(params)
@@ -36,16 +47,25 @@ class YouTubeVideoElement < PageElement
     extra_data["uploader"]
   end
 
+  # Are we going to search either search links or an artist link? Extend this if new
+  # search engine is added.
   def show_links?
     edata = extra_data
-    ((edata["m_search_engines"].to_i > 0 && 
-      edata["m_search_engines"].to_i != 32) || (edata["artist"] &&
-                                               !edata["artist"]["name"].blank? &&
-                                               !edata["artist"]["url"].blank?))
+    bitvalue = edata["m_search_engines"].to_i
+    is_a_search_link_set = [1,2,4,8,16].map do |a| 
+      (bitvalue & a) > 0 ? 1 : nil 
+    end.compact.size > 0
+    is_a_search_link_set || (edata["artist"] &&
+                             !edata["artist"]["name"].blank? &&
+                             !edata["artist"]["url"].blank?)
   end
   
   def dont_show_title?
     (extra_data["m_search_engines"].to_i & 32) > 0
+  end
+
+  def play_immediately?
+    (extra_data["m_search_engines"].to_i & 64) > 0
   end
   
   def links
@@ -53,15 +73,6 @@ class YouTubeVideoElement < PageElement
     edata = extra_data
     srch_flag = edata["m_search_engines"].to_i
     
-    # this goes all the back to the Xib for the youtube video property window .. it
-    # defines tags and these tags are bitwise unique. These tags are dragged all the
-    # way from the window to here and they need to match.
-    # Amazon    => 1
-    # Google    => 2
-    # Bing      => 4
-    # iTunes    => 8
-    # DuckDuckGo => 16
-    # **** SPECIAL **** 32 means, if set, don't show the title at the bottom of the video
     srch_title = CGI.escape(title)
     [ 
      ["@Amazon", 'http://www.amazon.de/s?field-keywords='],

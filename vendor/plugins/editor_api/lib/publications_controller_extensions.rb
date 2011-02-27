@@ -16,9 +16,10 @@ module EditorApi
           { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
           { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
 
-          { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
 
-          { "id" => "18", "name" => "YouTube Video","klazz" => "YouTubeTE" },
+          { "id" => "20", "name" => "YouTube Controls", "klazz" => "YouTubeCtrlTE" },
+          { "id" => "18", "name" => "YouTube Video",    "klazz" => "YouTubeTE" },
+          { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
 
           { "id" => "2",  "name" => "Groucho it!",  "klazz" => "ImageTE",
             "dest_url" => "http://www.flickr.com/photos/marcjohns/2553260141/",
@@ -52,7 +53,6 @@ module EditorApi
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
             "width" => 5, "height" => 200, "image" => "toolVerticalBar" },
                         
-          { "id" => "20", "name" => "Coming Soon", "klazz" => "ToolElement" },
           { "id" => "14", "name" => "Coming Soon", "klazz" => "ToolElement" },
          ]
 

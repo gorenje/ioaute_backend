@@ -4,7 +4,7 @@
     - page_element.links.each_with_index do |link_details, idx|
       - link_title, link_href = link_details
       %a{ :href => link_href, :target => '_blank' }= link_title
-  - vid_dom_id = dom_id(page_element, "video")
+  - vid_dom_id = dom_id(page_element, "video").gsub(/_/,'')
   %div{ :id => vid_dom_id }
     You need Flash player 8+ and JavaScript enabled to view this video.
   - unless page_element.dont_show_title?
@@ -12,7 +12,11 @@
       = "``" + page_element.title + "''"
       posted by
       %a{ :href => "http://www.youtube.com/user/#{page_element.owner}", :target => "_blank" }= page_element.owner
+  - if page_element.play_immediately?
+    :javascript
+      youTubePlayOnReady('#{vid_dom_id}');
   :javascript
+    youTubeRegister('#{vid_dom_id}', #{page_element.y}, #{page_element.x});
     swfobject.embedSWF("#{page_element.video_url(vid_dom_id)}",
                        "#{vid_dom_id}", "#{page_element.width}", "#{page_element.height}", 
                        "8", null, null, { allowScriptAccess: "always" }, { id: "#{vid_dom_id}" });

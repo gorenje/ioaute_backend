@@ -30,6 +30,7 @@ class PageElement < ActiveRecord::Base
         "TwitterFeedTE"  => TwitterFeedElement,
         "HighlightTE"    => HighlightElement,
         "PayPalButtonTE" => PayPalButtonElement,
+        "YouTubeCtrlTE"  => YouTubeControlElement,
       }))[isa_str] || "UnknownClass#{isa_str}"
     end
 
