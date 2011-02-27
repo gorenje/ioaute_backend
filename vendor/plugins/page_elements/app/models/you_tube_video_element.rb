@@ -24,8 +24,8 @@ class YouTubeVideoElement < PageElement
     extra_data.merge({ :id => id_str })
   end
 
-  def video_url
-    extra_data["content"]["5"]
+  def video_url(dom_id)
+    extra_data["content"]["5"] + "&enablejsapi=1&playerapiid=" + dom_id
   end
 
   def title
