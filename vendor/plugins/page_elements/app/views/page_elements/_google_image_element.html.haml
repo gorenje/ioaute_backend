@@ -1,3 +1,9 @@
 .google_image_element{ }
+  - img_dom_id = dom_id(page_element,"image").gsub(/_/,'')
   %a{ :href => page_element.extra_data["dest_url"] || page_element.extra_data["image_url"], :target => "_blank" }
-    %img{ :src => page_element.extra_data["image_url"], :width => page_element.width, :height => page_element.height }
+    %img{ :id => img_dom_id, :src => page_element.extra_data["image_url"], :width => page_element.width, :height => page_element.height }
+  - if page_element.reload_image?    
+    :javascript
+      new PeriodicalExecuter(function(pe) { 
+        reloadImg('#{img_dom_id}'); 
+      }, #{page_element.reload_interval_seconds});

@@ -68,7 +68,8 @@ module EditorApi
         middle_buttons = [
                           "FlickrWindowControlItemIdentifier",
                           "TwitterWindowControlItemIdentifier",
-                          current_user.facebook_connected? ? "FacebookToolbarItemIdentifier" : nil,
+                          (current_user.facebook_connected? ? 
+                           "FacebookToolbarItemIdentifier" : nil),
                           "YouTubeToolbarItemIdentifier",
                           "GoogleImagesWindowControlItemIdentifier",
                           ].compact
@@ -77,7 +78,9 @@ module EditorApi
           :facebook_app_id => ApiKeys.facebook.api_id,
           :flickr_api_key  => ApiKeys.flickr.api_token,
           :tool_box_items  => toolboxitems.reverse, # ordering is reversed on display
-          :toolbar_left   => ["BackToPublicationsControlItemIdentifier"],
+          :toolbar_left   => ["BackToPublicationsControlItemIdentifier",
+                              "CopyPageElementControlItemIdentifier",
+                              "PastePageElementControlItemIdentifier"],
           :toolbar_middle => middle_buttons,
           :toolbar_right  => ["PreviewPublicationHtmlToolbarItemIdentifier",
                               "PublishPublicationHtmlToolbarItemIdentifier"],

@@ -1,4 +1,40 @@
 module PageElementHelpers
+
+  ##
+  ## Image reload support
+  ##
+  module ImageReloadSupport
+    def self.included(base) # :nodoc:
+      base.class_eval do
+        base.send :extend, ClassMethods
+        base.send :include, InstanceMethods
+      end
+    end  
+
+    module ClassMethods
+      def obtain_image_reload_from_params(params)
+        { :reload_interval => params["m_reloadInterval"] || "0" }
+      end
+    end
+
+    module InstanceMethods
+      def retrieve_image_reload_from_extra_data(edata)
+        { :reload_interval => edata["reload_interval"] || "0" }
+      end
+
+      def reload_image?
+        extra_data["reload_interval"].to_i > 0
+      end
+      
+      def reload_interval_seconds
+        extra_data["reload_interval"].to_i * 60
+      end
+    end
+  end
+
+  ##
+  ## Provide font support for a page element
+  ##
   module FontSupport
     def self.included(base) # :nodoc:
       base.class_eval do
@@ -29,7 +65,10 @@ module PageElementHelpers
       end
     end
   end
-  
+
+  ##
+  ## Provide color support for a page element
+  ##
   module ColorSupport
     def self.included(base) # :nodoc:
       base.class_eval do

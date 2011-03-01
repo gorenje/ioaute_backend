@@ -52,6 +52,35 @@ function showPublicationCopies(e) {
 }
 
 // -------------------------------------------------------------------------------------------
+// reload an image.
+function reloadImg(id) {
+  var obj = $(id);
+  var url_parts = obj.src.split("?");
+  var para_ary = [];
+  var timestamp = (new Date()).getTime();
+
+  if (url_parts.length > 1) 
+  {
+	var parameters = url_parts[1].split("&");
+    
+	for (var outer = 0; outer < parameters.length; outer++)
+	{
+	  var innerParts = parameters[outer].split("=");
+	  var key = innerParts[0];
+	  var value = (innerParts.length > 1) ? innerParts[1] : "";
+
+      if ( key != "reload_timestamp" ) {
+        para_ary.push(key + "=" + value);
+      }
+	}
+  }
+
+  para_ary.push("reload_timestamp=" + timestamp);
+  obj.src = (url_parts[0] + "?" + para_ary.join("&"));
+  return false;
+}
+
+// -------------------------------------------------------------------------------------------
 // YouTube Controls
 var YouTubeVideosPlayImmediately = [];
 var YouTubeVideosPlayOrder = []; // objects with top/left
@@ -103,10 +132,10 @@ function onYouTubePlayerReady(playerId) {
 }
 
 function youTubeSortVideoArray( obj_a, obj_b ) {
-  if ( obj_a.y > obj_b.y ) { return -1; }
-  if ( obj_a.y < obj_b.y ) { return 1;  }
-  if ( obj_a.x < obj_b.x ) { return 1;  }
-  if ( obj_a.x > obj_b.x ) { return -1; }
+  if ( obj_a.y > obj_b.y ) { return 1; }
+  if ( obj_a.y < obj_b.y ) { return -1;  }
+  if ( obj_a.x < obj_b.x ) { return -1;  }
+  if ( obj_a.x > obj_b.x ) { return 1; }
   return 0;
 }
 
@@ -116,7 +145,7 @@ function youTubeRegister(dom_id, loc_top, loc_left) {
     y: loc_top,
     dom_id: dom_id,
     player: function() {
-      return document.getElementById(dom_id);
+      return $(dom_id);
     }
   };
   YouTubeVideosPlayOrder.push(obj);

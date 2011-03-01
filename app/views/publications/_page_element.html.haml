@@ -1,2 +1,2 @@
 %div{ :id => dom_id(page_element), :style => page_element.css_style }
-  = render :partial => "page_elements/#{page_element.class.name.underscore}", :locals => { :page_element => page_element }
+  = render :partial => "page_elements/#{page_element.class.name.underscore}", :locals => { :page_element => page_element, :page_num => page_num }

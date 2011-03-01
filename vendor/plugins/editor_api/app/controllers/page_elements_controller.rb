@@ -46,14 +46,16 @@ class PageElementsController < ApplicationController
   end
   
   def copy
-    page_element = PageElement.find(params[:id])
+    page_element, page_obj = PageElement.find(params[:id]), Page.find(params[:page_id])
+    
     if ( params[:publication_id] == page_element.page.publication.uuid &&
-         params[:page_id] == page_element.page_id.to_s )
+         params[:publication_id] == page_obj.publication.uuid )
       peclone = page_element.clone
+      peclone.page = page_obj
       peclone.save
       send_off_success(params, {:copy => peclone.to_json_for_editor})
     else
-      send_off_failed(params, "page element not part of page or publication")
+      send_off_failed(params, "page element not part of publication")
     end
   rescue Exception => e 
     send_off_failed(params, e.to_s)

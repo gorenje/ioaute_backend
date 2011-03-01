@@ -1,4 +1,5 @@
 class FlickrElement < PageElement
+  include PageElementHelpers::ImageReloadSupport
 
   class << self
     def extract_data_from_params(params)
@@ -7,12 +8,14 @@ class FlickrElement < PageElement
         :server   => params["_server"],
         :title    => params["_title"],
         :dest_url => params["m_destUrl"],
-      }
+      }.merge( obtain_image_reload_from_params(params) )
     end
   end
   
   def _json
-    extra_data.merge( :id => id_str )
+    edata = extra_data
+    edata.merge( :id => id_str ).
+      merge(retrieve_image_reload_from_extra_data(edata))
   end
 
   def self._type

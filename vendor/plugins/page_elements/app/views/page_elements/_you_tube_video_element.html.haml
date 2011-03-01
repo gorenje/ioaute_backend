@@ -16,7 +16,7 @@
     :javascript
       youTubePlayOnReady('#{vid_dom_id}');
   :javascript
-    youTubeRegister('#{vid_dom_id}', #{page_element.y}, #{page_element.x});
+    youTubeRegister('#{vid_dom_id}', #{page_element.y} + #{page_num * 1024}, #{page_element.x});
     swfobject.embedSWF("#{page_element.video_url(vid_dom_id)}",
                        "#{vid_dom_id}", "#{page_element.width}", "#{page_element.height}", 
                        "8", null, null, { allowScriptAccess: "always" }, { id: "#{vid_dom_id}" });
