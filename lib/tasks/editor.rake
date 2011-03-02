@@ -35,7 +35,9 @@ namespace :editor do
       unless File.exists?("#{base_dest_dir}/publications")
         FileUtils.ln_s("#{base_dest_dir}/#{dirname}", "#{base_dest_dir}/publications") 
       end
-      `yes | cp #{Rails.root}/config/remote_files/Application.js #{base_dest_dir}/publications/`
+      # add timestamp to the JS requests.
+      erb = ERB.new(File.open("#{Rails.root}/config/remote_files/Application.js.erb").read)
+      File.open("#{base_dest_dir}/publications/Application.js", "w+") << erb.result(binding)
       `open -a Safari "http://localhost:3000"`
     else
       puts("!!ERROR!!: did nothing because i could not determine "+
