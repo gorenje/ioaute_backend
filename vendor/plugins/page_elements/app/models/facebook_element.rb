@@ -1,5 +1,6 @@
 class FacebookElement < PageElement
   include PageElementHelpers::ImageReloadSupport
+  include PageElementHelpers::ImageRotationSupport
 
   class << self
     def extract_data_from_params(params)
@@ -8,7 +9,8 @@ class FacebookElement < PageElement
         :owner    => params["_fromUser"],
         :owner_id => params["_fromUserId"],
         :dest_url => params["m_destUrl"],
-      }.merge( obtain_image_reload_from_params(params) )
+      }.merge( obtain_image_reload_from_params(params) ).
+        merge( obtain_image_rotation_from_params(params) )
     end
   end
 
@@ -19,7 +21,8 @@ class FacebookElement < PageElement
       :id       => id_str,
       :from     => { :name => edata["owner"], :id => edata["owner_id"] },
       :dest_url => edata["dest_url"],
-    }.merge(retrieve_image_reload_from_extra_data(edata))
+    }.merge( retrieve_image_reload_from_extra_data(edata)).
+      merge( retrieve_image_rotation_from_extra_data(edata))
   end
 
   def image_src_url

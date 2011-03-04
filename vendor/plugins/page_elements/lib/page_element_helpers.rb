@@ -1,6 +1,38 @@
 module PageElementHelpers
 
   ##
+  ## Image rotation support
+  ##
+  module ImageRotationSupport
+    def self.included(base) # :nodoc:
+      base.class_eval do
+        base.send :extend, ClassMethods
+        base.send :include, InstanceMethods
+      end
+    end  
+
+    module ClassMethods
+      def obtain_image_rotation_from_params(params)
+        { :rotation => params["m_rotation"] || "0" }
+      end
+    end
+
+    module InstanceMethods
+      def retrieve_image_rotation_from_extra_data(edata)
+        { :rotation => edata["rotation"] || "0" }
+      end
+
+      def is_rotated?
+        extra_data["rotation"].to_i > 0
+      end
+      
+      def rotation_in_degrees
+        extra_data["rotation"].to_i
+      end
+    end
+  end
+
+  ##
   ## Image reload support
   ##
   module ImageReloadSupport

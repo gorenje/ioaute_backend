@@ -11,3 +11,10 @@
       new PeriodicalExecuter(function(pe) { 
         reloadImg('#{img_dom_id}'); 
       }, #{page_element.reload_interval_seconds});
+  - if page_element.is_rotated?
+    :css
+      div##{dom_id(page_element)} {
+        -webkit-transform: rotate(#{page_element.rotation_in_degrees}deg);
+        -moz-transform: rotate(#{page_element.rotation_in_degrees}deg);
+        transform: rotate(#{page_element.rotation_in_degrees}deg);
+      }

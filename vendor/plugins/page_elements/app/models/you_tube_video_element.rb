@@ -10,7 +10,8 @@ class YouTubeVideoElement < PageElement
   # DuckDuckGo => 16
   # **** SPECIAL **** 32 means, if set, don't show the title at the bottom of the video
   # **** SPECIAL **** 64 means, if set, play video immediately on page load.
-  
+  include PageElementHelpers::ImageRotationSupport
+
   class << self
     def extract_data_from_params(params)
       { :thumbnail => { 
@@ -27,12 +28,13 @@ class YouTubeVideoElement < PageElement
         :title            => params["m_title"],
         :uploader         => params["m_owner"],
         :m_search_engines => params["m_search_engines"],
-      }
+      }.merge( obtain_image_rotation_from_params(params) )
     end
   end
   
   def _json
-    extra_data.merge({ :id => id_str })
+    edata = extra_data
+    edata.merge({ :id => id_str }).merge(retrieve_image_rotation_from_extra_data(edata))
   end
 
   def video_url(dom_id)
