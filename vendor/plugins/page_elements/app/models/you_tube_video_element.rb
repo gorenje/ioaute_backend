@@ -28,6 +28,7 @@ class YouTubeVideoElement < PageElement
         :title            => params["m_title"],
         :uploader         => params["m_owner"],
         :m_search_engines => params["m_search_engines"],
+        :m_seek_to        => params["m_seek_to"] || "0",
       }.merge( obtain_image_rotation_from_params(params) )
     end
   end
@@ -68,6 +69,13 @@ class YouTubeVideoElement < PageElement
 
   def play_immediately?
     (extra_data["m_search_engines"].to_i & 64) > 0
+  end
+  
+  def seek_to?
+    extra_data["m_seek_to"].to_i > 0
+  end
+  def seek_position_in_seconds
+    extra_data["m_seek_to"].to_i
   end
   
   def links

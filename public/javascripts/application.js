@@ -83,6 +83,7 @@ function reloadImg(id) {
 // -------------------------------------------------------------------------------------------
 // YouTube Controls
 var YouTubeVideosPlayImmediately = [];
+var YouTubeVideosSeekTo = {};
 var YouTubeVideosPlayOrder = []; // objects with top/left
 var YouTubeVideosCurrentPlayIndex = 0;
 var YouTubeVideosPlayingAll = false;
@@ -91,6 +92,10 @@ var YouTubeVideosLoopCurrent = false;
 
 function youTubePlayOnReady(dom_id) {
   YouTubeVideosPlayImmediately.push(dom_id);
+}
+
+function youTubeSeekToOnReady( dom_id, position_in_secs) {
+  YouTubeVideosSeekTo[dom_id] = position_in_secs;
 }
 
 // From http://code.google.com/apis/youtube/js%5Fapi%5Freference.html#Events
@@ -119,10 +124,16 @@ function youTubeStateChange(new_state) {
 }
 
 function onYouTubePlayerReady(playerId) {
-  var ytplayer = document.getElementById(playerId);
+  var ytplayer = $(playerId);
   // register event notification
   if ( ytplayer ) {
     ytplayer.addEventListener("onStateChange", "youTubeStateChange");
+  }
+
+  // seek to a specific copy of a video
+  if ( YouTubeVideosSeekTo[playerId] ) {
+    ytplayer.seekTo(YouTubeVideosSeekTo[playerId],true);
+    ytplayer.pauseVideo();
   }
 
   // if this video should be played immediately ...

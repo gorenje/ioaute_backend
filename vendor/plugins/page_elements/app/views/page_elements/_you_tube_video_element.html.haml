@@ -12,6 +12,9 @@
       = "``" + page_element.title + "''"
       posted by
       %a{ :href => "http://www.youtube.com/user/#{page_element.owner}", :target => "_blank" }= page_element.owner
+  - if page_element.seek_to?
+    :javascript
+      youTubeSeekToOnReady('#{vid_dom_id}', #{page_element.seek_position_in_seconds});
   - if page_element.play_immediately?
     :javascript
       youTubePlayOnReady('#{vid_dom_id}');

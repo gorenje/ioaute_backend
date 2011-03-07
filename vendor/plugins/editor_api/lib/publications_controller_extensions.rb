@@ -80,7 +80,8 @@ module EditorApi
           :tool_box_items  => toolboxitems.reverse, # ordering is reversed on display
           :toolbar_left   => ["BackToPublicationsControlItemIdentifier",
                               "CopyPageElementControlItemIdentifier",
-                              "PastePageElementControlItemIdentifier"],
+                              "PastePageElementControlItemIdentifier",
+                              "PublicationPropertyControlItemIdentifier"],
           :toolbar_middle => middle_buttons,
           :toolbar_right  => ["PreviewPublicationHtmlToolbarItemIdentifier",
                               "PublishPublicationHtmlToolbarItemIdentifier"],
