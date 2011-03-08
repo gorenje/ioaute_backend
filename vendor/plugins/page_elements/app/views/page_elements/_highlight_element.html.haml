@@ -23,11 +23,13 @@
       return false;
     };
     $("#{dom_id(page_element)}").onmouseover = function() {
+      window.status = 'Go to "#{#{page_element.link_url}}"'; 
       $("#{dom_id(page_element)}").setStyle({
         '#{page_element.show_as_border? ? 'border' : 'background' }-color': '#{page_element.css_color_spec}'
       });
     };
     $("#{dom_id(page_element)}").onmouseout = function() {
+      window.status = '';
       $("#{dom_id(page_element)}").setStyle({
         '#{page_element.show_as_border? ? 'border' : 'background' }-color': 'transparent'
       });
