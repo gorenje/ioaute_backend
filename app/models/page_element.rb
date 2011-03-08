@@ -31,6 +31,7 @@ class PageElement < ActiveRecord::Base
         "HighlightTE"    => HighlightElement,
         "PayPalButtonTE" => PayPalButtonElement,
         "YouTubeCtrlTE"  => YouTubeControlElement,
+        "YouTubeSeekToLinkTE" => YouTubeSeekToLinkElement,
       }))[isa_str] || "UnknownClass#{isa_str}"
     end
 

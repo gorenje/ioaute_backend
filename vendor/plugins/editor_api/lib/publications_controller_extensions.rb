@@ -20,7 +20,7 @@ module EditorApi
           { "id" => "20", "name" => "YouTube Controls", "klazz" => "YouTubeCtrlTE" },
           { "id" => "18", "name" => "YouTube Video",    "klazz" => "YouTubeTE" },
           { "id" => "14", "name" => "YouTube SeekTo",   "klazz" => "YouTubeSeekToLinkTE",
-            "font_size" => 12, "font_name" => "Arial Black",
+            "font_size" => 12, "font_name" => "Courier",
             "red" => "0", "blue" => "255", "green" => "0", "alpha" => "1.0"},
           { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
 

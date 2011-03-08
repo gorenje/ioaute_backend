@@ -98,6 +98,20 @@ function youTubeSeekToOnReady( dom_id, position_in_secs) {
   YouTubeVideosSeekTo[dom_id] = position_in_secs;
 }
 
+function youTubePlayVideoAt( dom_id, position_in_secs, end_at_in_secs) {
+  var ytplayer = $(dom_id);
+  if ( ytplayer ) {
+    ytplayer.seekTo(position_in_secs,true);
+    // setup timer to stop player if there is an end_at specified.
+    if ( end_at_in_secs > position_in_secs ) {
+      new PeriodicalExecuter(function(pe) { 
+         ytplayer.stopVideo();
+         pe.stop();
+      }, (end_at_in_secs - position_in_secs) + 5);
+    }
+  }
+}
+
 // From http://code.google.com/apis/youtube/js%5Fapi%5Freference.html#Events
 // Possible values are unstarted (-1), ended (0), playing (1), 
 // paused (2), buffering (3), video cued (5).
