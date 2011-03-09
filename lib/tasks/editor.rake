@@ -45,10 +45,11 @@ namespace :editor do
       # gzip everything so that nginx doesn't need to do this each time.
       ( Dir.glob("#{base_dest_dir}/publications/*.js") +
         Dir.glob("#{base_dest_dir}/javascripts/*.js") +
-        Dir.glob("#{base_dest_dir}/publications/Resources/*.cib") +
-        Dir.glob("#{base_dest_dir}/publications/Frameworks/**/*.js") +
-        Dir.glob("#{base_dest_dir}/publications/Frameworks/**/*.j") +
-        Dir.glob("#{base_dest_dir}/publications/Frameworks/**/*.sj")
+        Dir.glob("#{base_dest_dir}/publications/**/*.txt") +
+        Dir.glob("#{base_dest_dir}/publications/**/*.cib") +
+        Dir.glob("#{base_dest_dir}/publications/**/*.js") +
+        Dir.glob("#{base_dest_dir}/publications/**/*.j") +
+        Dir.glob("#{base_dest_dir}/publications/**/*.sj")
       ).each do |filename|
         `rm -f #{filename}.gz && gzip -9 -c #{filename} > #{filename}.gz`
       end
