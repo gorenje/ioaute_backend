@@ -10,3 +10,4 @@ db/schema.rb
 config/apis.yml
 .rvmrc
 config/thin.yml
+public/javascripts/*.js.gz

@@ -35,9 +35,19 @@ namespace :editor do
       unless File.exists?("#{base_dest_dir}/publications")
         FileUtils.ln_s("#{base_dest_dir}/#{dirname}", "#{base_dest_dir}/publications") 
       end
+
       # add timestamp to the JS requests.
       erb = ERB.new(File.open("#{Rails.root}/config/remote_files/Application.js.erb").read)
       File.open("#{base_dest_dir}/publications/Application.js", "w+") << erb.result(binding)
+
+      # gzip everything so that nginx doesn't need to do this each time.
+      ( Dir.glob("#{base_dest_dir}/publications/*.js") +
+        Dir.glob("#{base_dest_dir}/javascripts/*.js") +
+        Dir.glob("#{base_dest_dir}/publications/Resources/*.cib")
+      ).each do |filename|
+        `rm -f #{filename}.gz && gzip -9 -c #{filename} > #{filename}.gz`
+      end
+      
       `open -a Safari "http://localhost:3000"`
     else
       puts("!!ERROR!!: did nothing because i could not determine "+
