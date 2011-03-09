@@ -6,6 +6,8 @@ module EditorApi
     
     module InstanceMethods
       def ping
+        publication = Publication.for_user(current_user).find_by_uuid!(params[:id])
+        
         # BTW always have an even number of tools, this makes the tool box look better
         toolboxitems = [
 
@@ -88,6 +90,8 @@ module EditorApi
           :toolbar_right  => ["PreviewPublicationHtmlToolbarItemIdentifier",
                               "PublishPublicationHtmlToolbarItemIdentifier"],
         })
+      rescue Exception => e 
+        send_off_failed(params, e.to_s)
       end
       
       def publish

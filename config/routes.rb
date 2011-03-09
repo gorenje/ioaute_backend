@@ -25,10 +25,10 @@ Pubme::Application.routes.draw do
 
   resources :publications do
     collection do
-      get :ping
       get :user # all publications for the user.
     end
     member do
+      get :ping
       get :copy
       get :publish
       scope ':action_to_perform' do
