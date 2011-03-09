@@ -162,6 +162,15 @@ class Publication < ActiveRecord::Base
                         '"snap_grid_width": 0, "continous" : 0, "shadow" : 1}'))
   end
   
+  def generate_json_data
+    {
+      :snap_grid_width => snap_grid_width,
+      :continous       => is_continous? ? 1 : 0,
+      :shadow          => has_shadow? ? 1 : 0,
+      :color           => bg_color_parts,
+    }    
+  end
+  
   protected
 
   def set_uuid

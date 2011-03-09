@@ -89,22 +89,12 @@ module EditorApi
           :toolbar_middle => middle_buttons,
           :toolbar_right  => ["PreviewPublicationHtmlToolbarItemIdentifier",
                               "PublishPublicationHtmlToolbarItemIdentifier"],
-          :publication => {
-                            :snap_grid_width => publication.snap_grid_width,
-                            :continous       => publication.is_continous? ? 1 : 0,
-                            :shadow          => publication.has_shadow? ? 1 : 0,
-                            :color           => publication.bg_color_parts,
-                           }
+          :publication => publication.generate_json_data
         })
       rescue Exception => e 
         send_off_failed(params, e.to_s)
       end
 
-      def update
-      rescue Exception => e 
-        send_off_failed(params, e.to_s)
-      end
-      
       def publish
         ## NOTE: id in this case is the uuid of the publication
         publication = Publication.for_user(current_user).find_by_uuid!(params[:id])
@@ -120,6 +110,19 @@ module EditorApi
             send_off_failed(params, "unable to publish at this time")
           end
         end
+      rescue Exception => e 
+        send_off_failed(params, e.to_s)
+      end
+      
+      def update
+        publication = Publication.for_user(current_user).find_by_uuid!(params[:id])
+        publication.
+          update_attributes(:data => Publication.
+                            obtain_colors_from_params(params).
+                            merge({ "snap_grid_width" => params["m_snap_grid_width"],
+                                    "continous"       => params["m_continous"],
+                                    "shadow"          => params["m_has_shadow"]}).to_json)
+        send_off_success(params, :data => publication.generate_json_data)
       rescue Exception => e 
         send_off_failed(params, e.to_s)
       end
