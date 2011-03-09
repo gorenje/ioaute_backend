@@ -38,12 +38,17 @@ namespace :editor do
 
       # add timestamp to the JS requests.
       erb = ERB.new(File.open("#{Rails.root}/config/remote_files/Application.js.erb").read)
-      File.open("#{base_dest_dir}/publications/Application.js", "w+") << erb.result(binding)
+      File.open("#{base_dest_dir}/publications/Application.js", "w+") do |f|
+        f << erb.result(binding)
+      end
 
       # gzip everything so that nginx doesn't need to do this each time.
       ( Dir.glob("#{base_dest_dir}/publications/*.js") +
         Dir.glob("#{base_dest_dir}/javascripts/*.js") +
-        Dir.glob("#{base_dest_dir}/publications/Resources/*.cib")
+        Dir.glob("#{base_dest_dir}/publications/Resources/*.cib") +
+        Dir.glob("#{base_dest_dir}/publications/Frameworks/**/*.js") +
+        Dir.glob("#{base_dest_dir}/publications/Frameworks/**/*.j") +
+        Dir.glob("#{base_dest_dir}/publications/Frameworks/**/*.sj")
       ).each do |filename|
         `rm -f #{filename}.gz && gzip -9 -c #{filename} > #{filename}.gz`
       end
