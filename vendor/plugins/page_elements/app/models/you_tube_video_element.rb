@@ -10,6 +10,7 @@ class YouTubeVideoElement < PageElement
   # DuckDuckGo => 16
   # **** SPECIAL **** 32 means, if set, don't show the title at the bottom of the video
   # **** SPECIAL **** 64 means, if set, play video immediately on page load.
+  # **** SPECIAL **** 128 means, if set, video should be fixed to absolute page position
   include PageElementHelpers::ImageRotationSupport
 
   class << self
@@ -51,7 +52,7 @@ class YouTubeVideoElement < PageElement
   end
 
   # Are we going to search either search links or an artist link? Extend this if new
-  # search engine is added.
+  # search engine is added, otherwise will work.
   def show_links?
     edata = extra_data
     bitvalue = edata["m_search_engines"].to_i
@@ -69,6 +70,10 @@ class YouTubeVideoElement < PageElement
 
   def play_immediately?
     (extra_data["m_search_engines"].to_i & 64) > 0
+  end
+
+  def fixed_position?
+    (extra_data["m_search_engines"].to_i & 128) > 0
   end
   
   def seek_to?
@@ -105,5 +110,15 @@ class YouTubeVideoElement < PageElement
   
   def self._type
     "YouTubeVideo"
+  end
+  
+  def css_style
+    if fixed_position? 
+      ('position: fixed; float: none; top: %0.2fpx; left: 50%%; ' +
+       'width: %0.2fpx; margin-left: -%0.2fpx; height: %0.2fpx; ' +
+       'z-index: %d;') % [y+40, width, (width/2.0), height, z_index+5000]
+    else
+      super
+    end
   end
 end
