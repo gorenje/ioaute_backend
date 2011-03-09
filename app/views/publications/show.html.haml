@@ -23,10 +23,10 @@
   %span{ :class => "spacer" }
   - @publication.pages.sort_by(&:number).each_with_index do |page, idx|
     %a{ :name => "page%02d" % (idx+1) }
-    %div{ :id => dom_id(page), :class => "#{page.css_class} shadow", :style => page.css_style }
+    %div{ :id => dom_id(page), :class => "#{page.css_class} #{@publication.has_shadow? ? 'page_shadow' : ''}", :style => page.css_style }
       - page.page_elements.each do |page_element|
         = render :partial => "publications/page_element", :locals => { :page_element => page_element, :page_num => idx+1 }
-    - if total_pages > 1
+    - if total_pages > 1 && !@publication.is_continous?
       %div{ :class => class_for_page_number(idx, total_pages) }
         #page_number
           = "Page #{idx+1} of #{total_pages}"

@@ -139,6 +139,23 @@ class Publication < ActiveRecord::Base
     Bitly.for_publication(self, server_url, format)
   end
 
+  ## TODO return something useful.
+  def is_continous?
+    true
+  end
+
+  def has_shadow?
+    true
+  end
+  
+  def css_bg_color
+    "#ddd"
+  end
+  
+  def snap_grid_width
+    0
+  end
+  
   protected
 
   def set_uuid
