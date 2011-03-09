@@ -19,7 +19,7 @@
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Cabin:bold", :media => "screen,print,projection"
     = stylesheet_link_tag "http://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:200,300,400,700", :media => "screen,print,projection"
   %style{ :type => "text/css", :media => "screen,projection" }
-    = "body { background-color: #{@publication.css_bg_color}; }"
+    = "body { background-color: #{@publication.css_color_spec}; }"
   %body
     = yield
     = facebook_root_tag

@@ -89,7 +89,18 @@ module EditorApi
           :toolbar_middle => middle_buttons,
           :toolbar_right  => ["PreviewPublicationHtmlToolbarItemIdentifier",
                               "PublishPublicationHtmlToolbarItemIdentifier"],
+          :publication => {
+                            :snap_grid_width => publication.snap_grid_width,
+                            :continous       => publication.is_continous? ? 1 : 0,
+                            :shadow          => publication.has_shadow? ? 1 : 0,
+                            :color           => publication.bg_color_parts,
+                           }
         })
+      rescue Exception => e 
+        send_off_failed(params, e.to_s)
+      end
+
+      def update
       rescue Exception => e 
         send_off_failed(params, e.to_s)
       end

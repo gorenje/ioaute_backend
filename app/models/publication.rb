@@ -11,6 +11,8 @@ class Publication < ActiveRecord::Base
   scope :not_deleted, where("state != 'deleted'")
   scope :for_user, lambda { |user| where( "user_id = ?", user.id) }
   
+  include PageElementHelpers::ColorSupport
+  
   state_machine :state, :initial => :created do
     # - Locked is a user allowed state (i.e. after publishing, the publication can be
     #   locked to prevent further editing). 
@@ -139,21 +141,25 @@ class Publication < ActiveRecord::Base
     Bitly.for_publication(self, server_url, format)
   end
 
-  ## TODO return something useful.
   def is_continous?
-    true
+    extra_data["continous"].to_i == 1
   end
 
   def has_shadow?
-    true
-  end
-  
-  def css_bg_color
-    "#ddd"
+    extra_data["shadow"].to_i == 1
   end
   
   def snap_grid_width
-    0
+    extra_data["snap_grid_width"]
+  end
+
+  def bg_color_parts
+    retrieve_colors_from_extra_data(extra_data)
+  end
+  
+  def extra_data
+    JSON.parse(data || ('{ "red": 221, "blue": 221, "green": 221, "alpha": 1, ' +
+                        '"snap_grid_width": 0, "continous" : 0, "shadow" : 1}'))
   end
   
   protected
