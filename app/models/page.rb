@@ -20,6 +20,10 @@ class Page < ActiveRecord::Base
     end
   end
   
+  def create_copy(page_number)
+    Page.create_copy(self, page_number)
+  end
+  
   ## TODO this returns a hash not a string as to_json. This is because the controller 
   ## TODO creates a json string from all the data to be sent to the editor and this
   ## TODO is only one part.

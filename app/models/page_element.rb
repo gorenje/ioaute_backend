@@ -1,6 +1,7 @@
 class PageElement < ActiveRecord::Base
   belongs_to :page
-
+  belongs_to :original, :class_name => "PageElement"
+  
   @@lokuptable = nil
   
   state_machine :state, :initial => :created do
@@ -76,6 +77,13 @@ class PageElement < ActiveRecord::Base
   # object. Don't override this method, rather the corresponding class method _type.
   def _type
     self.class._type
+  end
+  
+  # when we clone ourself, ensure that we maintain a reference to the original
+  def clone
+    p = super
+    p.original = self
+    p
   end
   
   # return hash containing the raw data for this object.
