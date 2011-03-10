@@ -37,6 +37,8 @@ class PagesController < ApplicationController
     with_page_object(params) do |page, publication|
       page = Page.create_copy(page, publication.pages.map(&:number).max + 1)
       publication.pages << page
+      ## ouch, but needs doing.
+      publication.update_references
       send_off_success(params, {:data => page.to_json_for_editor})
     end
   end

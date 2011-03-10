@@ -86,6 +86,11 @@ class PageElement < ActiveRecord::Base
     p
   end
   
+  # this is called once an entire publication or page of a publication has been cloned
+  # and we need to update references (i.e. explicitly page element ids that are stored
+  # as part of the page elements' data, e.g. you_tube_seek_to_link_element).
+  def update_references(new_publication) ; end
+  
   # return hash containing the raw data for this object.
   def to_json_for_editor
     JSON.parse(to_json(:methods => ['_type', '_json'], 

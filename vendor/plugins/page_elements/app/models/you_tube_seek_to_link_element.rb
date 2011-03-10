@@ -33,6 +33,20 @@ class YouTubeSeekToLinkElement < PageElement
     PageElement.find(extra_data["video_id"])
   end
   
+  def update_references(new_publication)
+    video_id = extra_data["video_id"].to_i
+    return if video_id.to_i <= 0
+    
+    new_publication.pages.each do |page|
+      page.page_elements.each do |page_element|
+        if page_element.original_id == video_id
+          update_attribute(:data, extra_data.merge("video_id" => page_element.id).to_json)
+          return
+        end
+      end
+    end
+  end
+  
   def start_at
     extra_data["start_at_secs"] || "0"
   end

@@ -171,6 +171,11 @@ class Publication < ActiveRecord::Base
     }    
   end
   
+  def update_references
+    pages.each { |p| p.page_elements.each { |pe| pe.update_references(self) } }
+    self
+  end
+  
   protected
 
   def set_uuid

@@ -24,7 +24,8 @@ class PublicationsController < ApplicationController
   end
 
   def copy
-    @publication = Publication.find_by_uuid!(params[:id]).create_copy(current_user)
+    @publication = Publication.find_by_uuid!(params[:id]).
+      create_copy(current_user).update_references
     do_begin_edit
   rescue Exception => e
     render("common/publication_does_not_exist", :layout => "application")
