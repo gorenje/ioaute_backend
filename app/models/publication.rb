@@ -8,6 +8,8 @@ class Publication < ActiveRecord::Base
   
   before_save :set_uuid
 
+  # NOTE this is a repetition of the viewable? method below
+  scope :viewable, where( "state = 'published' || state = 'created' || state = 'editing'" )
   scope :not_deleted, where("state != 'deleted'")
   scope :for_user, lambda { |user| where( "user_id = ?", user.id) }
   
@@ -77,12 +79,12 @@ class Publication < ActiveRecord::Base
 
     # in this case id_str can either be a base62 encode value or a UUID value 
     # (this has exactly 20 hexadecimal characters)
-    def find_by_params_id!(id_str, opts = {})
+    def find_by_uuid_or_base62!(id_str, opts = {})
       Publication.find_by_uuid!(case id_str 
                                 when /^[a-f0-9]{20}$/ then id_str
                                 when /^[a-zA-Z0-9]{5,19}$/
                                   id_str.base62_decode.to_s(16).downcase.rjust(20,'0')
-                                else Publication.find(id_str).uuid
+                                else "..garbage.."
                                 end, opts)
     end
     
@@ -113,6 +115,7 @@ class Publication < ActiveRecord::Base
   end
   
   # check whether we can display this publication
+  # NOTE this is a repetition of the viewable scope above.
   def viewable?
     published? || created? || editing?
   end

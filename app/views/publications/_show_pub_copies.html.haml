@@ -1,10 +1,11 @@
-- if @publication.original
+- num_viewable_copies = @publication.copies.viewable.count
+- if @publication.original && @publication.original.viewable?
   %a{ :href => publication_path( :id => @publication.original.uuid) } [original]
-  - if @publication.copies.count == 0
+  - if num_viewable_copies == 0
     \&nbsp;
-- if @publication.copies.count > 0
+- if num_viewable_copies > 0
   #pub_copies_dropdown{ :class => "shadow" }
-    - @publication.copies.each do |pubcopy|
+    - @publication.copies.viewable.each do |pubcopy|
       %a{ :href => publication_path( :id => pubcopy.uuid) }
         = truncate(pubcopy.name, :length => 23)
       %br

@@ -4,29 +4,32 @@ class PublicationTest < ActiveSupport::TestCase
   context "finding by base62 or uuid" do
     should "retrieval by uuid" do
       pub1, pub2, pub3 = ([:publication]*3).map { |a| Factory(a) }
-      assert_equal pub1, Publication.find_by_params_id!(pub1.uuid)
-      assert_equal pub2, Publication.find_by_params_id!(pub2.uuid.to_i(16).base62_encode)
-      assert_equal pub3, Publication.find_by_params_id!(pub3.id)
+      assert_equal pub1, Publication.find_by_uuid_or_base62!(pub1.uuid)
+      assert_equal pub2, Publication.find_by_uuid_or_base62!(pub2.uuid.to_i(16).base62_encode)
+
+      assert_raises ActiveRecord::RecordNotFound do
+        assert_equal pub3, Publication.find_by_uuid_or_base62!(pub3.id)
+      end
     end
     
     should "be able to pass options" do
       pub1, pub2, pub3 = ([:publication]*3).map { |a| Factory(a) }
-      assert_equal pub1, Publication.find_by_params_id!(pub1.uuid, :include => :pages)
+      assert_equal pub1, Publication.find_by_uuid_or_base62!(pub1.uuid, :include => :pages)
     end
     
     should "do something if something is not found" do
       Publication.delete_all
       assert_raises ActiveRecord::RecordNotFound do
-        Publication.find_by_params_id!(12)
+        Publication.find_by_uuid_or_base62!(12)
       end
 
       assert_raises ActiveRecord::RecordNotFound do
-        Publication.find_by_params_id!(Publication.generate_uuid)
+        Publication.find_by_uuid_or_base62!(Publication.generate_uuid)
       end
 
       pub = Publication.new( :uuid => Publication.generate_uuid)
       assert_raises ActiveRecord::RecordNotFound do
-        Publication.find_by_params_id!(pub.uuid_base62)
+        Publication.find_by_uuid_or_base62!(pub.uuid_base62)
       end
     end
   end

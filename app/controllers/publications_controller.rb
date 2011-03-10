@@ -75,7 +75,7 @@ class PublicationsController < ApplicationController
   
   def show
     handle_exceptions(params) do
-      @publication = Publication.find_by_params_id!(params[:id], :include => "pages")
+      @publication = Publication.find_by_uuid_or_base62!(params[:id], :include => "pages")
 
       unless @publication.viewable?
         render("common/publication_does_not_exist", :layout => "application") 
