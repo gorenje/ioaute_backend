@@ -105,7 +105,7 @@ function youTubePlayVideoAt( dom_id, position_in_secs, end_at_in_secs) {
     // setup timer to stop player if there is an end_at specified.
     if ( end_at_in_secs > position_in_secs ) {
       new PeriodicalExecuter(function(pe) { 
-         ytplayer.stopVideo();
+         ytplayer.pauseVideo();
          pe.stop();
       }, (end_at_in_secs - position_in_secs) + 5);
     }

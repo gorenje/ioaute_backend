@@ -8,9 +8,10 @@ class YouTubeVideoElement < PageElement
   # Bing       => 4
   # iTunes     => 8
   # DuckDuckGo => 16
-  # **** SPECIAL **** 32 means, if set, don't show the title at the bottom of the video
-  # **** SPECIAL **** 64 means, if set, play video immediately on page load.
-  # **** SPECIAL **** 128 means, if set, video should be fixed to absolute page position
+  # !! SPECIAL !! 32 means, if set, don't show the title at the bottom of the video
+  # !! SPECIAL !! 64 means, if set, play video immediately on page load.
+  # !! SPECIAL !! 128 means, if set, video should be fixed to absolute page position
+  # !! SPECIAL !! 256 means, if set, video is to be cued at a specific position.
   include PageElementHelpers::ImageRotationSupport
 
   class << self
