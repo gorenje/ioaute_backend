@@ -37,6 +37,8 @@ namespace :editor do
       end
 
       # add timestamp to the JS requests.
+      application_js_file_count = 
+        Dir.glob("#{base_dest_dir}/publications/Application?.js").count
       erb = ERB.new(File.open("#{Rails.root}/config/remote_files/Application.js.erb").read)
       File.open("#{base_dest_dir}/publications/Application.js", "w+") do |f|
         f << erb.result(binding)
