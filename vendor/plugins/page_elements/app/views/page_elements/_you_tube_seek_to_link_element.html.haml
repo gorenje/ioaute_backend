@@ -5,7 +5,8 @@
     text-decoration: none;
   }
 -# TODO this is crap and should be put into the model but dom_id is not accessible there
-- vid_dom_id = dom_id(page_element.video, "video").gsub(/_/,'')
+- ytvideo = page_element.video
+- vid_dom_id = dom_id(ytvideo.nil? ? page_element : ytvideo, "video").gsub(/_/,'')
 .you_tube_seek_to_link_element{ }
   %a{ :href => 'javascript:void(0);', :onclick => "youTubePlayVideoAt('#{vid_dom_id}', #{page_element.start_at}, #{page_element.end_at}); return false;", :id => dom_id(page_element,'you_tube_seek')}
-    = page_element.text
+    = ytvideo.nil? ? "!! WARNING !! NO MATCHING VIDEO FOUND" : page_element.text

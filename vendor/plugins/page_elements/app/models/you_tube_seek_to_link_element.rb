@@ -30,7 +30,7 @@ class YouTubeSeekToLinkElement < PageElement
   end
   
   def video
-    PageElement.find(extra_data["video_id"])
+    PageElement.find_by_id(extra_data["video_id"])
   end
   
   def update_references(new_publication)
