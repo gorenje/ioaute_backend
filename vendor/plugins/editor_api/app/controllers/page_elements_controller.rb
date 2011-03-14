@@ -35,11 +35,9 @@ class PageElementsController < ApplicationController
       :width  => params[:width],  :height => params[:height],
     }.merge(:data => page_element_klazz.params_to_data(params))
 
-    page_element = page_element_klazz.create(data)
+    page = Page.find_by_id_and_publication_id!(params[:page_id], publication.id)
+    page_element = page_element_klazz.create(data.merge( :page_id => page.id ))
     
-    Page.find_by_id_and_publication_id!(params[:page_id], publication.id).
-      page_elements << page_element
-
     send_off_success(params, {:data => page_element, :page_element_id => page_element.id})
   rescue Exception => e 
     send_off_failed(params, e.to_s)
