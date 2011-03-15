@@ -16,7 +16,7 @@ module EditorApi
             "font_size" => 12, "font_name" => "Arial Black",
             "red" => "0", "blue" => "255", "green" => "0", "alpha" => "1.0",},
           { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
-          { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
+          { "id" => "13", "name" => "Tweet", "klazz" => "TweetTE" },
 
 
           { "id" => "20", "name" => "YouTube Controls", "klazz" => "YouTubeCtrlTE" },
@@ -37,7 +37,7 @@ module EditorApi
             "tool_image" => "toolSpeechBubble", "width" => 125, "height" => 125 },
                         
           { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE" },
-          { "id" => "13", "name" => "Tweet", "klazz" => "TweetTE" },
+          { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
 
           basic_text_element,
           basic_text_element.merge("font_size" => 16, "id" => 8, "name" => "Larger"),
