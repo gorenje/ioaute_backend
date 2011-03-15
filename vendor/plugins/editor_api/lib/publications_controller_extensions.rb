@@ -26,18 +26,6 @@ module EditorApi
             "red" => "0", "blue" => "255", "green" => "0", "alpha" => "1.0"},
           { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
 
-          { "id" => "2",  "name" => "Groucho it!",  "klazz" => "ImageTE",
-            "dest_url" => "http://www.flickr.com/photos/marcjohns/2553260141/",
-            "pic_url" => "http://assets.2monki.es/images/moustache.png",
-            "tool_image" => "toolMoustache", "width" => 150, "height" => 50 },
-                        
-          { "id" => "12", "name" => "Bubble", "klazz" => "ImageTE",
-            "dest_url" => "http://duncanpierce.org/files/images/speech-question-marks.png",
-            "pic_url" => "http://assets.2monki.es/images/speech-bubble.png",
-            "tool_image" => "toolSpeechBubble", "width" => 125, "height" => 125 },
-                        
-          { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE" },
-          { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
 
           basic_text_element,
           basic_text_element.merge("font_size" => 16, "id" => 8, "name" => "Larger"),
@@ -58,6 +46,18 @@ module EditorApi
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
             "width" => 5, "height" => 200, "image" => "toolVerticalBar" },
                         
+          { "id" => "2",  "name" => "Groucho it!",  "klazz" => "ImageTE",
+            "dest_url" => "http://www.flickr.com/photos/marcjohns/2553260141/",
+            "pic_url" => "http://assets.2monki.es/images/moustache.png",
+            "tool_image" => "toolMoustache", "width" => 150, "height" => 50 },
+                        
+          { "id" => "12", "name" => "Bubble", "klazz" => "ImageTE",
+            "dest_url" => "http://duncanpierce.org/files/images/speech-question-marks.png",
+            "pic_url" => "http://assets.2monki.es/images/speech-bubble.png",
+            "tool_image" => "toolSpeechBubble", "width" => 125, "height" => 125 },
+                        
+          { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE" },
+          { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
          ]
 
         ## Possible Button Values (to be found in AppController.j):
