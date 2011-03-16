@@ -171,6 +171,7 @@ class Publication < ActiveRecord::Base
       :continous       => is_continous? ? 1 : 0,
       :shadow          => has_shadow? ? 1 : 0,
       :color           => bg_color_parts,
+      :name            => name,
     }    
   end
   

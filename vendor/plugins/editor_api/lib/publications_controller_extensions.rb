@@ -117,11 +117,12 @@ module EditorApi
       def update
         publication = Publication.for_user(current_user).find_by_uuid!(params[:id])
         publication.
-          update_attributes(:data => Publication.
-                            obtain_colors_from_params(params).
-                            merge({ "snap_grid_width" => params["m_snap_grid_width"],
-                                    "continous"       => params["m_continous"],
-                                    "shadow"          => params["m_has_shadow"]}).to_json)
+          update_attributes({ :name => params["m_name"] || publication.name,
+                              :data => Publication.
+                              obtain_colors_from_params(params).
+                              merge({ "snap_grid_width" => params["m_snap_grid_width"],
+                                      "continous"       => params["m_continous"],
+                                      "shadow"          => params["m_has_shadow"]}).to_json})
         send_off_success(params, :data => publication.generate_json_data)
       rescue Exception => e 
         send_off_failed(params, e.to_s)
