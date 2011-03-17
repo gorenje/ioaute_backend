@@ -44,4 +44,15 @@ class HighlightElement < PageElement
   def border_width_pixel
     extra_data["border_width"]
   end
+  
+  def css_style
+    if show_as_border?
+      border_width = border_width_pixel.to_i
+      ('position: absolute; float: none; top: %0.2fpx; left: %0.2fpx; ' +
+       'width: %0.2fpx; height: %0.2fpx; z-index: %d;') % [y, x, width-(border_width*2), 
+                                                           height-(border_width*2), z_index]
+    else
+      super
+    end
+  end
 end
