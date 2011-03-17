@@ -16,7 +16,8 @@ namespace :editor do
   task :install => :environment do
     ## can use one of Flatten, Release or Press. The jake compile state is assumed to be 
     ## downcase of that, e.g. flatten, release or press.
-    editor_build_directory = "Press"
+    ## TODO application.js is assumed .. this won't work with anything else other than Flatten.
+    editor_build_directory = "Flatten" 
     
     startTime = Time.now
     puts "1. Building editor with jake - " + startTime.to_s
