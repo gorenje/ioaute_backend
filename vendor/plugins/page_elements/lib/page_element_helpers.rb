@@ -1,5 +1,54 @@
 module PageElementHelpers
 
+  ## 
+  ## Support for rounded corners
+  ##
+  module CornerSupport
+    def self.included(base) # :nodoc:
+      base.class_eval do
+        base.send :extend, ClassMethods
+        base.send :include, InstanceMethods
+      end
+    end  
+
+    module ClassMethods
+      def obtain_corner_radius_from_params(params)
+        { 
+          :corner_top_left     => params["m_corner_top_left"],
+          :corner_top_right    => params["m_corner_top_right"],
+          :corner_bottom_left  => params["m_corner_bottom_left"],
+          :corner_bottom_right => params["m_corner_bottom_right"],
+        }
+      end
+    end
+
+    module InstanceMethods
+      def retrieve_corner_radius_from_extra_data(edata)
+        { 
+          :corner_top_left     => edata["corner_top_left"] || "0",
+          :corner_top_right    => edata["corner_top_right"] || "0",
+          :corner_bottom_left  => edata["corner_bottom_left"] || "0",
+          :corner_bottom_right => edata["corner_bottom_right"] || "0",
+        }
+      end
+
+      def has_rounded_corners?
+        edata = extra_data
+        (edata["corner_bottom_right"].to_i > 0 || edata["corner_bottom_left"].to_i > 0 ||
+         edata["corner_top_left"].to_i > 0     || edata["corner_top_right"].to_i)
+      end
+      
+      def css_rounded_corners
+        edata = extra_data
+        ["top_left", "top_right", "bottom_right", "bottom_left"].map do |crner|
+          pxvalue = edata["corner_#{crner}"]
+          ("-moz-border-radius-#{crner.gsub(/_/,'')}: #{pxvalue}px; " +
+           "border-#{crner.gsub(/_/,'-')}-radius: #{pxvalue}px;")
+        end.join(" ")
+      end
+    end
+  end
+  
   ##
   ## Image rotation support
   ##
