@@ -21,7 +21,9 @@ class PageElementsController < ApplicationController
   # can only be done via resize.
   def update
     check_page_element(params) do |page_element|
-      page_element.update_attributes(:data => page_element.class.params_to_data(params))
+      page_element.
+        update_attributes(:data => page_element.class.params_to_data(params),
+                          :id_str => params["idStr"] || page_element.id_str)
     end
   end
   
