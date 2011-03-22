@@ -58,6 +58,19 @@ module EditorApi
                         
           { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE" },
           { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
+
+          { "id" => "21", "name" => "Border", "klazz" => "HighlightTE",
+            "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
+            "width" => "150", "height" => "200", "image" => "toolBorder",
+            "border_width" => "10", "corner_top_left" => "5","corner_top_right" => "5",
+            "corner_bottom_right" => "5","corner_bottom_left" => "5",
+            "show_as_border"=>"1"},
+          { "id" => "22", "name" => "Box", "klazz" => "HighlightTE",
+            "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
+            "width" => "150", "height" => "200", "image" => "toolBox",
+            "border_width" => "10", "corner_top_left" => "5", "corner_top_right" => "5",
+            "corner_bottom_right" => "5","corner_bottom_left" => "5",
+            "show_as_border"=>"0"},
          ]
 
         ## Possible Button Values (to be found in AppController.j):
