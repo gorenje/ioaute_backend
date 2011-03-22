@@ -11,20 +11,36 @@ module EditorApi
         # BTW always have an even number of tools, this makes the tool box look better
         toolboxitems = [
 
-          { "id" => "3",  "name" => "Image",        "klazz" => "ImageTE" },
+          { "id" => "3",  "name" => "Image", "klazz" => "ImageTE", 
+            "tool_tip" => "Add an image to the document using an URL." },
+
           { "id" => "4",  "name" => "Link",         "klazz" => "LinkTE",
             "font_size" => 12, "font_name" => "Arial Black",
-            "red" => "0", "blue" => "255", "green" => "0", "alpha" => "1.0",},
-          { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE" },
-          { "id" => "13", "name" => "Tweet", "klazz" => "TweetTE" },
+            "red" => "0", "blue" => "255", "green" => "0", "alpha" => "1.0",
+            "tool_tip" => "Add an external link."},
 
+          { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE",
+            "tool_tip" => "Will add a Twitter feed box for a specific topic or user." },
 
-          { "id" => "20", "name" => "YouTube Controls", "klazz" => "YouTubeCtrlTE" },
-          { "id" => "18", "name" => "YouTube Video",    "klazz" => "YouTubeTE" },
+          { "id" => "13", "name" => "Tweet", "klazz" => "TweetTE",
+            "tool_tip" => ("Add a single specific Tweet to the document. "+
+                            "You will need to know the URL of the tweet.") },
+
+          { "id" => "20", "name" => "YouTube Controls", "klazz" => "YouTubeCtrlTE",
+            "tool_tip" => ("Add simple controls for automatically playing several "+
+                           "YouTube videos. This is good for a playlist created from "+
+                           "YouTube videos.") },
+
+          { "id" => "18", "name" => "YouTube Video",    "klazz" => "YouTubeTE",
+            "tool_tip" => ("Add a YouTube video directly via it's address. Copy the address from the YouTube page and paste it here.") },
+
           { "id" => "14", "name" => "YouTube SeekTo",   "klazz" => "YouTubeSeekToLinkTE",
             "font_size" => 12, "font_name" => "Courier",
-            "red" => "0", "blue" => "255", "green" => "0", "alpha" => "1.0"},
-          { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE" },
+            "red" => "0", "blue" => "255", "green" => "0", "alpha" => "1.0",
+            "tool_tip" => ("Allow you to seek to a specific position of a YouTube video contained in your document.")},
+
+          { "id" => "5",  "name" => "Like it!",     "klazz" => "FbLikeTE",
+            "tool_tip" => ("Add a Facebook like-it button.") },
 
 
           basic_text_element,
@@ -33,44 +49,54 @@ module EditorApi
           basic_text_element.merge("font_size" => 24, "id" => 10, "name" => "Largest"),
                         
           { "id" => "11", "name" => "Highlight - Green", "klazz" => "HighlightTE",
-            "red" => "131", "blue" => "52", "green" => "255", "alpha" => "0.4"},
+            "red" => "131", "blue" => "52", "green" => "255", "alpha" => "0.4",
+            "tool_tip" => ("Green highlight. Use the properties window to modify the color.")},
 
           { "id" => "19", "name" => "Highlight - Red", "klazz" => "HighlightTE",
-            "red" => "255", "blue" => "52", "green" => "55", "alpha" => "0.4"},
+            "red" => "255", "blue" => "52", "green" => "55", "alpha" => "0.4",
+            "tool_tip" => ("Red highlight. Use the properties window to modify the color.")},
 
           { "id" => "15", "name" => "Horiz Bar", "klazz" => "HighlightTE",
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
-            "width" => 200, "height" => 5, "image" => "toolHorizBar" },
+            "width" => 200, "height" => 5, "image" => "toolHorizBar",
+            "tool_tip" => ("Use horizontal bar to divide up your document.") },
 
           { "id" => "16", "name" => "Vert. Bar", "klazz" => "HighlightTE",
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
-            "width" => 5, "height" => 200, "image" => "toolVerticalBar" },
+            "width" => 5, "height" => 200, "image" => "toolVerticalBar",
+            "tool_tip" => ("Vertical bar to divide sections of your document.") },
                         
           { "id" => "2",  "name" => "Groucho it!",  "klazz" => "ImageTE",
             "dest_url" => "http://www.flickr.com/photos/marcjohns/2553260141/",
             "pic_url" => "http://assets.2monki.es/images/moustache.png",
-            "tool_image" => "toolMoustache", "width" => 150, "height" => 50 },
+            "tool_image" => "toolMoustache", "width" => 150, "height" => 50,
+            "tool_tip" => ("Need a disguise? Then why not use a moustache! No one will recognise you.") },
                         
           { "id" => "12", "name" => "Bubble", "klazz" => "ImageTE",
             "dest_url" => "http://duncanpierce.org/files/images/speech-question-marks.png",
             "pic_url" => "http://assets.2monki.es/images/speech-bubble.png",
-            "tool_image" => "toolSpeechBubble", "width" => 125, "height" => 125 },
+            "tool_image" => "toolSpeechBubble", "width" => 125, "height" => 125,
+            "tool_tip" => ("What to say something? Then add a speech-bubble to your document.") },
                         
-          { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE" },
-          { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE" },
+          { "id" => "7",  "name" => "Digg it!",     "klazz" => "DiggButtonTE",
+            "tool_tip" => ("Add a DiggIt button to your document.") },
+
+          { "id" => "17", "name" => "PayPal",       "klazz" => "PayPalButtonTE",
+            "tool_tip" => "Add a PayPal donation button. Three different sizes are available."},
 
           { "id" => "21", "name" => "Border", "klazz" => "HighlightTE",
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
             "width" => "150", "height" => "200", "image" => "toolBorder",
             "border_width" => "10", "corner_top_left" => "5","corner_top_right" => "5",
             "corner_bottom_right" => "5","corner_bottom_left" => "5",
-            "show_as_border"=>"1"},
+            "show_as_border"=>"1", "tool_tip" => ("Add a border around another element.")},
+
           { "id" => "22", "name" => "Box", "klazz" => "HighlightTE",
             "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
             "width" => "150", "height" => "200", "image" => "toolBox",
             "border_width" => "10", "corner_top_left" => "5", "corner_top_right" => "5",
             "corner_bottom_right" => "5","corner_bottom_left" => "5",
-            "show_as_border"=>"0"},
+            "show_as_border"=>"0", "tool_tip" => ("Add a box to the document.")},
          ]
 
         ## Possible Button Values (to be found in AppController.j):
@@ -146,7 +172,8 @@ module EditorApi
       def basic_text_element
         { "id" => "1", "name" => "Text",  "klazz" => "TextTE" ,
           "red" => "0", "blue" => "0", "green" => "0", "alpha" => "1.0",
-          "font_size" => 12, "font_name" => "Arial Black" }
+          "font_size" => 12, "font_name" => "Arial Black",
+          "tool_tip" => "Add some text to the document." }
       end
       
       def pub_format(params)
