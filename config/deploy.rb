@@ -71,7 +71,7 @@ namespace :deploy do
   desc "update the superglue and make sure it's still holding things together"
   task :update_superglue do
     run "cd ~/superglue && git pull"
-    run "cd ~/editor && git submodule init && git submodule update && git pull"
+    run "cd ~/editor && git submodule init && git submodule update --init && git pull"
   end
 
   desc "install gems with bundle"
