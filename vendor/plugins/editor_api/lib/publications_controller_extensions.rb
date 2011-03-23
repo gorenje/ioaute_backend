@@ -128,12 +128,37 @@ module EditorApi
           :toolbar_middle => middle_buttons,
           :toolbar_right  => ["PreviewPublicationHtmlToolbarItemIdentifier",
                               "PublishPublicationHtmlToolbarItemIdentifier"],
-          :publication => publication.generate_json_data
+          :publication => publication.generate_json_data,
+          :tool_tips   => all_tool_tips
         })
       rescue Exception => e 
         send_off_failed(params, e.to_s)
       end
 
+      def all_tool_tips
+        { "CopyPageElementControlItemIdentifier" => 
+          "Copy the current element. Can be used to copy elements across pages.",
+          "GoogleImagesWindowControlItemIdentifier" => 
+          "Search Google Images for images.",
+          "YouTubeToolbarItemIdentifier" => 
+          "Find a YouTube video to include in your publication",
+          
+          "FacebookToolbarItemIdentifier" => 
+          "Get public images from your Facebook account and from those of your friends.",
+          "TwitterWindowControlItemIdentifier" => 
+          "Find Tweets to include in your publication",
+          "FlickrWindowControlItemIdentifier" => 
+          "Find images on Flickr. Use '@' to access fotos of a specific user.",
+          "PreviewPublicationHtmlToolbarItemIdentifier" => 
+          "Preview this publication in a new tab.",
+          "PublishPublicationHtmlToolbarItemIdentifier" => 
+          "Generate a shortened URL for this document. The document address can then be tweeted.",
+          "BackToPublicationsControlItemIdentifier" => "Go back to your publication list.",
+          "PastePageElementControlItemIdentifier" => "Paste a copied element into the document.",
+          "PublicationPropertyControlItemIdentifier" => "Modify the properties of the entire publication including deactivating tool-tips ...."
+        }
+      end
+      
       def publish
         ## NOTE: id in this case is the uuid of the publication
         publication = Publication.for_user(current_user).find_by_uuid!(params[:id])
