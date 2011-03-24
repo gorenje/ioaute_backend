@@ -9,3 +9,10 @@ config/apis.yml
 .rvmrc
 config/thin.yml
 public/javascripts/*.js.gz
+public/PublishMeEditor/Frameworks/Debug
+public/PublishMeEditor/*.gz
+public/PublishMeEditor/*/*.gz
+public/PublishMeEditor/*/*/*.gz
+public/PublishMeEditor/*/*/*/*.gz
+public/PublishMeEditor/*/*/*/*/*.gz
+public/PublishMeEditor/*/*/*/*/*/*.gz

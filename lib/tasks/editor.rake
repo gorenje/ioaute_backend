@@ -8,14 +8,10 @@ require 'fileutils'
 
 namespace :editor do
   desc <<-EOF
-   This deploys the cappuccino editor into our public directory and 
-   makes necessary changes.
-   This assumes that the cappuccino editor is located in ../editor (relative to the 
-   location of the Rakefile).
+    This is run after the editor has been compiled by cappuccino. We then copy it
+    across into the rails application and check it in.
   EOF
   task :install => :environment do
-    startTime = Time.now
-    puts "2. Moving to public directory"
     src_dir = "#{Rails.root}/../editor/Build/Flatten/PublishMeEditor"
     dirname, base_dest_dir = File.basename(src_dir), "#{Rails.root}/public"
 
@@ -36,25 +32,24 @@ namespace :editor do
       File.open("#{base_dest_dir}/publications/Application.js", "w+") do |f|
         f << erb.result(binding)
       end
-
-      # gzip everything so that nginx doesn't need to do this each time.
-      ( Dir.glob("#{base_dest_dir}/javascripts/*.js") +
-        Dir.glob("#{base_dest_dir}/publications/**/*.txt") +
-        Dir.glob("#{base_dest_dir}/publications/**/*.cib") +
-        Dir.glob("#{base_dest_dir}/publications/**/*.js") +
-        Dir.glob("#{base_dest_dir}/publications/**/*.j") +
-        Dir.glob("#{base_dest_dir}/publications/**/*.plist") +
-        Dir.glob("#{base_dest_dir}/publications/**/*.sj")
-      ).each do |filename|
-        `rm -f #{filename}.gz && gzip -9 -c #{filename} > #{filename}.gz`
-      end
-      
-      `open -a Safari "http://localhost:3000"`
-    else
-      puts("!!ERROR!!: did nothing because i could not determine "+
-           "the output directory from jake")
-      exit 1
     end
-    puts ("Time taken: %0.2f seconds" % (Time.now - startTime))
+  end
+  
+  desc <<-EOF
+    Squash everything. This is only done on the server, after deploy.
+  EOF
+  task :squash => :environment do
+    base_dest_dir = "#{Rails.root}/public"
+    # gzip everything so that nginx doesn't need to do this each time.
+    ( Dir.glob("#{base_dest_dir}/javascripts/*.js") +
+      Dir.glob("#{base_dest_dir}/publications/**/*.txt") +
+      Dir.glob("#{base_dest_dir}/publications/**/*.cib") +
+      Dir.glob("#{base_dest_dir}/publications/**/*.js") +
+      Dir.glob("#{base_dest_dir}/publications/**/*.j") +
+      Dir.glob("#{base_dest_dir}/publications/**/*.plist") +
+      Dir.glob("#{base_dest_dir}/publications/**/*.sj")
+      ).each do |filename|
+      `rm -f #{filename}.gz && gzip -9 -c #{filename} > #{filename}.gz`
+    end
   end
 end

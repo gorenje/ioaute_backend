@@ -31,7 +31,7 @@ namespace :deploy do
     "migrate"      => "restart",
     "symlink"      => "setup_paths",
     "setup_paths"  => ["copy_resources", "run_remote_scripts", 
-                       "generate_remote_files"],
+                       "generate_remote_files", "editor_squash"],
   }.each do |after_task, before_tasks|
     [before_tasks].flatten.each do |before_task|
       after "deploy:#{after_task}", "deploy:#{before_task}" 
@@ -69,6 +69,11 @@ namespace :deploy do
   task :bundle_install do
     run_with_rvm(rvm_ruby_version, current_path) { "gem install bundler" }
     run_with_rvm(rvm_ruby_version, current_path) { "bundle install" }
+  end
+
+  desc "gzip everything in sight"
+  task :editor_squash, :roles => :db do
+    run_with_rvm(rvm_ruby_version, current_path) { "rake editor:squash" }
   end
 
   desc "Need to use rvm to call rake, i.e. migrate won't work otherwise."
