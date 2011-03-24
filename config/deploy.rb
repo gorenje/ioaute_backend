@@ -30,9 +30,8 @@ namespace :deploy do
   { ### After hooks
     "migrate"      => "restart",
     "symlink"      => "setup_paths",
-    "setup_paths"  => ["build_editor", "run_remote_scripts", 
+    "setup_paths"  => ["copy_resources", "run_remote_scripts", 
                        "generate_remote_files"],
-    "build_editor" => "copy_resources",
   }.each do |after_task, before_tasks|
     [before_tasks].flatten.each do |before_task|
       after "deploy:#{after_task}", "deploy:#{before_task}" 
@@ -40,8 +39,8 @@ namespace :deploy do
   end
 
   { ### Before hooks
-    "symlink"       => "setup_diff",
-    "build_editor"  => ["bundle_install", "update_superglue"],
+    "symlink"       => ["setup_diff"],
+    "setup_paths"   => ["bundle_install", "update_superglue"],
     "restart"       => ["show_diffs", "update_superglue", 
                         "bundle_install"],
   }.each do |before_task, after_tasks|
@@ -50,13 +49,6 @@ namespace :deploy do
     end
   end
 
-  desc "builds the editor and installs it into the public directory"
-  task :build_editor do
-    run_with_rvm(rvm_ruby_version, current_path) do
-      "rake editor:install"
-    end
-  end
-  
   desc "copy assets to the assets server"
   task :copy_resources do
     { 
@@ -71,7 +63,6 @@ namespace :deploy do
   desc "update the superglue and make sure it's still holding things together"
   task :update_superglue do
     run "cd ~/superglue && git pull"
-    run "cd ~/editor && git submodule init && git submodule update --init && git pull"
   end
 
   desc "install gems with bundle"
@@ -105,9 +96,6 @@ namespace :deploy do
       dest = "#{current_path}/#{dest}"
       run "rm -fr #{dest} && ln -snf #{src} #{dest}" 
     end
-
-    # add symlink to the editor
-    run "rm -f #{current_path}/../editor && ln -snf /home/deploy/editor #{current_path}/../editor"
   end
 
   desc "Generate files on the remote server"

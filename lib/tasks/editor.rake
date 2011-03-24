@@ -14,21 +14,9 @@ namespace :editor do
    location of the Rakefile).
   EOF
   task :install => :environment do
-    ## can use one of Flatten, Release or Press. The jake compile state is assumed to be 
-    ## downcase of that, e.g. flatten, release or press.
-    ## TODO application.js is assumed .. this won't work with anything else other than Flatten.
-    editor_build_directory = "Flatten" 
-    
     startTime = Time.now
-    puts "1. Building editor with jake - " + startTime.to_s
-    results = `cd #{Rails.root}/../editor && rm -fr Build && jake #{editor_build_directory.underscore} 2>&1`
-    puts ">>> This is what jake had to say: "
-    puts "==========================================="
-    puts results
-    puts "==========================================="
-
     puts "2. Moving to public directory"
-    src_dir = "#{Rails.root}/../editor/Build/#{editor_build_directory}/PublishMeEditor"
+    src_dir = "#{Rails.root}/../editor/Build/Flatten/PublishMeEditor"
     dirname, base_dest_dir = File.basename(src_dir), "#{Rails.root}/public"
 
     unless src_dir.blank? or dirname.blank?
