@@ -2315,19 +2315,41 @@ objj_msgSend(_34,"close");
 return _34;
 }
 })]);
-p;34;app/helpers/cappuccino_overrides.jt;4522;@STATIC;1.0;t;4503;
+p;34;app/helpers/cappuccino_overrides.jt;5472;@STATIC;1.0;t;5453;
+CibDataCacheDictionary=objj_msgSend(CPDictionary,"dictionary");
+var _1=objj_getClass("CPCib");
+if(!_1){
+throw new SyntaxError("*** Could not find definition for class \"CPCib\"");
+}
+var _2=_1.isa;
+class_addMethods(_1,[new objj_method(sel_getUid("initWithContentsOfURL:"),function(_3,_4,_5){
+with(_3){
+_3=objj_msgSendSuper({receiver:_3,super_class:objj_getClass("CPCib").super_class},"init");
+if(_3){
+if(objj_msgSend(CibDataCacheDictionary,"objectForKey:",_5)){
+_data=objj_msgSend(CPData,"dataWithRawString:",objj_msgSend(objj_msgSend(CibDataCacheDictionary,"objectForKey:",_5),"rawString"));
+}else{
+var _6=objj_msgSend(CPURLRequest,"requestWithURL:",objj_msgSend(_5,"stringByAppendingFormat:","?%s",objj_msgSend(CPString,"timestamp")));
+_data=objj_msgSend(CPURLConnection,"sendSynchronousRequest:returningResponse:",_6,nil);
+objj_msgSend(CibDataCacheDictionary,"setObject:forKey:",_data,_5);
+}
+_awakenCustomResources=YES;
+}
+return _3;
+}
+})]);
 var _1=objj_getClass("CPMenuItem");
 if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"CPMenuItem\"");
 }
 var _2=_1.isa;
-class_addMethods(_2,[new objj_method(sel_getUid("withTitle:andTag:"),function(_3,_4,_5,_6){
-with(_3){
-_3=objj_msgSend(objj_msgSend(CPMenuItem,"alloc"),"initWithTitle:action:keyEquivalent:",_5,NULL,nil);
-if(_3){
-objj_msgSend(_3,"setTag:",_6);
+class_addMethods(_2,[new objj_method(sel_getUid("withTitle:andTag:"),function(_7,_8,_9,_a){
+with(_7){
+_7=objj_msgSend(objj_msgSend(CPMenuItem,"alloc"),"initWithTitle:action:keyEquivalent:",_9,NULL,nil);
+if(_7){
+objj_msgSend(_7,"setTag:",_a);
 }
-return _3;
+return _7;
 }
 })]);
 var _1=objj_getClass("CPAlert");
@@ -2335,22 +2357,22 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"CPAlert\"");
 }
 var _2=_1.isa;
-class_addMethods(_1,[new objj_method(sel_getUid("setEnabled:"),function(_7,_8,_9){
-with(_7){
-objj_msgSend(_messageLabel,"setEnabled:",_9);
+class_addMethods(_1,[new objj_method(sel_getUid("setEnabled:"),function(_b,_c,_d){
+with(_b){
+objj_msgSend(_messageLabel,"setEnabled:",_d);
 }
-}),new objj_method(sel_getUid("setSelectable:"),function(_a,_b,_c){
-with(_a){
-objj_msgSend(_messageLabel,"setSelectable:",_c);
+}),new objj_method(sel_getUid("setSelectable:"),function(_e,_f,_10){
+with(_e){
+objj_msgSend(_messageLabel,"setSelectable:",_10);
 }
-}),new objj_method(sel_getUid("setEditable:"),function(_d,_e,_f){
-with(_d){
-objj_msgSend(_messageLabel,"setEditable:",_f);
+}),new objj_method(sel_getUid("setEditable:"),function(_11,_12,_13){
+with(_11){
+objj_msgSend(_messageLabel,"setEditable:",_13);
 }
-}),new objj_method(sel_getUid("close"),function(_10,_11){
-with(_10){
+}),new objj_method(sel_getUid("close"),function(_14,_15){
+with(_14){
 objj_msgSend(CPApp,"abortModal");
-objj_msgSend(objj_msgSend(_10,"window"),"close");
+objj_msgSend(objj_msgSend(_14,"window"),"close");
 }
 })]);
 var _1=objj_getClass("CPString");
@@ -2358,13 +2380,13 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"CPString\"");
 }
 var _2=_1.isa;
-class_addMethods(_1,[new objj_method(sel_getUid("isBlank"),function(_12,_13){
-with(_12){
-return (_12==="");
+class_addMethods(_1,[new objj_method(sel_getUid("isBlank"),function(_16,_17){
+with(_16){
+return (_16==="");
 }
 })]);
-class_addMethods(_2,[new objj_method(sel_getUid("timestamp"),function(_14,_15){
-with(_14){
+class_addMethods(_2,[new objj_method(sel_getUid("timestamp"),function(_18,_19){
+with(_18){
 return objj_msgSend(CPString,"stringWithFormat:","%d",new Date().getTime());
 }
 })]);
@@ -2373,10 +2395,10 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"CPArray\"");
 }
 var _2=_1.isa;
-class_addMethods(_1,[new objj_method(sel_getUid("anyValue"),function(_16,_17){
-with(_16){
-var idx=Math.floor(Math.random()*(objj_msgSend(_16,"count")+1));
-return (_16[idx]||_16[0]);
+class_addMethods(_1,[new objj_method(sel_getUid("anyValue"),function(_1a,_1b){
+with(_1a){
+var idx=Math.floor(Math.random()*(objj_msgSend(_1a,"count")+1));
+return (_1a[idx]||_1a[0]);
 }
 })]);
 var _1=objj_getClass("CPColor");
@@ -2384,9 +2406,9 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"CPColor\"");
 }
 var _2=_1.isa;
-class_addMethods(_2,[new objj_method(sel_getUid("colorWith8BitRed:green:blue:alpha:"),function(_18,_19,red,_1a,_1b,_1c){
-with(_18){
-return objj_msgSend(CPColor,"colorWithRed:green:blue:alpha:",red/255,_1a/255,_1b/255,_1c);
+class_addMethods(_2,[new objj_method(sel_getUid("colorWith8BitRed:green:blue:alpha:"),function(_1c,_1d,red,_1e,_1f,_20){
+with(_1c){
+return objj_msgSend(CPColor,"colorWithRed:green:blue:alpha:",red/255,_1e/255,_1f/255,_20);
 }
 })]);
 var _1=objj_getClass("CPTextField");
@@ -2394,14 +2416,14 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"CPTextField\"");
 }
 var _2=_1.isa;
-class_addMethods(_2,[new objj_method(sel_getUid("flickr_labelWithText:"),function(_1d,_1e,_1f){
-with(_1d){
-var _20=objj_msgSend(objj_msgSend(CPTextField,"alloc"),"initWithFrame:",CGRectMakeZero());
-objj_msgSend(_20,"setStringValue:",_1f);
-objj_msgSend(_20,"sizeToFit");
-objj_msgSend(_20,"setTextShadowColor:",objj_msgSend(CPColor,"whiteColor"));
-objj_msgSend(_20,"setTextShadowOffset:",CGSizeMake(0,1));
-return _20;
+class_addMethods(_2,[new objj_method(sel_getUid("flickr_labelWithText:"),function(_21,_22,_23){
+with(_21){
+var _24=objj_msgSend(objj_msgSend(CPTextField,"alloc"),"initWithFrame:",CGRectMakeZero());
+objj_msgSend(_24,"setStringValue:",_23);
+objj_msgSend(_24,"sizeToFit");
+objj_msgSend(_24,"setTextShadowColor:",objj_msgSend(CPColor,"whiteColor"));
+objj_msgSend(_24,"setTextShadowOffset:",CGSizeMake(0,1));
+return _24;
 }
 })]);
 var _1=objj_getClass("CPBox");
@@ -2409,9 +2431,9 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"CPBox\"");
 }
 var _2=_1.isa;
-class_addMethods(_2,[new objj_method(sel_getUid("makeBorder:"),function(_21,_22,_23){
-with(_21){
-var box=objj_msgSend(CPBox,"boxEnclosingView:",_23);
+class_addMethods(_2,[new objj_method(sel_getUid("makeBorder:"),function(_25,_26,_27){
+with(_25){
+var box=objj_msgSend(CPBox,"boxEnclosingView:",_27);
 objj_msgSend(box,"setAutoresizingMask:",CPViewWidthSizable|CPViewHeightSizable);
 objj_msgSend(box,"setBorderColor:",objj_msgSend(CPColor,"colorWithHexString:","a9aaae"));
 objj_msgSend(box,"setBorderType:",CPLineBorder);
@@ -2422,9 +2444,9 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"CPCollectionView\"");
 }
 var _2=_1.isa;
-class_addMethods(_1,[new objj_method(sel_getUid("scrollToSelection"),function(_24,_25){
-with(_24){
-objj_msgSend(_24,"_scrollToSelection");
+class_addMethods(_1,[new objj_method(sel_getUid("scrollToSelection"),function(_28,_29){
+with(_28){
+objj_msgSend(_28,"_scrollToSelection");
 }
 })]);
 var _1=objj_getClass("LPMultiLineTextField");
@@ -2432,9 +2454,9 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"LPMultiLineTextField\"");
 }
 var _2=_1.isa;
-class_addMethods(_1,[new objj_method(sel_getUid("rightMouseDown:"),function(_26,_27,_28){
-with(_26){
-objj_msgSend(objj_msgSend(DocumentViewEditorView,"sharedInstance"),"rightMouseDownOnView:withEvent:",objj_msgSend(_26,"superview"),_28);
+class_addMethods(_1,[new objj_method(sel_getUid("rightMouseDown:"),function(_2a,_2b,_2c){
+with(_2a){
+objj_msgSend(objj_msgSend(DocumentViewEditorView,"sharedInstance"),"rightMouseDownOnView:withEvent:",objj_msgSend(_2a,"superview"),_2c);
 }
 })]);
 var _1=objj_getClass("_CPToolbarItemView");
@@ -2442,8 +2464,8 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"_CPToolbarItemView\"");
 }
 var _2=_1.isa;
-class_addMethods(_1,[new objj_method(sel_getUid("mouseEntered:"),function(_29,_2a,_2b){
-with(_29){
+class_addMethods(_1,[new objj_method(sel_getUid("mouseEntered:"),function(_2d,_2e,_2f){
+with(_2d){
 if(objj_msgSend(_toolbarItem,"toolTip")){
 objj_msgSend(TNToolTip,"toolTipWithString:forView:closeAfter:",objj_msgSend(_toolbarItem,"toolTip"),(objj_msgSend(_labelField,"stringValue")===""?_imageView:_labelField),2.5);
 }
