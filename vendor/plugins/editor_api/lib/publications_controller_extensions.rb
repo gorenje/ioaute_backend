@@ -12,12 +12,12 @@ module EditorApi
         toolboxitems = [
 
           { "id" => "3",  "name" => "Image", "klazz" => "ImageTE", 
-            "tool_tip" => "Add an image to the document using an URL." },
+            "tool_tip" => "Add an image to the document by dragging this into the document. Images are added by using their external URL." },
 
           { "id" => "4",  "name" => "Link",         "klazz" => "LinkTE",
             "font_size" => 12, "font_name" => "Arial Black",
             "red" => "0", "blue" => "255", "green" => "0", "alpha" => "1.0",
-            "tool_tip" => "Add an external link."},
+            "tool_tip" => "Add an external link by dragging this into your document."},
 
           { "id" => "6",  "name" => "Twitter Feed", "klazz" => "TwitterFeedTE",
             "tool_tip" => "Will add a Twitter feed box for a specific topic or user." },
