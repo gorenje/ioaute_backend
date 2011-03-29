@@ -22732,7 +22732,7 @@ with(_da){
 return "tokenfield-token-close-button";
 }
 })]);
-p;11;CPToolbar.jt;24755;@STATIC;1.0;I;21;Foundation/CPObject.ji;15;CPPopUpButton.ji;15;CPToolbarItem.jt;24669;
+p;11;CPToolbar.jt;24918;@STATIC;1.0;I;21;Foundation/CPObject.ji;15;CPPopUpButton.ji;15;CPToolbarItem.jt;24832;
 objj_executeFile("Foundation/CPObject.j",NO);
 objj_executeFile("CPPopUpButton.j",YES);
 objj_executeFile("CPToolbarItem.j",YES);
@@ -23140,6 +23140,9 @@ _viewsForToolbarItems={};
 for(;_9f<_9d;++_9f){
 var _a0=_9e[_9f],_a1=objj_msgSend(objj_msgSend(_CPToolbarItemView,"alloc"),"initWithToolbarItem:toolbar:",_a0,_9a);
 _viewsForToolbarItems[objj_msgSend(_a0,"UID")]=_a1;
+if(objj_msgSend(_a0,"toolTip")&&objj_msgSend(_a1,"respondsToSelector:",sel_getUid("setToolTip:"))){
+objj_msgSend(_a1,"setToolTip:",objj_msgSend(_a0,"toolTip"));
+}
 objj_msgSend(_9a,"addSubview:",_a1);
 _minWidth+=objj_msgSend(_a1,"minSize").width+_63;
 }

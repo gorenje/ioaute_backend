@@ -20870,7 +20870,7 @@ objj_msgSend(_1f,"setFullBridge:",_windowIsFullPlatformWindow);
 return _1f;
 }
 })]);
-p;11;CPToolbar.jt;24755;@STATIC;1.0;I;21;Foundation/CPObject.ji;15;CPPopUpButton.ji;15;CPToolbarItem.jt;24669;
+p;11;CPToolbar.jt;24918;@STATIC;1.0;I;21;Foundation/CPObject.ji;15;CPPopUpButton.ji;15;CPToolbarItem.jt;24832;
 objj_executeFile("Foundation/CPObject.j",NO);
 objj_executeFile("CPPopUpButton.j",YES);
 objj_executeFile("CPToolbarItem.j",YES);
@@ -21278,6 +21278,9 @@ _viewsForToolbarItems={};
 for(;_9f<_9d;++_9f){
 var _a0=_9e[_9f],_a1=objj_msgSend(objj_msgSend(_CPToolbarItemView,"alloc"),"initWithToolbarItem:toolbar:",_a0,_9a);
 _viewsForToolbarItems[objj_msgSend(_a0,"UID")]=_a1;
+if(objj_msgSend(_a0,"toolTip")&&objj_msgSend(_a1,"respondsToSelector:",sel_getUid("setToolTip:"))){
+objj_msgSend(_a1,"setToolTip:",objj_msgSend(_a0,"toolTip"));
+}
 objj_msgSend(_9a,"addSubview:",_a1);
 _minWidth+=objj_msgSend(_a1,"minSize").width+_63;
 }
@@ -24352,6 +24355,33 @@ break;
 }
 }
 })]);
+p;12;CGGradient.jt;672;@STATIC;1.0;i;9;CGColor.ji;14;CGColorSpace.jt;622;
+objj_executeFile("CGColor.j",YES);
+objj_executeFile("CGColorSpace.j",YES);
+kCGGradientDrawsBeforeStartLocation=1<<0;
+kCGGradientDrawsAfterEndLocation=1<<1;
+CGGradientCreateWithColorComponents=function(_1,_2,_3,_4){
+if(arguments["locations"]==NULL){
+var _3=[0,1];
+}
+if(arguments["count"]==NULL){
+var _4=_3.length;
+}
+var _5=[];
+while(_4--){
+var _6=_4*4;
+_5[_4]=CGColorCreate(_1,_2.slice(_6,_6+4));
+}
+return CGGradientCreateWithColors(_1,_5,_3);
+};
+CGGradientCreateWithColors=function(_7,_8,_9){
+return {colorspace:_7,colors:_8,locations:_9};
+};
+CGGradientRelease=function(){
+};
+CGGradientRetain=function(_a){
+return _a;
+};
 p;9;CALayer.jt;21785;@STATIC;1.0;I;21;Foundation/CPObject.ji;16;CABackingStore.ji;11;CGContext.ji;12;CGGeometry.jt;21685;
 objj_executeFile("Foundation/CPObject.j",NO);
 objj_executeFile("CABackingStore.j",YES);
@@ -28462,33 +28492,6 @@ _34b=[{x:_349.size.width-0.5,y:0},{x:_349.size.width-0.5,y:_349.size.height}];
 CGContextStrokeLineSegments(_34a,_34b,2);
 }
 })]);
-p;12;CGGradient.jt;672;@STATIC;1.0;i;9;CGColor.ji;14;CGColorSpace.jt;622;
-objj_executeFile("CGColor.j",YES);
-objj_executeFile("CGColorSpace.j",YES);
-kCGGradientDrawsBeforeStartLocation=1<<0;
-kCGGradientDrawsAfterEndLocation=1<<1;
-CGGradientCreateWithColorComponents=function(_1,_2,_3,_4){
-if(arguments["locations"]==NULL){
-var _3=[0,1];
-}
-if(arguments["count"]==NULL){
-var _4=_3.length;
-}
-var _5=[];
-while(_4--){
-var _6=_4*4;
-_5[_4]=CGColorCreate(_1,_2.slice(_6,_6+4));
-}
-return CGGradientCreateWithColors(_1,_5,_3);
-};
-CGGradientCreateWithColors=function(_7,_8,_9){
-return {colorspace:_7,colors:_8,locations:_9};
-};
-CGGradientRelease=function(){
-};
-CGGradientRetain=function(_a){
-return _a;
-};
 p;15;CPTableColumn.jt;14001;@STATIC;1.0;I;25;Foundation/CPDictionary.jI;21;Foundation/CPObject.jI;23;Foundation/CPIndexSet.jI;29;Foundation/CPSortDescriptor.jI;21;Foundation/CPString.ji;19;CPTableHeaderView.jt;13813;
 objj_executeFile("Foundation/CPDictionary.j",NO);
 objj_executeFile("Foundation/CPObject.j",NO);
