@@ -97,6 +97,19 @@ module EditorApi
             "border_width" => "10", "corner_top_left" => "5", "corner_top_right" => "5",
             "corner_bottom_right" => "5","corner_bottom_left" => "5",
             "show_as_border"=>"0", "tool_tip" => ("Add a box to the document.")},
+                        
+          { "id" => "23", "name" => "Banksy Love", "klazz" => "ImageTE",
+            "dest_url" => 
+              "http://secondst.files.wordpress.com/2011/02/banksy-love-rat-386-p.jpg",
+            "pic_url" => "http://assets.2monki.es/images/banksy-love-rat.png",
+            "tool_image" => "toolBanksysLoveRat", "width" => 125, "height" => 125,
+            "tool_tip" => ("Banksy loves us all.") },
+
+          { "id" => "24", "name" => "Banksy Rat", "klazz" => "ImageTE",
+            "dest_url" => "http://www.banksycanvas.co.uk/",
+            "pic_url" => "http://assets.2monki.es/images/banksy-pap-rat.png",
+            "tool_image" => "toolBanksysPapRat", "width" => 125, "height" => 125,
+            "tool_tip" => ("Banksy came, saw and conquered.") },
          ]
 
         ## Possible Button Values (to be found in AppController.j):
