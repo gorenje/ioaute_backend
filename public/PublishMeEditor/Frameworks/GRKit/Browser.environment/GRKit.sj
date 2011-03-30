@@ -2,9 +2,9 @@
 objj_executeFile("g_r_class_mixin.j",YES);
 objj_executeFile("g_r_rotate_view.j",YES);
 objj_executeFile("g_r_info_window.j",YES);
-p;17;g_r_rotate_view.jt;1494;@STATIC;1.0;t;1475;
+p;17;g_r_rotate_view.jt;2019;@STATIC;1.0;t;2000;
 var _1=objj_allocateClassPair(CPView,"GRRotateView"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_rootLayer"),new objj_ivar("m_rotationRadians")]);
+class_addIvars(_1,[new objj_ivar("m_rootLayer"),new objj_ivar("m_rotationRadians"),new objj_ivar("m_rotSelector")]);
 objj_registerClassPair(_1);
 class_addMethods(_1,[new objj_method(sel_getUid("rotation"),function(_3,_4){
 with(_3){
@@ -24,6 +24,7 @@ objj_msgSend(_8,"setWantsLayer:",YES);
 objj_msgSend(_8,"setLayer:",m_rootLayer);
 objj_msgSend(_8,"setClipsToBounds:",NO);
 objj_msgSend(_8,"setRotation:",0);
+m_rotSelector=sel_getUid("_hitTestSuper:");
 }
 return _8;
 }
@@ -33,18 +34,27 @@ return YES;
 }
 }),new objj_method(sel_getUid("hitTest:"),function(_d,_e,_f){
 with(_d){
-return (objj_msgSend(m_rootLayer,"hitTest:",objj_msgSend(objj_msgSend(_d,"superview"),"convertPoint:toView:",_f,_d))?_d:nil);
+return objj_msgSend(_d,"performSelector:withObject:",m_rotSelector,_f);
 }
-}),new objj_method(sel_getUid("setRotation:"),function(_10,_11,_12){
+}),new objj_method(sel_getUid("_hitTestSuper:"),function(_10,_11,_12){
 with(_10){
-if(m_rotationRadians==_12){
+return objj_msgSendSuper({receiver:_10,super_class:objj_getClass("GRRotateView").super_class},"hitTest:",_12);
+}
+}),new objj_method(sel_getUid("_hitTestLayer:"),function(_13,_14,_15){
+with(_13){
+return (objj_msgSend(m_rootLayer,"hitTest:",objj_msgSend(objj_msgSend(_13,"superview"),"convertPoint:toView:",_15,_13))?_13:nil);
+}
+}),new objj_method(sel_getUid("setRotation:"),function(_16,_17,_18){
+with(_16){
+if(m_rotationRadians==_18){
 return;
 }
-m_rotationRadians=_12;
+m_rotationRadians=_18;
+m_rotSelector=(m_rotationRadians>0?sel_getUid("_hitTestLayer:"):sel_getUid("_hitTestSuper:"));
 objj_msgSend(m_rootLayer,"setAffineTransform:",CGAffineTransformMakeRotation(m_rotationRadians));
 }
-}),new objj_method(sel_getUid("drawLayer:inContext:"),function(_13,_14,_15,_16){
-with(_13){
+}),new objj_method(sel_getUid("drawLayer:inContext:"),function(_19,_1a,_1b,_1c){
+with(_19){
 }
 })]);
 p;17;g_r_class_mixin.jt;728;@STATIC;1.0;t;710;
