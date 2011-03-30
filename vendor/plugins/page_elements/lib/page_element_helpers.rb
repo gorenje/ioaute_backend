@@ -126,22 +126,40 @@ module PageElementHelpers
 
     module ClassMethods
       def obtain_font_info_from_params(params)
-        { :font_size => params["m_fontSize"],
-          :font_name => params["m_fontName"],
+        { :font_size           => params["m_fontSize"],
+          :font_name           => params["m_fontName"],
+          :font_text_alignment => params["m_fontAlignment"],
         }
       end
     end
     
     module InstanceMethods
       def retrieve_font_info_from_extra_data(edata)
-        ["font_size", "font_name"].inject({}) { |t,v| t.merge( v => edata[v] ) }
+        ["font_size", "font_name", "font_text_alignment"].
+          inject({}) { |t,v| t.merge( v => edata[v] ) }
       end
 
       def css_font_spec
-        edata = extra_data
-        result = []
+        edata, result = extra_data, []
         result << "font-family: '#{edata['font_name']}', serif" if edata["font_name"]
         result << "font-size: #{edata['font_size']}px" if edata["font_size"]
+        if (fta = edata["font_text_alignment"])
+          # Assume:
+          ## CPLeftTextAlignment      = 0;
+          ## CPRightTextAlignment     = 1;
+          ## CPCenterTextAlignment    = 2;
+          ## CPJustifiedTextAlignment = 3;
+          ## CPNaturalTextAlignment   = 4;
+          fta = case fta.to_i
+                when 0 then "left"
+                when 1 then "right"
+                when 2 then "center"
+                when 3 then "justify"
+                when 4 then nil
+                else "left"
+                end
+          result << "text-align: #{fta}" unless fta.nil?
+        end
         result.join(";")
       end
     end
