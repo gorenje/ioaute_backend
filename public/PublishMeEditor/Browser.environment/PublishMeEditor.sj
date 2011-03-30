@@ -320,7 +320,7 @@ break;
 return _56;
 }
 })]);
-p;12;app/editor.jt;8616;@STATIC;1.0;i;23;monkeypatch/c_p_alert.ji;23;monkeypatch/c_p_array.ji;21;monkeypatch/c_p_box.ji;21;monkeypatch/c_p_cib.ji;33;monkeypatch/c_p_collection_view.ji;23;monkeypatch/c_p_color.ji;24;monkeypatch/c_p_cursor.ji;27;monkeypatch/c_p_menu_item.ji;24;monkeypatch/c_p_string.ji;28;monkeypatch/c_p_text_field.ji;39;monkeypatch/l_p_multi_line_text_field.ji;29;helpers/application_helpers.ji;30;helpers/image_loader_helpers.ji;27;helpers/alert_user_helper.ji;24;libs/drag_drop_manager.ji;26;libs/placeholder_manager.ji;28;libs/configuration_manager.ji;28;libs/communication_workers.ji;28;libs/communication_manager.ji;20;libs/theme_manager.ji;33;mixins/seek_to_dropdown_helpers.ji;36;mixins/document_view_cell_snapgrid.ji;35;mixins/page_element_color_support.ji;34;mixins/page_element_size_support.ji;35;mixins/page_element_input_support.ji;34;mixins/page_element_font_support.ji;40;mixins/page_element_text_input_support.ji;38;mixins/page_element_rotation_support.ji;34;mixins/you_tube_video_properties.ji;30;mixins/you_tube_page_element.ji;33;mixins/image_element_properties.ji;29;mixins/alert_window_support.ji;29;mixins/object_state_support.ji;13;models/page.ji;21;models/page_element.ji;14;models/tweet.ji;15;models/flickr.ji;17;models/facebook.ji;21;models/google_image.ji;21;models/tool_element.ji;18;models/image_t_e.ji;17;models/text_t_e.ji;20;models/fb_like_t_e.ji;25;models/twitter_feed_t_e.ji;18;models/tweet_t_e.ji;24;models/digg_button_t_e.ji;17;models/link_t_e.ji;22;models/highlight_t_e.ji;23;models/you_tube_video.ji;26;models/you_tube_ctrl_t_e.ji;21;models/you_tube_t_e.ji;27;models/pay_pal_button_t_e.ji;34;models/you_tube_seek_to_link_t_e.ji;19;models/pub_config.ji;21;views/document_view.ji;26;views/document_view_cell.ji;33;views/document_view_editor_view.ji;28;views/document_resize_view.ji;23;views/base_image_cell.ji;25;views/flickr_photo_cell.ji;27;views/facebook_photo_cell.ji;32;views/google_images_photo_cell.ji;27;views/you_tube_photo_cell.ji;30;views/facebook_category_cell.ji;29;views/page_number_list_cell.ji;24;views/page_number_view.ji;25;views/page_control_cell.ji;22;views/tool_list_cell.ji;33;views/models/p_m_highlight_view.ji;29;views/models/p_m_image_view.ji;38;controllers/prompt_window_controller.ji;32;controllers/twitter_controller.ji;31;controllers/flickr_controller.ji;33;controllers/you_tube_controller.ji;33;controllers/facebook_controller.ji;38;controllers/google_images_controller.ji;34;controllers/tool_view_controller.ji;34;controllers/page_view_controller.ji;38;controllers/document_view_controller.ji;52;controllers/document_view_controller_edit_existing.ji;51;controllers/properties/property_window_controller.ji;56;controllers/properties/property_publication_controller.ji;53;controllers/properties/property_link_t_e_controller.ji;58;controllers/properties/property_highlight_t_e_controller.ji;54;controllers/properties/property_image_t_e_controller.ji;61;controllers/properties/property_twitter_feed_t_e_controller.ji;53;controllers/properties/property_text_t_e_controller.ji;53;controllers/properties/property_text_t_e_controller.ji;49;controllers/properties/property_page_controller.ji;59;controllers/properties/property_you_tube_video_controller.ji;59;controllers/properties/property_pay_pal_button_controller.ji;70;controllers/properties/property_you_tube_seek_to_link_t_e_controller.jt;5265;
+p;12;app/editor.jt;8729;@STATIC;1.0;i;23;monkeypatch/c_p_alert.ji;23;monkeypatch/c_p_array.ji;21;monkeypatch/c_p_box.ji;21;monkeypatch/c_p_cib.ji;33;monkeypatch/c_p_collection_view.ji;23;monkeypatch/c_p_color.ji;24;monkeypatch/c_p_cursor.ji;27;monkeypatch/c_p_menu_item.ji;24;monkeypatch/c_p_string.ji;28;monkeypatch/c_p_text_field.ji;39;monkeypatch/l_p_multi_line_text_field.ji;29;helpers/application_helpers.ji;30;helpers/image_loader_helpers.ji;27;helpers/alert_user_helper.ji;24;libs/drag_drop_manager.ji;26;libs/placeholder_manager.ji;28;libs/configuration_manager.ji;28;libs/communication_workers.ji;28;libs/communication_manager.ji;20;libs/theme_manager.ji;33;mixins/seek_to_dropdown_helpers.ji;36;mixins/document_view_cell_snapgrid.ji;35;mixins/page_element_color_support.ji;34;mixins/page_element_size_support.ji;35;mixins/page_element_input_support.ji;34;mixins/page_element_font_support.ji;40;mixins/page_element_text_input_support.ji;38;mixins/page_element_rotation_support.ji;34;mixins/you_tube_video_properties.ji;30;mixins/you_tube_page_element.ji;33;mixins/image_element_properties.ji;29;mixins/alert_window_support.ji;29;mixins/object_state_support.ji;41;mixins/property_controller_font_support.ji;13;models/page.ji;21;models/page_element.ji;14;models/tweet.ji;15;models/flickr.ji;17;models/facebook.ji;21;models/google_image.ji;21;models/tool_element.ji;18;models/image_t_e.ji;17;models/text_t_e.ji;20;models/fb_like_t_e.ji;25;models/twitter_feed_t_e.ji;18;models/tweet_t_e.ji;24;models/digg_button_t_e.ji;17;models/link_t_e.ji;22;models/highlight_t_e.ji;23;models/you_tube_video.ji;26;models/you_tube_ctrl_t_e.ji;21;models/you_tube_t_e.ji;27;models/pay_pal_button_t_e.ji;34;models/you_tube_seek_to_link_t_e.ji;19;models/pub_config.ji;21;views/document_view.ji;26;views/document_view_cell.ji;33;views/document_view_editor_view.ji;28;views/document_resize_view.ji;23;views/base_image_cell.ji;25;views/flickr_photo_cell.ji;27;views/facebook_photo_cell.ji;32;views/google_images_photo_cell.ji;27;views/you_tube_photo_cell.ji;30;views/facebook_category_cell.ji;29;views/page_number_list_cell.ji;24;views/page_number_view.ji;25;views/page_control_cell.ji;22;views/tool_list_cell.ji;33;views/models/p_m_highlight_view.ji;29;views/models/p_m_image_view.ji;38;controllers/prompt_window_controller.ji;32;controllers/twitter_controller.ji;31;controllers/flickr_controller.ji;33;controllers/you_tube_controller.ji;33;controllers/facebook_controller.ji;38;controllers/google_images_controller.ji;34;controllers/tool_view_controller.ji;34;controllers/page_view_controller.ji;38;controllers/document_view_controller.ji;52;controllers/document_view_controller_edit_existing.ji;51;controllers/properties/property_window_controller.ji;56;controllers/properties/property_publication_controller.ji;53;controllers/properties/property_link_t_e_controller.ji;58;controllers/properties/property_highlight_t_e_controller.ji;54;controllers/properties/property_image_t_e_controller.ji;61;controllers/properties/property_twitter_feed_t_e_controller.ji;53;controllers/properties/property_text_t_e_controller.ji;53;controllers/properties/property_text_t_e_controller.ji;49;controllers/properties/property_page_controller.ji;59;controllers/properties/property_you_tube_video_controller.ji;59;controllers/properties/property_pay_pal_button_controller.ji;70;controllers/properties/property_you_tube_seek_to_link_t_e_controller.jt;5332;
 objj_executeFile("monkeypatch/c_p_alert.j",YES);
 objj_executeFile("monkeypatch/c_p_array.j",YES);
 objj_executeFile("monkeypatch/c_p_box.j",YES);
@@ -354,6 +354,7 @@ objj_executeFile("mixins/you_tube_page_element.j",YES);
 objj_executeFile("mixins/image_element_properties.j",YES);
 objj_executeFile("mixins/alert_window_support.j",YES);
 objj_executeFile("mixins/object_state_support.j",YES);
+objj_executeFile("mixins/property_controller_font_support.j",YES);
 objj_executeFile("models/page.j",YES);
 objj_executeFile("models/page_element.j",YES);
 objj_executeFile("models/tweet.j",YES);
@@ -2812,9 +2813,9 @@ break;
 }
 }
 })]);
-p;30;app/libs/placeholder_manager.jt;13188;@STATIC;1.0;t;13168;
+p;30;app/libs/placeholder_manager.jt;13579;@STATIC;1.0;t;13559;
 var _1=nil;
-var _2=["add","addHigh","rm","rmHigh","flickr_32","flickr_32_high","facebook_32","facebook_32_high","youtube_32_high","pdf_32","quotes","html_32","html_32_high","stumbleupon_32","digg_32","twitter_32_high","twitter_32","youtube_32","pdf_32_high","fblike","twitter_feed","digg_button","tool_text","tool_image","tool_unknown","tool_facebook","tool_digg","tool_twitter","tool_link","tool_moustache","tool_highlight","tool_vertical_bar","tool_horizontal_bar","photo_album","google_32","google_32_high","tool_you_tube","back_button_32","back_button_32_high","editor_delete","pay_pal_button_large","pay_pal_button_small","pay_pal_button_large_no_cc","tool_pay_pal_button","editor_copy","tool_speech_bubble","editor_move","editor_property","editor_resize_diagonal","editor_resize_right","delete_page_32","editor_resize_bottom","copy_32","copy_32_high","paste_32","paste_32_high","properties_32","copy_page_32","new_page_32","property_32","property_32_high","tool_border","tool_box"];
+var _2=["add","addHigh","rm","rmHigh","flickr_32","flickr_32_high","facebook_32","facebook_32_high","youtube_32_high","pdf_32","quotes","html_32","html_32_high","stumbleupon_32","digg_32","twitter_32_high","twitter_32","youtube_32","pdf_32_high","fblike","twitter_feed","digg_button","tool_text","tool_image","tool_unknown","tool_facebook","tool_digg","tool_twitter","tool_link","tool_moustache","tool_highlight","tool_vertical_bar","tool_horizontal_bar","photo_album","google_32","google_32_high","tool_you_tube","back_button_32","back_button_32_high","editor_delete","pay_pal_button_large","pay_pal_button_small","pay_pal_button_large_no_cc","tool_pay_pal_button","editor_copy","tool_speech_bubble","editor_move","editor_property","editor_resize_diagonal","editor_resize_right","delete_page_32","editor_resize_bottom","copy_32","copy_32_high","paste_32","paste_32_high","properties_32","copy_page_32","new_page_32","property_32","property_32_high","tool_border","tool_box","tool_banksy_love_rat","tool_banksy_pap_rat"];
 var _3=objj_allocateClassPair(CPObject,"PlaceholderManager"),_4=_3.isa;
 class_addIvars(_3,[new objj_ivar("_store"),new objj_ivar("_waitingOnImage"),new objj_ivar("_spinnerImage"),new objj_ivar("_quotesImage")]);
 objj_registerClassPair(_3);
@@ -3071,49 +3072,57 @@ return objj_msgSend(objj_msgSend(_store,"objectForKey:","tool_box"),"image");
 with(_7f){
 return objj_msgSend(objj_msgSend(_store,"objectForKey:","tool_border"),"image");
 }
-}),new objj_method(sel_getUid("propertyPageButton"),function(_81,_82){
+}),new objj_method(sel_getUid("toolBanksysLoveRat"),function(_81,_82){
 with(_81){
+return objj_msgSend(objj_msgSend(_store,"objectForKey:","tool_banksy_love_rat"),"image");
+}
+}),new objj_method(sel_getUid("toolBanksysPapRat"),function(_83,_84){
+with(_83){
+return objj_msgSend(objj_msgSend(_store,"objectForKey:","tool_banksy_pap_rat"),"image");
+}
+}),new objj_method(sel_getUid("propertyPageButton"),function(_85,_86){
+with(_85){
 return objj_msgSend(objj_msgSend(_store,"objectForKey:","properties_32"),"image");
 }
-}),new objj_method(sel_getUid("copyPageButton"),function(_83,_84){
-with(_83){
+}),new objj_method(sel_getUid("copyPageButton"),function(_87,_88){
+with(_87){
 return objj_msgSend(objj_msgSend(_store,"objectForKey:","copy_page_32"),"image");
 }
-}),new objj_method(sel_getUid("newPageButton"),function(_85,_86){
-with(_85){
+}),new objj_method(sel_getUid("newPageButton"),function(_89,_8a){
+with(_89){
 return objj_msgSend(objj_msgSend(_store,"objectForKey:","new_page_32"),"image");
 }
-}),new objj_method(sel_getUid("deletePageButton"),function(_87,_88){
-with(_87){
+}),new objj_method(sel_getUid("deletePageButton"),function(_8b,_8c){
+with(_8b){
 return objj_msgSend(objj_msgSend(_store,"objectForKey:","delete_page_32"),"image");
 }
-}),new objj_method(sel_getUid("propertyPublicationButton"),function(_89,_8a){
-with(_89){
+}),new objj_method(sel_getUid("propertyPublicationButton"),function(_8d,_8e){
+with(_8d){
 return objj_msgSend(objj_msgSend(_store,"objectForKey:","property_32"),"image");
 }
-}),new objj_method(sel_getUid("propertyPublicationButtonHigh"),function(_8b,_8c){
-with(_8b){
+}),new objj_method(sel_getUid("propertyPublicationButtonHigh"),function(_8f,_90){
+with(_8f){
 return objj_msgSend(objj_msgSend(_store,"objectForKey:","property_32_high"),"image");
 }
 })]);
-class_addMethods(_4,[new objj_method(sel_getUid("sharedInstance"),function(_8d,_8e){
-with(_8d){
+class_addMethods(_4,[new objj_method(sel_getUid("sharedInstance"),function(_91,_92){
+with(_91){
 if(!_1){
 CPLogConsole("[PLM] booting singleton instance");
 _1=objj_msgSend(objj_msgSend(PlaceholderManager,"alloc"),"init");
 }
 return _1;
 }
-}),new objj_method(sel_getUid("imageFor:"),function(_8f,_90,_91){
-with(_8f){
-return objj_msgSend(objj_msgSend(PlaceholderManager,"sharedInstance"),"performSelector:",_91);
+}),new objj_method(sel_getUid("imageFor:"),function(_93,_94,_95){
+with(_93){
+return objj_msgSend(objj_msgSend(PlaceholderManager,"sharedInstance"),"performSelector:",_95);
 }
-}),new objj_method(sel_getUid("placeholderImageUrl"),function(_92,_93){
-with(_92){
+}),new objj_method(sel_getUid("placeholderImageUrl"),function(_96,_97){
+with(_96){
 return "http://assets.2monki.es/images/placeholder.png";
 }
-}),new objj_method(sel_getUid("moustacheImageUrl"),function(_94,_95){
-with(_94){
+}),new objj_method(sel_getUid("moustacheImageUrl"),function(_98,_99){
+with(_98){
 return "http://assets.2monki.es/images/moustache.png";
 }
 })]);
@@ -3859,9 +3868,9 @@ objj_msgSend(CPApp,"abortModal");
 objj_msgSend(m_delegate,"performSelector:withObject:",m_selector,m_defaultValue);
 }
 })]);
-p;38;app/mixins/page_element_font_support.jt;1946;@STATIC;1.0;t;1927;
+p;38;app/mixins/page_element_font_support.jt;2531;@STATIC;1.0;t;2512;
 var _1=objj_allocateClassPair(GRClassMixin,"PageElementFontSupport"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_fontSize"),new objj_ivar("m_fontName"),new objj_ivar("m_fontObj")]);
+class_addIvars(_1,[new objj_ivar("m_fontSize"),new objj_ivar("m_fontName"),new objj_ivar("m_fontObj"),new objj_ivar("m_fontAlignment")]);
 objj_registerClassPair(_1);
 class_addMethods(_1,[new objj_method(sel_getUid("fontSize"),function(_3,_4){
 with(_3){
@@ -3887,14 +3896,23 @@ return m_fontObj;
 with(_f){
 m_fontObj=_11;
 }
-}),new objj_method(sel_getUid("setFontFromJson"),function(_12,_13){
+}),new objj_method(sel_getUid("textAlignment"),function(_12,_13){
 with(_12){
+return m_fontAlignment;
+}
+}),new objj_method(sel_getUid("setTextAlignment:"),function(_14,_15,_16){
+with(_14){
+m_fontAlignment=_16;
+}
+}),new objj_method(sel_getUid("setFontFromJson"),function(_17,_18){
+with(_17){
 m_fontSize=_json.font_size;
 m_fontName=_json.font_name;
-objj_msgSend(_12,"_setFont");
+m_fontAlignment=objj_msgSend(check_for_undefined(_json.font_text_alignment,""+CPLeftTextAlignment),"intValue");
+objj_msgSend(_17,"_setFont");
 }
-}),new objj_method(sel_getUid("_setFont"),function(_14,_15){
-with(_14){
+}),new objj_method(sel_getUid("_setFont"),function(_19,_1a){
+with(_19){
 if(!m_fontSize){
 m_fontSize=12;
 }
@@ -3904,31 +3922,36 @@ m_fontObj=objj_msgSend(CPFont,"fontWithName:size:",m_fontName,m_fontSize);
 m_fontObj=objj_msgSend(CPFont,"systemFontOfSize:",m_fontSize);
 }
 }
-}),new objj_method(sel_getUid("setFontSize:"),function(_16,_17,_18){
-with(_16){
-m_fontSize=_18;
-objj_msgSend(_16,"_setFont");
+}),new objj_method(sel_getUid("setTextAlignment:"),function(_1b,_1c,_1d){
+with(_1b){
+m_fontAlignment=_1d;
+objj_msgSend(_mainView,"setTextAlignment:",m_fontAlignment);
+}
+}),new objj_method(sel_getUid("setFontSize:"),function(_1e,_1f,_20){
+with(_1e){
+m_fontSize=_20;
+objj_msgSend(_1e,"_setFont");
 objj_msgSend(_mainView,"setFont:",m_fontObj);
 }
-}),new objj_method(sel_getUid("setFontName:"),function(_19,_1a,_1b){
-with(_19){
-m_fontName=_1b;
-objj_msgSend(_19,"_setFont");
+}),new objj_method(sel_getUid("setFontName:"),function(_21,_22,_23){
+with(_21){
+m_fontName=_23;
+objj_msgSend(_21,"_setFont");
 objj_msgSend(_mainView,"setFont:",m_fontObj);
 }
-}),new objj_method(sel_getUid("setFont:"),function(_1c,_1d,_1e){
-with(_1c){
-m_fontSize=objj_msgSend(_1e,"size");
-m_fontName=objj_msgSend(_1e,"familyName");
-m_fontObj=_1e;
+}),new objj_method(sel_getUid("setFont:"),function(_24,_25,_26){
+with(_24){
+m_fontSize=objj_msgSend(_26,"size");
+m_fontName=objj_msgSend(_26,"familyName");
+m_fontObj=_26;
 objj_msgSend(_mainView,"setFont:",m_fontObj);
 }
-}),new objj_method(sel_getUid("fontSupportStateHandlers"),function(_1f,_20){
-with(_1f){
-return [sel_getUid("font"),sel_getUid("setFont:")];
+}),new objj_method(sel_getUid("fontSupportStateHandlers"),function(_27,_28){
+with(_27){
+return [sel_getUid("font"),sel_getUid("setFont:"),sel_getUid("textAlignment"),sel_getUid("setTextAlignment:")];
 }
 })]);
-p;44;app/mixins/page_element_text_input_support.jt;2431;@STATIC;1.0;t;2412;
+p;44;app/mixins/page_element_text_input_support.jt;2587;@STATIC;1.0;t;2568;
 var _1=objj_allocateClassPair(GRClassMixin,"PageElementTextInputSupport"),_2=_1.isa;
 objj_registerClassPair(_1);
 class_addMethods(_1,[new objj_method(sel_getUid("setupMainViewAddTo:"),function(_3,_4,_5){
@@ -3941,6 +3964,7 @@ objj_msgSend(_mainView,"setDelegate:",_3);
 objj_msgSend(_mainView,"setScrollable:",YES);
 objj_msgSend(_mainView,"setEditable:",YES);
 objj_msgSend(_mainView,"setSelectable:",YES);
+objj_msgSend(_mainView,"setTextAlignment:",objj_msgSend(_3,"textAlignment"));
 objj_msgSend(_mainView,"setStringValue:",objj_msgSend(_3,"textTyped"));
 objj_msgSend(_5,"addSubview:",_mainView);
 }
@@ -3949,6 +3973,7 @@ with(_6){
 objj_msgSend(_mainView,"setStringValue:",objj_msgSend(_6,"textTyped"));
 objj_msgSend(_mainView,"setFont:",objj_msgSend(_6,"font"));
 objj_msgSend(_mainView,"setTextColor:",objj_msgSend(_6,"getColor"));
+objj_msgSend(_mainView,"setTextAlignment:",objj_msgSend(_6,"textAlignment"));
 }
 }),new objj_method(sel_getUid("checkForChangedText:"),function(_8,_9,_a){
 with(_8){
@@ -4112,7 +4137,7 @@ objj_msgSend(m_pageElement,"setRotation:",objj_msgSend(m_rotationSlider,"intValu
 objj_msgSend(m_rotationValue,"setStringValue:",str);
 }
 })]);
-p;55;app/controllers/properties/property_window_controller.jt;1257;@STATIC;1.0;t;1238;
+p;55;app/controllers/properties/property_window_controller.jt;1370;@STATIC;1.0;t;1351;
 var _1=objj_allocateClassPair(CPWindowController,"PropertyWindowController"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("m_pageElement")]);
 objj_registerClassPair(_1);
@@ -4120,28 +4145,32 @@ class_addMethods(_1,[new objj_method(sel_getUid("initWithWindowCibName:pageEleme
 with(_3){
 _3=objj_msgSendSuper({receiver:_3,super_class:objj_getClass("PropertyWindowController").super_class},"initWithWindowCibName:",_5);
 if(_3){
+objj_msgSend(_3,"includeMixins");
 m_pageElement=_6;
 }
 return _3;
 }
-}),new objj_method(sel_getUid("awakeFromCib"),function(_7,_8){
+}),new objj_method(sel_getUid("includeMixins"),function(_7,_8){
 with(_7){
+}
+}),new objj_method(sel_getUid("awakeFromCib"),function(_9,_a){
+with(_9){
 objj_msgSend(m_pageElement,"pushState");
 objj_msgSend(objj_msgSend(CPCursor,"arrowCursor"),"set");
-objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"addObserver:selector:name:object:",_7,sel_getUid("windowWillClose:"),CPWindowWillCloseNotification,_window);
+objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"addObserver:selector:name:object:",_9,sel_getUid("windowWillClose:"),CPWindowWillCloseNotification,_window);
 }
-}),new objj_method(sel_getUid("windowWillClose:"),function(_9,_a,_b){
-with(_9){
+}),new objj_method(sel_getUid("windowWillClose:"),function(_b,_c,_d){
+with(_b){
 objj_msgSend(objj_msgSend(CPColorPanel,"sharedColorPanel"),"close");
 }
-}),new objj_method(sel_getUid("cancel:"),function(_c,_d,_e){
-with(_c){
+}),new objj_method(sel_getUid("cancel:"),function(_e,_f,_10){
+with(_e){
 objj_msgSend(_window,"close");
 objj_msgSend(m_pageElement,"popState");
 }
-}),new objj_method(sel_getUid("setFocusOn:"),function(_f,_10,_11){
-with(_f){
-objj_msgSend(_window,"makeFirstResponder:",_11);
+}),new objj_method(sel_getUid("setFocusOn:"),function(_11,_12,_13){
+with(_11){
+objj_msgSend(_window,"makeFirstResponder:",_13);
 }
 })]);
 p;34;app/mixins/you_tube_page_element.jt;3435;@STATIC;1.0;t;3416;
@@ -4460,6 +4489,56 @@ with(_e){
 if(m_image){
 CGContextDrawImage(_11,objj_msgSend(_10,"bounds"),m_image);
 }
+}
+})]);
+p;45;app/mixins/property_controller_font_support.jt;2377;@STATIC;1.0;t;2358;
+var _1=objj_allocateClassPair(GRClassMixin,"PropertyControllerFontSupport"),_2=_1.isa;
+class_addIvars(_1,[new objj_ivar("m_fontDetailsBorderBox"),new objj_ivar("m_fontSizeLabel"),new objj_ivar("m_fontSizeSlider"),new objj_ivar("m_fontNameButton"),new objj_ivar("m_fontAlignmentButton")]);
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("awakeFromCibSetupFontFields:"),function(_3,_4,_5){
+with(_3){
+objj_msgSend(CPBox,"makeBorder:",m_fontDetailsBorderBox);
+objj_msgSend(m_fontNameButton,"removeAllItems");
+var _6=objj_msgSend(objj_msgSend(CPFontManager,"sharedFontManager"),"availableFonts");
+for(var _7=0;_7<objj_msgSend(_6,"count");_7++){
+var _8=objj_msgSend(_6,"objectAtIndex:",_7);
+var _9=objj_msgSend(objj_msgSend(CPMenuItem,"alloc"),"initWithTitle:action:keyEquivalent:",_8,NULL,nil);
+objj_msgSend(_9,"setFont:",objj_msgSend(CPFont,"fontWithName:size:",_8,11));
+objj_msgSend(m_fontNameButton,"addItem:",_9);
+}
+objj_msgSend(m_fontNameButton,"selectItemWithTitle:",objj_msgSend(_5,"fontName"));
+objj_msgSend(m_fontSizeSlider,"setDoubleValue:",objj_msgSend(_5,"fontSize"));
+objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
+var _a=1;
+switch(objj_msgSend(_5,"textAlignment")){
+case CPCenterTextAlignment:
+_a=2;
+break;
+case CPRightTextAlignment:
+_a=4;
+break;
+}
+objj_msgSend(m_fontAlignmentButton,"selectSegmentWithTag:",_a);
+}
+}),new objj_method(sel_getUid("updateAlignment:"),function(_b,_c,_d){
+with(_b){
+switch(objj_msgSend(_d,"selectedTag")){
+case 1:
+return objj_msgSend(m_pageElement,"setTextAlignment:",CPLeftTextAlignment);
+case 2:
+return objj_msgSend(m_pageElement,"setTextAlignment:",CPCenterTextAlignment);
+case 4:
+return objj_msgSend(m_pageElement,"setTextAlignment:",CPRightTextAlignment);
+}
+}
+}),new objj_method(sel_getUid("fontNameSelected:"),function(_e,_f,_10){
+with(_e){
+objj_msgSend(m_pageElement,"setFontName:",objj_msgSend(objj_msgSend(m_fontNameButton,"selectedItem"),"title"));
+}
+}),new objj_method(sel_getUid("fontSizeSliderAction:"),function(_11,_12,_13){
+with(_11){
+objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
+objj_msgSend(m_pageElement,"setFontSize:",objj_msgSend(m_fontSizeSlider,"doubleValue"));
 }
 })]);
 p;19;app/models/flickr.jt;4863;@STATIC;1.0;t;4844;
@@ -4878,42 +4957,27 @@ with(_19){
 objj_msgSend(_19,"revertTextAttributes");
 }
 })]);
-p;57;app/controllers/properties/property_text_t_e_controller.jt;2247;@STATIC;1.0;t;2228;
+p;57;app/controllers/properties/property_text_t_e_controller.jt;1046;@STATIC;1.0;t;1027;
 var _1=objj_allocateClassPair(PropertyWindowController,"PropertyTextTEController"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_fontSizeLabel"),new objj_ivar("m_fontSizeSlider"),new objj_ivar("m_colorWell"),new objj_ivar("m_fontNameButton")]);
+class_addIvars(_1,[new objj_ivar("m_colorWell")]);
 objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("awakeFromCib"),function(_3,_4){
+class_addMethods(_1,[new objj_method(sel_getUid("includeMixins"),function(_3,_4){
 with(_3){
-objj_msgSendSuper({receiver:_3,super_class:objj_getClass("PropertyTextTEController").super_class},"awakeFromCib");
-objj_msgSend(m_fontNameButton,"removeAllItems");
+objj_msgSend(PropertyControllerFontSupport,"addToClassOfObject:",_3);
+}
+}),new objj_method(sel_getUid("awakeFromCib"),function(_5,_6){
+with(_5){
+objj_msgSendSuper({receiver:_5,super_class:objj_getClass("PropertyTextTEController").super_class},"awakeFromCib");
 objj_msgSend(CPBox,"makeBorder:",m_colorWell);
-var _5=objj_msgSend(objj_msgSend(CPFontManager,"sharedFontManager"),"availableFonts");
-for(var _6=0;_6<objj_msgSend(_5,"count");_6++){
-var _7=objj_msgSend(_5,"objectAtIndex:",_6);
-var _8=objj_msgSend(objj_msgSend(CPMenuItem,"alloc"),"initWithTitle:action:keyEquivalent:",_7,NULL,nil);
-objj_msgSend(_8,"setFont:",objj_msgSend(CPFont,"fontWithName:size:",_7,11));
-objj_msgSend(m_fontNameButton,"addItem:",_8);
-}
-objj_msgSend(m_fontNameButton,"selectItemWithTitle:",objj_msgSend(m_pageElement,"fontName"));
-objj_msgSend(m_fontSizeSlider,"setDoubleValue:",objj_msgSend(m_pageElement,"fontSize"));
 objj_msgSend(m_colorWell,"setColor:",objj_msgSend(m_pageElement,"getColor"));
-objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
+objj_msgSend(_5,"awakeFromCibSetupFontFields:",m_pageElement);
 }
-}),new objj_method(sel_getUid("fontNameSelected:"),function(_9,_a,_b){
-with(_9){
-objj_msgSend(m_pageElement,"setFontName:",objj_msgSend(objj_msgSend(m_fontNameButton,"selectedItem"),"title"));
-}
-}),new objj_method(sel_getUid("fontSizeSliderAction:"),function(_c,_d,_e){
-with(_c){
-objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
-objj_msgSend(m_pageElement,"setFontSize:",objj_msgSend(m_fontSizeSlider,"doubleValue"));
-}
-}),new objj_method(sel_getUid("updateColor:"),function(_f,_10,_11){
-with(_f){
+}),new objj_method(sel_getUid("updateColor:"),function(_7,_8,_9){
+with(_7){
 objj_msgSend(m_pageElement,"setTextColor:",objj_msgSend(m_colorWell,"color"));
 }
-}),new objj_method(sel_getUid("accept:"),function(_12,_13,_14){
-with(_12){
+}),new objj_method(sel_getUid("accept:"),function(_a,_b,_c){
+with(_a){
 objj_msgSend(m_pageElement,"updateServer");
 objj_msgSend(_window,"close");
 }
@@ -4942,7 +5006,7 @@ with(_8){
 return objj_msgSend(_8,"initialSizeFromJsonOrDefault:",CGSizeMake(200,50));
 }
 })]);
-p;29;app/models/twitter_feed_t_e.jt;4191;@STATIC;1.0;t;4172;
+p;29;app/models/twitter_feed_t_e.jt;4257;@STATIC;1.0;t;4238;
 var _1=("Enter the Twitter term string. This can be '#term' for a "+"hash-search, '@user' to search for all tweets sent to a "+"specific user or 'user' meaning all tweets from user.");
 var _2=objj_allocateClassPair(ToolElement,"TwitterFeedTE"),_3=_2.isa;
 class_addIvars(_2,[new objj_ivar("m_refView"),new objj_ivar("m_term_string")]);
@@ -4963,13 +5027,13 @@ return "NO TERM STRING SUPPLIED";
 }
 switch(objj_msgSend(m_term_string,"substringWithRange:",CPMakeRange(0,1))){
 case "@":
-return objj_msgSend(CPString,"stringWithFormat:","All tweets to %s",m_term_string);
+return objj_msgSend(CPString,"stringWithFormat:","All tweets\nto %s",m_term_string);
 break;
 case "#":
-return objj_msgSend(CPString,"stringWithFormat:","Searching for %s",m_term_string);
+return objj_msgSend(CPString,"stringWithFormat:","Search for\n%s",m_term_string);
 break;
 default:
-return objj_msgSend(CPString,"stringWithFormat:","All tweets from %s",m_term_string);
+return objj_msgSend(CPString,"stringWithFormat:","All tweets\nfrom %s",m_term_string);
 }
 }
 }),new objj_method(sel_getUid("promptDataCameAvailable:"),function(_9,_a,_b){
@@ -4989,18 +5053,18 @@ if(_mainView){
 objj_msgSend(_mainView,"removeFromSuperview");
 }
 m_refView=objj_msgSend(objj_msgSend(CPTextField,"alloc"),"initWithFrame:",CGRectInset(objj_msgSend(_e,"bounds"),4,4));
-objj_msgSend(m_refView,"setAutoresizingMask:",CPViewNotSizable);
-objj_msgSend(m_refView,"setFont:",objj_msgSend(CPFont,"systemFontOfSize:",10));
+objj_msgSend(m_refView,"setAutoresizingMask:",CPViewWidthSizable|CPViewHeightSizable);
+objj_msgSend(m_refView,"setFont:",objj_msgSend(CPFont,"systemFontOfSize:",12));
 objj_msgSend(m_refView,"setTextColor:",objj_msgSend(CPColor,"blueColor"));
 objj_msgSend(m_refView,"setTextShadowColor:",objj_msgSend(CPColor,"whiteColor"));
 objj_msgSend(m_refView,"setStringValue:",objj_msgSend(_c,"refViewText"));
 var _f=objj_msgSend(objj_msgSend(CPImageView,"alloc"),"initWithFrame:",CGRectMakeCopy(objj_msgSend(_e,"bounds")));
-objj_msgSend(_f,"setAutoresizingMask:",CPViewNotSizable);
+objj_msgSend(_f,"setAutoresizingMask:",CPViewWidthSizable|CPViewHeightSizable);
 objj_msgSend(_f,"setImageScaling:",CPScaleProportionally);
 objj_msgSend(_f,"setHasShadow:",YES);
 objj_msgSend(_f,"setImage:",objj_msgSend(objj_msgSend(PlaceholderManager,"sharedInstance"),"twitterFeed"));
 _mainView=objj_msgSend(objj_msgSend(CPView,"alloc"),"initWithFrame:",CGRectMakeCopy(objj_msgSend(_e,"bounds")));
-objj_msgSend(_mainView,"setAutoresizingMask:",CPViewNotSizable);
+objj_msgSend(_mainView,"setAutoresizingMask:",CPViewWidthSizable|CPViewHeightSizable);
 objj_msgSend(_mainView,"addSubview:",m_refView);
 objj_msgSend(_mainView,"addSubview:",_f);
 objj_msgSend(m_refView,"setFrameOrigin:",CGPointMake(20,90));
@@ -5283,45 +5347,30 @@ with(_28){
 objj_msgSend(_28,"revertTextAttributes");
 }
 })]);
-p;57;app/controllers/properties/property_link_t_e_controller.jt;2727;@STATIC;1.0;t;2708;
+p;57;app/controllers/properties/property_link_t_e_controller.jt;1526;@STATIC;1.0;t;1507;
 var _1=objj_allocateClassPair(PropertyWindowController,"PropertyLinkTEController"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_colorWell"),new objj_ivar("m_linkDestination"),new objj_ivar("m_linkTitle"),new objj_ivar("m_fontSizeLabel"),new objj_ivar("m_fontSizeSlider"),new objj_ivar("m_fontNameButton")]);
+class_addIvars(_1,[new objj_ivar("m_colorWell"),new objj_ivar("m_linkDestination"),new objj_ivar("m_linkTitle")]);
 objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("awakeFromCib"),function(_3,_4){
+class_addMethods(_1,[new objj_method(sel_getUid("includeMixins"),function(_3,_4){
 with(_3){
-objj_msgSendSuper({receiver:_3,super_class:objj_getClass("PropertyLinkTEController").super_class},"awakeFromCib");
-objj_msgSend(CPBox,"makeBorder:",m_colorWell);
-objj_msgSend(m_fontNameButton,"removeAllItems");
-var _5=objj_msgSend(objj_msgSend(CPFontManager,"sharedFontManager"),"availableFonts");
-for(var _6=0;_6<objj_msgSend(_5,"count");_6++){
-var _7=objj_msgSend(_5,"objectAtIndex:",_6);
-var _8=objj_msgSend(objj_msgSend(CPMenuItem,"alloc"),"initWithTitle:action:keyEquivalent:",_7,NULL,nil);
-objj_msgSend(_8,"setFont:",objj_msgSend(CPFont,"fontWithName:size:",_7,11));
-objj_msgSend(m_fontNameButton,"addItem:",_8);
+objj_msgSend(PropertyControllerFontSupport,"addToClassOfObject:",_3);
 }
-objj_msgSend(m_fontNameButton,"selectItemWithTitle:",objj_msgSend(m_pageElement,"fontName"));
-objj_msgSend(m_fontSizeSlider,"setDoubleValue:",objj_msgSend(m_pageElement,"fontSize"));
+}),new objj_method(sel_getUid("awakeFromCib"),function(_5,_6){
+with(_5){
+objj_msgSendSuper({receiver:_5,super_class:objj_getClass("PropertyLinkTEController").super_class},"awakeFromCib");
+objj_msgSend(CPBox,"makeBorder:",m_colorWell);
 objj_msgSend(m_linkTitle,"setStringValue:",objj_msgSend(m_pageElement,"getLinkTitle"));
 objj_msgSend(m_linkDestination,"setStringValue:",objj_msgSend(m_pageElement,"getDestination"));
 objj_msgSend(m_colorWell,"setColor:",objj_msgSend(m_pageElement,"getColor"));
-objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
-objj_msgSend(_3,"setFocusOn:",m_linkDestination);
+objj_msgSend(_5,"awakeFromCibSetupFontFields:",m_pageElement);
+objj_msgSend(_5,"setFocusOn:",m_linkDestination);
 }
-}),new objj_method(sel_getUid("fontNameSelected:"),function(_9,_a,_b){
-with(_9){
-objj_msgSend(m_pageElement,"setFontName:",objj_msgSend(objj_msgSend(m_fontNameButton,"selectedItem"),"title"));
-}
-}),new objj_method(sel_getUid("fontSizeSliderAction:"),function(_c,_d,_e){
-with(_c){
-objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
-objj_msgSend(m_pageElement,"setFontSize:",objj_msgSend(m_fontSizeSlider,"doubleValue"));
-}
-}),new objj_method(sel_getUid("updateColor:"),function(_f,_10,_11){
-with(_f){
+}),new objj_method(sel_getUid("updateColor:"),function(_7,_8,_9){
+with(_7){
 objj_msgSend(m_pageElement,"setLinkColor:",objj_msgSend(m_colorWell,"color"));
 }
-}),new objj_method(sel_getUid("accept:"),function(_12,_13,_14){
-with(_12){
+}),new objj_method(sel_getUid("accept:"),function(_a,_b,_c){
+with(_a){
 objj_msgSend(_window,"close");
 objj_msgSend(m_pageElement,"setLinkTitle:",objj_msgSend(m_linkTitle,"stringValue"));
 objj_msgSend(m_pageElement,"setLinkDestination:",objj_msgSend(m_linkDestination,"stringValue"));
@@ -6139,43 +6188,35 @@ with(_2b){
 objj_msgSend(_2b,"revertTextAttributes");
 }
 })]);
-p;74;app/controllers/properties/property_you_tube_seek_to_link_t_e_controller.jt;5614;@STATIC;1.0;t;5595;
+p;74;app/controllers/properties/property_you_tube_seek_to_link_t_e_controller.jt;4337;@STATIC;1.0;t;4318;
 var _1=objj_allocateClassPair(PropertyWindowController,"PropertyYouTubeSeekToLinkTEController"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_colorWell"),new objj_ivar("m_linkTitle"),new objj_ivar("m_fontSizeLabel"),new objj_ivar("m_fontNameButton"),new objj_ivar("m_fontSizeSlider"),new objj_ivar("m_fontView"),new objj_ivar("m_videoInfoView"),new objj_ivar("m_endAtView"),new objj_ivar("m_setEndAt"),new objj_ivar("m_videoDropdown")]);
+class_addIvars(_1,[new objj_ivar("m_colorWell"),new objj_ivar("m_linkTitle"),new objj_ivar("m_videoInfoView"),new objj_ivar("m_endAtView"),new objj_ivar("m_setEndAt"),new objj_ivar("m_videoDropdown")]);
 objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("awakeFromCib"),function(_3,_4){
+class_addMethods(_1,[new objj_method(sel_getUid("includeMixins"),function(_3,_4){
 with(_3){
-objj_msgSendSuper({receiver:_3,super_class:objj_getClass("PropertyYouTubeSeekToLinkTEController").super_class},"awakeFromCib");
+objj_msgSend(PropertyControllerFontSupport,"addToClassOfObject:",_3);
 objj_msgSend(SeekToDropdownHelpers,"addToClassOfObject:",_3);
-objj_msgSend(CPBox,"makeBorder:",m_fontView);
+}
+}),new objj_method(sel_getUid("awakeFromCib"),function(_5,_6){
+with(_5){
+objj_msgSendSuper({receiver:_5,super_class:objj_getClass("PropertyYouTubeSeekToLinkTEController").super_class},"awakeFromCib");
 objj_msgSend(CPBox,"makeBorder:",m_videoInfoView);
 objj_msgSend(CPBox,"makeBorder:",m_colorWell);
-objj_msgSend(m_fontNameButton,"removeAllItems");
-var _5=objj_msgSend(objj_msgSend(CPFontManager,"sharedFontManager"),"availableFonts");
-for(var _6=0;_6<objj_msgSend(_5,"count");_6++){
-var _7=objj_msgSend(_5,"objectAtIndex:",_6);
-var _8=objj_msgSend(objj_msgSend(CPMenuItem,"alloc"),"initWithTitle:action:keyEquivalent:",_7,NULL,nil);
-objj_msgSend(_8,"setFont:",objj_msgSend(CPFont,"fontWithName:size:",_7,11));
-objj_msgSend(m_fontNameButton,"addItem:",_8);
-}
-objj_msgSend(m_fontNameButton,"selectItemWithTitle:",objj_msgSend(m_pageElement,"fontName"));
-objj_msgSend(m_fontSizeSlider,"setDoubleValue:",objj_msgSend(m_pageElement,"fontSize"));
 objj_msgSend(m_linkTitle,"setStringValue:",objj_msgSend(m_pageElement,"textTyped"));
 objj_msgSend(m_colorWell,"setColor:",objj_msgSend(m_pageElement,"getColor"));
-objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
 objj_msgSend(m_videoDropdown,"removeAllItems");
-var _8=objj_msgSend(CPMenuItem,"withTitle:andTag:","None Set",0);
-objj_msgSend(m_videoDropdown,"addItem:",_8);
-var _9=objj_msgSend(objj_msgSend(DocumentViewController,"sharedInstance"),"allPageElementsOfType:orType:",YouTubeVideo,YouTubeTE);
-for(var _6=0;_6<objj_msgSend(_9,"count");_6++){
-var _a=_9[_6];
-var _8=objj_msgSend(CPMenuItem,"withTitle:andTag:",objj_msgSend(_a,"videoTitle"),objj_msgSend(_a,"videoId"));
-objj_msgSend(m_videoDropdown,"addItem:",_8);
+var _7=objj_msgSend(CPMenuItem,"withTitle:andTag:","None Set",0);
+objj_msgSend(m_videoDropdown,"addItem:",_7);
+var _8=objj_msgSend(objj_msgSend(DocumentViewController,"sharedInstance"),"allPageElementsOfType:orType:",YouTubeVideo,YouTubeTE);
+for(var _9=0;_9<objj_msgSend(_8,"count");_9++){
+var _a=_8[_9];
+var _7=objj_msgSend(CPMenuItem,"withTitle:andTag:",objj_msgSend(_a,"videoTitle"),objj_msgSend(_a,"videoId"));
+objj_msgSend(m_videoDropdown,"addItem:",_7);
 }
 objj_msgSend(m_videoDropdown,"selectItemWithTag:",objj_msgSend(objj_msgSend(m_pageElement,"videoId"),"intValue"));
-var _b=objj_msgSend(_3,"obtainStartAtPopUps:",objj_msgSend(m_videoInfoView,"subviews"));
-objj_msgSend(_3,"setSeekToPopUpValues:",_b);
-objj_msgSend(_3,"setPopUpsWithTime:popUps:",objj_msgSend(m_pageElement,"startAt"),_b);
+var _b=objj_msgSend(_5,"obtainStartAtPopUps:",objj_msgSend(m_videoInfoView,"subviews"));
+objj_msgSend(_5,"setSeekToPopUpValues:",_b);
+objj_msgSend(_5,"setPopUpsWithTime:popUps:",objj_msgSend(m_pageElement,"startAt"),_b);
 if(objj_msgSend(m_pageElement,"endAt")>0){
 objj_msgSend(m_setEndAt,"setState:",CPOnState);
 objj_msgSend(m_endAtView,"setHidden:",NO);
@@ -6183,10 +6224,11 @@ objj_msgSend(m_endAtView,"setHidden:",NO);
 objj_msgSend(m_setEndAt,"setState:",CPOffState);
 objj_msgSend(m_endAtView,"setHidden:",YES);
 }
-var _b=objj_msgSend(_3,"obtainEndAtPopUps:",objj_msgSend(m_endAtView,"subviews"));
-objj_msgSend(_3,"setSeekToPopUpValues:",_b);
-objj_msgSend(_3,"setPopUpsWithTime:popUps:",objj_msgSend(m_pageElement,"endAt"),_b);
-objj_msgSend(_3,"setFocusOn:",m_linkTitle);
+var _b=objj_msgSend(_5,"obtainEndAtPopUps:",objj_msgSend(m_endAtView,"subviews"));
+objj_msgSend(_5,"setSeekToPopUpValues:",_b);
+objj_msgSend(_5,"setPopUpsWithTime:popUps:",objj_msgSend(m_pageElement,"endAt"),_b);
+objj_msgSend(_5,"awakeFromCibSetupFontFields:",m_pageElement);
+objj_msgSend(_5,"setFocusOn:",m_linkTitle);
 }
 }),new objj_method(sel_getUid("endAtToggled:"),function(_c,_d,_e){
 with(_c){
@@ -6204,42 +6246,33 @@ objj_msgSend(_10[idx],"selectItemWithTitle:",objj_msgSend(objj_msgSend(_f[idx],"
 break;
 }
 }
-}),new objj_method(sel_getUid("fontNameSelected:"),function(_11,_12,_13){
+}),new objj_method(sel_getUid("updateColor:"),function(_11,_12,_13){
 with(_11){
-objj_msgSend(m_pageElement,"setFontName:",objj_msgSend(objj_msgSend(m_fontNameButton,"selectedItem"),"title"));
-}
-}),new objj_method(sel_getUid("fontSizeSliderAction:"),function(_14,_15,_16){
-with(_14){
-objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
-objj_msgSend(m_pageElement,"setFontSize:",objj_msgSend(m_fontSizeSlider,"doubleValue"));
-}
-}),new objj_method(sel_getUid("updateColor:"),function(_17,_18,_19){
-with(_17){
 objj_msgSend(m_pageElement,"setTextColor:",objj_msgSend(m_colorWell,"color"));
 }
-}),new objj_method(sel_getUid("accept:"),function(_1a,_1b,_1c){
-with(_1a){
+}),new objj_method(sel_getUid("accept:"),function(_14,_15,_16){
+with(_14){
 objj_msgSend(_window,"close");
 switch(objj_msgSend(m_setEndAt,"state")){
 case CPOffState:
 objj_msgSend(m_pageElement,"setEndAt:",0);
 break;
 case CPOnState:
-objj_msgSend(m_pageElement,"setEndAt:",objj_msgSend(_1a,"obtainSeconds:",objj_msgSend(_1a,"obtainEndAtPopUps:",objj_msgSend(m_endAtView,"subviews"))));
+objj_msgSend(m_pageElement,"setEndAt:",objj_msgSend(_14,"obtainSeconds:",objj_msgSend(_14,"obtainEndAtPopUps:",objj_msgSend(m_endAtView,"subviews"))));
 break;
 }
-objj_msgSend(m_pageElement,"setStartAt:",objj_msgSend(_1a,"obtainSeconds:",objj_msgSend(_1a,"obtainStartAtPopUps:",objj_msgSend(m_videoInfoView,"subviews"))));
+objj_msgSend(m_pageElement,"setStartAt:",objj_msgSend(_14,"obtainSeconds:",objj_msgSend(_14,"obtainStartAtPopUps:",objj_msgSend(m_videoInfoView,"subviews"))));
 objj_msgSend(m_pageElement,"setVideoId:",objj_msgSend(CPString,"stringWithFormat:","%d",objj_msgSend(objj_msgSend(m_videoDropdown,"selectedItem"),"tag")));
 objj_msgSend(m_pageElement,"setLinkText:",objj_msgSend(m_linkTitle,"stringValue"));
 objj_msgSend(m_pageElement,"updateServer");
 }
-}),new objj_method(sel_getUid("obtainStartAtPopUps:"),function(_1d,_1e,_1f){
-with(_1d){
-return objj_msgSend(_1d,"findPopUpsWithTags:inViews:",[1,2,4],_1f);
+}),new objj_method(sel_getUid("obtainStartAtPopUps:"),function(_17,_18,_19){
+with(_17){
+return objj_msgSend(_17,"findPopUpsWithTags:inViews:",[1,2,4],_19);
 }
-}),new objj_method(sel_getUid("obtainEndAtPopUps:"),function(_20,_21,_22){
-with(_20){
-return objj_msgSend(_20,"findPopUpsWithTags:inViews:",[8,16,32],_22);
+}),new objj_method(sel_getUid("obtainEndAtPopUps:"),function(_1a,_1b,_1c){
+with(_1a){
+return objj_msgSend(_1a,"findPopUpsWithTags:inViews:",[8,16,32],_1c);
 }
 })]);
 p;32;app/views/document_resize_view.jt;1098;@STATIC;1.0;t;1079;
