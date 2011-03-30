@@ -4321,7 +4321,7 @@ return objj_msgSend(objj_msgSend(_1e,"rotationSupportStateHandlers"),"arrayByAdd
 with(_20){
 }
 })]);
-p;58;app/controllers/properties/property_image_t_e_controller.jt;5925;@STATIC;1.0;t;5906;
+p;58;app/controllers/properties/property_image_t_e_controller.jt;6008;@STATIC;1.0;t;5989;
 var _1=objj_allocateClassPair(PropertyWindowController,"PropertyImageTEController"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("m_urlField"),new objj_ivar("m_linkField"),new objj_ivar("m_heightField"),new objj_ivar("m_widthField"),new objj_ivar("m_widthImageLabel"),new objj_ivar("m_heightImageLabel"),new objj_ivar("m_reloadIntervalValue"),new objj_ivar("m_rotationValue"),new objj_ivar("m_reloadSlider"),new objj_ivar("m_reloadButton"),new objj_ivar("m_rotationSlider"),new objj_ivar("m_linksView"),new objj_ivar("m_sizeView"),new objj_ivar("m_reloadView"),new objj_ivar("m_intervalScrollView"),new objj_ivar("m_rotationView"),new objj_ivar("m_orig_image_height"),new objj_ivar("m_orig_image_width"),new objj_ivar("m_orig_rotation")]);
 objj_registerClassPair(_1);
@@ -4401,6 +4401,7 @@ with(_1b){
 objj_msgSend(_window,"close");
 objj_msgSend(m_pageElement,"setReloadInterval:",objj_msgSend(m_reloadSlider,"intValue"));
 objj_msgSend(m_pageElement,"setLinkUrl:",objj_msgSend(m_linkField,"stringValue"));
+objj_msgSend(m_pageElement,"setImageUrl:",objj_msgSend(m_urlField,"stringValue"));
 objj_msgSend(_1b,"updateFrameSize");
 objj_msgSend(m_pageElement,"setRotation:",objj_msgSend(m_rotationSlider,"intValue"));
 objj_msgSend(m_pageElement,"updateServer");
