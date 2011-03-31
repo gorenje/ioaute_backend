@@ -5,6 +5,13 @@ upstream thin_cluster {
 }
 
 <% ports.each do |port| %>
+
+server {
+  listen <%= port %>;
+  server_name <%= publication_server_names.join(' ') %>;
+  rewrite ^ $scheme://<%= server_names.first %>/publications$request_uri permanent;
+}
+
 server {
   listen <%= port %>;
   server_name <%= server_names.join(' ') %>;

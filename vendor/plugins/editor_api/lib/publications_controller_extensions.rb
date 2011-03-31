@@ -180,7 +180,7 @@ module EditorApi
           send_off_success(params, :data => publication.bitlies.first)
         else 
           publication.publish! # should not fail, but you never know.
-          if (bitly = publication.generate_bitly(server_url, pub_format(params)))
+          if (bitly = publication.generate_bitly(publication_server_url, pub_format(params)))
             send_off_success(params, :data => bitly)
           else
             publication.bitly_failed!
