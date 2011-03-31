@@ -37,7 +37,7 @@ set :monit_advertiser_importer_total_memory, "500.0"
 set :ngx_ports, ["80"]
 ## Assume that the first server is the publication hosting server.
 set :ngx_server_names, ["pubme.2monki.es"]
-set :ngx_publication_server_names, ["p.pubme.2monki.es"]
+set :ngx_publication_server_names, ["pu.2monki.es"]
 set :ngx_thin_sockets, 5 ## needs to be the same as thin_num_of_servers
 
 set :thin_num_of_servers,       5

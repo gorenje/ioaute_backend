@@ -116,7 +116,7 @@ class PublicationsController < ApplicationController
   end
 
   def publication_server_url
-    "http://p.%s%s" % [ request.host, request.port != 80 ? ":#{request.port}" : "" ]
+    "http://pu.2monki.es%s" % [ request.port != 80 ? ":#{request.port}" : "" ]
   end
   
   def server_url
