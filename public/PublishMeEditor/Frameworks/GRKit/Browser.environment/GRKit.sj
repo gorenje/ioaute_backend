@@ -2,9 +2,9 @@
 objj_executeFile("g_r_class_mixin.j",YES);
 objj_executeFile("g_r_rotate_view.j",YES);
 objj_executeFile("g_r_info_window.j",YES);
-p;17;g_r_rotate_view.jt;2019;@STATIC;1.0;t;2000;
+p;17;g_r_rotate_view.jt;2919;@STATIC;1.0;t;2900;
 var _1=objj_allocateClassPair(CPView,"GRRotateView"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_rootLayer"),new objj_ivar("m_rotationRadians"),new objj_ivar("m_rotSelector")]);
+class_addIvars(_1,[new objj_ivar("m_rootLayer"),new objj_ivar("m_rotationRadians"),new objj_ivar("m_vertical_flip"),new objj_ivar("m_hitTest")]);
 objj_registerClassPair(_1);
 class_addMethods(_1,[new objj_method(sel_getUid("rotation"),function(_3,_4){
 with(_3){
@@ -14,47 +14,79 @@ return m_rotationRadians;
 with(_5){
 m_rotationRadians=_7;
 }
-}),new objj_method(sel_getUid("initWithFrame:"),function(_8,_9,_a){
+}),new objj_method(sel_getUid("verticalFlip"),function(_8,_9){
 with(_8){
-_8=objj_msgSendSuper({receiver:_8,super_class:objj_getClass("GRRotateView").super_class},"initWithFrame:",_a);
-if(_8){
+return m_vertical_flip;
+}
+}),new objj_method(sel_getUid("setVerticalFlip:"),function(_a,_b,_c){
+with(_a){
+m_vertical_flip=_c;
+}
+}),new objj_method(sel_getUid("initWithFrame:"),function(_d,_e,_f){
+with(_d){
+_d=objj_msgSendSuper({receiver:_d,super_class:objj_getClass("GRRotateView").super_class},"initWithFrame:",_f);
+if(_d){
 m_rootLayer=objj_msgSend(CALayer,"layer");
-objj_msgSend(m_rootLayer,"setDelegate:",_8);
-objj_msgSend(_8,"setWantsLayer:",YES);
-objj_msgSend(_8,"setLayer:",m_rootLayer);
-objj_msgSend(_8,"setClipsToBounds:",NO);
-objj_msgSend(_8,"setRotation:",0);
-m_rotSelector=sel_getUid("_hitTestSuper:");
+objj_msgSend(m_rootLayer,"setDelegate:",_d);
+objj_msgSend(_d,"setWantsLayer:",YES);
+objj_msgSend(_d,"setLayer:",m_rootLayer);
+objj_msgSend(_d,"setClipsToBounds:",NO);
+objj_msgSend(_d,"setRotation:",0);
+objj_msgSend(_d,"setVerticalFlip:",0);
+objj_msgSend(_d,"hitTestLayer");
 }
-return _8;
+return _d;
 }
-}),new objj_method(sel_getUid("hitTests"),function(_b,_c){
-with(_b){
+}),new objj_method(sel_getUid("hitTestLayer"),function(_10,_11){
+with(_10){
+m_hitTest=sel_getUid("_hitTestLayer:");
+}
+}),new objj_method(sel_getUid("hitTestSuper"),function(_12,_13){
+with(_12){
+m_hitTest=sel_getUid("_hitTestSuper:");
+}
+}),new objj_method(sel_getUid("hitTests"),function(_14,_15){
+with(_14){
 return YES;
 }
-}),new objj_method(sel_getUid("hitTest:"),function(_d,_e,_f){
-with(_d){
-return objj_msgSend(_d,"performSelector:withObject:",m_rotSelector,_f);
-}
-}),new objj_method(sel_getUid("_hitTestSuper:"),function(_10,_11,_12){
-with(_10){
-return objj_msgSendSuper({receiver:_10,super_class:objj_getClass("GRRotateView").super_class},"hitTest:",_12);
-}
-}),new objj_method(sel_getUid("_hitTestLayer:"),function(_13,_14,_15){
-with(_13){
-return (objj_msgSend(m_rootLayer,"hitTest:",objj_msgSend(objj_msgSend(_13,"superview"),"convertPoint:toView:",_15,_13))?_13:nil);
-}
-}),new objj_method(sel_getUid("setRotation:"),function(_16,_17,_18){
+}),new objj_method(sel_getUid("hitTest:"),function(_16,_17,_18){
 with(_16){
-if(m_rotationRadians==_18){
+return objj_msgSend(_16,"performSelector:withObject:",m_hitTest,_18);
+}
+}),new objj_method(sel_getUid("setRotation:"),function(_19,_1a,_1b){
+with(_19){
+if(m_rotationRadians==_1b){
 return;
 }
-m_rotationRadians=_18;
-m_rotSelector=(m_rotationRadians>0?sel_getUid("_hitTestLayer:"):sel_getUid("_hitTestSuper:"));
-objj_msgSend(m_rootLayer,"setAffineTransform:",CGAffineTransformMakeRotation(m_rotationRadians));
+m_rotationRadians=_1b;
+objj_msgSend(m_rootLayer,"setAffineTransform:",objj_msgSend(_19,"createAffineTransform"));
 }
-}),new objj_method(sel_getUid("drawLayer:inContext:"),function(_19,_1a,_1b,_1c){
-with(_19){
+}),new objj_method(sel_getUid("setVerticalFlip:"),function(_1c,_1d,_1e){
+with(_1c){
+if(m_vertical_flip==_1e){
+return;
+}
+m_vertical_flip=_1e>0?-1:0;
+objj_msgSend(m_rootLayer,"setAffineTransform:",objj_msgSend(_1c,"createAffineTransform"));
+}
+}),new objj_method(sel_getUid("createAffineTransform"),function(_1f,_20){
+with(_1f){
+if(m_vertical_flip<0){
+return CGAffineTransformScale(CGAffineTransformMakeRotation(m_rotationRadians),-1,1);
+}else{
+return CGAffineTransformMakeRotation(m_rotationRadians);
+}
+}
+}),new objj_method(sel_getUid("drawLayer:inContext:"),function(_21,_22,_23,_24){
+with(_21){
+}
+}),new objj_method(sel_getUid("_hitTestSuper:"),function(_25,_26,_27){
+with(_25){
+return objj_msgSendSuper({receiver:_25,super_class:objj_getClass("GRRotateView").super_class},"hitTest:",_27);
+}
+}),new objj_method(sel_getUid("_hitTestLayer:"),function(_28,_29,_2a){
+with(_28){
+return (objj_msgSend(m_rootLayer,"hitTest:",objj_msgSend(objj_msgSend(_28,"superview"),"convertPoint:toView:",_2a,_28))?_28:nil);
 }
 })]);
 p;17;g_r_class_mixin.jt;728;@STATIC;1.0;t;710;
