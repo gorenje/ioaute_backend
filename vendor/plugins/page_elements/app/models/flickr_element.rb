@@ -46,4 +46,8 @@ class FlickrElement < PageElement
   def flickr_title
     extra_data["title"]
   end
+  
+  def show_copyright?
+    image_flags & 1 == 0
+  end
 end

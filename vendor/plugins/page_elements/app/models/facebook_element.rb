@@ -53,4 +53,8 @@ class FacebookElement < PageElement
   def dump_to_pdf(pdf)
     pdf.image open(extra_data["src_url"]), :at =>[x,y], :width => width, :height => height
   end
+  
+  def show_copyright?
+    image_flags & 1 == 0
+  end
 end

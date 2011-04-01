@@ -2,8 +2,9 @@
   - img_dom_id = dom_id(page_element,"image").gsub(/_/,'')
   %a{ :href => page_element.destination_url, :target => '_blank' }
     %img{ :id => img_dom_id, :src => page_element.image_src_url, :width => page_element.width, :height => page_element.height }
-  - owner_link = page_element.link_to_owner || ("http://google.com/?q=%s" % CGI.escape(page_element.owner))
-  %a.owner{ :href => owner_link }= "By " + page_element.owner
+  - if page_element.show_copyright?
+    - owner_link = page_element.link_to_owner || ("http://google.com/?q=%s" % CGI.escape(page_element.owner))
+    %a.owner{ :href => owner_link }= "By " + page_element.owner
   - if page_element.reload_image?    
     :javascript
       new PeriodicalExecuter(function(pe) { 
