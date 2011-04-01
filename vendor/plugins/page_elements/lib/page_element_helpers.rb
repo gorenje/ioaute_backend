@@ -90,6 +90,34 @@ module PageElementHelpers
   end
 
   ##
+  ## Image flags support
+  ##
+  module ImageFlagsSupport
+    def self.included(base) # :nodoc:
+      base.class_eval do
+        base.send :extend, ClassMethods
+        base.send :include, InstanceMethods
+      end
+    end  
+
+    module ClassMethods
+      def obtain_image_flags_from_params(params)
+        { :image_flags => params["m_image_flags"] || "0" }
+      end
+    end
+
+    module InstanceMethods
+      def retrieve_image_flags_from_extra_data(edata)
+        { :image_flags => edata["image_flags"] || "0" }
+      end
+
+      def image_flags
+        extra_data["image_flags"].to_i
+      end
+    end
+  end
+
+  ##
   ## Image reload support
   ##
   module ImageReloadSupport
