@@ -1,0 +1,28 @@
+- if page_element.is_rotated? && !page_element.is_vertical_flipped?
+  :css
+    div##{dom_id(page_element)} {
+      -webkit-transform: rotate(#{page_element.rotation_in_degrees}deg);
+      -o-transform: rotate(#{page_element.rotation_in_degrees}deg);
+      -moz-transform: rotate(#{page_element.rotation_in_degrees}deg);
+      transform: rotate(#{page_element.rotation_in_degrees}deg);
+    }
+- if page_element.is_vertical_flipped? && !page_element.is_rotated?
+  :css
+    div##{dom_id(page_element)} {
+      -moz-transform: scaleX(-1);
+      -o-transform: scaleX(-1);
+      -webkit-transform: scaleX(-1);
+      transform: scaleX(-1);
+      filter: FlipH;
+      -ms-filter: "FlipH";
+    }
+- if page_element.is_vertical_flipped? && page_element.is_rotated?
+  :css
+    div##{dom_id(page_element)} {
+      -webkit-transform: rotate(#{page_element.rotation_in_degrees}deg) scaleX(-1);
+      -o-transform: rotate(#{page_element.rotation_in_degrees}deg) scaleX(-1);
+      -moz-transform: rotate(#{page_element.rotation_in_degrees}deg) scaleX(-1);
+      transform: rotate(#{page_element.rotation_in_degrees}deg) scaleX(-1);
+      filter: FlipH;
+      -ms-filter: "FlipH";
+    }

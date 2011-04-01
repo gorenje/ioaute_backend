@@ -4,13 +4,7 @@
   div##{dom_id(page_element)} {
     background-color: #{page_element.is_clickable? ? "transparent" : page_element.css_color_spec};
   }
-- if page_element.is_rotated?
-  :css
-    div##{dom_id(page_element)} {
-      -webkit-transform: rotate(#{page_element.rotation_in_degrees}deg);
-      -moz-transform: rotate(#{page_element.rotation_in_degrees}deg);
-      transform: rotate(#{page_element.rotation_in_degrees}deg);
-    }
+= render :partial => 'page_elements/_page_element_rotation', :locals => { :page_element => page_element }
 - if page_element.has_rounded_corners?
   :css
     div##{dom_id(page_element)} {

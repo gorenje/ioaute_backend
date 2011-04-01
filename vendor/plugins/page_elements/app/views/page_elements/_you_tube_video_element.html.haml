@@ -23,10 +23,4 @@
     swfobject.embedSWF("#{page_element.video_url(vid_dom_id)}",
                        "#{vid_dom_id}", "#{page_element.width}", "#{page_element.height}", 
                        "8", null, null, { allowScriptAccess: "always" }, { id: "#{vid_dom_id}" });
-  - if page_element.is_rotated?
-    :css
-      div##{dom_id(page_element)} {
-        -webkit-transform: rotate(#{page_element.rotation_in_degrees}deg);
-        -moz-transform: rotate(#{page_element.rotation_in_degrees}deg);
-        transform: rotate(#{page_element.rotation_in_degrees}deg);
-      }
+  = render :partial => 'page_elements/_page_element_rotation', :locals => { :page_element => page_element }

@@ -62,13 +62,17 @@ module PageElementHelpers
 
     module ClassMethods
       def obtain_image_rotation_from_params(params)
-        { :rotation => params["m_rotation"] || "0" }
+        { :rotation => params["m_rotation"] || "0",
+          :vflip    => params["m_vertical_flip"] || "0",
+        }
       end
     end
 
     module InstanceMethods
       def retrieve_image_rotation_from_extra_data(edata)
-        { :rotation => edata["rotation"] || "0" }
+        { :rotation => edata["rotation"] || "0",
+          :vflip    => edata["vflip"] || "0",
+        }
       end
 
       def is_rotated?
@@ -77,6 +81,10 @@ module PageElementHelpers
       
       def rotation_in_degrees
         extra_data["rotation"].to_i
+      end
+      
+      def is_vertical_flipped?
+        extra_data["vflip"].to_i > 0
       end
     end
   end
