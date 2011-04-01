@@ -1,4 +1,4 @@
-@STATIC;1.0;p;12;app/editor.jt;8850;@STATIC;1.0;i;23;monkeypatch/c_p_alert.ji;23;monkeypatch/c_p_array.ji;21;monkeypatch/c_p_box.ji;21;monkeypatch/c_p_cib.ji;33;monkeypatch/c_p_collection_view.ji;23;monkeypatch/c_p_color.ji;24;monkeypatch/c_p_cursor.ji;27;monkeypatch/c_p_menu_item.ji;24;monkeypatch/c_p_string.ji;28;monkeypatch/c_p_text_field.ji;39;monkeypatch/l_p_multi_line_text_field.ji;29;helpers/application_helpers.ji;30;helpers/image_loader_helpers.ji;27;helpers/alert_user_helper.ji;24;libs/drag_drop_manager.ji;26;libs/placeholder_manager.ji;28;libs/configuration_manager.ji;28;libs/communication_workers.ji;28;libs/communication_manager.ji;20;libs/theme_manager.ji;33;mixins/seek_to_dropdown_helpers.ji;36;mixins/document_view_cell_snapgrid.ji;35;mixins/page_element_color_support.ji;34;mixins/page_element_size_support.ji;35;mixins/page_element_input_support.ji;34;mixins/page_element_font_support.ji;40;mixins/page_element_text_input_support.ji;38;mixins/page_element_rotation_support.ji;34;mixins/you_tube_video_properties.ji;30;mixins/you_tube_page_element.ji;33;mixins/image_element_properties.ji;29;mixins/alert_window_support.ji;29;mixins/object_state_support.ji;41;mixins/property_controller_font_support.ji;45;mixins/property_controller_rotation_support.ji;13;models/page.ji;21;models/page_element.ji;14;models/tweet.ji;15;models/flickr.ji;17;models/facebook.ji;21;models/google_image.ji;21;models/tool_element.ji;18;models/image_t_e.ji;17;models/text_t_e.ji;20;models/fb_like_t_e.ji;25;models/twitter_feed_t_e.ji;18;models/tweet_t_e.ji;24;models/digg_button_t_e.ji;17;models/link_t_e.ji;22;models/highlight_t_e.ji;23;models/you_tube_video.ji;26;models/you_tube_ctrl_t_e.ji;21;models/you_tube_t_e.ji;27;models/pay_pal_button_t_e.ji;34;models/you_tube_seek_to_link_t_e.ji;19;models/pub_config.ji;21;views/document_view.ji;26;views/document_view_cell.ji;33;views/document_view_editor_view.ji;28;views/document_resize_view.ji;23;views/base_image_cell.ji;25;views/flickr_photo_cell.ji;27;views/facebook_photo_cell.ji;32;views/google_images_photo_cell.ji;27;views/you_tube_photo_cell.ji;30;views/facebook_category_cell.ji;29;views/page_number_list_cell.ji;24;views/page_number_view.ji;25;views/page_control_cell.ji;22;views/tool_list_cell.ji;33;views/models/p_m_highlight_view.ji;29;views/models/p_m_image_view.ji;38;controllers/prompt_window_controller.ji;32;controllers/twitter_controller.ji;31;controllers/flickr_controller.ji;33;controllers/you_tube_controller.ji;33;controllers/facebook_controller.ji;38;controllers/google_images_controller.ji;34;controllers/tool_view_controller.ji;34;controllers/page_view_controller.ji;38;controllers/document_view_controller.ji;52;controllers/document_view_controller_edit_existing.ji;51;controllers/properties/property_window_controller.ji;56;controllers/properties/property_publication_controller.ji;53;controllers/properties/property_link_t_e_controller.ji;58;controllers/properties/property_highlight_t_e_controller.ji;54;controllers/properties/property_image_t_e_controller.ji;61;controllers/properties/property_twitter_feed_t_e_controller.ji;53;controllers/properties/property_text_t_e_controller.ji;53;controllers/properties/property_text_t_e_controller.ji;49;controllers/properties/property_page_controller.ji;59;controllers/properties/property_you_tube_video_controller.ji;59;controllers/properties/property_pay_pal_button_controller.ji;70;controllers/properties/property_you_tube_seek_to_link_t_e_controller.jt;5403;
+@STATIC;1.0;p;12;app/editor.jt;9461;@STATIC;1.0;i;23;monkeypatch/c_p_alert.ji;23;monkeypatch/c_p_array.ji;21;monkeypatch/c_p_box.ji;21;monkeypatch/c_p_cib.ji;33;monkeypatch/c_p_collection_view.ji;23;monkeypatch/c_p_color.ji;24;monkeypatch/c_p_cursor.ji;23;monkeypatch/c_p_event.ji;27;monkeypatch/c_p_menu_item.ji;24;monkeypatch/c_p_string.ji;28;monkeypatch/c_p_text_field.ji;39;monkeypatch/l_p_multi_line_text_field.ji;29;helpers/application_helpers.ji;30;helpers/image_loader_helpers.ji;27;helpers/alert_user_helper.ji;24;libs/drag_drop_manager.ji;26;libs/placeholder_manager.ji;28;libs/configuration_manager.ji;28;libs/communication_workers.ji;28;libs/communication_manager.ji;20;libs/theme_manager.ji;33;mixins/seek_to_dropdown_helpers.ji;36;mixins/document_view_cell_snapgrid.ji;34;mixins/you_tube_video_properties.ji;30;mixins/you_tube_page_element.ji;33;mixins/image_element_properties.ji;29;mixins/alert_window_support.ji;29;mixins/object_state_support.ji;35;mixins/page_element/color_support.ji;34;mixins/page_element/size_support.ji;35;mixins/page_element/input_support.ji;34;mixins/page_element/font_support.ji;40;mixins/page_element/text_input_support.ji;38;mixins/page_element/rotation_support.ji;41;mixins/property_controller/font_support.ji;45;mixins/property_controller/rotation_support.ji;42;mixins/property_controller/image_support.ji;47;mixins/property_controller/image_flag_support.ji;13;models/page.ji;21;models/page_element.ji;14;models/tweet.ji;15;models/flickr.ji;17;models/facebook.ji;21;models/google_image.ji;21;models/tool_element.ji;18;models/image_t_e.ji;17;models/text_t_e.ji;20;models/fb_like_t_e.ji;25;models/twitter_feed_t_e.ji;18;models/tweet_t_e.ji;24;models/digg_button_t_e.ji;17;models/link_t_e.ji;22;models/highlight_t_e.ji;23;models/you_tube_video.ji;26;models/you_tube_ctrl_t_e.ji;21;models/you_tube_t_e.ji;27;models/pay_pal_button_t_e.ji;34;models/you_tube_seek_to_link_t_e.ji;19;models/pub_config.ji;21;views/document_view.ji;26;views/document_view_cell.ji;33;views/document_view_editor_view.ji;28;views/document_resize_view.ji;23;views/base_image_cell.ji;25;views/flickr_photo_cell.ji;27;views/facebook_photo_cell.ji;32;views/google_images_photo_cell.ji;27;views/you_tube_photo_cell.ji;30;views/facebook_category_cell.ji;29;views/page_number_list_cell.ji;24;views/page_number_view.ji;25;views/page_control_cell.ji;22;views/tool_list_cell.ji;33;views/models/p_m_highlight_view.ji;29;views/models/p_m_image_view.ji;38;controllers/prompt_window_controller.ji;32;controllers/twitter_controller.ji;31;controllers/flickr_controller.ji;33;controllers/you_tube_controller.ji;33;controllers/facebook_controller.ji;38;controllers/google_images_controller.ji;34;controllers/tool_view_controller.ji;34;controllers/page_view_controller.ji;38;controllers/document_view_controller.ji;52;controllers/document_view_controller_edit_existing.ji;51;controllers/properties/property_window_controller.ji;56;controllers/properties/property_publication_controller.ji;53;controllers/properties/property_link_t_e_controller.ji;58;controllers/properties/property_highlight_t_e_controller.ji;54;controllers/properties/property_image_t_e_controller.ji;59;controllers/properties/property_facebook_image_controller.ji;57;controllers/properties/property_flickr_image_controller.ji;61;controllers/properties/property_twitter_feed_t_e_controller.ji;53;controllers/properties/property_text_t_e_controller.ji;53;controllers/properties/property_text_t_e_controller.ji;49;controllers/properties/property_page_controller.ji;59;controllers/properties/property_you_tube_video_controller.ji;59;controllers/properties/property_pay_pal_button_controller.ji;70;controllers/properties/property_you_tube_seek_to_link_t_e_controller.jt;5761;
 objj_executeFile("monkeypatch/c_p_alert.j",YES);
 objj_executeFile("monkeypatch/c_p_array.j",YES);
 objj_executeFile("monkeypatch/c_p_box.j",YES);
@@ -6,6 +6,7 @@ objj_executeFile("monkeypatch/c_p_cib.j",YES);
 objj_executeFile("monkeypatch/c_p_collection_view.j",YES);
 objj_executeFile("monkeypatch/c_p_color.j",YES);
 objj_executeFile("monkeypatch/c_p_cursor.j",YES);
+objj_executeFile("monkeypatch/c_p_event.j",YES);
 objj_executeFile("monkeypatch/c_p_menu_item.j",YES);
 objj_executeFile("monkeypatch/c_p_string.j",YES);
 objj_executeFile("monkeypatch/c_p_text_field.j",YES);
@@ -21,19 +22,21 @@ objj_executeFile("libs/communication_manager.j",YES);
 objj_executeFile("libs/theme_manager.j",YES);
 objj_executeFile("mixins/seek_to_dropdown_helpers.j",YES);
 objj_executeFile("mixins/document_view_cell_snapgrid.j",YES);
-objj_executeFile("mixins/page_element_color_support.j",YES);
-objj_executeFile("mixins/page_element_size_support.j",YES);
-objj_executeFile("mixins/page_element_input_support.j",YES);
-objj_executeFile("mixins/page_element_font_support.j",YES);
-objj_executeFile("mixins/page_element_text_input_support.j",YES);
-objj_executeFile("mixins/page_element_rotation_support.j",YES);
 objj_executeFile("mixins/you_tube_video_properties.j",YES);
 objj_executeFile("mixins/you_tube_page_element.j",YES);
 objj_executeFile("mixins/image_element_properties.j",YES);
 objj_executeFile("mixins/alert_window_support.j",YES);
 objj_executeFile("mixins/object_state_support.j",YES);
-objj_executeFile("mixins/property_controller_font_support.j",YES);
-objj_executeFile("mixins/property_controller_rotation_support.j",YES);
+objj_executeFile("mixins/page_element/color_support.j",YES);
+objj_executeFile("mixins/page_element/size_support.j",YES);
+objj_executeFile("mixins/page_element/input_support.j",YES);
+objj_executeFile("mixins/page_element/font_support.j",YES);
+objj_executeFile("mixins/page_element/text_input_support.j",YES);
+objj_executeFile("mixins/page_element/rotation_support.j",YES);
+objj_executeFile("mixins/property_controller/font_support.j",YES);
+objj_executeFile("mixins/property_controller/rotation_support.j",YES);
+objj_executeFile("mixins/property_controller/image_support.j",YES);
+objj_executeFile("mixins/property_controller/image_flag_support.j",YES);
 objj_executeFile("models/page.j",YES);
 objj_executeFile("models/page_element.j",YES);
 objj_executeFile("models/tweet.j",YES);
@@ -86,6 +89,8 @@ objj_executeFile("controllers/properties/property_publication_controller.j",YES)
 objj_executeFile("controllers/properties/property_link_t_e_controller.j",YES);
 objj_executeFile("controllers/properties/property_highlight_t_e_controller.j",YES);
 objj_executeFile("controllers/properties/property_image_t_e_controller.j",YES);
+objj_executeFile("controllers/properties/property_facebook_image_controller.j",YES);
+objj_executeFile("controllers/properties/property_flickr_image_controller.j",YES);
 objj_executeFile("controllers/properties/property_twitter_feed_t_e_controller.j",YES);
 objj_executeFile("controllers/properties/property_text_t_e_controller.j",YES);
 objj_executeFile("controllers/properties/property_text_t_e_controller.j",YES);
@@ -1311,6 +1316,64 @@ with(_24){
 return [YouTubeDragType];
 }
 })]);
+p;63;app/controllers/properties/property_facebook_image_controller.jt;1477;@STATIC;1.0;t;1458;
+var _1=objj_allocateClassPair(PropertyWindowController,"PropertyFacebookImageController"),_2=_1.isa;
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("includeMixins"),function(_3,_4){
+with(_3){
+objj_msgSend(PropertyControllerRotationSupport,"addToClassOfObject:",_3);
+objj_msgSend(PropertyControllerImageSupport,"addToClassOfObject:",_3);
+objj_msgSend(PropertyControllerImageFlagSupport,"addToClassOfObject:",_3);
+}
+}),new objj_method(sel_getUid("awakeFromCib"),function(_5,_6){
+with(_5){
+objj_msgSendSuper({receiver:_5,super_class:objj_getClass("PropertyFacebookImageController").super_class},"awakeFromCib");
+objj_msgSend(_5,"awakeFromCibSetupImageFields");
+objj_msgSend(_5,"awakeFromCibSetupRotationFields:",m_pageElement);
+objj_msgSend(_5,"setFocusOn:",m_widthField);
+objj_msgSend(_5,"setupFlagFields:",objj_msgSend(m_linksView,"subviews"));
+}
+}),new objj_method(sel_getUid("accept:"),function(_7,_8,_9){
+with(_7){
+objj_msgSend(_window,"close");
+objj_msgSend(m_pageElement,"setReloadInterval:",objj_msgSend(m_reloadSlider,"intValue"));
+objj_msgSend(m_pageElement,"setLinkUrl:",objj_msgSend(m_linkField,"stringValue"));
+objj_msgSend(m_pageElement,"setImageUrl:",objj_msgSend(m_urlField,"stringValue"));
+objj_msgSend(_7,"updateFrameSize");
+objj_msgSend(m_pageElement,"setRotation:",objj_msgSend(m_rotationSlider,"intValue"));
+objj_msgSend(m_pageElement,"updateServer");
+objj_msgSend(m_pageElement,"sendResizeToServer");
+}
+})]);
+p;61;app/controllers/properties/property_flickr_image_controller.jt;1473;@STATIC;1.0;t;1454;
+var _1=objj_allocateClassPair(PropertyWindowController,"PropertyFlickrImageController"),_2=_1.isa;
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("includeMixins"),function(_3,_4){
+with(_3){
+objj_msgSend(PropertyControllerRotationSupport,"addToClassOfObject:",_3);
+objj_msgSend(PropertyControllerImageSupport,"addToClassOfObject:",_3);
+objj_msgSend(PropertyControllerImageFlagSupport,"addToClassOfObject:",_3);
+}
+}),new objj_method(sel_getUid("awakeFromCib"),function(_5,_6){
+with(_5){
+objj_msgSendSuper({receiver:_5,super_class:objj_getClass("PropertyFlickrImageController").super_class},"awakeFromCib");
+objj_msgSend(_5,"awakeFromCibSetupImageFields");
+objj_msgSend(_5,"awakeFromCibSetupRotationFields:",m_pageElement);
+objj_msgSend(_5,"setFocusOn:",m_widthField);
+objj_msgSend(_5,"setupFlagFields:",objj_msgSend(m_linksView,"subviews"));
+}
+}),new objj_method(sel_getUid("accept:"),function(_7,_8,_9){
+with(_7){
+objj_msgSend(_window,"close");
+objj_msgSend(m_pageElement,"setReloadInterval:",objj_msgSend(m_reloadSlider,"intValue"));
+objj_msgSend(m_pageElement,"setLinkUrl:",objj_msgSend(m_linkField,"stringValue"));
+objj_msgSend(m_pageElement,"setImageUrl:",objj_msgSend(m_urlField,"stringValue"));
+objj_msgSend(_7,"updateFrameSize");
+objj_msgSend(m_pageElement,"setRotation:",objj_msgSend(m_rotationSlider,"intValue"));
+objj_msgSend(m_pageElement,"updateServer");
+objj_msgSend(m_pageElement,"sendResizeToServer");
+}
+})]);
 p;62;app/controllers/properties/property_highlight_t_e_controller.jt;7041;@STATIC;1.0;t;7022;
 var _1=[sel_getUid("setCornerTopLeft:"),sel_getUid("setCornerTopRight:"),sel_getUid("setCornerBottomLeft:"),sel_getUid("setCornerBottomRight:")];
 var _2=objj_allocateClassPair(PropertyWindowController,"PropertyHighlightTEController"),_3=_2.isa;
@@ -1453,93 +1516,31 @@ objj_msgSend(m_pageElement,"performSelector:withObject:",_1[idx],objj_msgSend(ob
 }
 }
 })]);
-p;58;app/controllers/properties/property_image_t_e_controller.jt;5206;@STATIC;1.0;t;5187;
+p;58;app/controllers/properties/property_image_t_e_controller.jt;1316;@STATIC;1.0;t;1297;
 var _1=objj_allocateClassPair(PropertyWindowController,"PropertyImageTEController"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_urlField"),new objj_ivar("m_linkField"),new objj_ivar("m_heightField"),new objj_ivar("m_widthField"),new objj_ivar("m_widthImageLabel"),new objj_ivar("m_heightImageLabel"),new objj_ivar("m_reloadIntervalValue"),new objj_ivar("m_reloadSlider"),new objj_ivar("m_reloadButton"),new objj_ivar("m_linksView"),new objj_ivar("m_sizeView"),new objj_ivar("m_reloadView"),new objj_ivar("m_intervalScrollView"),new objj_ivar("m_orig_image_height"),new objj_ivar("m_orig_image_width")]);
 objj_registerClassPair(_1);
 class_addMethods(_1,[new objj_method(sel_getUid("includeMixins"),function(_3,_4){
 with(_3){
 objj_msgSend(PropertyControllerRotationSupport,"addToClassOfObject:",_3);
+objj_msgSend(PropertyControllerImageSupport,"addToClassOfObject:",_3);
 }
 }),new objj_method(sel_getUid("awakeFromCib"),function(_5,_6){
 with(_5){
 objj_msgSendSuper({receiver:_5,super_class:objj_getClass("PropertyImageTEController").super_class},"awakeFromCib");
-objj_msgSend(CPBox,"makeBorder:",m_linksView);
-objj_msgSend(CPBox,"makeBorder:",m_sizeView);
-objj_msgSend(CPBox,"makeBorder:",m_reloadView);
-objj_msgSend(m_heightField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",objj_msgSend(m_pageElement,"getSize").height));
-objj_msgSend(m_widthField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",objj_msgSend(m_pageElement,"getSize").width));
-m_orig_image_height=objj_msgSend(m_pageElement,"getImageSize").height;
-m_orig_image_width=objj_msgSend(m_pageElement,"getImageSize").width;
-objj_msgSend(m_widthImageLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",m_orig_image_width));
-objj_msgSend(m_heightImageLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",m_orig_image_height));
-objj_msgSend(m_urlField,"setStringValue:",objj_msgSend(m_pageElement,"imageUrl"));
-objj_msgSend(m_linkField,"setStringValue:",objj_msgSend(m_pageElement,"linkUrl"));
-var _7=objj_msgSend(m_pageElement,"reloadInterval");
-if(_7>0){
-objj_msgSend(m_reloadButton,"setState:",CPOnState);
-objj_msgSend(m_intervalScrollView,"setHidden:",NO);
-}else{
-objj_msgSend(m_reloadButton,"setState:",CPOffState);
-objj_msgSend(m_intervalScrollView,"setHidden:",YES);
-}
-objj_msgSend(m_reloadSlider,"setValue:",objj_msgSend(m_pageElement,"reloadInterval"));
-objj_msgSend(_5,"updateReloadIntervalScroller");
-objj_msgSend(_5,"setFocusOn:",m_widthField);
+objj_msgSend(_5,"awakeFromCibSetupImageFields");
 objj_msgSend(_5,"awakeFromCibSetupRotationFields:",m_pageElement);
+objj_msgSend(_5,"setFocusOn:",m_widthField);
 }
-}),new objj_method(sel_getUid("setReloadInterval:"),function(_8,_9,_a){
-with(_8){
-objj_msgSend(_8,"updateReloadIntervalScroller");
-}
-}),new objj_method(sel_getUid("reloadButtonPressed:"),function(_b,_c,_d){
-with(_b){
-if(objj_msgSend(m_reloadButton,"state")==CPOnState){
-objj_msgSend(m_intervalScrollView,"setHidden:",NO);
-objj_msgSend(_b,"updateReloadIntervalScroller");
-}else{
-objj_msgSend(m_intervalScrollView,"setHidden:",YES);
-objj_msgSend(m_pageElement,"setReloadInterval:",0);
-objj_msgSend(m_reloadSlider,"setValue:",objj_msgSend(m_pageElement,"reloadInterval"));
-objj_msgSend(_b,"updateReloadIntervalScroller");
-}
-}
-}),new objj_method(sel_getUid("setSizeToOriginal:"),function(_e,_f,_10){
-with(_e){
-objj_msgSend(m_heightField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",objj_msgSend(m_pageElement,"getImageSize").height));
-objj_msgSend(m_widthField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",objj_msgSend(m_pageElement,"getImageSize").width));
-objj_msgSend(_e,"updateFrameSize");
-}
-}),new objj_method(sel_getUid("scaleWidth:"),function(_11,_12,_13){
-with(_11){
-objj_msgSend(m_widthField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",m_orig_image_width*(objj_msgSend(m_heightField,"doubleValue")/m_orig_image_height)));
-objj_msgSend(_11,"updateFrameSize");
-}
-}),new objj_method(sel_getUid("scaleHeight:"),function(_14,_15,_16){
-with(_14){
-objj_msgSend(m_heightField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",m_orig_image_height*(objj_msgSend(m_widthField,"doubleValue")/m_orig_image_width)));
-objj_msgSend(_14,"updateFrameSize");
-}
-}),new objj_method(sel_getUid("accept:"),function(_17,_18,_19){
-with(_17){
+}),new objj_method(sel_getUid("accept:"),function(_7,_8,_9){
+with(_7){
 objj_msgSend(_window,"close");
 objj_msgSend(m_pageElement,"setReloadInterval:",objj_msgSend(m_reloadSlider,"intValue"));
 objj_msgSend(m_pageElement,"setLinkUrl:",objj_msgSend(m_linkField,"stringValue"));
 objj_msgSend(m_pageElement,"setImageUrl:",objj_msgSend(m_urlField,"stringValue"));
-objj_msgSend(_17,"updateFrameSize");
+objj_msgSend(_7,"updateFrameSize");
 objj_msgSend(m_pageElement,"setRotation:",objj_msgSend(m_rotationSlider,"intValue"));
 objj_msgSend(m_pageElement,"updateServer");
 objj_msgSend(m_pageElement,"sendResizeToServer");
-}
-}),new objj_method(sel_getUid("updateReloadIntervalScroller"),function(_1a,_1b){
-with(_1a){
-var str=objj_msgSend(CPString,"stringWithFormat:","%d mins",objj_msgSend(m_reloadSlider,"intValue"));
-objj_msgSend(m_reloadIntervalValue,"setStringValue:",str);
-}
-}),new objj_method(sel_getUid("updateFrameSize"),function(_1c,_1d){
-with(_1c){
-var _1e=CGSizeMake(objj_msgSend(m_widthField,"doubleValue"),objj_msgSend(m_heightField,"doubleValue"));
-objj_msgSend(m_pageElement,"setFrameSize:",_1e);
 }
 })]);
 p;57;app/controllers/properties/property_link_t_e_controller.jt;1526;@STATIC;1.0;t;1507;
@@ -3270,9 +3271,9 @@ dragLocation=_d;
 }
 }
 })]);
-p;37;app/mixins/image_element_properties.jt;2893;@STATIC;1.0;t;2874;
+p;37;app/mixins/image_element_properties.jt;3645;@STATIC;1.0;t;3626;
 var _1=objj_allocateClassPair(GRClassMixin,"ImageElementProperties"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_destUrl"),new objj_ivar("m_reloadInterval")]);
+class_addIvars(_1,[new objj_ivar("m_destUrl"),new objj_ivar("m_reloadInterval"),new objj_ivar("m_image_flags")]);
 objj_registerClassPair(_1);
 class_addMethods(_1,[new objj_method(sel_getUid("linkUrl"),function(_3,_4){
 with(_3){
@@ -3290,45 +3291,66 @@ return m_reloadInterval;
 with(_a){
 m_reloadInterval=_c;
 }
-}),new objj_method(sel_getUid("setImagePropertiesFromJson"),function(_d,_e){
+}),new objj_method(sel_getUid("imageFlags"),function(_d,_e){
 with(_d){
+return m_image_flags;
+}
+}),new objj_method(sel_getUid("setImageFlags:"),function(_f,_10,_11){
+with(_f){
+m_image_flags=_11;
+}
+}),new objj_method(sel_getUid("setImagePropertiesFromJson"),function(_12,_13){
+with(_12){
 m_destUrl=_json.dest_url;
 m_reloadInterval=objj_msgSend(check_for_undefined(_json.reload_interval,"0"),"intValue");
+m_image_flags=objj_msgSend(check_for_undefined(_json.image_flags,"0"),"intValue");
 }
-}),new objj_method(sel_getUid("setDestUrlFromJson:"),function(_f,_10,_11){
-with(_f){
-m_destUrl=is_defined(_json.dest_url)?_json.dest_url:_11;
+}),new objj_method(sel_getUid("setDestUrlFromJson:"),function(_14,_15,_16){
+with(_14){
+m_destUrl=is_defined(_json.dest_url)?_json.dest_url:_16;
 }
-}),new objj_method(sel_getUid("hasProperties"),function(_12,_13){
-with(_12){
+}),new objj_method(sel_getUid("hasProperties"),function(_17,_18){
+with(_17){
 return YES;
 }
-}),new objj_method(sel_getUid("openProperyWindow"),function(_14,_15){
-with(_14){
-objj_msgSend(objj_msgSend(objj_msgSend(PropertyImageTEController,"alloc"),"initWithWindowCibName:pageElement:",ImageTEPropertyWindowCIB,_14),"showWindow:",_14);
+}),new objj_method(sel_getUid("openProperyWindow"),function(_19,_1a){
+with(_19){
+if(objj_msgSend(_19,"respondsToSelector:",sel_getUid("openSpecificPropertyWindow"))){
+objj_msgSend(_19,"openSpecificPropertyWindow");
+}else{
+objj_msgSend(objj_msgSend(objj_msgSend(PropertyImageTEController,"alloc"),"initWithWindowCibName:pageElement:",ImageTEPropertyWindowCIB,_19),"showWindow:",_19);
 }
-}),new objj_method(sel_getUid("getImageSize"),function(_16,_17){
-with(_16){
+}
+}),new objj_method(sel_getUid("getImageSize"),function(_1b,_1c){
+with(_1b){
 return objj_msgSend(objj_msgSend(_mainView,"image"),"size");
 }
-}),new objj_method(sel_getUid("generateViewForDocument:withUrl:"),function(_18,_19,_1a,url){
-with(_18){
+}),new objj_method(sel_getUid("generateViewForDocument:withUrl:"),function(_1d,_1e,_1f,url){
+with(_1d){
 if(_mainView){
 objj_msgSend(_mainView,"removeFromSuperview");
 }
-_mainView=objj_msgSend(objj_msgSend(PMImageView,"alloc"),"initWithFrame:",CGRectMakeCopy(objj_msgSend(_1a,"bounds")));
+_mainView=objj_msgSend(objj_msgSend(PMImageView,"alloc"),"initWithFrame:",CGRectMakeCopy(objj_msgSend(_1f,"bounds")));
 objj_msgSend(_mainView,"setAutoresizingMask:",CPViewWidthSizable|CPViewHeightSizable);
-objj_msgSend(_18,"updateMainViewWithNewImageUrl:",url);
-objj_msgSend(_1a,"addSubview:",_mainView);
+objj_msgSend(_1d,"updateMainViewWithNewImageUrl:",url);
+objj_msgSend(_1f,"addSubview:",_mainView);
 }
-}),new objj_method(sel_getUid("updateMainViewWithNewImageUrl:"),function(_1b,_1c,_1d){
-with(_1b){
-objj_msgSend(ImageLoaderWorker,"workerFor:imageView:pageElement:",_1d,_mainView,_1b);
+}),new objj_method(sel_getUid("updateMainViewWithNewImageUrl:"),function(_20,_21,_22){
+with(_20){
+objj_msgSend(ImageLoaderWorker,"workerFor:imageView:pageElement:",_22,_mainView,_20);
+}
+}),new objj_method(sel_getUid("removeImageFlag:"),function(_23,_24,_25){
+with(_23){
+m_image_flags-=(m_image_flags&_25);
+}
+}),new objj_method(sel_getUid("addImageFlag:"),function(_26,_27,_28){
+with(_26){
+m_image_flags=(m_image_flags|_28);
 }
 })]);
-class_addMethods(_2,[new objj_method(sel_getUid("includedInClass:"),function(_1e,_1f,_20){
-with(_1e){
-objj_msgSend(PageElementRotationSupport,"addToClass:",_20);
+class_addMethods(_2,[new objj_method(sel_getUid("includedInClass:"),function(_29,_2a,_2b){
+with(_29){
+objj_msgSend(PageElementRotationSupport,"addToClass:",_2b);
 }
 })]);
 var _1=objj_getClass("ImageElementProperties");
@@ -3336,12 +3358,12 @@ if(!_1){
 throw new SyntaxError("*** Could not find definition for class \"ImageElementProperties\"");
 }
 var _2=_1.isa;
-class_addMethods(_1,[new objj_method(sel_getUid("stateCreators"),function(_21,_22){
-with(_21){
-return objj_msgSend(objj_msgSend(_21,"rotationSupportStateHandlers"),"arrayByAddingObjectsFromArray:",[sel_getUid("linkUrl"),sel_getUid("setLinkUrl:"),sel_getUid("reloadInterval"),sel_getUid("setReloadInterval:"),sel_getUid("getSize"),sel_getUid("setFrameSize:")]);
+class_addMethods(_1,[new objj_method(sel_getUid("stateCreators"),function(_2c,_2d){
+with(_2c){
+return objj_msgSend(objj_msgSend(_2c,"rotationSupportStateHandlers"),"arrayByAddingObjectsFromArray:",[sel_getUid("linkUrl"),sel_getUid("setLinkUrl:"),sel_getUid("reloadInterval"),sel_getUid("setReloadInterval:"),sel_getUid("getSize"),sel_getUid("setFrameSize:"),sel_getUid("imageFlags"),sel_getUid("setImageFlags:")]);
 }
-}),new objj_method(sel_getUid("postStateRestore"),function(_23,_24){
-with(_23){
+}),new objj_method(sel_getUid("postStateRestore"),function(_2e,_2f){
+with(_2e){
 }
 })]);
 p;33;app/mixins/object_state_support.jt;878;@STATIC;1.0;t;860;
@@ -3363,358 +3385,6 @@ for(var _a=0;_a<objj_msgSend(_9,"count");_a+=2){
 objj_msgSend(_7,"performSelector:withObject:",_9[_a+1],objj_msgSend(mtmp_last_good_known_state,"objectForKey:",_9[_a]));
 }
 objj_msgSend(_7,"postStateRestore");
-}
-})]);
-p;39;app/mixins/page_element_color_support.jt;1429;@STATIC;1.0;t;1410;
-var _1=objj_allocateClassPair(GRClassMixin,"PageElementColorSupport"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_red"),new objj_ivar("m_blue"),new objj_ivar("m_green"),new objj_ivar("m_alpha"),new objj_ivar("m_color")]);
-objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("setColorFromJson"),function(_3,_4){
-with(_3){
-m_red=_json.red;
-m_blue=_json.blue;
-m_green=_json.green;
-m_alpha=_json.alpha;
-m_color=objj_msgSend(_3,"createColor");
-}
-}),new objj_method(sel_getUid("setColor:"),function(_5,_6,_7){
-with(_5){
-m_color=_7;
-m_red=Math.round(objj_msgSend(_7,"redComponent")*255);
-m_green=Math.round(objj_msgSend(_7,"greenComponent")*255);
-m_blue=Math.round(objj_msgSend(_7,"blueComponent")*255);
-m_alpha=objj_msgSend(_7,"alphaComponent");
-}
-}),new objj_method(sel_getUid("getColor"),function(_8,_9){
-with(_8){
-return m_color;
-}
-}),new objj_method(sel_getUid("createColor"),function(_a,_b){
-with(_a){
-if(typeof (m_red)!="undefined"&&typeof (m_green)!="undefined"&&typeof (m_blue)!="undefined"&&typeof (m_alpha)!="undefined"){
-return objj_msgSend(CPColor,"colorWith8BitRed:green:blue:alpha:",m_red,m_green,m_blue,m_alpha);
-}else{
-if(_a.m_defaultColor){
-return m_defaultColor;
-}else{
-return objj_msgSend(CPColor,"blackColor");
-}
-}
-}
-}),new objj_method(sel_getUid("colorSupportStateHandlers"),function(_c,_d){
-with(_c){
-return [sel_getUid("getColor"),sel_getUid("setColor:")];
-}
-})]);
-p;38;app/mixins/page_element_font_support.jt;2531;@STATIC;1.0;t;2512;
-var _1=objj_allocateClassPair(GRClassMixin,"PageElementFontSupport"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_fontSize"),new objj_ivar("m_fontName"),new objj_ivar("m_fontObj"),new objj_ivar("m_fontAlignment")]);
-objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("fontSize"),function(_3,_4){
-with(_3){
-return m_fontSize;
-}
-}),new objj_method(sel_getUid("setFontSize:"),function(_5,_6,_7){
-with(_5){
-m_fontSize=_7;
-}
-}),new objj_method(sel_getUid("fontName"),function(_8,_9){
-with(_8){
-return m_fontName;
-}
-}),new objj_method(sel_getUid("setFontName:"),function(_a,_b,_c){
-with(_a){
-m_fontName=_c;
-}
-}),new objj_method(sel_getUid("font"),function(_d,_e){
-with(_d){
-return m_fontObj;
-}
-}),new objj_method(sel_getUid("setFont:"),function(_f,_10,_11){
-with(_f){
-m_fontObj=_11;
-}
-}),new objj_method(sel_getUid("textAlignment"),function(_12,_13){
-with(_12){
-return m_fontAlignment;
-}
-}),new objj_method(sel_getUid("setTextAlignment:"),function(_14,_15,_16){
-with(_14){
-m_fontAlignment=_16;
-}
-}),new objj_method(sel_getUid("setFontFromJson"),function(_17,_18){
-with(_17){
-m_fontSize=_json.font_size;
-m_fontName=_json.font_name;
-m_fontAlignment=objj_msgSend(check_for_undefined(_json.font_text_alignment,""+CPLeftTextAlignment),"intValue");
-objj_msgSend(_17,"_setFont");
-}
-}),new objj_method(sel_getUid("_setFont"),function(_19,_1a){
-with(_19){
-if(!m_fontSize){
-m_fontSize=12;
-}
-if(m_fontName){
-m_fontObj=objj_msgSend(CPFont,"fontWithName:size:",m_fontName,m_fontSize);
-}else{
-m_fontObj=objj_msgSend(CPFont,"systemFontOfSize:",m_fontSize);
-}
-}
-}),new objj_method(sel_getUid("setTextAlignment:"),function(_1b,_1c,_1d){
-with(_1b){
-m_fontAlignment=_1d;
-objj_msgSend(_mainView,"setTextAlignment:",m_fontAlignment);
-}
-}),new objj_method(sel_getUid("setFontSize:"),function(_1e,_1f,_20){
-with(_1e){
-m_fontSize=_20;
-objj_msgSend(_1e,"_setFont");
-objj_msgSend(_mainView,"setFont:",m_fontObj);
-}
-}),new objj_method(sel_getUid("setFontName:"),function(_21,_22,_23){
-with(_21){
-m_fontName=_23;
-objj_msgSend(_21,"_setFont");
-objj_msgSend(_mainView,"setFont:",m_fontObj);
-}
-}),new objj_method(sel_getUid("setFont:"),function(_24,_25,_26){
-with(_24){
-m_fontSize=objj_msgSend(_26,"size");
-m_fontName=objj_msgSend(_26,"familyName");
-m_fontObj=_26;
-objj_msgSend(_mainView,"setFont:",m_fontObj);
-}
-}),new objj_method(sel_getUid("fontSupportStateHandlers"),function(_27,_28){
-with(_27){
-return [sel_getUid("font"),sel_getUid("setFont:"),sel_getUid("textAlignment"),sel_getUid("setTextAlignment:")];
-}
-})]);
-p;39;app/mixins/page_element_input_support.jt;579;@STATIC;1.0;t;561;
-var _1=objj_allocateClassPair(GRClassMixin,"PageElementInputSupport"),_2=_1.isa;
-objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("obtainInput:defaultValue:"),function(_3,_4,_5,_6){
-with(_3){
-var _7=objj_msgSend(PromptWindowController,"alloc");
-objj_msgSend(_7,"initWithWindowCibName:","PromptWindow");
-objj_msgSend(_7,"setDefaultValue:",_6);
-objj_msgSend(_7,"setPrompt:",_5);
-objj_msgSend(_7,"setDelegate:",_3);
-objj_msgSend(_7,"setSelector:",sel_getUid("promptDataCameAvailable:"));
-objj_msgSend(_7,"runModal");
-return _6;
-}
-})]);
-p;42;app/mixins/page_element_rotation_support.jt;1853;@STATIC;1.0;t;1834;
-var _1=objj_allocateClassPair(GRClassMixin,"PageElementRotationSupport"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_rotation"),new objj_ivar("m_vertical_flip")]);
-objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("rotation"),function(_3,_4){
-with(_3){
-return m_rotation;
-}
-}),new objj_method(sel_getUid("verticalFlip"),function(_5,_6){
-with(_5){
-return m_vertical_flip;
-}
-}),new objj_method(sel_getUid("setVerticalFlip:"),function(_7,_8,_9){
-with(_7){
-m_vertical_flip=_9;
-}
-}),new objj_method(sel_getUid("setRotationFromJson"),function(_a,_b){
-with(_a){
-m_rotation=objj_msgSend(check_for_undefined(_json.rotation,"0"),"intValue");
-m_vertical_flip=objj_msgSend(check_for_undefined(_json.vflip,"0"),"intValue");
-}
-}),new objj_method(sel_getUid("setVerticalFlip:"),function(_c,_d,_e){
-with(_c){
-if(m_vertical_flip==_e){
-return;
-}
-m_vertical_flip=_e;
-objj_msgSend(_mainView,"setVerticalFlip:",m_vertical_flip);
-objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"postNotificationName:object:",PageElementDidRotateNotification,_c);
-}
-}),new objj_method(sel_getUid("setRotation:"),function(_f,_10,_11){
-with(_f){
-if(m_rotation==_11){
-return;
-}
-m_rotation=_11;
-objj_msgSend(_mainView,"setRotationDegrees:",m_rotation);
-objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"postNotificationName:object:",PageElementDidRotateNotification,_f);
-}
-}),new objj_method(sel_getUid("rotationRadians"),function(_12,_13){
-with(_12){
-return m_rotation*(Math.PI/180);
-}
-}),new objj_method(sel_getUid("rotationSupportStateHandlers"),function(_14,_15){
-with(_14){
-return [sel_getUid("rotation"),sel_getUid("setRotation:"),sel_getUid("verticalFlip"),sel_getUid("setVerticalFlip:")];
-}
-}),new objj_method(sel_getUid("isVerticalFlipped"),function(_16,_17){
-with(_16){
-return (m_vertical_flip>0);
-}
-})]);
-p;38;app/mixins/page_element_size_support.jt;877;@STATIC;1.0;t;859;
-var _1=objj_allocateClassPair(GRClassMixin,"PageElementSizeSupport"),_2=_1.isa;
-objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("setSize:"),function(_3,_4,_5){
-with(_3){
-width=_5.width;
-height=_5.height;
-}
-}),new objj_method(sel_getUid("setFrameSize:"),function(_6,_7,_8){
-with(_6){
-objj_msgSend(_6,"setSize:",_8);
-objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"postNotificationName:object:",PageElementDidResizeNotification,_6);
-}
-}),new objj_method(sel_getUid("getSize"),function(_9,_a){
-with(_9){
-return CGSizeMake(width,height);
-}
-}),new objj_method(sel_getUid("setLocation:"),function(_b,_c,_d){
-with(_b){
-x=_d.origin.x;
-y=_d.origin.y;
-width=_d.size.width;
-height=_d.size.height;
-return _b;
-}
-}),new objj_method(sel_getUid("location"),function(_e,_f){
-with(_e){
-return CGRectMake(x,y,width,height);
-}
-})]);
-p;44;app/mixins/page_element_text_input_support.jt;2587;@STATIC;1.0;t;2568;
-var _1=objj_allocateClassPair(GRClassMixin,"PageElementTextInputSupport"),_2=_1.isa;
-objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("setupMainViewAddTo:"),function(_3,_4,_5){
-with(_3){
-_mainView=objj_msgSend(objj_msgSend(LPMultiLineTextField,"alloc"),"initWithFrame:",CGRectInset(objj_msgSend(_5,"bounds"),4,4));
-objj_msgSend(_mainView,"setFont:",objj_msgSend(_3,"font"));
-objj_msgSend(_mainView,"setTextColor:",objj_msgSend(_3,"getColor"));
-objj_msgSend(_mainView,"setAutoresizingMask:",CPViewWidthSizable|CPViewHeightSizable);
-objj_msgSend(_mainView,"setDelegate:",_3);
-objj_msgSend(_mainView,"setScrollable:",YES);
-objj_msgSend(_mainView,"setEditable:",YES);
-objj_msgSend(_mainView,"setSelectable:",YES);
-objj_msgSend(_mainView,"setTextAlignment:",objj_msgSend(_3,"textAlignment"));
-objj_msgSend(_mainView,"setStringValue:",objj_msgSend(_3,"textTyped"));
-objj_msgSend(_5,"addSubview:",_mainView);
-}
-}),new objj_method(sel_getUid("revertTextAttributes"),function(_6,_7){
-with(_6){
-objj_msgSend(_mainView,"setStringValue:",objj_msgSend(_6,"textTyped"));
-objj_msgSend(_mainView,"setFont:",objj_msgSend(_6,"font"));
-objj_msgSend(_mainView,"setTextColor:",objj_msgSend(_6,"getColor"));
-objj_msgSend(_mainView,"setTextAlignment:",objj_msgSend(_6,"textAlignment"));
-}
-}),new objj_method(sel_getUid("checkForChangedText:"),function(_8,_9,_a){
-with(_8){
-if(objj_msgSend(_8,"textTyped")!==_a){
-objj_msgSend(_8,"setTextTyped:",_a);
-objj_msgSend(_8,"updateServer");
-}
-}
-}),new objj_method(sel_getUid("controlTextDidBeginEditing:"),function(_b,_c,_d){
-with(_b){
-objj_msgSend(objj_msgSend(DocumentViewEditorView,"sharedInstance"),"setDocumentViewCell:",objj_msgSend(_mainView,"superview"));
-}
-}),new objj_method(sel_getUid("controlTextDidChange:"),function(_e,_f,_10){
-with(_e){
-objj_msgSend(_e,"checkForChangedText:",objj_msgSend(objj_msgSend(_10,"object"),"stringValue"));
-}
-}),new objj_method(sel_getUid("controlTextDidEndEditing:"),function(_11,_12,_13){
-with(_11){
-objj_msgSend(_11,"checkForChangedText:",objj_msgSend(objj_msgSend(_13,"object"),"stringValue"));
-}
-}),new objj_method(sel_getUid("controlTextDidFocus:"),function(_14,_15,_16){
-with(_14){
-objj_msgSend(objj_msgSend(_mainView,"superview"),"setSelected:",YES);
-objj_msgSend(objj_msgSend(DocumentViewEditorView,"sharedInstance"),"setDocumentViewCell:",objj_msgSend(_mainView,"superview"));
-}
-}),new objj_method(sel_getUid("controlTextDidBlur:"),function(_17,_18,_19){
-with(_17){
-objj_msgSend(_17,"checkForChangedText:",objj_msgSend(objj_msgSend(_19,"object"),"stringValue"));
-}
-})]);
-p;45;app/mixins/property_controller_font_support.jt;2377;@STATIC;1.0;t;2358;
-var _1=objj_allocateClassPair(GRClassMixin,"PropertyControllerFontSupport"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_fontDetailsBorderBox"),new objj_ivar("m_fontSizeLabel"),new objj_ivar("m_fontSizeSlider"),new objj_ivar("m_fontNameButton"),new objj_ivar("m_fontAlignmentButton")]);
-objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("awakeFromCibSetupFontFields:"),function(_3,_4,_5){
-with(_3){
-objj_msgSend(CPBox,"makeBorder:",m_fontDetailsBorderBox);
-objj_msgSend(m_fontNameButton,"removeAllItems");
-var _6=objj_msgSend(objj_msgSend(CPFontManager,"sharedFontManager"),"availableFonts");
-for(var _7=0;_7<objj_msgSend(_6,"count");_7++){
-var _8=objj_msgSend(_6,"objectAtIndex:",_7);
-var _9=objj_msgSend(objj_msgSend(CPMenuItem,"alloc"),"initWithTitle:action:keyEquivalent:",_8,NULL,nil);
-objj_msgSend(_9,"setFont:",objj_msgSend(CPFont,"fontWithName:size:",_8,11));
-objj_msgSend(m_fontNameButton,"addItem:",_9);
-}
-objj_msgSend(m_fontNameButton,"selectItemWithTitle:",objj_msgSend(_5,"fontName"));
-objj_msgSend(m_fontSizeSlider,"setDoubleValue:",objj_msgSend(_5,"fontSize"));
-objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
-var _a=1;
-switch(objj_msgSend(_5,"textAlignment")){
-case CPCenterTextAlignment:
-_a=2;
-break;
-case CPRightTextAlignment:
-_a=4;
-break;
-}
-objj_msgSend(m_fontAlignmentButton,"selectSegmentWithTag:",_a);
-}
-}),new objj_method(sel_getUid("updateAlignment:"),function(_b,_c,_d){
-with(_b){
-switch(objj_msgSend(_d,"selectedTag")){
-case 1:
-return objj_msgSend(m_pageElement,"setTextAlignment:",CPLeftTextAlignment);
-case 2:
-return objj_msgSend(m_pageElement,"setTextAlignment:",CPCenterTextAlignment);
-case 4:
-return objj_msgSend(m_pageElement,"setTextAlignment:",CPRightTextAlignment);
-}
-}
-}),new objj_method(sel_getUid("fontNameSelected:"),function(_e,_f,_10){
-with(_e){
-objj_msgSend(m_pageElement,"setFontName:",objj_msgSend(objj_msgSend(m_fontNameButton,"selectedItem"),"title"));
-}
-}),new objj_method(sel_getUid("fontSizeSliderAction:"),function(_11,_12,_13){
-with(_11){
-objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
-objj_msgSend(m_pageElement,"setFontSize:",objj_msgSend(m_fontSizeSlider,"doubleValue"));
-}
-})]);
-p;49;app/mixins/property_controller_rotation_support.jt;1409;@STATIC;1.0;t;1390;
-var _1=objj_allocateClassPair(GRClassMixin,"PropertyControllerRotationSupport"),_2=_1.isa;
-class_addIvars(_1,[new objj_ivar("m_rotationSlider"),new objj_ivar("m_rotationValue"),new objj_ivar("m_rotationView"),new objj_ivar("m_flipButton")]);
-objj_registerClassPair(_1);
-class_addMethods(_1,[new objj_method(sel_getUid("awakeFromCibSetupRotationFields:"),function(_3,_4,_5){
-with(_3){
-objj_msgSend(CPBox,"makeBorder:",m_rotationView);
-objj_msgSend(m_rotationSlider,"setValue:",objj_msgSend(m_pageElement,"rotation"));
-objj_msgSend(_3,"setRotationValue:",m_rotationSlider);
-objj_msgSend(m_flipButton,"setState:",objj_msgSend(m_pageElement,"isVerticalFlipped")?CPOnState:CPOffState);
-}
-}),new objj_method(sel_getUid("setRotationValue:"),function(_6,_7,_8){
-with(_6){
-if(objj_msgSend(_8,"isKindOfClass:",CPTextField)){
-objj_msgSend(m_rotationSlider,"setValue:",objj_msgSend(objj_msgSend(_8,"stringValue"),"intValue"));
-}else{
-objj_msgSend(m_rotationValue,"setStringValue:",(""+objj_msgSend(_8,"intValue")));
-}
-objj_msgSend(m_pageElement,"setRotation:",objj_msgSend(m_rotationSlider,"intValue"));
-if(objj_msgSend(m_pageElement,"respondsToSelector:",sel_getUid("redisplay"))){
-objj_msgSend(m_pageElement,"redisplay");
-}
-}
-}),new objj_method(sel_getUid("setFlipState:"),function(_9,_a,_b){
-with(_9){
-objj_msgSend(m_pageElement,"setVerticalFlip:",objj_msgSend(_b,"state")==CPOnState?1:0);
 }
 })]);
 p;37;app/mixins/seek_to_dropdown_helpers.jt;2071;@STATIC;1.0;t;2052;
@@ -3887,6 +3557,454 @@ with(_5){
 objj_msgSend(objj_msgSend(objj_msgSend(PropertyYouTubeVideoController,"alloc"),"initWithWindowCibName:pageElement:",YouTubeVideoPropertyWindowCIB,_5),"showWindow:",_5);
 }
 })]);
+p;39;app/mixins/page_element/color_support.jt;1429;@STATIC;1.0;t;1410;
+var _1=objj_allocateClassPair(GRClassMixin,"PageElementColorSupport"),_2=_1.isa;
+class_addIvars(_1,[new objj_ivar("m_red"),new objj_ivar("m_blue"),new objj_ivar("m_green"),new objj_ivar("m_alpha"),new objj_ivar("m_color")]);
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("setColorFromJson"),function(_3,_4){
+with(_3){
+m_red=_json.red;
+m_blue=_json.blue;
+m_green=_json.green;
+m_alpha=_json.alpha;
+m_color=objj_msgSend(_3,"createColor");
+}
+}),new objj_method(sel_getUid("setColor:"),function(_5,_6,_7){
+with(_5){
+m_color=_7;
+m_red=Math.round(objj_msgSend(_7,"redComponent")*255);
+m_green=Math.round(objj_msgSend(_7,"greenComponent")*255);
+m_blue=Math.round(objj_msgSend(_7,"blueComponent")*255);
+m_alpha=objj_msgSend(_7,"alphaComponent");
+}
+}),new objj_method(sel_getUid("getColor"),function(_8,_9){
+with(_8){
+return m_color;
+}
+}),new objj_method(sel_getUid("createColor"),function(_a,_b){
+with(_a){
+if(typeof (m_red)!="undefined"&&typeof (m_green)!="undefined"&&typeof (m_blue)!="undefined"&&typeof (m_alpha)!="undefined"){
+return objj_msgSend(CPColor,"colorWith8BitRed:green:blue:alpha:",m_red,m_green,m_blue,m_alpha);
+}else{
+if(_a.m_defaultColor){
+return m_defaultColor;
+}else{
+return objj_msgSend(CPColor,"blackColor");
+}
+}
+}
+}),new objj_method(sel_getUid("colorSupportStateHandlers"),function(_c,_d){
+with(_c){
+return [sel_getUid("getColor"),sel_getUid("setColor:")];
+}
+})]);
+p;38;app/mixins/page_element/font_support.jt;2531;@STATIC;1.0;t;2512;
+var _1=objj_allocateClassPair(GRClassMixin,"PageElementFontSupport"),_2=_1.isa;
+class_addIvars(_1,[new objj_ivar("m_fontSize"),new objj_ivar("m_fontName"),new objj_ivar("m_fontObj"),new objj_ivar("m_fontAlignment")]);
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("fontSize"),function(_3,_4){
+with(_3){
+return m_fontSize;
+}
+}),new objj_method(sel_getUid("setFontSize:"),function(_5,_6,_7){
+with(_5){
+m_fontSize=_7;
+}
+}),new objj_method(sel_getUid("fontName"),function(_8,_9){
+with(_8){
+return m_fontName;
+}
+}),new objj_method(sel_getUid("setFontName:"),function(_a,_b,_c){
+with(_a){
+m_fontName=_c;
+}
+}),new objj_method(sel_getUid("font"),function(_d,_e){
+with(_d){
+return m_fontObj;
+}
+}),new objj_method(sel_getUid("setFont:"),function(_f,_10,_11){
+with(_f){
+m_fontObj=_11;
+}
+}),new objj_method(sel_getUid("textAlignment"),function(_12,_13){
+with(_12){
+return m_fontAlignment;
+}
+}),new objj_method(sel_getUid("setTextAlignment:"),function(_14,_15,_16){
+with(_14){
+m_fontAlignment=_16;
+}
+}),new objj_method(sel_getUid("setFontFromJson"),function(_17,_18){
+with(_17){
+m_fontSize=_json.font_size;
+m_fontName=_json.font_name;
+m_fontAlignment=objj_msgSend(check_for_undefined(_json.font_text_alignment,""+CPLeftTextAlignment),"intValue");
+objj_msgSend(_17,"_setFont");
+}
+}),new objj_method(sel_getUid("_setFont"),function(_19,_1a){
+with(_19){
+if(!m_fontSize){
+m_fontSize=12;
+}
+if(m_fontName){
+m_fontObj=objj_msgSend(CPFont,"fontWithName:size:",m_fontName,m_fontSize);
+}else{
+m_fontObj=objj_msgSend(CPFont,"systemFontOfSize:",m_fontSize);
+}
+}
+}),new objj_method(sel_getUid("setTextAlignment:"),function(_1b,_1c,_1d){
+with(_1b){
+m_fontAlignment=_1d;
+objj_msgSend(_mainView,"setTextAlignment:",m_fontAlignment);
+}
+}),new objj_method(sel_getUid("setFontSize:"),function(_1e,_1f,_20){
+with(_1e){
+m_fontSize=_20;
+objj_msgSend(_1e,"_setFont");
+objj_msgSend(_mainView,"setFont:",m_fontObj);
+}
+}),new objj_method(sel_getUid("setFontName:"),function(_21,_22,_23){
+with(_21){
+m_fontName=_23;
+objj_msgSend(_21,"_setFont");
+objj_msgSend(_mainView,"setFont:",m_fontObj);
+}
+}),new objj_method(sel_getUid("setFont:"),function(_24,_25,_26){
+with(_24){
+m_fontSize=objj_msgSend(_26,"size");
+m_fontName=objj_msgSend(_26,"familyName");
+m_fontObj=_26;
+objj_msgSend(_mainView,"setFont:",m_fontObj);
+}
+}),new objj_method(sel_getUid("fontSupportStateHandlers"),function(_27,_28){
+with(_27){
+return [sel_getUid("font"),sel_getUid("setFont:"),sel_getUid("textAlignment"),sel_getUid("setTextAlignment:")];
+}
+})]);
+p;39;app/mixins/page_element/input_support.jt;579;@STATIC;1.0;t;561;
+var _1=objj_allocateClassPair(GRClassMixin,"PageElementInputSupport"),_2=_1.isa;
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("obtainInput:defaultValue:"),function(_3,_4,_5,_6){
+with(_3){
+var _7=objj_msgSend(PromptWindowController,"alloc");
+objj_msgSend(_7,"initWithWindowCibName:","PromptWindow");
+objj_msgSend(_7,"setDefaultValue:",_6);
+objj_msgSend(_7,"setPrompt:",_5);
+objj_msgSend(_7,"setDelegate:",_3);
+objj_msgSend(_7,"setSelector:",sel_getUid("promptDataCameAvailable:"));
+objj_msgSend(_7,"runModal");
+return _6;
+}
+})]);
+p;42;app/mixins/page_element/rotation_support.jt;1853;@STATIC;1.0;t;1834;
+var _1=objj_allocateClassPair(GRClassMixin,"PageElementRotationSupport"),_2=_1.isa;
+class_addIvars(_1,[new objj_ivar("m_rotation"),new objj_ivar("m_vertical_flip")]);
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("rotation"),function(_3,_4){
+with(_3){
+return m_rotation;
+}
+}),new objj_method(sel_getUid("verticalFlip"),function(_5,_6){
+with(_5){
+return m_vertical_flip;
+}
+}),new objj_method(sel_getUid("setVerticalFlip:"),function(_7,_8,_9){
+with(_7){
+m_vertical_flip=_9;
+}
+}),new objj_method(sel_getUid("setRotationFromJson"),function(_a,_b){
+with(_a){
+m_rotation=objj_msgSend(check_for_undefined(_json.rotation,"0"),"intValue");
+m_vertical_flip=objj_msgSend(check_for_undefined(_json.vflip,"0"),"intValue");
+}
+}),new objj_method(sel_getUid("setVerticalFlip:"),function(_c,_d,_e){
+with(_c){
+if(m_vertical_flip==_e){
+return;
+}
+m_vertical_flip=_e;
+objj_msgSend(_mainView,"setVerticalFlip:",m_vertical_flip);
+objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"postNotificationName:object:",PageElementDidRotateNotification,_c);
+}
+}),new objj_method(sel_getUid("setRotation:"),function(_f,_10,_11){
+with(_f){
+if(m_rotation==_11){
+return;
+}
+m_rotation=_11;
+objj_msgSend(_mainView,"setRotationDegrees:",m_rotation);
+objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"postNotificationName:object:",PageElementDidRotateNotification,_f);
+}
+}),new objj_method(sel_getUid("rotationRadians"),function(_12,_13){
+with(_12){
+return m_rotation*(Math.PI/180);
+}
+}),new objj_method(sel_getUid("rotationSupportStateHandlers"),function(_14,_15){
+with(_14){
+return [sel_getUid("rotation"),sel_getUid("setRotation:"),sel_getUid("verticalFlip"),sel_getUid("setVerticalFlip:")];
+}
+}),new objj_method(sel_getUid("isVerticalFlipped"),function(_16,_17){
+with(_16){
+return (m_vertical_flip>0);
+}
+})]);
+p;38;app/mixins/page_element/size_support.jt;877;@STATIC;1.0;t;859;
+var _1=objj_allocateClassPair(GRClassMixin,"PageElementSizeSupport"),_2=_1.isa;
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("setSize:"),function(_3,_4,_5){
+with(_3){
+width=_5.width;
+height=_5.height;
+}
+}),new objj_method(sel_getUid("setFrameSize:"),function(_6,_7,_8){
+with(_6){
+objj_msgSend(_6,"setSize:",_8);
+objj_msgSend(objj_msgSend(CPNotificationCenter,"defaultCenter"),"postNotificationName:object:",PageElementDidResizeNotification,_6);
+}
+}),new objj_method(sel_getUid("getSize"),function(_9,_a){
+with(_9){
+return CGSizeMake(width,height);
+}
+}),new objj_method(sel_getUid("setLocation:"),function(_b,_c,_d){
+with(_b){
+x=_d.origin.x;
+y=_d.origin.y;
+width=_d.size.width;
+height=_d.size.height;
+return _b;
+}
+}),new objj_method(sel_getUid("location"),function(_e,_f){
+with(_e){
+return CGRectMake(x,y,width,height);
+}
+})]);
+p;44;app/mixins/page_element/text_input_support.jt;2587;@STATIC;1.0;t;2568;
+var _1=objj_allocateClassPair(GRClassMixin,"PageElementTextInputSupport"),_2=_1.isa;
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("setupMainViewAddTo:"),function(_3,_4,_5){
+with(_3){
+_mainView=objj_msgSend(objj_msgSend(LPMultiLineTextField,"alloc"),"initWithFrame:",CGRectInset(objj_msgSend(_5,"bounds"),4,4));
+objj_msgSend(_mainView,"setFont:",objj_msgSend(_3,"font"));
+objj_msgSend(_mainView,"setTextColor:",objj_msgSend(_3,"getColor"));
+objj_msgSend(_mainView,"setAutoresizingMask:",CPViewWidthSizable|CPViewHeightSizable);
+objj_msgSend(_mainView,"setDelegate:",_3);
+objj_msgSend(_mainView,"setScrollable:",YES);
+objj_msgSend(_mainView,"setEditable:",YES);
+objj_msgSend(_mainView,"setSelectable:",YES);
+objj_msgSend(_mainView,"setTextAlignment:",objj_msgSend(_3,"textAlignment"));
+objj_msgSend(_mainView,"setStringValue:",objj_msgSend(_3,"textTyped"));
+objj_msgSend(_5,"addSubview:",_mainView);
+}
+}),new objj_method(sel_getUid("revertTextAttributes"),function(_6,_7){
+with(_6){
+objj_msgSend(_mainView,"setStringValue:",objj_msgSend(_6,"textTyped"));
+objj_msgSend(_mainView,"setFont:",objj_msgSend(_6,"font"));
+objj_msgSend(_mainView,"setTextColor:",objj_msgSend(_6,"getColor"));
+objj_msgSend(_mainView,"setTextAlignment:",objj_msgSend(_6,"textAlignment"));
+}
+}),new objj_method(sel_getUid("checkForChangedText:"),function(_8,_9,_a){
+with(_8){
+if(objj_msgSend(_8,"textTyped")!==_a){
+objj_msgSend(_8,"setTextTyped:",_a);
+objj_msgSend(_8,"updateServer");
+}
+}
+}),new objj_method(sel_getUid("controlTextDidBeginEditing:"),function(_b,_c,_d){
+with(_b){
+objj_msgSend(objj_msgSend(DocumentViewEditorView,"sharedInstance"),"setDocumentViewCell:",objj_msgSend(_mainView,"superview"));
+}
+}),new objj_method(sel_getUid("controlTextDidChange:"),function(_e,_f,_10){
+with(_e){
+objj_msgSend(_e,"checkForChangedText:",objj_msgSend(objj_msgSend(_10,"object"),"stringValue"));
+}
+}),new objj_method(sel_getUid("controlTextDidEndEditing:"),function(_11,_12,_13){
+with(_11){
+objj_msgSend(_11,"checkForChangedText:",objj_msgSend(objj_msgSend(_13,"object"),"stringValue"));
+}
+}),new objj_method(sel_getUid("controlTextDidFocus:"),function(_14,_15,_16){
+with(_14){
+objj_msgSend(objj_msgSend(_mainView,"superview"),"setSelected:",YES);
+objj_msgSend(objj_msgSend(DocumentViewEditorView,"sharedInstance"),"setDocumentViewCell:",objj_msgSend(_mainView,"superview"));
+}
+}),new objj_method(sel_getUid("controlTextDidBlur:"),function(_17,_18,_19){
+with(_17){
+objj_msgSend(_17,"checkForChangedText:",objj_msgSend(objj_msgSend(_19,"object"),"stringValue"));
+}
+})]);
+p;45;app/mixins/property_controller/font_support.jt;2377;@STATIC;1.0;t;2358;
+var _1=objj_allocateClassPair(GRClassMixin,"PropertyControllerFontSupport"),_2=_1.isa;
+class_addIvars(_1,[new objj_ivar("m_fontDetailsBorderBox"),new objj_ivar("m_fontSizeLabel"),new objj_ivar("m_fontSizeSlider"),new objj_ivar("m_fontNameButton"),new objj_ivar("m_fontAlignmentButton")]);
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("awakeFromCibSetupFontFields:"),function(_3,_4,_5){
+with(_3){
+objj_msgSend(CPBox,"makeBorder:",m_fontDetailsBorderBox);
+objj_msgSend(m_fontNameButton,"removeAllItems");
+var _6=objj_msgSend(objj_msgSend(CPFontManager,"sharedFontManager"),"availableFonts");
+for(var _7=0;_7<objj_msgSend(_6,"count");_7++){
+var _8=objj_msgSend(_6,"objectAtIndex:",_7);
+var _9=objj_msgSend(objj_msgSend(CPMenuItem,"alloc"),"initWithTitle:action:keyEquivalent:",_8,NULL,nil);
+objj_msgSend(_9,"setFont:",objj_msgSend(CPFont,"fontWithName:size:",_8,11));
+objj_msgSend(m_fontNameButton,"addItem:",_9);
+}
+objj_msgSend(m_fontNameButton,"selectItemWithTitle:",objj_msgSend(_5,"fontName"));
+objj_msgSend(m_fontSizeSlider,"setDoubleValue:",objj_msgSend(_5,"fontSize"));
+objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
+var _a=1;
+switch(objj_msgSend(_5,"textAlignment")){
+case CPCenterTextAlignment:
+_a=2;
+break;
+case CPRightTextAlignment:
+_a=4;
+break;
+}
+objj_msgSend(m_fontAlignmentButton,"selectSegmentWithTag:",_a);
+}
+}),new objj_method(sel_getUid("updateAlignment:"),function(_b,_c,_d){
+with(_b){
+switch(objj_msgSend(_d,"selectedTag")){
+case 1:
+return objj_msgSend(m_pageElement,"setTextAlignment:",CPLeftTextAlignment);
+case 2:
+return objj_msgSend(m_pageElement,"setTextAlignment:",CPCenterTextAlignment);
+case 4:
+return objj_msgSend(m_pageElement,"setTextAlignment:",CPRightTextAlignment);
+}
+}
+}),new objj_method(sel_getUid("fontNameSelected:"),function(_e,_f,_10){
+with(_e){
+objj_msgSend(m_pageElement,"setFontName:",objj_msgSend(objj_msgSend(m_fontNameButton,"selectedItem"),"title"));
+}
+}),new objj_method(sel_getUid("fontSizeSliderAction:"),function(_11,_12,_13){
+with(_11){
+objj_msgSend(m_fontSizeLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%0.2f",objj_msgSend(m_fontSizeSlider,"doubleValue")));
+objj_msgSend(m_pageElement,"setFontSize:",objj_msgSend(m_fontSizeSlider,"doubleValue"));
+}
+})]);
+p;51;app/mixins/property_controller/image_flag_support.jt;847;@STATIC;1.0;t;829;
+var _1=objj_allocateClassPair(GRClassMixin,"PropertyControllerImageFlagSupport"),_2=_1.isa;
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("changeImageFlag:"),function(_3,_4,_5){
+with(_3){
+if(objj_msgSend(_5,"state")==CPOffState){
+objj_msgSend(m_pageElement,"removeImageFlag:",objj_msgSend(_5,"tag"));
+}else{
+objj_msgSend(m_pageElement,"addImageFlag:",objj_msgSend(_5,"tag"));
+}
+}
+}),new objj_method(sel_getUid("setupFlagFields:"),function(_6,_7,_8){
+with(_6){
+var _9=objj_msgSend(_8,"count"),_a=objj_msgSend(m_pageElement,"imageFlags");
+for(var _b=0;_b<_9;_b++){
+if(objj_msgSend(_8[_b],"isKindOfClass:",CPCheckBox)&&objj_msgSend(_8[_b],"tag")>0){
+if((_a&[objj_msgSend(_8[_b],"tag")])>0){
+objj_msgSend(_8[_b],"setState:",CPOnState);
+}else{
+objj_msgSend(_8[_b],"setState:",CPOffState);
+}
+}
+}
+}
+})]);
+p;46;app/mixins/property_controller/image_support.jt;4252;@STATIC;1.0;t;4233;
+var _1=objj_allocateClassPair(GRClassMixin,"PropertyControllerImageSupport"),_2=_1.isa;
+class_addIvars(_1,[new objj_ivar("m_urlField"),new objj_ivar("m_linkField"),new objj_ivar("m_heightField"),new objj_ivar("m_widthField"),new objj_ivar("m_widthImageLabel"),new objj_ivar("m_heightImageLabel"),new objj_ivar("m_reloadIntervalValue"),new objj_ivar("m_reloadSlider"),new objj_ivar("m_reloadButton"),new objj_ivar("m_linksView"),new objj_ivar("m_sizeView"),new objj_ivar("m_reloadView"),new objj_ivar("m_intervalScrollView"),new objj_ivar("m_orig_image_height"),new objj_ivar("m_orig_image_width")]);
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("awakeFromCibSetupImageFields"),function(_3,_4){
+with(_3){
+objj_msgSend(CPBox,"makeBorder:",m_linksView);
+objj_msgSend(CPBox,"makeBorder:",m_sizeView);
+objj_msgSend(CPBox,"makeBorder:",m_reloadView);
+objj_msgSend(m_heightField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",objj_msgSend(m_pageElement,"getSize").height));
+objj_msgSend(m_widthField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",objj_msgSend(m_pageElement,"getSize").width));
+m_orig_image_height=objj_msgSend(m_pageElement,"getImageSize").height;
+m_orig_image_width=objj_msgSend(m_pageElement,"getImageSize").width;
+objj_msgSend(m_widthImageLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",m_orig_image_width));
+objj_msgSend(m_heightImageLabel,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",m_orig_image_height));
+objj_msgSend(m_urlField,"setStringValue:",objj_msgSend(m_pageElement,"imageUrl"));
+objj_msgSend(m_linkField,"setStringValue:",objj_msgSend(m_pageElement,"linkUrl"));
+var _5=objj_msgSend(m_pageElement,"reloadInterval");
+if(_5>0){
+objj_msgSend(m_reloadButton,"setState:",CPOnState);
+objj_msgSend(m_intervalScrollView,"setHidden:",NO);
+}else{
+objj_msgSend(m_reloadButton,"setState:",CPOffState);
+objj_msgSend(m_intervalScrollView,"setHidden:",YES);
+}
+objj_msgSend(m_reloadSlider,"setValue:",objj_msgSend(m_pageElement,"reloadInterval"));
+objj_msgSend(_3,"updateReloadIntervalScroller");
+}
+}),new objj_method(sel_getUid("setReloadInterval:"),function(_6,_7,_8){
+with(_6){
+objj_msgSend(_6,"updateReloadIntervalScroller");
+}
+}),new objj_method(sel_getUid("reloadButtonPressed:"),function(_9,_a,_b){
+with(_9){
+if(objj_msgSend(m_reloadButton,"state")==CPOnState){
+objj_msgSend(m_intervalScrollView,"setHidden:",NO);
+objj_msgSend(_9,"updateReloadIntervalScroller");
+}else{
+objj_msgSend(m_intervalScrollView,"setHidden:",YES);
+objj_msgSend(m_pageElement,"setReloadInterval:",0);
+objj_msgSend(m_reloadSlider,"setValue:",objj_msgSend(m_pageElement,"reloadInterval"));
+objj_msgSend(_9,"updateReloadIntervalScroller");
+}
+}
+}),new objj_method(sel_getUid("setSizeToOriginal:"),function(_c,_d,_e){
+with(_c){
+objj_msgSend(m_heightField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",objj_msgSend(m_pageElement,"getImageSize").height));
+objj_msgSend(m_widthField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",objj_msgSend(m_pageElement,"getImageSize").width));
+objj_msgSend(_c,"updateFrameSize");
+}
+}),new objj_method(sel_getUid("scaleWidth:"),function(_f,_10,_11){
+with(_f){
+objj_msgSend(m_widthField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",m_orig_image_width*(objj_msgSend(m_heightField,"doubleValue")/m_orig_image_height)));
+objj_msgSend(_f,"updateFrameSize");
+}
+}),new objj_method(sel_getUid("scaleHeight:"),function(_12,_13,_14){
+with(_12){
+objj_msgSend(m_heightField,"setStringValue:",objj_msgSend(CPString,"stringWithFormat:","%f",m_orig_image_height*(objj_msgSend(m_widthField,"doubleValue")/m_orig_image_width)));
+objj_msgSend(_12,"updateFrameSize");
+}
+}),new objj_method(sel_getUid("updateReloadIntervalScroller"),function(_15,_16){
+with(_15){
+var str=objj_msgSend(CPString,"stringWithFormat:","%d mins",objj_msgSend(m_reloadSlider,"intValue"));
+objj_msgSend(m_reloadIntervalValue,"setStringValue:",str);
+}
+}),new objj_method(sel_getUid("updateFrameSize"),function(_17,_18){
+with(_17){
+var _19=CGSizeMake(objj_msgSend(m_widthField,"doubleValue"),objj_msgSend(m_heightField,"doubleValue"));
+objj_msgSend(m_pageElement,"setFrameSize:",_19);
+}
+})]);
+p;49;app/mixins/property_controller/rotation_support.jt;1409;@STATIC;1.0;t;1390;
+var _1=objj_allocateClassPair(GRClassMixin,"PropertyControllerRotationSupport"),_2=_1.isa;
+class_addIvars(_1,[new objj_ivar("m_rotationSlider"),new objj_ivar("m_rotationValue"),new objj_ivar("m_rotationView"),new objj_ivar("m_flipButton")]);
+objj_registerClassPair(_1);
+class_addMethods(_1,[new objj_method(sel_getUid("awakeFromCibSetupRotationFields:"),function(_3,_4,_5){
+with(_3){
+objj_msgSend(CPBox,"makeBorder:",m_rotationView);
+objj_msgSend(m_rotationSlider,"setValue:",objj_msgSend(m_pageElement,"rotation"));
+objj_msgSend(_3,"setRotationValue:",m_rotationSlider);
+objj_msgSend(m_flipButton,"setState:",objj_msgSend(m_pageElement,"isVerticalFlipped")?CPOnState:CPOffState);
+}
+}),new objj_method(sel_getUid("setRotationValue:"),function(_6,_7,_8){
+with(_6){
+if(objj_msgSend(_8,"isKindOfClass:",CPTextField)){
+objj_msgSend(m_rotationSlider,"setValue:",objj_msgSend(objj_msgSend(_8,"stringValue"),"intValue"));
+}else{
+objj_msgSend(m_rotationValue,"setStringValue:",(""+objj_msgSend(_8,"intValue")));
+}
+objj_msgSend(m_pageElement,"setRotation:",objj_msgSend(m_rotationSlider,"intValue"));
+if(objj_msgSend(m_pageElement,"respondsToSelector:",sel_getUid("redisplay"))){
+objj_msgSend(m_pageElement,"redisplay");
+}
+}
+}),new objj_method(sel_getUid("setFlipState:"),function(_9,_a,_b){
+with(_9){
+objj_msgSend(m_pageElement,"setVerticalFlip:",objj_msgSend(_b,"state")==CPOnState?1:0);
+}
+})]);
 p;28;app/models/digg_button_t_e.jt;1074;@STATIC;1.0;t;1055;
 var _1=objj_allocateClassPair(ToolElement,"DiggButtonTE"),_2=_1.isa;
 objj_registerClassPair(_1);
@@ -3911,7 +4029,7 @@ with(_8){
 return objj_msgSend(_8,"initialSizeFromJsonOrDefault:",CGSizeMake(94,46));
 }
 })]);
-p;21;app/models/facebook.jt;1696;@STATIC;1.0;t;1677;
+p;21;app/models/facebook.jt;1961;@STATIC;1.0;t;1942;
 var _1=objj_allocateClassPair(PageElement,"Facebook"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("_picUrl"),new objj_ivar("_srcUrl"),new objj_ivar("_fromUser"),new objj_ivar("_fromUserId")]);
 objj_registerClassPair(_1);
@@ -3957,10 +4075,14 @@ with(_11){
 with(_14){
 return "Set Automagically";
 }
-})]);
-class_addMethods(_2,[new objj_method(sel_getUid("initWithJSONObjects:"),function(_16,_17,_18){
+}),new objj_method(sel_getUid("openSpecificPropertyWindow"),function(_16,_17){
 with(_16){
-return objj_msgSend(PageElement,"generateObjectsFromJson:forClass:",_18,_16);
+objj_msgSend(objj_msgSend(objj_msgSend(PropertyFacebookImageController,"alloc"),"initWithWindowCibName:pageElement:",FacebookImagePropertyWindowCIB,_16),"showWindow:",_16);
+}
+})]);
+class_addMethods(_2,[new objj_method(sel_getUid("initWithJSONObjects:"),function(_18,_19,_1a){
+with(_18){
+return objj_msgSend(PageElement,"generateObjectsFromJson:forClass:",_1a,_18);
 }
 })]);
 p;24;app/models/fb_like_t_e.jt;1069;@STATIC;1.0;t;1050;
@@ -3987,7 +4109,7 @@ with(_8){
 return objj_msgSend(_8,"initialSizeFromJsonOrDefault:",CGSizeMake(200,50));
 }
 })]);
-p;19;app/models/flickr.jt;4863;@STATIC;1.0;t;4844;
+p;19;app/models/flickr.jt;5124;@STATIC;1.0;t;5105;
 var _1=("http://www.flickr.com/services/rest/?method=%s&"+"format=json&api_key=%s&");
 var _2=(_1+"page=%d&per_page=20&%s");
 var _3=objj_allocateClassPair(PageElement,"Flickr"),_4=_3.isa;
@@ -4035,67 +4157,71 @@ with(_14){
 with(_17){
 return "Set Automagically";
 }
-})]);
-class_addMethods(_4,[new objj_method(sel_getUid("initWithJSONObjects:"),function(_19,_1a,_1b){
+}),new objj_method(sel_getUid("openSpecificPropertyWindow"),function(_19,_1a){
 with(_19){
-return objj_msgSend(PageElement,"generateObjectsFromJson:forClass:",_1b,_19);
+objj_msgSend(objj_msgSend(objj_msgSend(PropertyFlickrImageController,"alloc"),"initWithWindowCibName:pageElement:",FlickrImagePropertyWindowCIB,_19),"showWindow:",_19);
 }
-}),new objj_method(sel_getUid("searchUrl:pageNumber:delegate:selector:"),function(_1c,_1d,_1e,_1f,_20,_21){
-with(_1c){
-if(objj_msgSend(_1e,"hasPrefix:","@")){
-objj_msgSend(FlickrSearchUrlNotifierWorker,"workerWithUserName:pageNumber:delegate:selector:",objj_msgSend(_1e,"substringFromIndex:",1),_1f,_20,_21);
+})]);
+class_addMethods(_4,[new objj_method(sel_getUid("initWithJSONObjects:"),function(_1b,_1c,_1d){
+with(_1b){
+return objj_msgSend(PageElement,"generateObjectsFromJson:forClass:",_1d,_1b);
+}
+}),new objj_method(sel_getUid("searchUrl:pageNumber:delegate:selector:"),function(_1e,_1f,_20,_21,_22,_23){
+with(_1e){
+if(objj_msgSend(_20,"hasPrefix:","@")){
+objj_msgSend(FlickrSearchUrlNotifierWorker,"workerWithUserName:pageNumber:delegate:selector:",objj_msgSend(_20,"substringFromIndex:",1),_21,_22,_23);
 }else{
-var _22="",_23="";
-if(objj_msgSend(_1e,"hasPrefix:","#")){
-_1e=objj_msgSend(objj_msgSend(_1e,"stringByReplacingOccurrencesOfString:withString:"," ",","),"substringFromIndex:",1);
-_22="flickr.photos.search";
-_23=("tags="+encodeURIComponent(_1e)+"&media=photos&machine_tag_mode=any");
+var _24="",_25="";
+if(objj_msgSend(_20,"hasPrefix:","#")){
+_20=objj_msgSend(objj_msgSend(_20,"stringByReplacingOccurrencesOfString:withString:"," ",","),"substringFromIndex:",1);
+_24="flickr.photos.search";
+_25=("tags="+encodeURIComponent(_20)+"&media=photos&machine_tag_mode=any");
 }else{
-if(objj_msgSend(_1e,"hasPrefix:",".")){
-_22="flickr.people.getPublicPhotos";
-_23="user_id="+encodeURIComponent(objj_msgSend(_1e,"substringFromIndex:",1));
+if(objj_msgSend(_20,"hasPrefix:",".")){
+_24="flickr.people.getPublicPhotos";
+_25="user_id="+encodeURIComponent(objj_msgSend(_20,"substringFromIndex:",1));
 }else{
-_22="flickr.photos.search";
-_23=("text="+encodeURIComponent(_1e)+"&media=photos");
+_24="flickr.photos.search";
+_25=("text="+encodeURIComponent(_20)+"&media=photos");
 }
 }
-objj_msgSend(_20,"performSelector:withObject:",_21,objj_msgSend(CPString,"stringWithFormat:",_2,_22,objj_msgSend(objj_msgSend(ConfigurationManager,"sharedInstance"),"flickrApiKey"),_1f,_23));
+objj_msgSend(_22,"performSelector:withObject:",_23,objj_msgSend(CPString,"stringWithFormat:",_2,_24,objj_msgSend(objj_msgSend(ConfigurationManager,"sharedInstance"),"flickrApiKey"),_21,_25));
 }
 }
 })]);
 var _3=objj_allocateClassPair(CPObject,"FlickrSearchUrlNotifierWorker"),_4=_3.isa;
 class_addIvars(_3,[new objj_ivar("m_delegate"),new objj_ivar("m_selector"),new objj_ivar("m_pageNumber")]);
 objj_registerClassPair(_3);
-class_addMethods(_3,[new objj_method(sel_getUid("initWithUserName:pageNumber:delegate:selector:"),function(_24,_25,_26,_27,_28,_29){
-with(_24){
-_24=objj_msgSendSuper({receiver:_24,super_class:objj_getClass("FlickrSearchUrlNotifierWorker").super_class},"init");
-if(_24){
-m_pageNumber=_27;
-m_delegate=_28;
-m_selector=_29;
-objj_msgSend(_24,"obtainNsidForUsername:",_26);
+class_addMethods(_3,[new objj_method(sel_getUid("initWithUserName:pageNumber:delegate:selector:"),function(_26,_27,_28,_29,_2a,_2b){
+with(_26){
+_26=objj_msgSendSuper({receiver:_26,super_class:objj_getClass("FlickrSearchUrlNotifierWorker").super_class},"init");
+if(_26){
+m_pageNumber=_29;
+m_delegate=_2a;
+m_selector=_2b;
+objj_msgSend(_26,"obtainNsidForUsername:",_28);
 }
-return _24;
+return _26;
 }
-}),new objj_method(sel_getUid("obtainNsidForUsername:"),function(_2a,_2b,_2c){
-with(_2a){
-var _2d=(objj_msgSend(CPString,"stringWithFormat:",_1,"flickr.people.findByUsername",objj_msgSend(objj_msgSend(ConfigurationManager,"sharedInstance"),"flickrApiKey"))+"username="+encodeURIComponent(_2c));
-objj_msgSend(PMCMWjsonpWorker,"workerWithUrl:delegate:selector:callback:",_2d,_2a,sel_getUid("gotNsid:"),"jsoncallback");
+}),new objj_method(sel_getUid("obtainNsidForUsername:"),function(_2c,_2d,_2e){
+with(_2c){
+var _2f=(objj_msgSend(CPString,"stringWithFormat:",_1,"flickr.people.findByUsername",objj_msgSend(objj_msgSend(ConfigurationManager,"sharedInstance"),"flickrApiKey"))+"username="+encodeURIComponent(_2e));
+objj_msgSend(PMCMWjsonpWorker,"workerWithUrl:delegate:selector:callback:",_2f,_2c,sel_getUid("gotNsid:"),"jsoncallback");
 }
-}),new objj_method(sel_getUid("gotNsid:"),function(_2e,_2f,_30){
-with(_2e){
-var _31=nil;
-if(_30.user){
+}),new objj_method(sel_getUid("gotNsid:"),function(_30,_31,_32){
+with(_30){
+var _33=nil;
+if(_32.user){
 method="flickr.people.getPublicPhotos";
-restOptions="user_id="+encodeURIComponent(_30.user.nsid);
-_31=objj_msgSend(CPString,"stringWithFormat:",_2,method,objj_msgSend(objj_msgSend(ConfigurationManager,"sharedInstance"),"flickrApiKey"),m_pageNumber,restOptions);
+restOptions="user_id="+encodeURIComponent(_32.user.nsid);
+_33=objj_msgSend(CPString,"stringWithFormat:",_2,method,objj_msgSend(objj_msgSend(ConfigurationManager,"sharedInstance"),"flickrApiKey"),m_pageNumber,restOptions);
 }
-objj_msgSend(m_delegate,"performSelector:withObject:",m_selector,_31);
+objj_msgSend(m_delegate,"performSelector:withObject:",m_selector,_33);
 }
 })]);
-class_addMethods(_4,[new objj_method(sel_getUid("workerWithUserName:pageNumber:delegate:selector:"),function(_32,_33,_34,_35,_36,_37){
-with(_32){
-return objj_msgSend(objj_msgSend(FlickrSearchUrlNotifierWorker,"alloc"),"initWithUserName:pageNumber:delegate:selector:",_34,_35,_36,_37);
+class_addMethods(_4,[new objj_method(sel_getUid("workerWithUserName:pageNumber:delegate:selector:"),function(_34,_35,_36,_37,_38,_39){
+with(_34){
+return objj_msgSend(objj_msgSend(FlickrSearchUrlNotifierWorker,"alloc"),"initWithUserName:pageNumber:delegate:selector:",_36,_37,_38,_39);
 }
 })]);
 p;25;app/models/google_image.jt;2168;@STATIC;1.0;t;2149;
@@ -6932,7 +7058,7 @@ CGContextDrawImage(_11,objj_msgSend(_10,"bounds"),m_image);
 }
 }
 })]);
-p;15;AppController.jt;16682;@STATIC;1.0;I;21;Foundation/CPObject.jI;17;AppKit/CPCookie.jI;15;AppKit/CPView.jI;13;TNKit/TNKit.jI;17;TNKit/TNToolTip.jI;20;TNKit/TNCategories.jI;13;LPKit/LPKit.jI;28;LPKit/LPMultiLineTextField.jI;24;LPKit/LPURLPostRequest.jI;13;GRKit/GRKit.ji;12;app/editor.jt;16414;
+p;15;AppController.jt;16794;@STATIC;1.0;I;21;Foundation/CPObject.jI;17;AppKit/CPCookie.jI;15;AppKit/CPView.jI;13;TNKit/TNKit.jI;17;TNKit/TNToolTip.jI;20;TNKit/TNCategories.jI;13;LPKit/LPKit.jI;28;LPKit/LPMultiLineTextField.jI;24;LPKit/LPURLPostRequest.jI;13;GRKit/GRKit.ji;12;app/editor.jt;16526;
 TweetDragType="TweetDragType";
 FlickrDragType="FlickrDragType";
 FacebookDragType="FacebookDragType";
@@ -6954,6 +7080,8 @@ var _1="FlickrWindow",_2="FacebookWindow",_3="YouTubeWindow",_4="GoogleImagesWin
 LinkTEPropertyWindowCIB="LinkTEProperties";
 HighlightTEPropertyWindowCIB="HighlightTEProperties";
 ImageTEPropertyWindowCIB="ImageTEProperties";
+FacebookImagePropertyWindowCIB="FacebookImageProperties";
+FlickrImagePropertyWindowCIB="FlickrImageProperties";
 TwitterFeedTEPropertyWindowCIB="TwitterFeedTEProperties";
 TextTEPropertyWindowCIB="TextTEProperties";
 PagePropertyWindowCIB="PageProperties";
