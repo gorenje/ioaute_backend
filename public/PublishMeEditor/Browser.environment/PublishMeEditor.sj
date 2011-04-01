@@ -1942,7 +1942,7 @@ dragLocation=_d;
 }
 }
 })]);
-p;30;app/views/document_view_cell.jt;4846;@STATIC;1.0;t;4827;
+p;30;app/views/document_view_cell.jt;4903;@STATIC;1.0;t;4884;
 var _1=objj_allocateClassPair(GRRotateView,"DocumentViewCell"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("dragLocation"),new objj_ivar("editedOrigin"),new objj_ivar("representedObject")]);
 objj_registerClassPair(_1);
@@ -1973,6 +1973,7 @@ objj_msgSend(representedObject,"generateViewForDocument:",_a);
 objj_msgSend(_a,"setupNotificationListener");
 if(objj_msgSend(representedObject,"respondsToSelector:",sel_getUid("textTyped"))){
 objj_msgSend(_a,"hitTestSuper");
+objj_msgSend(objj_msgSend(_a,"layer"),"setHidden:",YES);
 }
 var _d=0;
 if(objj_msgSend(representedObject,"respondsToSelector:",sel_getUid("rotation"))){

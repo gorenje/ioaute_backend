@@ -5832,6 +5832,17 @@ with(_3){
 return objj_msgSend(CPCursor,"_systemCursorWithName:cssString:hasImage:",CPStringFromSelector(_4),"se-resize",NO);
 }
 })]);
+p;27;app/monkeypatch/c_p_event.jt;330;@STATIC;1.0;t;312;
+var _1=objj_getClass("CPEvent");
+if(!_1){
+throw new SyntaxError("*** Could not find definition for class \"CPEvent\"");
+}
+var _2=_1.isa;
+class_addMethods(_1,[new objj_method(sel_getUid("isShiftDown"),function(_3,_4){
+with(_3){
+return ((objj_msgSend(_3,"modifierFlags")&CPShiftKeyMask)==CPShiftKeyMask);
+}
+})]);
 p;31;app/monkeypatch/c_p_menu_item.jt;425;@STATIC;1.0;t;407;
 var _1=objj_getClass("CPMenuItem");
 if(!_1){
@@ -6084,7 +6095,7 @@ objj_msgSend(_46,"addObject:",obj);
 return _46;
 }
 })]);
-p;30;app/views/document_view_cell.jt;4846;@STATIC;1.0;t;4827;
+p;30;app/views/document_view_cell.jt;4903;@STATIC;1.0;t;4884;
 var _1=objj_allocateClassPair(GRRotateView,"DocumentViewCell"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("dragLocation"),new objj_ivar("editedOrigin"),new objj_ivar("representedObject")]);
 objj_registerClassPair(_1);
@@ -6115,6 +6126,7 @@ objj_msgSend(representedObject,"generateViewForDocument:",_a);
 objj_msgSend(_a,"setupNotificationListener");
 if(objj_msgSend(representedObject,"respondsToSelector:",sel_getUid("textTyped"))){
 objj_msgSend(_a,"hitTestSuper");
+objj_msgSend(objj_msgSend(_a,"layer"),"setHidden:",YES);
 }
 var _d=0;
 if(objj_msgSend(representedObject,"respondsToSelector:",sel_getUid("rotation"))){
