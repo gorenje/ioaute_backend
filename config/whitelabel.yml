@@ -5,7 +5,7 @@ pubme:
   config:
     name: PublishMe
     name_for_preview: PublishMe
-    tagline: The Beauty of Online Publishing
+    tagline: Open Social Publishing Platform
     quick_summary: Become your own editor and publish content from your friends.
     url: pubme.2monki.es
     editor:

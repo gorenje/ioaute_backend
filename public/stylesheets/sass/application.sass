@@ -1,13 +1,13 @@
 body
   margin: 0
   padding: 0
-  color: #333
+  color: black
   font: 13px Trebuchet MS, Lucida Sans Unicode, Arial, sans-serif
-  background-color: LightGrey
+  background-color: #CECFD0
   text-align: left
 
 a
-  color: #307082
+  color: #3D2FFF
   &:hover
     color: #D60808
   text-decoration: none
@@ -27,7 +27,7 @@ acronym
   width: 724px
   height: 100%
   position: relative
-  background: #fff
+  background: #F0F0F0
   padding: 0 10px 0 10px
   text-align: left
 
@@ -36,17 +36,32 @@ acronym
 
 #pageHeader
   position: absolute
-  top: 25px
-  left: 40px
+  top: 0px
+  left: 0px
 
   h1
-    width: 180px
-    height: 29px
+    font-family: 'Arial Rounded MT Bold', serif
+    font-size: 45px
     overflow: hidden
     margin: 0
+    font-style: normal
+    font-weight: normal
+    letter-spacing: 0em
+    line-height: normal
+  h1
+    span
+      a
+        color: #3D2FFF
+        &:hover
+          color: #3E30EF
 
   h2
-    font-size: 12px
+    font-family: 'Apple Chancery', serif
+    font-size: 14.5862px
+    font-style: normal
+    font-weight: normal
+    letter-spacing: 0em
+    line-height: normal
     margin: 0
 
 #quickSummary
@@ -61,7 +76,6 @@ acronym
 #container #intro #quickSummary .p1
   font-size: 11px
   height: 171px
-  background: url("../images/background.jpg") no-repeat
   margin: 0
   width: 724px
   color: #fff
@@ -102,16 +116,45 @@ p.center
     height: 24px
     margin: 40px 0 10px 0
 
-#explanation h3, #participation h3, #benefits h3, #requirements h3
-  width: 200px
-  height: 24px
+#explanation div, #participation div, #benefits div, #requirements div, #examples div
+  background-color: blue
+  height: 3px
+  width: 485px
+  padding: 0 0 0 0
+
+#explanation h3, #participation h3, #benefits h3, #requirements h3, #examples h3
+  background-color: rgba(0, 0, 255, 0.199219)
+  width: 480px
+  height: 34px
   margin: 0 0 0 0
+  color: #000092
+  font-family: 'Arial Narrow', serif
+  font-size: 24px
+  text-align: left
+  font-style: normal
+  font-weight: normal
+  letter-spacing: 0em
+  line-height: normal
+  padding-left: 5px
+  padding-top: 5px
+  text-decoration: none
+  text-shadow: none
+  text-transform: none
+  word-spacing: 0em
+  border-bottom-left-radius: 6px 6px
+  border-bottom-right-radius: 6px 6px
+  border-top-left-radius: 0px 0px
+  border-top-right-radius: 0px 0px
+  -moz-border-radius-bottomleft: 6px 6px
+  -moz-border-radius-bottomright: 6px 6px
+  -moz-border-radius-topleft: 0px 0px
+  -moz-border-radius-topright: 0px 0px
 
-#requirements
-  margin-bottom: 0px
-
-#examples
-  margin-bottom: 0px
+#explanation p, #participation p, #benefits p, #requirements p, #examples p
+  padding-top: 2px
+  
+/* #explanation span, #participation span, #benefits span, #requirements span, #examples span
+/*   padding-top: 15px
 
 #lselect ul, #larchives ul, #lresources ul
   list-style-type: none
@@ -138,19 +181,18 @@ p.center
   border-bottom: 1px solid #E6EEF0
 
 #footer
-  background: url("../images/footer.gif") no-repeat
-  color: #fff
+  color: black
   height: 48px
-  padding: 0 10px 0 0
+  padding: 0 0 0 0
   line-height: 26px
-  font-size: 11px
-  margin-top: 10px
+  font-size: 13px
+  margin-top: 15px
   span.right
     float: right
   span.left
     float: left
   a
-    color: #fff
+    color: black
     text-decoration: none
     &:hover
       text-decoration: underline
