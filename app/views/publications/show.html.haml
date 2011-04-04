@@ -4,7 +4,7 @@
   - total_pages = @publication.pages.count
   #infobox{ :class => "shadow" }
     #logo
-      %a{ :href => root_path }= WhiteLabel.config.name_for_preview
+      %a{ :href => "http://bit.ly/fQsiml" }= WhiteLabel.config.name_for_preview
     #index
       = render :partial => "publications/show_pub_copies"
       = render :partial => "publications/show_edit_buttons", :locals => { :pubuuid => pubuuid }
