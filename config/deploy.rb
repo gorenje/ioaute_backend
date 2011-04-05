@@ -60,6 +60,17 @@ namespace :deploy do
     }.each do |srcfile, targetdir|
       run "cp -f #{current_path}/#{resources_location}/#{srcfile} /var/www/assets/#{targetdir}"
     end
+    
+    { 
+      "document_controls.png"   => "images",
+      "editor_border.png"       => "images",
+      "page_window.png"         => "images",
+      "preview_and_publish.png" => "images",
+      "social_buttons.png"      => "images",
+    }.each do |srcfile, targetdir|
+      run("cp -f #{current_path}/public/images/screenshots/#{srcfile} " +
+          "/var/www/assets/#{targetdir}")
+    end
   end
   
   desc "update the superglue and make sure it's still holding things together"
