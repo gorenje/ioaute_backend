@@ -35,13 +35,13 @@ module PageElementHelpers
       def has_rounded_corners?
         edata = extra_data
         (edata["corner_bottom_right"].to_i > 0 || edata["corner_bottom_left"].to_i > 0 ||
-         edata["corner_top_left"].to_i > 0     || edata["corner_top_right"].to_i)
+         edata["corner_top_left"].to_i > 0     || edata["corner_top_right"].to_i > 0)
       end
       
       def css_rounded_corners
         edata = extra_data
         ["top_left", "top_right", "bottom_right", "bottom_left"].map do |crner|
-          pxvalue = edata["corner_#{crner}"]
+          pxvalue = edata["corner_#{crner}"] || "0"
           ("-moz-border-radius-#{crner.gsub(/_/,'')}: #{pxvalue}px; " +
            "border-#{crner.gsub(/_/,'-')}-radius: #{pxvalue}px;")
         end.join(" ")
