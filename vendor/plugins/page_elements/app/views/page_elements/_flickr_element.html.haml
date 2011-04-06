@@ -6,10 +6,6 @@
   - if page_element.show_copyright?
     %a.copyright{ :href => owner_url, :target => '_blank' } &copy;
     - if (title = page_element.flickr_title)
-      %span.flickr_image_title= title
-  - if page_element.reload_image?    
-    :javascript
-      new PeriodicalExecuter(function(pe) { 
-        reloadImg('#{img_dom_id}'); 
-      }, #{page_element.reload_interval_seconds});
+      %span.flickr_image_title= h(title)
+  = render :partial => 'page_elements/_page_element_image_reload', :locals => { :page_element => page_element, :img_dom_id => img_dom_id }
   = render :partial => 'page_elements/_page_element_rotation', :locals => { :page_element => page_element }

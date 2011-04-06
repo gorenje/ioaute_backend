@@ -1,0 +1,5 @@
+- if page_element.reload_image?    
+  :javascript
+    new PeriodicalExecuter(function(pe) { 
+      reloadImg('#{img_dom_id}'); 
+    }, #{page_element.reload_interval_seconds} + (parseInt(Math.random()*100) % 30));

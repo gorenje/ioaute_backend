@@ -5,4 +5,4 @@
   }
 .link_element{ }
   %a{ :href => page_element.url, :target => page_element.link_target, :id => "link_#{dom_id(page_element)}" }<
-    = preserve(page_element.title.nbsp_leading_whitespace)
+    = preserve(h(page_element.title).nbsp_leading_whitespace)

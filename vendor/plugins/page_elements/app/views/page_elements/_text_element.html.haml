@@ -4,4 +4,4 @@
     #{page_element.css_font_spec};
   }
 .text_element{ :id => "text_container_#{dom_id(page_element)}" }<
-  = preserve(page_element.extra_data["text"].nbsp_leading_whitespace)
+  = preserve(h(page_element.extra_data["text"]).nbsp_leading_whitespace)

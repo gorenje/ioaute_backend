@@ -8,15 +8,15 @@
   .twitter_element{ }
     %a{ :href => page_element.twitter_url, :target => '_blank' }
       %img{ :src => twhsh["user"]["profile_image_url"] }
-    != twhsh["text"].strip.convert_urls_to_links("target='_blank'")
+    != h(twhsh["text"].strip).convert_urls_to_links("target='_blank'")
     .twitter_element_highlight
       &nbsp;
       = " -- "
       - unless twhsh["user"]["url"].nil?
         %a{ :href => twhsh["user"]["url"], :target => '_blank' }
-          = twhsh["user"]["name"] || twhsh["user"]["screen_name"]
+          = h(twhsh["user"]["name"] || twhsh["user"]["screen_name"])
       - else
-        = twhsh["user"]["name"] || twhsh["user"]["screen_name"]
+        = h(twhsh["user"]["name"] || twhsh["user"]["screen_name"])
 - else
   .twitter_element{ }
     %a{ :href => page_element.twitter_url, :target => '_blank' }
