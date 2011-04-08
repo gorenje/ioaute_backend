@@ -11,8 +11,15 @@
       - fbhsh = { :size => "small", :button => false, :autologoutlink => "true", :perms => ApiKeys.facebook.requested_scope }
       - if user_signed_in?
         - if current_user.facebook_connected?
+          %a{ :href => current_user.link_to_home } My Facebook Profile
+          |
           = facebook_sign_out_link(fbhsh)
         - else
+          - if current_user.twitter_handle
+            %a{ :href => current_user.link_to_home }= current_user.twitter_handle
+          - else
+            Logged in Anonymously
+          |
           %a{:href => destroy_user_session_path, :title => "Logout"} Logout
         |
         %a{:href => user_publications_path, :title => "My #{WhiteLabel.config.publication.desc}"} My #{WhiteLabel.config.publication.desc.pluralize}
