@@ -2,10 +2,24 @@ require File.expand_path('../../test_helper.rb', __FILE__)
 
 class PublicationsControllerTest < ActionController::TestCase
   context "login first" do
-    should "not allow anything except show" do
-      (PublicationsController.action_methods - ["show"]).each do |action_name|
-        get action_name.to_sym, :id => "fubar"
+    should "not allow if user not logged in" do
+      pub = Factory(:publication)
+      PublicationsController::ActionMethodLookup.keys.each do |action_name|
+        post :perform_action, { :id => pub.uuid, :action_to_perform => "#{action_name}" }
         assert_redirected_to new_user_session_url, "Failed for #{action_name}"
+        assert_equal "created", pub.reload.state
+      end
+    end
+
+    should "allow if user logged in" do
+      user, pub = Factory(:user), Factory(:publication)
+      pub.user = user
+      pub.save
+      sign_in user
+      
+      PublicationsController::ActionMethodLookup.keys.each do |action_name|
+        post :perform_action, { :id => pub.uuid, :action_to_perform => "#{action_name}" }
+        assert_redirected_to user_publications_path, "Failed for #{action_name}"
       end
     end
     
@@ -47,7 +61,7 @@ class PublicationsControllerTest < ActionController::TestCase
       assert_equal "one,two,three", Publication.find(pub.id).topic
     end
 
-    should "update and redirect to editor" do
+    should "publication not found because commit wrong" do
       pub,user = setup_publication_and_user
       pub.name, pub.topic = "fubar", "snafu"
       pub.save
@@ -58,7 +72,23 @@ class PublicationsControllerTest < ActionController::TestCase
         :commit     => "Edit"
       }
       post :edit, params
-      assert_redirected_to open_editor_for_edit_url
+      assert_template "common/publication_does_not_exist"
+      assert_equal "Hello World", Publication.find(pub.id).name
+      assert_equal "one,two,three", Publication.find(pub.id).topic
+    end
+
+    should "render editor" do
+      pub,user = setup_publication_and_user
+      pub.name, pub.topic = "fubar", "snafu"
+      pub.save
+      params = { 
+        :id         => pub.uuid, 
+        :name       => "Hello World", 
+        :categories => "one,two,three", 
+        :commit     => "Start Editor"
+      }
+      post :edit, params
+      assert_redirected_to open_editor_for_edit_path
       assert_equal "Hello World", Publication.find(pub.id).name
       assert_equal "one,two,three", Publication.find(pub.id).topic
     end
@@ -182,12 +212,37 @@ class PublicationsControllerTest < ActionController::TestCase
   end
 
   context "ping" do
-    should "have a ping action" do
+    should "fail if user is not logged in" do 
+      user,pub = Factory(:user), Factory(:publication)
+      pub.user = user
+      assert pub.save
+      
+      get :ping, :id => pub.uuid, :format => :json
+      assert_response 401 # not authorized
+    end
+
+    should "fail if user does not own the publication" do 
+      user,pub = Factory(:user), Factory(:publication)
+      pub.user = user
+      assert pub.save
+      
       sign_in :user, Factory(:user)
-      get :ping
+      get :ping, :id => pub.uuid, :format => :json
+      assert_response :success
+      
+      response.assert_json_content(:failed, "publications_ping")
+    end
+    
+    should "have a ping action" do
+      user,pub = Factory(:user), Factory(:publication)
+      pub.user = user
+      assert pub.save
+      
+      sign_in :user, user
+      get :ping, :id => pub.uuid
       assert_response :not_acceptable # no format provided and no html format available
       
-      get :ping, :format => :json
+      get :ping, :id => pub.uuid, :format => :json
       assert_response :success
       
       response.assert_json_content(:ok, "publications_ping")

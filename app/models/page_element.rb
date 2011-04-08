@@ -4,11 +4,9 @@ class PageElement < ActiveRecord::Base
   
   @@lokuptable = nil
   
+  ## TODO not really used yet, could disappear.
   state_machine :state, :initial => :created do
     [:created, :editing, :published, :locked, :hidden, :deleted].each { |stat| state stat }
-
-    ## TODO complete this. The point here is to support undo actions (yes even from the server
-    ## TODO end). But we might not do it ....
   end
 
   class << self
