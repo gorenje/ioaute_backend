@@ -35,5 +35,6 @@ class ActionController::TestResponse
     assert_equal(action, obj["action"],"Failed action: %s" % self.body)
     assert_equal(msg, obj["msg"],"Failed msg %s" % self.body) unless msg.nil?
     assert_equal(data, obj["data"], "Failed data %s" % self.body) unless data.nil?
+    obj
   end
 end

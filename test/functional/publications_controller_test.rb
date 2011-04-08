@@ -232,8 +232,7 @@ class PublicationsControllerTest < ActionController::TestCase
       
       response.assert_json_content(:failed, "publications_ping")
     end
-    
-    should "have a ping action" do
+    should "succeed if user is the author" do
       user,pub = Factory(:user), Factory(:publication)
       pub.user = user
       assert pub.save
@@ -245,7 +244,60 @@ class PublicationsControllerTest < ActionController::TestCase
       get :ping, :id => pub.uuid, :format => :json
       assert_response :success
       
-      response.assert_json_content(:ok, "publications_ping")
+      data = response.assert_json_content(:ok, "publications_ping")["data"]
+      [
+       :facebook_app_id,       :flickr_api_key,       :tool_box_items,
+       :toolbar_left,          :toolbar_middle,       :toolbar_right,
+       :publication,           :tool_tips,
+      ].map(&:to_s).each { |keyname| assert_not_nil data[keyname], "Key not found: #{keyname}" }
+
+      assert_equal ["FlickrWindowControlItemIdentifier",
+                    "TwitterWindowControlItemIdentifier",
+                    "YouTubeToolbarItemIdentifier",
+                    "GoogleImagesWindowControlItemIdentifier"], data["toolbar_middle"]
+      assert_equal ["BackToPublicationsControlItemIdentifier",
+                    "CopyPageElementControlItemIdentifier",
+                    "PastePageElementControlItemIdentifier",
+                    "PublicationPropertyControlItemIdentifier"], data["toolbar_left"]
+      assert_equal ["PreviewPublicationHtmlToolbarItemIdentifier",
+                    "PublishPublicationHtmlToolbarItemIdentifier"], data["toolbar_right"]
+      
+      assert_equal 24, data["tool_box_items"].count, "Too many/too few tool bar items"
+      # ensure that the ids are unique
+      assert_equal(24, data["tool_box_items"].collect { |a| a["id"] }.map(&:to_i).uniq.count,
+                   "Tool bar item ids are not unique")
+      assert_equal ApiKeys.facebook.api_id, data["facebook_app_id"]
+      assert_equal ApiKeys.flickr.api_token, data["flickr_api_key"]
+
+      pubdata = data["publication"]
+      assert_equal 0, pubdata["snap_grid_width"]
+      assert_equal 0, pubdata["continous"]
+      assert_equal 1, pubdata["shadow"]
+      assert_equal "Fubar", pubdata["name"]
+      assert_equal 221, pubdata["color"]["red"]
+      assert_equal 221, pubdata["color"]["blue"]
+      assert_equal 221, pubdata["color"]["green"]
+      assert_equal 1, pubdata["color"]["alpha"]
+    end
+
+    
+    should "have facebook button if facebook user" do
+      user,pub = Factory(:user), Factory(:publication)
+      user.facebook_uid = 123
+      assert user.save
+      pub.user = user
+      assert pub.save
+      
+      sign_in :user, user
+      get :ping, :id => pub.uuid, :format => :json
+      assert_response :success
+
+      data = response.assert_json_content(:ok, "publications_ping")["data"]
+      assert_equal ["FlickrWindowControlItemIdentifier",
+                    "TwitterWindowControlItemIdentifier",
+                    "FacebookToolbarItemIdentifier",
+                    "YouTubeToolbarItemIdentifier",
+                    "GoogleImagesWindowControlItemIdentifier"], data["toolbar_middle"]
     end
   end
 end
