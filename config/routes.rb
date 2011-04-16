@@ -12,6 +12,7 @@ Pubme::Application.routes.draw do
            :as => "welcome_#{pathstr.underscore}")
   end
 
+  match "/publications/robots"   => redirect("http://google.com/search?q=robots")
   match "/publications/details"  => "publications#details", :as => :publication_details
   match "/publications/new"      => "publications#new",  :as => :new_publication # allow post
   match "/publications/:id/edit" => "publications#edit", :as => :edit_publication # allow post
