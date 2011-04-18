@@ -32,6 +32,9 @@ namespace :editor do
       File.open("#{base_dest_dir}/publications/Application.js", "w+") do |f|
         f << erb.result(binding)
       end
+      
+      editor_revision = `cd #{src_dir} && (git log | head -1 | colrm 1 7)`.strip
+      File.open(File.join(base_dest_dir, "EDITOR_REVISION"), "w") {|f| f.puts(editor_revision)}
     end
   end
   

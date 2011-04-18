@@ -3196,13 +3196,13 @@ with(_26){
 return objj_msgSend(ThemeManager,"valueFor:",_a);
 }
 })]);
-p;33;app/mixins/alert_window_support.jt;1826;@STATIC;1.0;t;1807;
+p;33;app/mixins/alert_window_support.jt;1829;@STATIC;1.0;t;1810;
 var _1=objj_allocateClassPair(GRClassMixin,"AlertWindowSupport"),_2=_1.isa;
 class_addIvars(_1,[new objj_ivar("m_aws_alert_window"),new objj_ivar("m_aws_remove_alert_window"),new objj_ivar("m_aws_selector")]);
 objj_registerClassPair(_1);
 class_addMethods(_1,[new objj_method(sel_getUid("awsShowAlertWindow:title:interval:"),function(_3,_4,_5,_6,_7){
 with(_3){
-objj_msgSend(_3,"awsShowAlertWindow:title:timer:delegate:selector:",_5,_6,_7,nil,nil);
+objj_msgSend(_3,"awsShowAlertWindow:title:interval:delegate:selector:",_5,_6,_7,nil,nil);
 }
 }),new objj_method(sel_getUid("awsShowAlertWindow:title:interval:delegate:selector:"),function(_8,_9,_a,_b,_c,_d,_e){
 with(_8){
