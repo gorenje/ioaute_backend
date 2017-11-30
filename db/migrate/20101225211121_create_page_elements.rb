@@ -9,8 +9,8 @@ class CreatePageElements < ActiveRecord::Migration
       t.float :y
       t.string :id_str
       t.string :state
-      t.text :data
-      
+      t.text :data, :limit => 4294967295
+
       t.timestamps
     end
   end

@@ -14,20 +14,20 @@ services:
     build: .
     ports:
       - "3000:3000"
-    volumes:
-      - pubmedb:/var/lib/mysql/data
     links:
       - mysql
+    environment:
+      - RAILS_ENV=production
     command: "/bin/bash -c 'rake docker:pause_for_db[mysql,3306] && \
                             rails s'"
     restart: always
 
   website-migrate:
     build: .
-    volumes:
-      - pubmedb:/var/lib/mysql/data
     links:
       - mysql
+    environment:
+      - RAILS_ENV=production
     command: "/bin/bash -c 'rake docker:pause_for_db[mysql,3306] && \
                             rake db:create                       && \
                             rake db:migrate'"
