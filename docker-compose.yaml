@@ -1,0 +1,45 @@
+version: '2'
+services:
+  mysql:
+    image: mysql:5.6
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=nicesecret
+    ports:
+      - "3306:3306"
+    volumes:
+      - pubmedb:/var/lib/mysql
+
+  website:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - pubmedb:/var/lib/mysql/data
+    links:
+      - mysql
+    command: "/bin/bash -c 'rake docker:pause_for_db[mysql,3306] && \
+                            rails s'"
+    restart: always
+
+  website-migrate:
+    build: .
+    volumes:
+      - pubmedb:/var/lib/mysql/data
+    links:
+      - mysql
+    command: "/bin/bash -c 'rake docker:pause_for_db[mysql,3306] && \
+                            rake db:create                       && \
+                            rake db:migrate'"
+    restart: "no"
+
+networks:
+  default:
+    external:
+      name: pubmenet
+
+volumes:
+  pubmedb:
+    external: true
+  pubmeenv:
+    external: true

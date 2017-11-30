@@ -6,14 +6,6 @@ GIT
       activesupport (>= 2.3.0)
       devise (>= 1.0.0)
 
-GIT
-  remote: https://github.com/amuino/devise-twitter.git
-  revision: 6f9a565ddcb60fc978c676eb6d7ade4de0f6aba4
-  specs:
-    devise-twitter (0.1.2.pre)
-      devise (>= 1.1.0)
-      warden_oauth (~> 0.1.1)
-
 GEM
   remote: http://rubygems.org/
   specs:

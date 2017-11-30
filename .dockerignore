@@ -1,0 +1,10 @@
+.env
+.env.*
+.git
+.gitignore
+.ruby-*
+.dockerignore
+.bundle
+.rvmrc
+Dockerfile
+docker-compose.yaml

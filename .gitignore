@@ -16,3 +16,4 @@ public/PublishMeEditor/*/*/*.gz
 public/PublishMeEditor/*/*/*/*.gz
 public/PublishMeEditor/*/*/*/*/*.gz
 public/PublishMeEditor/*/*/*/*/*/*.gz
+.DS_Store

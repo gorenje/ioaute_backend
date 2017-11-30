@@ -16,15 +16,15 @@ gem 'capistrano'
 gem 'capistrano-ext'
 gem "state_machine"
 gem 'uuidtools'
-gem "prawn", "= 0.11.1.pre"
+# gem "prawn", "= 0.11.1.pre"
 gem "rest-client"
 gem 'mysql2'
 gem 'recaptcha', :require => "recaptcha/rails"
 gem 'oauth'
 gem 'oauth2'
 gem 'warden'
-gem 'devise-twitter', :git => 'https://github.com/amuino/devise-twitter.git'
-gem 'devise_facebook_connectable_light', :git => "git://github.com/gorenje/devise_facebook_connectable.git", :require => 'devise_facebook_connectable'
+gem 'devise-twitter' # , :git => 'https://github.com/amuino/devise-twitter.git'
+gem 'devise_facebook_connectable_light', :git => "https://github.com/gorenje/devise_facebook_connectable.git", :require => 'devise_facebook_connectable'
 
 gem 'base62'
 
