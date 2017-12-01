@@ -1,0 +1,19 @@
+base: &base
+  pool: 5
+  username: root
+  password: nicesecret
+  host: mysql
+  adapter: mysql2
+  encoding: utf8
+
+development:
+  <<: *base
+  database: pub_me_development
+
+test:
+  <<: *base
+  database: pub_me_test
+
+production:
+  <<: *base
+  database: pub_me_development

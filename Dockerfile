@@ -4,6 +4,8 @@ ENV LANG C.UTF-8
 COPY Gemfile .
 COPY Gemfile.lock .
 COPY . .
+COPY config/database.docker.yml config/database.yml
+COPY config/apis.docker.yml config/apis.yml
 RUN apk update && apk upgrade && apk add g++ && apk add mysql-dev
 RUN gem install bundler
 RUN bundle config git.allow_insecure true

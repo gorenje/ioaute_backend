@@ -1,0 +1,59 @@
+base: &base
+  bitly:
+    api_token: 'x'
+    username: 'x'
+    base_url: 'http://api.bit.ly/v3/'
+
+  twitter:
+    base_show_url: 'http://api.twitter.com/1/statuses/show/%s.json'
+    oauth:
+      consumer:
+        key: "x"
+        secret: "x"
+
+  flickr:
+    api_token: "x"
+    secret: "x"
+
+  facebook:
+    api_id: "x"
+    api_token: "x"
+    secret: "x"
+    authorization_server: https://graph.facebook.com
+    requested_scope: "user_photos,friends_photos,user_about_me,user_birthday,user_education_history"
+    authorize_path: /oauth/authorize
+    access_token_path: /oauth/access_token
+
+  recaptcha:
+    keys:
+      public: "x"
+      private: "x"
+
+production:
+  <<: *base
+
+development:
+  <<: *base
+
+test:
+  facebook:
+    api_id: X
+    api_token: X
+    secret: X
+  twitter:
+    base_show_url: X
+    oauth:
+      consumer:
+        key: X
+        secret: X
+  recaptcha:
+    keys:
+      public: X
+      private: X
+  flickr:
+    api_token: X
+    secret: X
+  bitly:
+    api_token: X
+    username: X
+    base_url: X
