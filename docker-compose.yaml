@@ -18,7 +18,13 @@ services:
       - mysql
     environment:
       - RAILS_ENV=production
-    command: "/bin/bash -c 'rake docker:pause_for_db[mysql,3306] && \
+      - DB_ENV=production
+      - DB_HOST=mysql
+      - DB_PASSWORD=nicesecret
+      - DB_NAME=pub_me_development
+      - DB_PORT=3306
+    command: "/bin/bash -c 'rake docker:pause_for_db         && \
+                            rake docker:create_database_yaml && \
                             rails s'"
     restart: always
 
@@ -28,8 +34,14 @@ services:
       - mysql
     environment:
       - RAILS_ENV=production
-    command: "/bin/bash -c 'rake docker:pause_for_db[mysql,3306] && \
-                            rake db:create                       && \
+      - DB_ENV=production
+      - DB_HOST=mysql
+      - DB_PASSWORD=nicesecret
+      - DB_NAME=pub_me_development
+      - DB_PORT=3306
+    command: "/bin/bash -c 'rake docker:pause_for_db         && \
+                            rake docker:create_database_yaml && \
+                            rake db:create                   && \
                             rake db:migrate'"
     restart: "no"
 
