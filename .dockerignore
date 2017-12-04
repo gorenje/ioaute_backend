@@ -8,3 +8,6 @@
 .rvmrc
 Dockerfile
 docker-compose.yaml
+.DS_Store
+config/apis.yml
+config/database.yml

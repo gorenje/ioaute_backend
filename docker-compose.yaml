@@ -21,10 +21,10 @@ services:
       - DB_ENV=production
       - DB_HOST=mysql
       - DB_PASSWORD=nicesecret
-      - DB_NAME=pub_me_development
-      - DB_PORT=3306
+      - DB_DATABASE=pub_me_development
     command: "/bin/bash -c 'rake docker:pause_for_db         && \
                             rake docker:create_database_yaml && \
+                            rake docker:create_apis_yaml     && \
                             rails s'"
     restart: always
 
@@ -37,8 +37,7 @@ services:
       - DB_ENV=production
       - DB_HOST=mysql
       - DB_PASSWORD=nicesecret
-      - DB_NAME=pub_me_development
-      - DB_PORT=3306
+      - DB_DATABASE=pub_me_development
     command: "/bin/bash -c 'rake docker:pause_for_db         && \
                             rake docker:create_database_yaml && \
                             rake db:create                   && \
